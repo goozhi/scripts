@@ -22,6 +22,17 @@ async function commd(inputText) {
         const otherLines = matchP[2].trim()
         const user_params = Object.assign({}, yargsParser(firstLine).options(options).parse(), { lastParams: otherLines })
         const arrC = [
+            [['js'], {
+                describe: `'js exec.'
+                examples:
+                js
+                var a1 = 9
+                return a1
+                `,
+                func: async (user_params = { lastParams }, outputs = { outputText }) => {
+                    outputs.outputText = String(eval('function main(){' + user_params.lastParams + '\n};main()'))
+                }
+            }],
             [['cc', 'calc'], {
                 describe: `Used to calculation.
         examples:
