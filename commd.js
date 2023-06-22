@@ -12,6 +12,7 @@ String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
 async function commd(inputText) {
+    inputText = inputText.replace(/\r/g, '')
     const matchP = inputText.match(/(.+)([\s\S]*)/)
     const outputs = {}
     if (!matchP) {
