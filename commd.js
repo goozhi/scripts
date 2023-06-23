@@ -22,6 +22,23 @@ async function commd(inputText) {
         const otherLines = matchP[2].trim()
         const user_params = Object.assign({}, yargsParser(firstLine).options(options).parse(), { lastParams: otherLines })
         const arrC = [
+            [['update'], {
+                describe: `update submodules
+                example:
+                update
+                `,
+                func: async (outputs = { outputText }) => {
+                    outputs.outputText = await new Promise((resolve, reject) => {
+                        child_process.exec('git submodule update --remote', (err, stdout) => {
+                            if (err) {
+                                reject((err.message ? (!(err.message = "update err:\n" + err.message) || err) : err))
+                            } else {
+                                resolve(stdout)
+                            }
+                        })
+                    })
+                }
+            }],
             [['js'], {
                 describe: `'js exec.'
                 examples:
