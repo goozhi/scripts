@@ -25,7 +25,7 @@ async function commd(inputText) {
         const arrC = [
             [['update'], {
                 describe: `update submodules
-                example:
+                examples:
                 update
                 `,
                 func: async (outputs = { outputText }) => {
