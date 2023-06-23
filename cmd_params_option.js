@@ -58,6 +58,19 @@ const option = {
         describe: 'reverse',
         type: 'boolean',
         default: false
-    }
+    },
+    inputSystem: {
+        alias: 'isys',
+        describe: 'input System of calculation',
+        type: 'number',
+        default: 10
+    },
+    outputSystem: {
+        alias: 'osys',
+        describe: 'output System of calculation',
+        type: 'number',
+        default: 10
+    },
+
 };
 module.exports = option

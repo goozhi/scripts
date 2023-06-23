@@ -3,7 +3,8 @@ const align = require('./align');
 const fs = require('fs')
 const child_process = require('child_process')
 const encoding = require('encoding')
-const options = require('./cmd_params_option')
+const options = require('./cmd_params_option');
+const calcExpression = require('./calcExpression');
 String.prototype.trimLines = function () {
     return this.split(/\n/).map(ele => ele.trim()).join('\n')
 }
@@ -56,9 +57,17 @@ async function commd(inputText) {
         cc
         0x89
         0x90+9
+
+        cc --isys 2 --osys 16
+        1110+1
+
+        cc --isys 16
+        9
+        a
+        b
         `,
-                func: async (user_params = { lastParams: "" }, outputs = { outputText: "" }) => {
-                    outputs.outputText = user_params.lastParams.split(/\n/).map(ele => ele + " = " + eval(ele)).join('\n')
+                func: async (user_params = { lastParams: "", isys: 10, osys: 10 }, outputs = { outputText: "" }) => {
+                    outputs.outputText = user_params.lastParams.split(/\n/).map(ele => ele + " = " + calcExpression(ele, user_params.isys, user_params.osys)).join('\n')
                 }
             }]
             ,
