@@ -5,6 +5,7 @@ const child_process = require('child_process')
 const encoding = require('encoding')
 const options = require('./cmd_params_option');
 const calcExpression = require('./calcExpression');
+const sqlOpr = require('./sqlOpr');
 String.prototype.trimLines = function () {
     return this.split(/\n/).map(ele => ele.trim()).join('\n')
 }
@@ -23,6 +24,14 @@ async function commd(inputText) {
         const otherLines = matchP[2].trim()
         const user_params = Object.assign({}, yargsParser(firstLine).options(options).parse(), { lastParams: otherLines })
         const arrC = [
+            [['sqlOpr', 'sql'], {
+                describe: `sqlOpr
+                example:
+                sqlOpr -a
+                This is an example.
+                `,
+                func: sqlOpr
+            }],
             [['update'], {
                 describe: `update submodules
                 example:

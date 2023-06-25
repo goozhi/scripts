@@ -11,6 +11,12 @@ const option = {
         type: 'number',
         default: 1,
     },
+    add: {
+        alias: 'a',
+        describe: 'add things',
+        type: 'string',
+        default: ''
+    },
     left: {
         alias: 'left',
         describe: 'left',
