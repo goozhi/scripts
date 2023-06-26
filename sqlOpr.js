@@ -1,6 +1,7 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://wrvr:qqqq258369@cluster0.kmggvco.mongodb.net/?retryWrites=true&w=majority";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
+// APIkey RddbxMZlXN9uX3qKx39q58CoRWjkiyb8qihoOo5bLAnVVpmi5hmKeMHKQVvNfb8O
 const client = new MongoClient(uri, {
     serverApi: {
         version: ServerApiVersion.v1,
@@ -9,7 +10,7 @@ const client = new MongoClient(uri, {
     }
 });
 
-async function sqlOpr(user_params = { lastParams: "", search: [], add: "", delete: "" }, outputs = { outputText }) {
+async function sqlOpr(user_params = { getAll: false, lastParams: "", search: [], add: "", delete: "" }, outputs = { outputText }) {
     if (user_params.add) {
         outputs.outputText = await add({ theme: user_params.add, content: user_params.lastParams }).catch(err => {
             if (err.message) {
@@ -17,6 +18,8 @@ async function sqlOpr(user_params = { lastParams: "", search: [], add: "", delet
             }
             throw err
         });
+    } else if (user_params.getAll) {
+        outputs.outputText = await getAll().catch(err => { throw err })
     }
 }
 module.exports = sqlOpr
@@ -72,3 +75,36 @@ async function search(keywords) {
     }
 }
 
+async function getAll() {
+    const axios = require('axios');
+    const data = JSON.stringify({
+        "collection": "mycollection",
+        "database": "mydatabase",
+        "dataSource": "Cluster0",
+        filter: {}
+        // "document": {
+        //   "test": "wrvr-test"
+        // }
+    });
+
+    const config = {
+        method: 'post',
+        url: 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-jmriv/endpoint/data/v1/action/find',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Request-Headers': '*',
+            'api-key': 'RddbxMZlXN9uX3qKx39q58CoRWjkiyb8qihoOo5bLAnVVpmi5hmKeMHKQVvNfb8O',
+        },
+        data: data
+    };
+
+    return await axios(config)
+        .then(function (response) {
+            return JSON.stringify(response.data)
+        })
+        .catch(function (error) {
+            throw error
+            console.log(error);//
+        });
+
+}
