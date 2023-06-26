@@ -267,7 +267,7 @@ async function commd(inputText) {
             }]
         ]
         const mapC = new Map(arrC)
-        if (/\S/.test(user_params._[0])) {
+        if (!/\S/.test(user_params._[0])) {
             throw new Error(`there is nothing in inputText\n${JSON.stringify(user_params, null, 2)}`)
         }
         const targetCmd = cmdMatch(user_params._[0], { mapC })
