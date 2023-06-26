@@ -80,11 +80,12 @@ async function add_id(tgtObj) {
 }
 
 async function find(keywords) {
+    // const vnwm_1 = []
     const { documents } = await get().catch(err => { throw err })
     if (documents) {
-        return documents.filter(ele_1 => {
+        return Object.entries(documents).filter(([key, value]) => {
             return keywords.every(ele_2 => {
-                return new RegExp(ele_2, "i").test(ele_1)
+                return new RegExp(ele_2, "i").test(key)
             })
         }).map(ele => Object.entries(ele).map(ele => ele[0] + ":\n" + ele[1]).join('\n\n')).join('\n\n')
     } else {
