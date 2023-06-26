@@ -80,7 +80,7 @@ async function add_id(tgtObj) {
 }
 
 async function find(keywords) {
-    const { documents } = await getAll().catch(err => { throw err })
+    const { documents } = await get().catch(err => { throw err })
     if (documents) {
         return documents.filter(ele_1 => {
             return keywords.every(ele_2 => {
@@ -93,6 +93,10 @@ async function find(keywords) {
 }
 
 async function getAll() {
+    return JSON.stringify(await get().catch(err => { throw err }), null, 4)
+}
+
+async function get() {
     const axios = require('axios');
     const data = JSON.stringify({
         "collection": "mycollection",
@@ -117,7 +121,7 @@ async function getAll() {
 
     return await axios(config)
         .then(function (response) {
-            return JSON.stringify(response.data, null, 4)
+            return response.data
         })
         .catch(function (error) {
             throw error
