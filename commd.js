@@ -267,6 +267,9 @@ async function commd(inputText) {
             }]
         ]
         const mapC = new Map(arrC)
+        if(/\S/.test(user_params._[0])){
+            throw new Error('there is nothing in inputText')
+        }
         const targetCmd = cmdMatch(user_params._[0], { mapC })
         await targetCmd.func(user_params, outputs, { mapC }).catch(err => { throw err })
         if (user_params.write.length > 0) {
