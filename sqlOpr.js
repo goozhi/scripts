@@ -12,7 +12,7 @@ const client = new MongoClient(uri, {
 
 async function sqlOpr(user_params = { getAll: false, lastParams: "", find: [], add: "", delete: "" }, outputs = { outputText }) {
     if (user_params.add) {
-        outputs.outputText = await add({ [user_params.add]: user_params.lastParams }).catch(err => {
+        outputs.outputText = await add({ theme: user_params.add, content: user_params.lastParams }).catch(err => {
             if (err.message) {
                 err.message = new Error(err.message).stack
             }
@@ -83,9 +83,9 @@ async function find(keywords) {
     // const vnwm_1 = []
     const { documents } = await get().catch(err => { throw err })
     if (documents) {
-        return Object.entries(documents).filter(([key, value]) => {
+        return documents.filter(ele_1 => {
             return keywords.every(ele_2 => {
-                return new RegExp(ele_2, "i").test(key)
+                return new RegExp(ele_2, "i").test(ele_1.theme)
             })
         }).map(ele => Object.entries(ele).map(ele => ele[0] + ":\n" + ele[1]).join('\n\n')).join('\n\n')
     } else {
