@@ -10,7 +10,7 @@ const client = new MongoClient(uri, {
     }
 });
 
-async function sqlOpr(user_params = { getAll: false, lastParams: "", search: [], add: "", delete: "" }, outputs = { outputText }) {
+async function sqlOpr(user_params = { getAll: false, lastParams: "", find: [], add: "", delete: "" }, outputs = { outputText }) {
     if (user_params.add) {
         outputs.outputText = await add({ [user_params.add]: user_params.lastParams }).catch(err => {
             if (err.message) {
@@ -18,6 +18,8 @@ async function sqlOpr(user_params = { getAll: false, lastParams: "", search: [],
             }
             throw err
         });
+    } else if (user_params.find.length) {
+        outputs.outputText = await find(user_params.find).catch(err => { throw err })
     } else if (user_params.getAll) {
         outputs.outputText = await getAll().catch(err => { throw err })
     }
@@ -77,31 +79,16 @@ async function add_id(tgtObj) {
     }
 }
 
-async function search(keywords) {
-    try {
-        // Connect the client to the server	(optional starting in v4.7)
-        await client.connect();
-        // Send a ping to confirm a successful connection
-        await client.db("admin").command({ ping: 1 });
-        // console.log("Pinged your deployment. You successfully connected to MongoDB!");
-
-        // Get a reference to the database
-        const db = client.db('mydatabase');
-
-        // Get a reference to the collection
-        const collection = db.collection('mycollection');
-
-        // Find documents
-        const resultFind = await collection.find({ age: { $gt: 25 } }).toArray();
-        console.log(`Found ${resultFind.length} documents that match the query`);
-        console.log(resultFind);
-
-        // Insert a document
-        const resultInsert = await collection.insertOne(keywords);
-        return `Inserted ${resultInsert.insertedCount} documents into the collection`;
-    } finally {
-        // Ensures that the client will close when you finish/error
-        await client.close();
+async function find(keywords) {
+    const { documents } = await getAll().catch(err => { throw err })
+    if (documents) {
+        return documents.filter(ele_1 => {
+            return keywords.every(ele_2 => {
+                return new RegExp(ele_2, "i").test(ele_1)
+            })
+        }).map(ele => Object.entries(ele).map(ele => ele[0] + ":\n" + ele[1]).join('\n\n')).join('\n\n')
+    } else {
+        throw new Error('Documents is null.')
     }
 }
 
