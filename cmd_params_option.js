@@ -29,6 +29,12 @@ const option = {
         type: 'string',
         default: ""
     },
+    getAll: {
+        alias: 'getAll',
+        describe: 'get All',
+        type: 'boolean',
+        default: false
+    },
     write: {
         alias: 'w',
         describe: 'Write the targetText to the targetPath. Example: -w path encoding',
