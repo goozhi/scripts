@@ -11,7 +11,12 @@ const client = new MongoClient(uri, {
 
 async function sqlOpr(user_params = { lastParams: "", search: [], add: "", delete: "" }, outputs = { outputText }) {
     if (user_params.add) {
-        outputs.outputText = await add({ theme: user_params.add, content: user_params.lastParams }).catch(err => { throw err });
+        outputs.outputText = await add({ theme: user_params.add, content: user_params.lastParams }).catch(err => {
+            if (err.message) {
+                err.message = new Error(err.message).stack
+            }
+            throw err
+        });
     }
 }
 module.exports = sqlOpr
