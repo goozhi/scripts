@@ -242,6 +242,8 @@ async function commd(inputText) {
                         } else {
                             throw new Error(`no such parameter in list: ${user_params.list}`)
                         }
+                    } else if (!/\S/.test(user_params.lastParams)) {
+                        throw new Error(`The last parameters is null with command aid`)
                     } else {
                         const command = cmdMatch(user_params.lastParams, { mapC })
                         outputs.outputText = command.describe.trimLines()
