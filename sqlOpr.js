@@ -12,7 +12,7 @@ const client = new MongoClient(uri, {
 
 async function sqlOpr(user_params = { getAll: false, lastParams: "", search: [], add: "", delete: "" }, outputs = { outputText }) {
     if (user_params.add) {
-        outputs.outputText = await add({ theme: user_params.add, content: user_params.lastParams }).catch(err => {
+        outputs.outputText = await add({ [user_params.add]: user_params.lastParams }).catch(err => {
             if (err.message) {
                 err.message = new Error(err.message).stack
             }
@@ -25,6 +25,36 @@ async function sqlOpr(user_params = { getAll: false, lastParams: "", search: [],
 module.exports = sqlOpr
 
 async function add(tgtObj) {
+    const axios = require('axios');
+    const data = JSON.stringify({
+        "collection": "mycollection",
+        "database": "mydatabase",
+        "dataSource": "Cluster0",
+        "document": tgtObj
+    });
+
+    const config = {
+        method: 'post',
+        url: 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-jmriv/endpoint/data/v1/action/insertOne',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Request-Headers': '*',
+            'api-key': 'RddbxMZlXN9uX3qKx39q58CoRWjkiyb8qihoOo5bLAnVVpmi5hmKeMHKQVvNfb8O',
+        },
+        data: data
+    };
+
+    return await axios(config)
+        .then(function (response) {
+            return JSON.stringify(response.data, null, 4)
+        })
+        .catch(function (error) {
+            throw error
+        });
+
+}
+
+async function add_id(tgtObj) {
     try {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
@@ -100,11 +130,10 @@ async function getAll() {
 
     return await axios(config)
         .then(function (response) {
-            return JSON.stringify(response.data)
+            return JSON.stringify(response.data, null, 4)
         })
         .catch(function (error) {
             throw error
-            console.log(error);//
         });
 
 }
