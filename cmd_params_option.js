@@ -29,6 +29,12 @@ const option = {
         type: 'string',
         default: ""
     },
+    find: {
+        alias: 'find',
+        describe: 'find something',
+        type: 'array',
+        default: []
+    },
     getAll: {
         alias: 'getAll',
         describe: 'get All',
