@@ -87,7 +87,7 @@ async function find(keywords) {
             return keywords.every(ele_2 => {
                 return new RegExp(ele_2, "i").test(ele_1.theme)
             })
-        }).map(ele => Object.entries(ele).map(ele => ele[0] + ":\n" + ele[1]).join('\n\n')).join('\n\n')
+        }).map(ele => Object.entries(ele).map(ele => ele[0] + ":\n" + ele[1].fmtLines(4)).join('\n\n')).join('\n\n')
     } else {
         throw new Error('Documents is null.')
     }
