@@ -27,8 +27,13 @@ async function commd(inputText) {
             [['sqlOpr', 'sql'], {
                 describe: `sqlOpr
                 example:
-                sqlOpr -a
+                sql -a
                 This is an example.
+
+                sql --find 网站
+
+                sql --getAll
+                
                 `,
                 func: sqlOpr
             }],
