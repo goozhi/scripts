@@ -31,7 +31,7 @@ async function commd(inputText) {
 
                 `,
                 func: async (_, outputs = { outputText }) => {
-                    outputs.outputText = 8888
+                    outputs.outputText = new Date().getTime()
                 }
             }],
             [['sqlOpr', 'sql'], {
