@@ -24,6 +24,16 @@ async function commd(inputText) {
         const otherLines = matchP[2].trim()
         const user_params = Object.assign({}, yargsParser(firstLine).options(options).parse(), { lastParams: otherLines })
         const arrC = [
+            [['getTime'], {
+                describe: `获取时间戳
+                example:
+                getTime
+
+                `,
+                func: async (outputs = { outputText }) => {
+                    outputs.outputText = new Date().getTime()
+                }
+            }]
             [['sqlOpr', 'sql'], {
                 describe: `sqlOpr
                 example:
