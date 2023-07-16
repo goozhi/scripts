@@ -33,7 +33,7 @@ async function commd(inputText) {
                 func: async (outputs = { outputText }) => {
                     outputs.outputText = new Date().getTime()
                 }
-            }]
+            }],
             [['sqlOpr', 'sql'], {
                 describe: `sqlOpr
                 example:
