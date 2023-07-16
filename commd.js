@@ -30,8 +30,8 @@ async function commd(inputText) {
                 getTime
 
                 `,
-                func: async (outputs = { outputText }) => {
-                    outputs.outputText = new Date().getTime()
+                func: async (_, outputs = { outputText }) => {
+                    outputs.outputText = 8888
                 }
             }],
             [['sqlOpr', 'sql'], {
@@ -52,7 +52,7 @@ async function commd(inputText) {
                 example:
                 update
                 `,
-                func: async (outputs = { outputText }) => {
+                func: async (_, outputs = { outputText }) => {
                     outputs.outputText = await new Promise((resolve, reject) => {
                         child_process.exec('git submodule update --remote', (err, stdout) => {
                             if (err) {
