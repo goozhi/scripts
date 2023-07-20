@@ -37,7 +37,7 @@ async function commd(inputText) {
             [['sqlOpr', 'sql'], {
                 describe: `sqlOpr
                 example:
-                sql -a
+                sql -a example
                 This is an example.
 
                 sql --find 网站
