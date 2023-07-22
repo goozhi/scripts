@@ -22,6 +22,9 @@ async function commd(inputText) {
     } else {
         const firstLine = matchP[1].trim()
         const otherLines = matchP[2].trim()
+        if (/^\s*help\s*$/i.test(firstLine)) {
+            throw new Error('there is no help for you')
+        }
         const user_params = Object.assign({}, yargsParser(firstLine).options(options).parse(), { lastParams: otherLines })
         const arrC = [
             [['getTime'], {
