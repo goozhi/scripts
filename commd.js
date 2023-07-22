@@ -23,7 +23,7 @@ async function commd(inputText) {
         const firstLine = matchP[1].trim()
         const otherLines = matchP[2].trim()
         if (/^\s*help\s*$/i.test(firstLine)) {
-            throw new Error('there is no help for you')
+            throw new Error('If you want to get some help, please type: \naid\naid\nfor help.')
         }
         const user_params = Object.assign({}, yargsParser(firstLine).options(options).parse(), { lastParams: otherLines })
         const arrC = [
