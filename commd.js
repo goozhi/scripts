@@ -6,6 +6,7 @@ const encoding = require('encoding')
 const options = require('./cmd_params_option');
 const calcExpression = require('./calcExpression');
 const sqlOpr = require('./sqlOpr');
+const share_arr = []
 String.prototype.trimLines = function () {
     return this.split(/\n/).map(ele => ele.trim()).join('\n')
 }
@@ -35,6 +36,28 @@ async function commd(inputText) {
                 `,
                 func: async (_, outputs = { outputText }) => {
                     outputs.outputText = new Date().getTime()
+                }
+            }],
+            [['share'], {
+                describe: `share the message
+                example:
+                share -a
+                a message shared.
+
+                share --getAll
+                you will get all the message shared.
+                `,
+                func: async (user_params = { lastParams, getAll: "", add: "" }, outputs = { outputText: "" }) => {
+                    if (user_params.add) {
+                        share_arr.push({ theme: user_params.add, content: user_params.lastParams })
+                        outputs.outputText = `${user_params.lastParams} added successfully`
+                        return
+                    }
+                    else if (user_params.getAll) {
+                        outputs.outputText = share_arr.map(ele => ele.theme + ":\n" + ele.content).join('\n\n')
+                    } else {
+                        throw new Error(`please type a correct para! `)
+                    }
                 }
             }],
             [['sqlOpr', 'sql'], {
