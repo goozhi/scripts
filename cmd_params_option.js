@@ -11,6 +11,12 @@ const option = {
         type: 'number',
         default: 1,
     },
+    all: {
+        alias: ['A', 'all'],
+        describe: 'All the things',
+        type: 'boolean',
+        default: false
+    },
     add: {
         alias: 'a',
         describe: 'add things',
