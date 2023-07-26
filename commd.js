@@ -403,50 +403,36 @@ async function autojs_todo() {
     } else {
         const f2_c = { autojs_todo: "function(){return device.getBattery()}" }
         fs.writeFileSync(f2, JSON.stringify(f2_c, null, 4))
-        return await new Promise((resolve, reject) => {
-            setTimeout(() => {
-                f1_c = JSON.parse(fs.readFileSync(f1).toString())
-                if (f1_c.doing) {
-                    setTimeout(() => {
-                        f1_c = JSON.parse(fs.readFileSync(f1).toString())
-                        if (f1_c.doing) {
-                            setTimeout(() => {
-                                f1_c = JSON.parse(fs.readFileSync(f1).toString())
-                                if (f1_c.doing) {
-                                    reject(new Error('autojs still doing, please try after.'))
-                                } else {
-                                    if (f1_c.err) {
-                                        reject(err)
-                                    } else if (f1_c.result) {
-                                        resolve("current battery(%):" + f1_c.result)
-                                    } else {
-                                        reject(new Error('unkown err!!!'))
-                                    }
-                                }
-                            }, 1000)
-
-                        } else {
-                            if (f1_c.err) {
-                                reject(err)
-                            } else if (f1_c.result) {
-                                resolve("current battery(%):" + f1_c.result)
-                            } else {
-                                reject(new Error('unkown err!!!'))
-                            }
-                        }
-                    }, 1000)
-
-                } else {
-                    if (f1_c.err) {
-                        reject(err)
-                    } else if (f1_c.result) {
-                        resolve("current battery(%):" + f1_c.result)
-                    } else {
-                        reject(new Error('unkown err!!!'))
-                    }
-                }
-            }, 1000)
-
-        }).catch(err => { throw err })
+        counter = gen1()
+        return await loop_do(counter).catch(err => { throw err })
     }
+}
+function* gen1() {
+    for (i = 0; i < 3; i++) {
+        yield i;
+    }
+    return true
+}
+
+async function loop_do(counter = { startTime: 0, count: { next: () => { } } }) {
+    return new Promise((resolve, reject) => {
+        setTimeout(async () => {
+            f1_c = JSON.parse(fs.readFileSync(f1).toString())
+            if (f1_c.doing || fs.statSync(f1).mtimeMs < counter.startTime) {
+                if (counter.count.next().done) {
+                    reject(new Error('autojs is busy now or it is dead! '))
+                } else {
+                    await loop_do().catch(err => { reject(err) })
+                }
+            } else {
+                if (f1_c.err) {
+                    reject(err)
+                } else if (f1_c.result) {
+                    resolve("current battery(%):" + f1_c.result)
+                } else {
+                    reject(new Error('unkown err!!!'))
+                }
+            }
+        }, 1000)
+    })
 }
