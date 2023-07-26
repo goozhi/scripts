@@ -75,6 +75,11 @@ async function commd(inputText) {
                 sql --find 网站
 
                 sql --getAll
+
+                sql -d id
+
+                sql -b
+                or sql --save
                 
                 `,
                 func: sqlOpr

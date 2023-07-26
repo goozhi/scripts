@@ -71,6 +71,12 @@ const option = {
         type: 'string',
         default: ''
     },
+    save: {
+        alias:'b',
+        describe:'save something',
+        type:'boolean',
+        default: false
+    },
     file: {
         alias: '-f',
         describe: 'The path of file.',

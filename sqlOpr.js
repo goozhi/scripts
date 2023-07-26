@@ -1,5 +1,7 @@
 const axios = require('axios');
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const fs = require('fs')
+const path = require('path')
 const uri = "mongodb+srv://wrvr:xxxxxxx@cluster0.kmggvco.mongodb.net/?retryWrites=true&w=majority";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 // APIkey RddbxMZlXN9uX3qKx39q58CoRWjkiyb8qihoOo5bLAnVVpmi5hmKeMHKQVvNfb8O
@@ -25,6 +27,15 @@ async function sqlOpr(user_params = { getAll: false, lastParams: "", find: [], a
         outputs.outputText = await getAll().catch(err => { throw err })
     } else if (user_params.delete) {
         outputs.outputText = await deleteOne(user_params.delete).catch(err => { throw err })
+    } else if (user_params.save) {
+        outputs.outputText = await getAll().catch(err => { throw err })
+        const path_andr = '/storage/emulated/0/脚本/'
+        if (!fs.existsSync(path_andr)) {
+            throw new Error('path is not exists:' + path_andr)
+        } else {
+            fs.writeFileSync(path.join(path_andr, "nodejsData.json"), outputs.outputText)
+            outputs.outputText = "the data is saved:\n" + outputs.outputText
+        }
     }
 }
 module.exports = sqlOpr
