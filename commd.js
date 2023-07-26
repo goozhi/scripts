@@ -404,6 +404,7 @@ async function autojs_todo() {
         const f2_c = { autojs_todo: "function(){return device.getBattery()}" }
         fs.writeFileSync(f2, JSON.stringify(f2_c, null, 4))
         counter = gen1()
+        counter.startTime = new Date().getTime()
         return await loop_do(counter, { autojs_path: f1 }).catch(err => { throw err })
     }
 }
@@ -417,6 +418,9 @@ function* gen1() {
 async function loop_do(counter = { startTime: 0, count: { next: () => { } } }, option = { autojs_path }) {
     if (!fs.existsSync(option.autojs_path)) {
         throw new Error('path is not exists!:' + option.autojs_path)
+    }
+    if (!counter.startTime) {
+        throw new Error('you must set the startTime!')
     }
     return new Promise((resolve, reject) => {
         setTimeout(async () => {
