@@ -7,7 +7,7 @@ const options = require('./cmd_params_option');
 const calcExpression = require('./calcExpression');
 const sqlOpr = require('./sqlOpr');
 const si = require('systeminformation');
-
+const path = require('path')
 const share_arr = []
 String.prototype.trimLines = function () {
     return this.split(/\n/).map(ele => ele.trim()).join('\n')
@@ -51,8 +51,12 @@ async function commd(inputText) {
                 `,
                 func: async (user_params = { lastParams, getAll: "", add: "" }, outputs = { outputText: "" }) => {
                     if (user_params.add) {
+                        const path_andr = '/storage/emulated/0/脚本/'
                         share_arr.push({ theme: user_params.add, content: user_params.lastParams })
                         outputs.outputText = `${user_params.lastParams} added successfully`
+                        if (fs.existsSync(path_andr)) {
+                            fs.appendFileSync(path.join(path_andr, 'nodejs_log.txt'), user_params.lastParams + '\n\n')
+                        }
                         return
                     }
                     else if (user_params.getAll) {
