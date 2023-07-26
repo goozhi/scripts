@@ -78,15 +78,20 @@ async function commd(inputText) {
                 sttu
                 `,
                 func: async (_, outputs = { outputText }) => {
-                    outputs.outputText = await new Promise((resolve, reject) => {
-                        const cmmd = 'termux-battery-status'
-                        child_process.exec(cmmd, (err, stdout) => {
-                            if (err) {
-                                reject((err))
-                            } else {
-                                resolve(stdout)
-                            }
-                        })
+                    const cmmd = 'termux-battery-status'
+                    outputs.outputText = await exec(cmmd).catch(err => { throw err })
+                }
+            }], [['exec'], {
+                describe: `
+                example:
+                exec
+                node -v`
+                ,
+                func: async (user_params = { lastParams }, outputs = { outputText }) => {
+                    const cmmd = user_params.lastParams
+                    outputs.outputText = await new Promise()
+                    child_process.exec(cmmd, (err, stdout) => {
+
                     })
                 }
             }],
@@ -364,4 +369,16 @@ function cmdMatch(targetText, options = { mapC: new Map() }) {
     } else {
         throw new Error(`There is no such command :${targetText}`)
     }
+}
+
+async function exec(cmmd) {
+    return await new Promise((resolve, reject) => {
+        child_process.exec(cmmd, (err, stdout) => {
+            if (err) {
+                reject((err.message ? (!(err.message = cmmd + " err:\n" + err.message) || err) : err))
+            } else {
+                resolve(stdout)
+            }
+        })
+    })
 }
