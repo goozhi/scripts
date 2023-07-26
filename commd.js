@@ -6,6 +6,8 @@ const encoding = require('encoding')
 const options = require('./cmd_params_option');
 const calcExpression = require('./calcExpression');
 const sqlOpr = require('./sqlOpr');
+const si = require('systeminformation');
+
 const share_arr = []
 String.prototype.trimLines = function () {
     return this.split(/\n/).map(ele => ele.trim()).join('\n')
@@ -78,8 +80,11 @@ async function commd(inputText) {
                 sttu
                 `,
                 func: async (_, outputs = { outputText }) => {
-                    const cmmd = 'termux-battery-status'
-                    outputs.outputText = await exec(cmmd).catch(err => { throw err })
+
+                    // promises style - new since version 3
+                    outputs.outputText = await si.battery()
+                        .then(data => JSON.stringify(data, null, 4))
+                        .catch(error => { throw error });
                 }
             }], [['exec'], {
                 describe: `
