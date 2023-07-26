@@ -72,6 +72,23 @@ async function commd(inputText) {
                 
                 `,
                 func: sqlOpr
+            }], [['sttu', 'status'], {
+                describe: `output the android system's status
+                example:
+                sttu
+                `,
+                func: async (_, outputs = { outputText }) => {
+                    outputs.outputText = await new Promise((resolve, reject) => {
+                        const cmmd = 'termux-battery-status'
+                        child_process.exec(cmmd, (err, stdout) => {
+                            if (err) {
+                                reject((err))
+                            } else {
+                                resolve(stdout)
+                            }
+                        })
+                    })
+                }
             }],
             [['update'], {
                 describe: `update submodules
