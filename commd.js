@@ -429,7 +429,7 @@ async function loop_do(counter = { startTime: 0, next: () => { } }, option = { a
                 if (counter.next().done) {
                     reject(new Error('autojs is busy now or it is dead! '))
                 } else {
-                    await loop_do().catch(err => { reject(err) })
+                    await loop_do(counter, option).catch(err => { reject(err) })
                 }
             } else {
                 if (f1_c.err) {
