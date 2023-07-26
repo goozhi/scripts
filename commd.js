@@ -415,7 +415,7 @@ function* gen1() {
     return true
 }
 
-async function loop_do(counter = { startTime: 0, next: () => { } }, option = { autojs_path }) {
+async function loop_do(counter = { startTime: 0, next: () => { } }, option = { autojs_path: "" }) {
     if (!fs.existsSync(option.autojs_path)) {
         throw new Error('path is not exists!:' + option.autojs_path)
     }
