@@ -404,7 +404,7 @@ async function autojs_todo() {
         const f2_c = { autojs_todo: "function(){return device.getBattery()}" }
         fs.writeFileSync(f2, JSON.stringify(f2_c, null, 4))
         counter = gen1()
-        return await loop_do(counter).catch(err => { throw err })
+        return await loop_do(counter, { autojs_path: f1 }).catch(err => { throw err })
     }
 }
 function* gen1() {
@@ -414,11 +414,14 @@ function* gen1() {
     return true
 }
 
-async function loop_do(counter = { startTime: 0, count: { next: () => { } } }) {
+async function loop_do(counter = { startTime: 0, count: { next: () => { } } }, option = { autojs_path }) {
+    if (!fs.existsSync(option.autojs_path)) {
+        throw new Error('path is not exists!:' + option.autojs_path)
+    }
     return new Promise((resolve, reject) => {
         setTimeout(async () => {
-            f1_c = JSON.parse(fs.readFileSync(f1).toString())
-            if (f1_c.doing || fs.statSync(f1).mtimeMs < counter.startTime) {
+            f1_c = JSON.parse(fs.readFileSync(option.autojs_path).toString())
+            if (f1_c.doing || fs.statSync(option.autojs_path).mtimeMs < counter.startTime) {
                 if (counter.count.next().done) {
                     reject(new Error('autojs is busy now or it is dead! '))
                 } else {
