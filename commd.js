@@ -89,10 +89,7 @@ async function commd(inputText) {
                 ,
                 func: async (user_params = { lastParams }, outputs = { outputText }) => {
                     const cmmd = user_params.lastParams
-                    outputs.outputText = await new Promise()
-                    child_process.exec(cmmd, (err, stdout) => {
-
-                    })
+                    outputs.outputText = await exec(cmmd).catch(err => { throw err })
                 }
             }],
             [['update'], {
