@@ -403,7 +403,7 @@ async function autojs_todo() {
     } else {
         const f2_c = { autojs_todo: "function(){return device.getBattery()}" }
         fs.writeFileSync(f2, JSON.stringify(f2_c, null, 4))
-        const result = await new Promise((resolve, reject) => {
+        return await new Promise((resolve, reject) => {
             setTimeout(() => {
                 f1_c = JSON.parse(fs.readFileSync(f1).toString())
                 if (f1_c.doing) {
