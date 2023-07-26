@@ -415,7 +415,7 @@ function* gen1() {
     return true
 }
 
-async function loop_do(counter = { startTime: 0, count: { next: () => { } } }, option = { autojs_path }) {
+async function loop_do(counter = { startTime: 0, next: () => { } }, option = { autojs_path }) {
     if (!fs.existsSync(option.autojs_path)) {
         throw new Error('path is not exists!:' + option.autojs_path)
     }
@@ -426,7 +426,7 @@ async function loop_do(counter = { startTime: 0, count: { next: () => { } } }, o
         setTimeout(async () => {
             f1_c = JSON.parse(fs.readFileSync(option.autojs_path).toString())
             if (f1_c.doing || fs.statSync(option.autojs_path).mtimeMs < counter.startTime) {
-                if (counter.count.next().done) {
+                if (counter.next().done) {
                     reject(new Error('autojs is busy now or it is dead! '))
                 } else {
                     await loop_do().catch(err => { reject(err) })
