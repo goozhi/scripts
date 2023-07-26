@@ -65,11 +65,29 @@ const option = {
         type: 'string',
         default: 'utf8'
     },
+    modify: {
+        alias: '-m',
+        describe: 'Modify some thing',
+        type: 'string',
+        default: ''
+    },
     file: {
         alias: '-f',
         describe: 'The path of file.',
         type: 'string',
         default: ''
+    },
+    delete: {
+        alias: '-d',
+        describe: 'DELETE something',
+        type: 'string',
+        default: ''
+    },
+    pass: {
+        alias: 'pass',
+        describe: 'password input. e.g. : --pass name password',
+        type: 'array',
+        default: []
     },
     mode: {
         alias: 'mode',

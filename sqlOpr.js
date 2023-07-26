@@ -1,5 +1,6 @@
+const axios = require('axios');
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://wrvr:qqqq258369@cluster0.kmggvco.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://wrvr:xxxxxxx@cluster0.kmggvco.mongodb.net/?retryWrites=true&w=majority";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 // APIkey RddbxMZlXN9uX3qKx39q58CoRWjkiyb8qihoOo5bLAnVVpmi5hmKeMHKQVvNfb8O
 const client = new MongoClient(uri, {
@@ -22,12 +23,13 @@ async function sqlOpr(user_params = { getAll: false, lastParams: "", find: [], a
         outputs.outputText = await find(user_params.find).catch(err => { throw err })
     } else if (user_params.getAll) {
         outputs.outputText = await getAll().catch(err => { throw err })
+    } else if (user_params.delete) {
+        outputs.outputText = await deleteOne(user_params.delete).catch(err => { throw err })
     }
 }
 module.exports = sqlOpr
 
 async function add(tgtObj) {
-    const axios = require('axios');
     const data = JSON.stringify({
         "collection": "mycollection",
         "database": "mydatabase",
@@ -38,6 +40,37 @@ async function add(tgtObj) {
     const config = {
         method: 'post',
         url: 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-jmriv/endpoint/data/v1/action/insertOne',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Request-Headers': '*',
+            'api-key': 'RddbxMZlXN9uX3qKx39q58CoRWjkiyb8qihoOo5bLAnVVpmi5hmKeMHKQVvNfb8O',
+        },
+        data: data
+    };
+
+    return await axios(config)
+        .then(function (response) {
+            return JSON.stringify(response.data, null, 4)
+        })
+        .catch(function (error) {
+            throw error
+        });
+
+}
+
+async function deleteOne(idDel) {
+    const data = JSON.stringify({
+        "collection": "mycollection",
+        "database": "mydatabase",
+        "dataSource": "Cluster0",
+        filter: {
+            _id: { $oid: idDel }
+        }
+    });
+
+    const config = {
+        method: 'post',
+        url: 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-jmriv/endpoint/data/v1/action/deleteOne',
         headers: {
             'Content-Type': 'application/json',
             'Access-Control-Request-Headers': '*',
@@ -98,7 +131,6 @@ async function getAll() {
 }
 
 async function get() {
-    const axios = require('axios');
     const data = JSON.stringify({
         "collection": "mycollection",
         "database": "mydatabase",
@@ -129,3 +161,4 @@ async function get() {
         });
 
 }
+
