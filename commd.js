@@ -9,6 +9,7 @@ const sqlOpr = require('./sqlOpr');
 const si = require('systeminformation');
 const path = require('path')
 const share_arr = []
+const axios = require('axios');
 String.prototype.trimLines = function () {
     return this.split(/\n/).map(ele => ele.trim()).join('\n')
 }
@@ -292,6 +293,25 @@ async function commd(inputText) {
                 describe: `test`,
                 func: async (user_params, outputs) => {
                     outputs.outputText = JSON.stringify(user_params, null, 4)
+                }
+            }], [['expl'], {
+                describe: `explain english words.
+                examples:
+                expl
+                unexpected`,
+                func: async (user_params = { lastParams: "" }, outputs = { outputText: "" }) => {
+                    if (!user_params.lastParams) {
+                        throw new Error('Please input a effect word')
+                    }
+                    const word = user_params.lastParams.trim(); // 要查询的单词
+                    await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+                        .then(response => {
+                            const definitions = response.data[0].meanings.map(meaning => meaning.definitions[0].definition);
+                            outputs.outputText = JSON.stringify(response.data[0], null, 4)
+                        })
+                        .catch(error => {
+                            throw error
+                        });
                 }
             }],
             [['aid'], {
