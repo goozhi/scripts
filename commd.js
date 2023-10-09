@@ -79,6 +79,7 @@ async function commd(inputText) {
 
                 sql -d id
 
+                save all current data from mongodb to phone if the server run in the phone:
                 sql -b
                 or sql --save
                 
