@@ -72,9 +72,9 @@ const option = {
         default: ''
     },
     save: {
-        alias:'b',
-        describe:'save something',
-        type:'boolean',
+        alias: 'b',
+        describe: 'save something',
+        type: 'boolean',
         default: false
     },
     file: {
@@ -90,8 +90,8 @@ const option = {
         default: ''
     },
     pass: {
-        alias: 'pass',
-        describe: 'password input. e.g. : --pass name password',
+        alias: 'p',
+        describe: 'password input. e.g. : --pass name password or -p name password',
         type: 'array',
         default: []
     },
