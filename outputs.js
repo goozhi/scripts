@@ -3,12 +3,15 @@ const yargsParser = require('yargs');
 const child_process = require('child_process')
 const options = require('./cmd_params_option');
 const fileOpr = require('./fileOpr');
+const sqlOpr = require('./sqlOpr');
 function outputs() {
     return {
         ask: async (neig_vdzv = {}) => {
             const neig = Object.assign({}, neig_vdzv)
             if (neig.fileOpr) {
                 fileOpr(neig.fileOpr).catch(err => { throw err })
+            } else if (neig.sqlOpr) {
+                await sqlOpr(neig.sqlOpr.user_params, neig.sqlOpr.outputs).catch(err => { throw err })
             } else if (neig.autojs_todo) {
                 return await autojs_todo(neig.autojs_todo).catch(err => { throw err })
             } else if (neig.argsParser) {

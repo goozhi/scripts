@@ -1,6 +1,5 @@
 const align = require('./align');
 const calcExpression = require('./calcExpression');
-const sqlOpr = require('./sqlOpr');
 const share = require('./share');
 const numGo = require('./numGo');
 const sttuInPhone = require('./sttuInPhone');
@@ -48,7 +47,17 @@ const arrC = [
                 or sql --save
                 
                 `,
-        func: sqlOpr
+        wvvy: true,
+        func: async (user_params, outputs) => {
+            await outputs.ask(
+                {
+                    sqlOpr: {
+                        user_params: user_params,
+                        outputs: outputs
+                    }
+                }
+            ).catch(err => { throw err })
+        }
     }], [['sttu', 'status'], {
         describe: `output the android system's status
                 example:
@@ -61,7 +70,7 @@ const arrC = [
                 exec
                 node -v`
         ,
-        wvvy: '258369',
+        wvvy: true,
         func: execc
     }],
     [['update'], {
