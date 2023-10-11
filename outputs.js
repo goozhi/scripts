@@ -9,9 +9,9 @@ function outputs() {
         ask: async (neig_vdzv = {}) => {
             const neig = Object.assign({}, neig_vdzv)
             if (neig.fileOpr) {
-                fileOpr(neig.fileOpr).catch(err => { throw err })
+                return await fileOpr(neig.fileOpr).catch(err => { throw err })
             } else if (neig.sqlOpr) {
-                await sqlOpr(neig.sqlOpr.user_params, neig.sqlOpr.outputs).catch(err => { throw err })
+                return await sqlOpr(neig.sqlOpr.user_params, neig.sqlOpr.outputs).catch(err => { throw err })
             } else if (neig.autojs_todo) {
                 return await autojs_todo(neig.autojs_todo).catch(err => { throw err })
             } else if (neig.argsParser) {

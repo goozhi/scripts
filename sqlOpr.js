@@ -38,7 +38,10 @@ async function sqlOpr(
             fs.writeFileSync(path.join(path_andr, "nodejsData.json"), outputs.outputText)
             outputs.outputText = "the data is saved:\n" + outputs.outputText
         }
+    } else {
+        throw new Error(`desc-user_params opr not correct-`)
     }
+    return outputs
 }
 module.exports = sqlOpr
 
