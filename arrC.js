@@ -57,7 +57,7 @@ const arrC = [
                     }
                 }
             ).catch(err => { throw err })
-            Object.assign(outputs, { outputText: results })
+            Object.assign(outputs, results)
         }
     }], [['sttu', 'status'], {
         describe: `output the android system's status
