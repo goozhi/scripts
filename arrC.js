@@ -49,7 +49,7 @@ const arrC = [
                 `,
         wvvy: true,
         func: async (user_params, outputs) => {
-            await outputs.ask(
+            const results = await outputs.ask(
                 {
                     sqlOpr: {
                         user_params: user_params,
@@ -57,6 +57,7 @@ const arrC = [
                     }
                 }
             ).catch(err => { throw err })
+            Object.assign(outputs, { outputText: results })
         }
     }], [['sttu', 'status'], {
         describe: `output the android system's status

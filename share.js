@@ -3,7 +3,7 @@ const share_arr = []
 const share = async (user_params = { lastParams, getAll: "", add: "" }, outputs = { outputText: "" }) => {
     if (user_params.add) {
         const path_andr = '/storage/emulated/0/脚本'
-        outputs.ask({
+        await outputs.ask({
             fileOpr: {
                 opr: 'appendIfExist',
                 existPath: path_andr,
