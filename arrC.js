@@ -7,6 +7,9 @@ const execc = require('./execc');
 const update = require('./update');
 const cmdMatch = require('./cmdMatch');
 const axios = require('axios');
+String.prototype.fmtLines = function (num = 0) {
+    return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
+}
 
 const arrC = [
     [['getTime'], {

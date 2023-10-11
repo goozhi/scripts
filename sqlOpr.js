@@ -12,6 +12,9 @@ const path = require('path')
 //         deprecationErrors: true,
 //     }
 // });
+String.prototype.fmtLines = function (num = 0) {
+    return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
+}
 
 async function sqlOpr(
     user_params = { getAll: false, lastParams: "", find: [], add: "", delete: "" },
