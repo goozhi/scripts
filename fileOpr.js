@@ -16,7 +16,7 @@ async function fileOpr(neig_vdzv = {}) {
             fs[key](neig.path, encoding.convert(neig.content, neig.encoding, 'utf8'))
             return Object.assign(neig, { [neig.opr + 'IsOk']: true })
         } else {
-            throw new Error(`desc-path not exists-${neig.existPath || neig.path}`)
+            // throw new Error(`desc-path not exists-${neig.existPath || neig.path}`)
         }
     } else {
         throw new Error('desc-wrong key of fs-' + key)
