@@ -11,7 +11,9 @@ const uni = require('./uni');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
-
+String.prototype.trimLines = function () {
+    return this.trim().split(/\n/).map(ele => ele.trim()).join('\n')
+}
 const arrC = [
     [['getTime'], {
         describe: `获取时间戳
@@ -114,7 +116,7 @@ const arrC = [
         b
         `,
         func: async (user_params = { lastParams: "", isys: 10, osys: 10 }, outputs = { outputText: "" }) => {
-            outputs.outputText = user_params.lastParams.split(/\n/).map(ele => ele + " = " + calcExpression(ele, user_params.isys, user_params.osys)).join('\n')
+            outputs.outputText = user_params.lastParams.trimLines().split(/\n/).map(ele => ele + " = " + calcExpression(ele, user_params.isys, user_params.osys)).join('\n')
         }
     }]
     ,
@@ -143,7 +145,7 @@ const arrC = [
                 aa{}
                 `,
         func: async (user_params = { lastParams: "", left: false }, outputs = { outputText: "" }) => {
-            const arr_2 = user_params.lastParams.trim().split(/\n/).map((ele, key) => {
+            const arr_2 = user_params.lastParams.trimLines().split(/\n/).map((ele, key) => {
                 const obj_mid = ele.match(/(.*?)\s*(\{.*)/)
                 if (obj_mid) {
                     return [obj_mid[1], { target: obj_mid[1], text_org: ele, tail: obj_mid[2] }]

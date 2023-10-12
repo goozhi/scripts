@@ -1,3 +1,7 @@
+String.prototype.trimLines = function () {
+    return this.trim().split(/\n/).map(ele => ele.trim()).join('\n')
+}
+
 const uni = async (user_params = { lastParams: "", file: "", encoding: "utf8", head: false, tail: false, reverse: false }, outputs = { outputText }) => {
     user_params.encoding = user_params.encoding || "utf8"
     user_params.targetText = await getTargetText(user_params).catch(err => { throw err })
