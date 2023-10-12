@@ -89,7 +89,11 @@ const equals = [
     [
         `cc
         0xa
-        `, `0xa = 10`
+        0xfffffffffff*2
+0xfffffffffff
+        `, `0xa = 10
+        0xfffffffffff*2 = 35184372088830
+0xfffffffffff = 17592186044415`.trimLines()
     ]
     ,
     [
@@ -105,9 +109,25 @@ const equals = [
         9
         a
         b
+        ffffffffffff+1
+        fffffff<<1 
+        fffffffffff*2 
 `, `9 = 9
 a = 10
-b = 11`.trimLines()
+b = 11
+ffffffffffff+1 = 281474976710656
+fffffff<<1 = 536870910
+fffffffffff*2 = 35184372088830
+`.trimLines()
+    ],
+    [
+        `cc --osys 16
+        0xfffffffffff*2
+        0xfffffffffff
+        35184372088830`,
+        `0xfffffffffff*2 = 1ffffffffffe
+        0xfffffffffff = fffffffffff
+        35184372088830 = 1ffffffffffe`.trimLines()
     ],
     [
         `                    clone -c 4
