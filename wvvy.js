@@ -1,6 +1,6 @@
 const arr_1 = (() => {
     try {
-        require('./config_locale.js')
+        return require('./config_locale.js')
     } catch (err) {
         return []
     }
