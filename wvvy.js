@@ -1,4 +1,10 @@
-const arr_1 = require('./config_locale.js')
+const arr_1 = (() => {
+    try {
+        require('./config_locale.js')
+    } catch (err) {
+        return []
+    }
+})()
 function wvvy(wvvy) {
     return arr_1.includes(wvvy[0])
 }
