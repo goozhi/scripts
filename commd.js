@@ -8,7 +8,8 @@ String.prototype.trimLines = function () {
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
-async function commd(inputText, outputs = { ask: async () => { } }) {
+async function commd(inputText, outputs = { ask: async () => { } }, neig_kp = {}) {
+    const neig = Object.assign({ excmds: [] }, neig_kp)
     inputText = inputText.replace(/\r/g, '')
     const matchP = inputText.match(/(.+)([\s\S]*)/)
     if (!matchP) {
@@ -21,7 +22,7 @@ async function commd(inputText, outputs = { ask: async () => { } }) {
         }
         const user_params = Object.assign({}, await outputs.ask({ argsParser: firstLine }).catch(err => { throw err }), { lastParams: otherLines })
 
-        const mapC = new Map(arrC)
+        const mapC = new Map([...arrC, ...neig.excmds])
         if (!/\S/.test(user_params._[0])) {
             throw new Error(`there is nothing in inputText\n${JSON.stringify(user_params, null, 2)}`)
         }
