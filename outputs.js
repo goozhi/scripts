@@ -18,6 +18,8 @@ function outputs() {
                 return yargsParser(neig.argsParser).options(options).parse()
             } else if (neig.exec) {
                 return await exec(neig.exec).catch(err => { throw err })
+            } else if (neig.useClient) {
+                return neig
             } else {
                 throw new Error('desc - neig not correct -' + JSON.stringify(neig_vdzv))
             }
