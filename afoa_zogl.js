@@ -34,7 +34,7 @@ nikc_jkub(copy_test_src,
         console.assert(obj_tar['test_1']['hello_1'].toString() === 'hello 1', `copy failed`)
         console.assert(!obj_tar['test_1']['hello_2'], `neig failed ${JSON.stringify(neig_test)}`)
     }).catch(err => console.error(err))
-console.log("finish afoa zogl.")
+console.log("Done. Finish afoa zogl.")
 function createTestSrc(obj_Src = {}, parentPath = "") {
     if (!fs.existsSync(parentPath)) {
         fs.mkdirSync(parentPath)

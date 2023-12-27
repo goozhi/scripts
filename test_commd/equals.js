@@ -154,5 +154,30 @@ fffffffffff*2 = 35184372088830
        
        ` ,`hello\r\n`
     ]
+    ,[
+        `wrvr
+        vr`,
+        `志`
+    ]
+    ,[
+        `wrvr
+        yfvr 同`,
+        `同志 同`
+    ]
+    ,[
+        `wrvr
+        同志`,
+        `yfvr`
+    ]
+    ,[
+        `wrvr
+        志`,
+        `vr`
+    ]
+    ,[
+        `wrvr wrvr
+        yfvr 同`,
+        `yfvr yfk`
+    ]
 ]
 module.exports = equals

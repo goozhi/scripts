@@ -3,3 +3,4 @@ test.*
 config_locale.js
 *.bak
 zczc*.java
+!test.cmd.js

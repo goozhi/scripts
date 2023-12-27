@@ -7,6 +7,7 @@ const execc = require('./execc');
 const update = require('./update');
 const cmdMatch = require('./cmdMatch');
 const axios = require('axios');
+const wrvr=require('./KPLU/wrvr/index.js')
 const uni = require('./uni');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
@@ -79,6 +80,20 @@ const arrC = [
         ,
         wvvy: true,
         func: execc
+    }], [['wrvr'], {
+        describe: `
+            wrvr dk stgn cqpi.
+            chvx:
+            wrvr
+            wr
+            wrvr
+            \u56fd
+            wrvr
+            tgmh mf hiyq vkrs
+            wrvr wrvr
+            \u56fd\u56fd\u56fd \u56fd
+        `,
+        func: wrvr.afoa
     }],
     [['update'], {
         describe: `update submodules

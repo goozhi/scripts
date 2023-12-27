@@ -1,7 +1,9 @@
 {
   "main": "commd.js",
   "scripts": {
-    "test": "node afoa_zogl.js && node test_commd && node ./KPLU/wrvr/test.cmd.js"
+    "test": "node afoa_zogl.js && node test_commd && node ./KPLU/wrvr/test.cmd.js",
+    "rj_ld_json": "node ./KPLU/wrvr/atvn/rj_ld_json.js",
+    "json_ld_rj": "node ./KPLU/wrvr/atvn/json_ld_rj.js"
   },
   "dependencies": {
     "axios": "^1.4.0",
