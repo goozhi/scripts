@@ -47,9 +47,13 @@ async function afoa(user_params, outputs) {
     }
 
     else if (user_params._[1] === 'wrvr') {
-        outputs.outputText = user_params.lastParams.replace(/[\u4E00-\u9FA5]/g, (match_1) => {
-            return diwr_cqzt_di_wrvr[match_1] || match_1
-        })
+        outputs.outputText = user_params.lastParams
+            .replace(/([\u4E00-\u9FA5])(\w)/g, '$1 $2')
+            .replace(/(\w)([\u4E00-\u9FA5])/g, '$1 $2')
+            .replace(/([\u4E00-\u9FA5])(?=[\u4E00-\u9FA5])/g, '$1 ')
+            .replace(/[\u4E00-\u9FA5]/g, (match_1) => {
+                return diwr_cqzt_di_wrvr[match_1] || match_1
+            })
     } else {
         outputs.outputText = (() => {
             if (/ |-/.test(user_params.lastParams)) {
