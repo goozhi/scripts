@@ -22,7 +22,7 @@ const neig = {
         ['hello'],
         {
             func: async (_,outputs)=>{
-                outputs.outputText='fuck you china'
+                outputs.outputText='fuck you'
             }
         }
     ]    
