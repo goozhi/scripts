@@ -1,8 +1,8 @@
 var gn=require("sdcard/脚本/gongnengKuai");
 var gn=new gn.gongnengKuai();//功能块
-let yxna_afoa="/storage/emulated/0/rsgm/afoa"
+let yxna_afoa="/storage/emulated/0/rsgm/scripts"
 let ztwm=JSON.parse(files.read(yxna_afoa+"/KPLU/wrvr/ztwm.json"))
-let sjbx_1=JSON.parse(files.read("/storage/emulated/0/rsgm/afoa/KPLU/wrvr/yhrj_sjbx.json"))
+let sjbx_1=JSON.parse(files.read("/storage/emulated/0/rsgm/scripts/KPLU/wrvr/yhrj_sjbx.json"))
 let vnwm_1="klmno".split("")
 let diwr_1={}
 let diwr_2={}
@@ -36,7 +36,7 @@ return
 let answer_1
 if(/^reset$/i.test(input_1)){
 toast("hold on")
-engines.execScriptFile("/storage/emulated/0/rsgm/afoa/KPLU/wrvr/js-phone/index.js")
+engines.execScriptFile("/storage/emulated/0/rsgm/scripts/KPLU/wrvr/js-phone/index.js")
 exit()
 }
 if(/ |-/.test(input_1)){
