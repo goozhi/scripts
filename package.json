@@ -1,4 +1,5 @@
 {
+  "main": "commd.js",
   "scripts": {
     "test": "node test_commd"
   },
