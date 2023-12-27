@@ -176,8 +176,8 @@ fffffffffff*2 = 35184372088830
     ]
     ,[
         `wrvr wrvr
-        yfvr 同`,
-        `yfvr yfk`
+        yfvr 同 的`,
+        `yfvr yfk dkk`
     ]
 ]
 module.exports = equals
