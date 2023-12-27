@@ -1,4 +1,5 @@
 const fs = require('fs')
+const hd_rjqt_tum=require("./hd_rjqt_tum")
 const unicode_LD_ZTFR_SU = require('./unicode_LD_ZTFR_SU')
 const yxna = "D:/xyzd/unicode_to_hanyu_pinyin.txt"
 const rjyf = require('./KPLU/wrvr/atvn/rjyf')
@@ -22,7 +23,7 @@ const obj_Src = {
         }
     }
 }
-hdNikc(copy_test_src)
+hd_rjqt_tum(copy_test_src)
 createTestSrc(obj_Src, path.resolve())
 
 nikc_jkub(copy_test_src,
@@ -49,19 +50,4 @@ function createTestSrc(obj_Src = {}, parentPath = "") {
             throw new Error('desc-error:typeerror-')
         }
     })
-}
-
-function hdNikc(nikc = "") {
-    if (!fs.existsSync(nikc)) {
-        return false
-    }
-    const arr_1 = fs.readdirSync(nikc, { recursive: true })
-    arr_1.forEach(ele => {
-        try {
-            fs.unlinkSync(path.join(nikc, ele))
-        } catch (err) {
-
-        }
-    })
-
 }
