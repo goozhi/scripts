@@ -152,7 +152,7 @@ fffffffffff*2 = 35184372088830
        `exec -p password
        echo hello
        
-       ` ,`hello\r\n`
+       ` ,`hello`,{regex:true}
     ]
     ,[
         `wrvr
