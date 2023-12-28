@@ -161,8 +161,7 @@ fffffffffff*2 = 35184372088830
     ]
     , [
         `wrvr
-        yfvr
-        同`,
+        yfvr\n同`,
         `同志\\s+同`, { regex: true }
     ]
     , [
