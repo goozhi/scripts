@@ -148,38 +148,39 @@ fffffffffff*2 = 35184372088830
 `,
         fs.readFileSync(__dirname + '/src/align/center.output').toString().replace(/\r/g, '')
     ]
-    ,[
-       `exec -p password
+    , [
+        `exec -p password
        echo hello
        
-       ` ,`hello`,{regex:true}
+       ` , `hello`, { regex: true }
     ]
-    ,[
+    , [
         `wrvr
         vr`,
         `志`
     ]
-    ,[
+    , [
         `wrvr
-        yfvr 同`,
-        `同志 同`
+        yfvr
+        同`,
+        `同志\\s+同`, { regex: true }
     ]
-    ,[
+    , [
         `wrvr
         同志`,
         `yfvr`
     ]
-    ,[
+    , [
         `wrvr
         志`,
         `vr`
     ]
-    ,[
+    , [
         `wrvr wrvr
         yfvr同志`,
         `yfvr yfk vrk`
     ]
-    ,[
+    , [
         `wrvr wrvr
         同志yfvr`,
         `yfk vrk yfvr`

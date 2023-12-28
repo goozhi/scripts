@@ -39,7 +39,7 @@ toast("hold on")
 engines.execScriptFile("/storage/emulated/0/rsgm/scripts/KPLU/wrvr/js-phone/index.js")
 exit()
 }
-if(/ |-/.test(input_1)){
+if(/\s|-/.test(input_1)){
 answer_1=input_1.replace(/\w+/g,((match_1)=>{
 return diwr_1[match_1.toLowerCase()]||match_1
 }))
