@@ -33,11 +33,14 @@ const arrC = [
     [['share'], {
         describe: `share the message
                 example:
-                share -a
+                share -a test
                 a message shared.
 
-                share --getAll
+                share getAll
                 you will get all the message shared.
+
+                share find
+                you
                 `,
         func: share
     }],
