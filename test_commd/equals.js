@@ -184,5 +184,9 @@ fffffffffff*2 = 35184372088830
         同志yfvr`,
         `yfk vrk yfvr`
     ]
+    , [
+        `ip`,
+        `\\d+\\.\\d+\\.\\d+`, { regex: true }
+    ]
 ]
 module.exports = equals

@@ -11,6 +11,7 @@ const axios = require('axios');
 const wrvr=require('./KPLU/wrvr/index.js')
 const uni = require('./uni');
 const auto_get_ip = require('./auto-get-ip.js');
+const getTheIp = require('./getTheIp.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -81,12 +82,18 @@ const arrC = [
                 return 99
                 `,
         func: ask_autojs
-    }], [['ip', 'getip'], {
+    }], [['autoip'], {
         describe: `ask autojs to get the ip
+                example:
+                autoip
+                `,
+        func: auto_get_ip
+    }], [['ip','getip'], {
+        describe: `get the ip
                 example:
                 ip
                 `,
-        func: auto_get_ip
+        func: getTheIp
     }], [['exec'], {
         describe: `
                 example:

@@ -1,6 +1,6 @@
 const os = require('os');
 
-function getMyIp() {
+async function getMyIp() {
     const addr = os.networkInterfaces()
     if (addr) {
         const ip = JSON.stringify(addr).match(/(?<=address.*)192\.\d+.\d+.\d+/)

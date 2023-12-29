@@ -1,5 +1,5 @@
 const fs = require('fs')
-const hd_rjqt_tum=require("./hd_rjqt_tum")
+const hd_rjqt_tum = require("./hd_rjqt_tum")
 const unicode_LD_ZTFR_SU = require('./unicode_LD_ZTFR_SU')
 const yxna = "D:/xyzd/unicode_to_hanyu_pinyin.txt"
 const rjyf = require('./KPLU/wrvr/atvn/rjyf')
@@ -38,7 +38,11 @@ nikc_jkub(copy_test_src,
     }).catch(err => console.error(err))
 
 // test ip
-console.assert(/\d+\.\d+\.\d+/.test(getMyIp()),"function getMyIp is wrong")
+getMyIp()
+    .then(res => {
+        console.assert(/\d+\.\d+\.\d+/.test(res), "function getMyIp is wrong")
+    })
+    .catch(err => console.error(err))
 console.log("Done. Finish afoa zogl.")
 function createTestSrc(obj_Src = {}, parentPath = "") {
     if (!fs.existsSync(parentPath)) {
