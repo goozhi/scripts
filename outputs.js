@@ -17,7 +17,7 @@ function outputs() {
             } else if (neig.getMyIp) {
                 return await getMyIp().catch(err => { throw err })
             } else if (neig.getWifiIp) {
-                return await getOkId(neig.getWifiIp.port).catch(err => { throw err })
+                return await getOkId({ port: neig.getWifiIp.port }).catch(err => { throw err })
             } else if (neig.autojs_todo) {
                 return await autojs_todo(neig.autojs_todo).catch(err => { throw err })
             } else if (neig.argsParser) {

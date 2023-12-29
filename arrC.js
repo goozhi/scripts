@@ -8,7 +8,7 @@ const execc = require('./execc');
 const update = require('./update');
 const cmdMatch = require('./cmdMatch');
 const axios = require('axios');
-const wrvr=require('./KPLU/wrvr/index.js')
+const wrvr = require('./KPLU/wrvr/index.js')
 const uni = require('./uni');
 const auto_get_ip = require('./auto-get-ip.js');
 const getTheIp = require('./getTheIp.js');
@@ -89,13 +89,13 @@ const arrC = [
                 autoip
                 `,
         func: auto_get_ip
-    }], [['ip','getip'], {
+    }], [['getip'], {
         describe: `get the ip
                 example:
-                ip
+                getip
                 `,
         func: getTheIp
-    }], [['wifi','wifiip'], {
+    }], [['wifi', 'ip', 'wifiip'], {
         describe: `get the wifi ip
                 example:
                 wifi

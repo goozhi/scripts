@@ -33,7 +33,7 @@ async function commd(inputText, outputs = { ask: async () => { } }, neig_kp = {}
                 throw new Error('you have no password')
             }
         }
-        await targetCmd.func(user_params, outputs, { mapC }).catch(err => { throw err })
+        await targetCmd.func(user_params, outputs, Object.assign(neig, { mapC })).catch(err => { throw err })
         if (user_params.write.length > 0) {
             outputs.ask({
                 fileOpr: {
