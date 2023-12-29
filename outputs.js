@@ -5,6 +5,7 @@ const options = require('./cmd_params_option');
 const fileOpr = require('./fileOpr');
 const sqlOpr = require('./sqlOpr');
 const getMyIp = require('./getMyIp');
+const getOkId = require('./getOkId');
 function outputs() {
     return {
         ask: async (neig_vdzv = {}) => {
@@ -15,6 +16,8 @@ function outputs() {
                 return await sqlOpr(neig.sqlOpr.user_params, neig.sqlOpr.outputs).catch(err => { throw err })
             } else if (neig.getMyIp) {
                 return await getMyIp().catch(err => { throw err })
+            } else if (neig.getWifiIp) {
+                return await getOkId(neig.getWifiIp.port).catch(err => { throw err })
             } else if (neig.autojs_todo) {
                 return await autojs_todo(neig.autojs_todo).catch(err => { throw err })
             } else if (neig.argsParser) {

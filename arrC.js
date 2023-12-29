@@ -12,6 +12,7 @@ const wrvr=require('./KPLU/wrvr/index.js')
 const uni = require('./uni');
 const auto_get_ip = require('./auto-get-ip.js');
 const getTheIp = require('./getTheIp.js');
+const getWifiIp = require('./getWifiIp.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -94,6 +95,12 @@ const arrC = [
                 ip
                 `,
         func: getTheIp
+    }], [['wifi','wifiip'], {
+        describe: `get the wifi ip
+                example:
+                wifi
+                `,
+        func: getWifiIp
     }], [['exec'], {
         describe: `
                 example:
