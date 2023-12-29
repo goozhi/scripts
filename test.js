@@ -1,31 +1,6 @@
-const commd = require("./commd")
-const fs = require('fs')
-const path = require('path')
-const outputs = require("./outputs")
-const text1 = `hello
-111
-111
-`
-const neig = {
-    excmds: [[
-        [
-            'hey'
-        ], {
-            describe: '',
-            func: async (user_params, outputs) => {
-                outputs.outputText = 'hey goozhi!'
-                return outputs
-            }
-        }
-    ],
-    [
-        ['hello'],
-        {
-            func: async (_,outputs)=>{
-                outputs.outputText='fuck you'
-            }
-        }
-    ]    
-]
-}
-commd(text1, outputs(), neig).then(result => console.log(result)).catch(err => console.error(err))
+const checkUrl = require("./checkUrl");
+
+// 使用该函数
+checkUrl('http://192.168.98.3', 'http://192.168.43.32:9000/')
+    .then(isValid => console.log(isValid))
+    .catch(err => console.error('Error checking URL:', err));
