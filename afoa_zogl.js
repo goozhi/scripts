@@ -10,9 +10,18 @@ const nikc_ld_diwr_zv_rjvt_rjqt_bqeo = require('./nikc_ld_diwr_zv_rjvt_rjqt_bqeo
 const getMyIp = require('./getMyIp')
 const vnwm_1 = []
 const obj_ybkc = {}
+//zogl zogl ip mr url
+const checkUrl = require("./checkUrl");
+
+checkUrl('http://192.168.43.32:9000', 'http://192.168.43.237:9000'
+    , 'http://192.168.43.242')
+    .catch(error => console.error(error))
+
+// zogl rjqt_tum jkud
 const copy_test_src = path.resolve('test/copy_test_src')
 const copy_test_tar = path.resolve('test/copy_test_src/test_1')
 const neig_test = { ignoreFiles: ['^test_1/hello_2.*'] }
+
 const obj_Src = {
     test: {
         copy_test_src: {

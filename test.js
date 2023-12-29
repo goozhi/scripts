@@ -1,6 +1,8 @@
 const checkUrl = require("./checkUrl");
 
-// 使用该函数
-checkUrl('http://192.168.98.3', 'http://192.168.43.32:9000/')
-    .then(isValid => console.log(isValid))
-    .catch(err => console.error('Error checking URL:', err));
+checkUrl('http://192.168.43.32:9000', 'http://192.168.43.237:9000'
+    // , 'http://192.168.43.238:9000'
+    // , 'http://192.168.43.239:9000'
+    // , 'http://192.168.43.240:9000'
+    // , 'http://192.168.43.241:9000'
+    , 'http://192.168.43.242:9000').then(res => console.log(res)).catch(error => console.error(error))
