@@ -15,12 +15,18 @@ async function fileOpr(neig_vdzv = {}) {
     if (key === 'writeFileSync' || key === 'appendFileSync') {
         if (fs.existsSync(neig.existPath || path.dirname(neig.path))) {
             fs[key](neig.path, encoding.convert(neig.content, neig.encoding, 'utf8'))
-            return { [neig.opr + 'IsOk']: true }
+            return { isOk: true }
         } else {
             // throw new Error(`desc-path not exists-${neig.existPath || neig.path}`)
         }
     } else if (key === 'readFileSync') {
-        return { [neig.opr + 'IsOk']: true, content: encoding.convert(fs.readFileSync(neig.path), 'utf8', neig.encoding).toString() }
+        return (() => {
+            try {
+                return { isOk: true, content: encoding.convert(fs.readFileSync(neig.path), 'utf8', neig.encoding).toString() }
+            } catch (err) {
+                return { isOk: false, err: err, reason: err.message }
+            }
+        })()
     } else {
         throw new Error('desc-wrong key of fs-' + key)
     }

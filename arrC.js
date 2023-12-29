@@ -36,11 +36,16 @@ const arrC = [
                 share -a test
                 a message shared.
 
-                share getAll
-                you will get all the message shared.
+                If you want to get all the message shared:
+                share get
 
+                If you want to search:
+                share get
+                keyword
+
+                or:
                 share find
-                you
+                keyword
                 `,
         func: share
     }],
