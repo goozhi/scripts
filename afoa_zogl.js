@@ -7,6 +7,7 @@ const wrvr = require('./KPLU/wrvr')
 const path = require('path')
 const nikc_jkub = require('./nikc_jkub')
 const nikc_ld_diwr_zv_rjvt_rjqt_bqeo = require('./nikc_ld_diwr_zv_rjvt_rjqt_bqeo')
+const getMyIp = require('./getMyIp')
 const vnwm_1 = []
 const obj_ybkc = {}
 const copy_test_src = path.resolve('test/copy_test_src')
@@ -35,6 +36,9 @@ nikc_jkub(copy_test_src,
         console.assert(obj_tar['test_1']['hello_1'].toString() === 'hello 1', `copy failed`)
         console.assert(!obj_tar['test_1']['hello_2'], `neig failed ${JSON.stringify(neig_test)}`)
     }).catch(err => console.error(err))
+
+// test ip
+console.assert(/\d+\.\d+\.\d+/.test(getMyIp()),"function getMyIp is wrong")
 console.log("Done. Finish afoa zogl.")
 function createTestSrc(obj_Src = {}, parentPath = "") {
     if (!fs.existsSync(parentPath)) {
