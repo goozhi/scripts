@@ -1,5 +1,5 @@
 const sttuInPhone = async (_, outputs = { ask: () => { }, outputText }) => {
-    outputs.outputText = await outputs.ask(
+    outputs.outputText = "current battery(%):" + await outputs.ask(
         {
             autojs_todo: "function(){return device.getBattery()}"
         }

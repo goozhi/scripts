@@ -3,6 +3,7 @@ const calcExpression = require('./calcExpression');
 const share = require('./share');
 const numGo = require('./numGo');
 const sttuInPhone = require('./sttuInPhone');
+const ask_autojs = require('./ask-autojs.js');
 const execc = require('./execc');
 const update = require('./update');
 const cmdMatch = require('./cmdMatch');
@@ -72,6 +73,13 @@ const arrC = [
                 sttu
                 `,
         func: sttuInPhone
+    }], [['auto', 'autojs'], {
+        describe: `ask autojs to execute your function
+                example:
+                auto
+                return 99
+                `,
+        func: ask_autojs
     }], [['exec'], {
         describe: `
                 example:

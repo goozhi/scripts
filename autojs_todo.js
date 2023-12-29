@@ -50,7 +50,7 @@ async function loop_do(counter = { startTime: 0, next: () => { } }, option = { a
                 if (f1_c.err) {
                     reject(err)
                 } else if (f1_c.result) {
-                    resolve("current battery(%):" + f1_c.result)
+                    resolve(f1_c.result)
                 } else {
                     reject(new Error('unkown err!!!'))
                 }
