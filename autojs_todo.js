@@ -48,7 +48,7 @@ async function loop_do(counter = { startTime: 0, next: () => { } }, option = { a
                 }
             } else {
                 if (f1_c.err) {
-                    reject(err)
+                    reject(f1_c.err)
                 } else if (f1_c.result) {
                     resolve(f1_c.result)
                 } else {
