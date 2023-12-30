@@ -185,7 +185,7 @@ fffffffffff*2 = 35184372088830
         `yfk vrk yfvr`
     ]
     , [
-        `ip`,
+        `getip`,
         `\\d+\\.\\d+\\.\\d+`, { regex: true }
     ]
 ]

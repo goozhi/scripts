@@ -123,7 +123,7 @@ const arrC = [
                 `,
         func: auto_get_ip
     }], [['getip'], {
-        describe: `get the ip
+        describe: `get the ip in your computer.
                 example:
                 getip
                 `,
