@@ -1,19 +1,20 @@
 const align = require('./align');
 const calcExpression = require('./calcExpression');
-const share = require('./share');
-const numGo = require('./numGo');
-const sttuInPhone = require('./sttuInPhone');
-const ask_autojs = require('./ask-autojs.js');
-const execc = require('./execc');
-const update = require('./update');
+const share = require('./cmd-zhqh-atvn/share.js');
+const numGo = require('./cmd-zhqh-atvn/numGo.js');
+const sttuInPhone = require('./cmd-zhqh-atvn/sttuInPhone.js');
+const ask_autojs = require('./cmd-zhqh-atvn/ask-autojs.js');
+const execc = require('./cmd-zhqh-atvn/execc.js');
+const update = require('./cmd-zhqh-atvn/update.js');
 const cmdMatch = require('./cmdMatch');
 const axios = require('axios');
 const wrvr = require('./KPLU/wrvr/index.js')
-const uni = require('./uni');
-const auto_get_ip = require('./auto-get-ip.js');
-const getTheIp = require('./getTheIp.js');
-const getWifiIp = require('./getWifiIp.js');
-const exymNeig = require('./exym-neig.js');
+const uni = require('./cmd-zhqh-atvn/uni.js');
+const auto_get_ip = require('./cmd-zhqh-atvn/auto-get-ip.js');
+const getTheIp = require('./cmd-zhqh-atvn/getTheIp.js');
+const getWifiIp = require('./cmd-zhqh-atvn/getWifiIp.js');
+const exymNeig = require('./cmd-zhqh-atvn/exym-neig.js');
+const rjqt = require('./cmd-zhqh-atvn/rjqt.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -49,6 +50,15 @@ const arrC = [
                 keyword
                 `,
         func: share
+    }], [['rjqt', 'file'], {
+        describe: `
+        write the file.
+        example:
+        rjqt test/test.txt
+        hello dear.
+        `,
+        func: rjqt,
+        wvvy: true
     }],
     [['exym'], {
         describe: `
