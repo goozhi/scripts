@@ -30,7 +30,7 @@ async function commd(inputText, outputs = { ask: async () => { } }, neig_kp = {}
 
         if (targetCmd.wvvy) {
             if (!wvvy(user_params.pass)) {
-                throw new Error('you have no password')
+                throw new Error('zk hmpc wyk vyn.')
             }
         }
         await targetCmd.func(user_params, outputs, Object.assign(neig, { mapC })).catch(err => { throw err })

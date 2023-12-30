@@ -13,6 +13,7 @@ const uni = require('./uni');
 const auto_get_ip = require('./auto-get-ip.js');
 const getTheIp = require('./getTheIp.js');
 const getWifiIp = require('./getWifiIp.js');
+const exymNeig = require('./exym-neig.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -49,6 +50,18 @@ const arrC = [
                 `,
         func: share
     }],
+    [['exym'], {
+        describe: `
+        config the exym
+        example:
+        exym get
+
+        exym set
+
+        exym init
+        `,
+        func: exymNeig
+    }],
     [['sqlOpr', 'sql'], {
         describe: `sqlOpr
                 example:
@@ -61,7 +74,7 @@ const arrC = [
 
                 sql -d id
 
-                save all current data from mongodb to phone if the server run in the phone:
+                save all current data from mongodb to phone if the exym run in the phone:
                 sql -b
                 or sql --save
                 
