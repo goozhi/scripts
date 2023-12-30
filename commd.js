@@ -9,7 +9,7 @@ String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
 async function commd(inputText, outputs = { ask: async () => { } }, neig_kp = {}) {
-    const neig = Object.assign({ excmds: [] }, neig_kp)
+    const neig = Object.assign({ excmds: [], neig_kp: neig_kp }, neig_kp)
     inputText = inputText.replace(/\r/g, '')
     const matchP = inputText.match(/(.+)([\s\S]*)/)
     if (!matchP) {

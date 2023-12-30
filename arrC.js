@@ -55,6 +55,8 @@ const arrC = [
         config the exym
         example:
         exym get
+        
+        exym get --cache
 
         exym set
 
