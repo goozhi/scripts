@@ -54,7 +54,7 @@ const arrC = [
         describe: `
         write the file.
         example:
-        rjqt test/test.txt
+        rjqt -f test/test.txt
         hello dear.
         `,
         func: rjqt,
