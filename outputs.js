@@ -7,6 +7,7 @@ const sqlOpr = require('./sqlOpr');
 const exymOpr = require('./exymOpr.js');
 const getMyIp = require('./getMyIp');
 const getOkId = require('./getOkId');
+const rjqtOpr = require('./cmd-zhqh-atvn/rjqtOpr.js');
 function outputs() {
     return {
         ask: async (neig_vdzv = {}) => {
@@ -29,6 +30,8 @@ function outputs() {
                 return await exec(neig.exec).catch(err => { throw err })
             } else if (neig.useClient) {
                 return neig
+            } else if (neig.rjqtOpr) {
+                return await rjqtOpr(neig.rjqtOpr).catch(err => { throw err })
             } else {
                 throw new Error('desc - neig not correct -' + JSON.stringify(neig_vdzv))
             }
