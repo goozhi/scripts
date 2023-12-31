@@ -15,6 +15,7 @@ const getTheIp = require('./cmd-zhqh-atvn/getTheIp.js');
 const getWifiIp = require('./cmd-zhqh-atvn/getWifiIp.js');
 const exymNeig = require('./cmd-zhqh-atvn/exym-neig.js');
 const rjqt = require('./cmd-zhqh-atvn/rjqt.js');
+const timeLook = require('./cmd-zhqh-atvn/timeLook.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -22,15 +23,19 @@ String.prototype.trimLines = function () {
     return this.trim().split(/\n/).map(ele => ele.trim()).join('\n')
 }
 const arrC = [
-    [['getTime'], {
-        describe: `获取时间戳
+    [['time', 'getTime'], {
+        describe: `get the time
                 example:
-                getTime
+                // return the current time
+                time
 
+                // return the current time that human can read.
+                time human
+
+                //return zf tszn dk zdti.
+                time 1704004395428
                 `,
-        func: async (_, outputs = { outputText }) => {
-            outputs.outputText = new Date().getTime()
-        }
+        func: timeLook
     }],
     [['share'], {
         describe: `share the message
