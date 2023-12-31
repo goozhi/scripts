@@ -1,7 +1,10 @@
-const auto_get_ip = async (user_params = { lastParams }, outputs = { ask: () => { }, outputText }) => {
-    outputs.outputText = await outputs.ask(
-        {
-            autojs_todo: `
+const auto_get_ip = async (user_params = { lastParams }, outputs = { ask: () => { }, outputText }, neig_kp = {}) => {
+  const neig = Object.assign({ neig_kp }, neig_kp)
+  outputs.outputText = await outputs.ask(
+    {
+      autojs_todo: {
+        neig,
+        rj_func: `
             function(){
 importClass("java.net.InetAddress");
 importClass("java.net.NetworkInterface");
@@ -39,8 +42,10 @@ function getIntranetIP() {
 }
 
 }            `
-        }
-    ).catch(err => { throw err })
+
+      }
+    }
+  ).catch(err => { throw err })
 }
 module.exports = auto_get_ip
 

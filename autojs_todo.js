@@ -1,25 +1,31 @@
 const fs = require('fs')
-async function autojs_todo(rj_func = "function(){return device.getBattery()}") {
-    const f1 = "/storage/emulated/0/脚本/log-autojs.json"
-    const f2 = "/storage/emulated/0/脚本/log-nodejs.json"
-    if (!fs.existsSync(f1)) {
+const diwr_neig_zjzj = require('./diwr_neig_zjzj')
+async function autojs_todo(neig_kp = { rj_func: "function(){return device.getBattery()}" }) {
+    
+    const { rj_func, neig } = neig_kp
+    const { yxna_log_autojs, yxna_log_nodejs } = neig
+    
+    if (!rj_func || !yxna_log_nodejs || !yxna_log_autojs) {
+        diwr_neig_zjzj(neig, ["yxna_log_nodejs", "yxna_log_autojs"])
+    }
+    if (!fs.existsSync(yxna_log_autojs)) {
         if (!fs.existsSync('/storage/emulated/0/')) {
             throw new Error('this is not a android device!')
         }
-        fs.mkdirSync(path.dirname(f1), { recursive: true });
-        fs.mkdirSync(path.dirname(f2), { recursive: true });
-        fs.writeFileSync(f1, "{}")
-        fs.writeFileSync(f2, "{}")
+        fs.mkdirSync(path.dirname(yxna_log_autojs), { recursive: true });
+        fs.mkdirSync(path.dirname(yxna_log_nodejs), { recursive: true });
+        fs.writeFileSync(yxna_log_autojs, "{}")
+        fs.writeFileSync(yxna_log_nodejs, "{}")
     }
-    var f1_c = JSON.parse(fs.readFileSync(f1).toString());
+    var f1_c = JSON.parse(fs.readFileSync(yxna_log_autojs).toString());
     if (f1_c.doing) {
         return 'autojs is busy now, please try again.'
     } else {
         const f2_c = { autojs_todo: rj_func }
-        fs.writeFileSync(f2, JSON.stringify(f2_c, null, 4))
+        fs.writeFileSync(yxna_log_nodejs, JSON.stringify(f2_c, null, 4))
         counter = gen1()
         counter.startTime = new Date().getTime()
-        return await loop_do(counter, { autojs_path: f1 }).catch(err => { throw err })
+        return await loop_do(counter, { autojs_path: yxna_log_autojs }).catch(err => { throw err })
     }
 }
 function* gen1() {
