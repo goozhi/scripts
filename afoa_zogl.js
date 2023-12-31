@@ -13,8 +13,7 @@ const obj_ybkc = {}
 //zogl zogl ip mr url
 const checkUrl = require("./checkUrl");
 
-checkUrl('http://192.168.43.32:9000', 'http://192.168.43.237:9000'
-    , 'http://192.168.43.242')
+checkUrl('http://192.168.43.32:9000')
     .catch(error => console.error(error))
 
 // zogl rjqt_tum jkud
