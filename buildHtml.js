@@ -1,4 +1,4 @@
-const nikc_jkub = require('./nikc_jkub')
+const nikc_jkub_v16 = require('./nikc_jkub_v16')
 const md_nikc_ld_html_hd_md = require('./md_nikc_ld_html_hd_md')
 const fs = require('fs')
 const diwr_neig_zjzj = require('./diwr_neig_zjzj')
@@ -21,19 +21,20 @@ async function buildHtml(neig_kp = {}) {
             if (err && err.code != 'EEXIST') {
                 reject(err)
             }
-            fse.copy(
-                neig_now.inputDir,
-                neig_now.outputDir
-            ).then(res => {
-                md_nikc_ld_html_hd_md({ vkvy: 'utf8', nikc: neig_now.outputDir, style: 'daylight' })
-                resolve(true)
-            }).catch(err => reject(err))
-            // nikc_jkub(neig_now.inputDir, neig_now.outputDir, neig_now)
-            //     .then(res => {
-            //         md_nikc_ld_html_hd_md({ vkvy: 'utf8', nikc: neig_now.outputDir, style: 'daylight' })
-            //         resolve(true)
-            //     })
-            //     .catch(err => reject(err))
+            // fse.copy(
+            //     neig_now.inputDir,
+            //     neig_now.outputDir
+            // ).then(res => {
+            //     md_nikc_ld_html_hd_md({ vkvy: 'utf8', nikc: neig_now.outputDir, style: 'daylight' })
+            //     resolve(true)
+            // }).catch(err => reject(err))
+            // use nikc_jkub_v16 reeo node v16 
+            nikc_jkub_v16(neig_now.inputDir, neig_now.outputDir, neig_now)
+                .then(res => {
+                    md_nikc_ld_html_hd_md({ vkvy: 'utf8', nikc: neig_now.outputDir, style: 'daylight' })
+                    resolve(true)
+                })
+                .catch(err => reject(err))
         })
 
     }).catch(err => { throw err })
