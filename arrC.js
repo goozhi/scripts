@@ -178,7 +178,7 @@ const arrC = [
                 var a1 = 9
                 return a1
                 `,
-        func: async (user_params = { lastParams }, outputs = { outputText }) => {
+        func: async (user_params = { lastParams }, outputs = { outputText }, neig) => {
             const vwdp_atvn = eval('(async function main(){' + user_params.lastParams + '\n})')
             outputs.outputText = String(await vwdp_atvn().catch(err => { throw err }))
         }
