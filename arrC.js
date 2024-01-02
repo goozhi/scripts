@@ -120,7 +120,8 @@ const arrC = [
                 auto
                 return 99
                 `,
-        func: ask_autojs
+        func: ask_autojs,
+        aoao_ji_ssvl: true
     }], [['autoip'], {
         describe: `ask autojs to get the ip
                 example:

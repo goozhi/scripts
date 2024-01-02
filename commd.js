@@ -33,6 +33,9 @@ async function commd(inputText, outputs = { ask: async () => { } }, neig_kp = {}
                 throw new Error('zk hmpc wyk vyn.')
             }
         }
+        if (targetCmd.aoao_ji_ssvl && !neig.ji_exym_oc_ssvl) {
+            throw new Error('bj hmpc nq ssvl mb exym.')
+        }
         await targetCmd.func(user_params, outputs, Object.assign(neig, { mapC })).catch(err => { throw err })
         if (user_params.write.length > 0) {
             outputs.ask({
