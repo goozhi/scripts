@@ -16,7 +16,7 @@ function outputs() {
             if (neig.fileOpr) {
                 return await fileOpr(neig.fileOpr).catch(err => { throw err })
             } else if (neig.tzfsOpr) {
-                return await tzfsOpr(neig.tzfs).catch(err => { throw err })
+                return await tzfsOpr(neig.tzfsOpr).catch(err => { throw err })
             } else if (neig.sqlOpr) {
                 return await sqlOpr(neig.sqlOpr.user_params, neig.sqlOpr.outputs).catch(err => { throw err })
             } else if (neig.exymOpr) {
