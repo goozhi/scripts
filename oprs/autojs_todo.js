@@ -1,5 +1,5 @@
 const fs = require('fs')
-const diwr_neig_zjzj = require('./diwr_neig_zjzj')
+const diwr_neig_zjzj = require('../diwr_neig_zjzj')
 async function autojs_todo(neig_kp = { rj_func: "function(){return device.getBattery()}" }) {
     
     const { rj_func, neig } = neig_kp

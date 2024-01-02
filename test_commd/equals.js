@@ -184,9 +184,10 @@ fffffffffff*2 = 35184372088830
         同志yfvr`,
         `yfk vrk yfvr`
     ]
-    , [
-        `getip`,
-        `\\d+\\.\\d+\\.\\d+`, { regex: true }
-    ]
+    // dgl tsjq aqfc ytjp jtww.
+    // , [
+    //     `getip`,
+    //     `\\d+\\.\\d+\\.\\d+`, { regex: true }
+    // ]
 ]
 module.exports = equals

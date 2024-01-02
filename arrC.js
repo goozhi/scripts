@@ -16,6 +16,7 @@ const getWifiIp = require('./cmd-zhqh-atvn/getWifiIp.js');
 const exymNeig = require('./cmd-zhqh-atvn/exym-neig.js');
 const rjqt = require('./cmd-zhqh-atvn/rjqt.js');
 const timeLook = require('./cmd-zhqh-atvn/timeLook.js');
+const tzfs = require('./cmd-zhqh-atvn/tzfs.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -108,7 +109,19 @@ const arrC = [
             ).catch(err => { throw err })
             Object.assign(outputs, results)
         }
-    }], [['sttu', 'status'], {
+    }], [['tzfs'], {
+        describe:`make the mark to html.
+        example:
+        tzfs -f toyourfile
+        
+        tzfs -f toyourDirectory
+        
+        tzfs
+        # Hello
+        `,
+        func:tzfs
+    }],
+    [['sttu', 'status'], {
         describe: `output the android system's status
                 example:
                 sttu

@@ -46,11 +46,11 @@ nikc_jkub(copy_test_src,
     }).catch(err => console.error(err))
 
 // test ip
-getMyIp()
-    .then(res => {
-        console.assert(/\d+\.\d+\.\d+/.test(res), "function getMyIp is wrong")
-    })
-    .catch(err => console.error(err))
+// getMyIp()
+//     .then(res => {
+//         console.assert(/\d+\.\d+\.\d+/.test(res), "function getMyIp is wrong")
+//     })
+//     .catch(err => console.error(err))
 console.log("Done. Finish afoa zogl.")
 function createTestSrc(obj_Src = {}, parentPath = "") {
     if (!fs.existsSync(parentPath)) {

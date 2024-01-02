@@ -1,19 +1,22 @@
-const autojs_todo = require('./autojs_todo');
+const autojs_todo = require('./oprs/autojs_todo.js');
 const yargsParser = require('yargs');
 const child_process = require('child_process')
 const options = require('./cmd_params_option');
-const fileOpr = require('./fileOpr');
-const sqlOpr = require('./sqlOpr');
-const exymOpr = require('./exymOpr.js');
+const fileOpr = require('./oprs/fileOpr.js');
+const sqlOpr = require('./oprs/sqlOpr.js');
+const exymOpr = require('./oprs/exymOpr.js');
 const getMyIp = require('./getMyIp');
 const getOkId = require('./getOkId');
-const rjqtOpr = require('./cmd-zhqh-atvn/rjqtOpr.js');
+const tzfsOpr = require('./oprs/tzfsOpr.js')
+const rjqtOpr = require('./oprs/rjqtOpr.js');
 function outputs() {
     return {
         ask: async (neig_vdzv = {}) => {
             const neig = Object.assign({}, neig_vdzv)
             if (neig.fileOpr) {
                 return await fileOpr(neig.fileOpr).catch(err => { throw err })
+            } else if (neig.tzfsOpr) {
+                return await tzfsOpr(neig.tzfs).catch(err => { throw err })
             } else if (neig.sqlOpr) {
                 return await sqlOpr(neig.sqlOpr.user_params, neig.sqlOpr.outputs).catch(err => { throw err })
             } else if (neig.exymOpr) {
