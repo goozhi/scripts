@@ -179,7 +179,8 @@ const arrC = [
                 return a1
                 `,
         func: async (user_params = { lastParams }, outputs = { outputText }) => {
-            outputs.outputText = String(eval('function main(){' + user_params.lastParams + '\n};main()'))
+            const vwdp_atvn = eval('(async function main(){' + user_params.lastParams + '\n})')
+            outputs.outputText = String(await vwdp_atvn().catch(err => { throw err }))
         }
     }],
     [['cc', 'calc'], {
