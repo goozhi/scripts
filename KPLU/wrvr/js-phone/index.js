@@ -47,6 +47,6 @@ return diwr_1[match_1.toLowerCase()]||match_1
 answer_1=diwr_1[input_1.toLowerCase()]||diwr_2[input_1]||"未定义"
 }
 
-alert(input_1,answer_1)
+alert(input_1.replace(/([\s\S]{100,100})[\s\S]*/,"$1..."),answer_1)
 }
 gn.USMG_LP(ask,"check","chec k");
