@@ -17,6 +17,7 @@ const exymNeig = require('./cmd-zhqh-atvn/exym-neig.js');
 const rjqt = require('./cmd-zhqh-atvn/rjqt.js');
 const timeLook = require('./cmd-zhqh-atvn/timeLook.js');
 const tzfs = require('./cmd-zhqh-atvn/tzfs.js');
+const unicode = require('./cmd-zhqh-atvn/unicode.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -110,7 +111,7 @@ const arrC = [
             Object.assign(outputs, results)
         }
     }], [['tzfs'], {
-        describe:`make the mark to html.
+        describe: `make the mark to html.
         example:
         tzfs -f toyourfile
         
@@ -119,7 +120,7 @@ const arrC = [
         tzfs
         # Hello
         `,
-        func:tzfs
+        func: tzfs
     }],
     [['sttu', 'status'], {
         describe: `output the android system's status
@@ -358,6 +359,46 @@ const arrC = [
           1
     `,
         func: numGo
-    }]
+    }],
+    [['qqld'], {
+        describe: `qqld rjse dk qh magm.
+        example:
+        qqld
+        1
+        2`,
+        func: async (user_params = {}, outputs = {}) => {
+            if (user_params.lastParams) {
+                outputs.outputText = (() => {
+                    const vnwm_yhld = user_params.lastParams.split(/\n/)
+                    vnwm_yhld.reverse()
+                    return vnwm_yhld.join('\n')
+                })()
+            } else {
+                throw new Error('csrf-err: zf aoao vdzv mcvn.')
+            }
+        }
+    }],
+    [['unicode'], {
+        describe: `unicode ss rjse ldrg.
+        example:
+        unicode
+        hello
+        
+        unicode unicode
+        \\u0068\\u0065\\u006c\\u006c\\u006f`,
+        func: unicode
+    }], [
+        ['magm'], {
+            describe: `ja rjse dk qh magm.
+            example:
+            magm
+            b
+            a
+            d`,
+            func: async (user_params, outputs) => {
+                outputs.outputText = user_params.lastParams.split(/\n/).sort().join('\n')
+            }
+        }
+    ]
 ]
 module.exports = arrC

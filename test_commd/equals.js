@@ -182,11 +182,31 @@ fffffffffff*2 = 35184372088830
         `tzfs
         # Hello`
         , 'h1', { regex: true }
+    ], [
+        `qqld
+        1
+        2
+        3`.trimLines(),
+        `3\n2\n1`
     ]
     , [
         `wrvr wrvr
         同志yfvr`,
         `yfk vrk yfvr`
+    ]
+    , [
+        `unicode\nhello`,
+        `\\u0068\\u0065\\u006c\\u006c\\u006f`
+    ], [
+        `unicode unicode
+        \\u0068\\u0065\\u006c\\u006c\\u006f`,
+        `hello`
+    ], [
+        `magm
+        b
+        c
+        a`.trimLines(),
+        `a\nb\nc`
     ]
 ]
 module.exports = equals
