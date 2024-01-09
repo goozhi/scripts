@@ -38,6 +38,11 @@ if(/^reset$/i.test(input_1)){
 toast("hold on")
 engines.execScriptFile("/storage/emulated/0/rsgm/scripts/KPLU/wrvr/js-phone/index.js")
 exit()
+}else if(/^file$/i.test(input_1)){
+let input_2=rawInput("rt vdzv yxna:")
+input_1=files.read(input_2.replace(/[\s\S]*\n(.*\/.*\/.*)[\s\S]*/,"$1"))
+}else if(/编码\nUTF.8\n换行符/.test(input_1)){
+input_1=files.read(input_1.replace(/[\s\S]*\n(.*\/.*\/.*)[\s\S]*/,"$1"))
 }
 if(/\s|-/.test(input_1)){
 answer_1=input_1.replace(/\w+/g,((match_1)=>{
