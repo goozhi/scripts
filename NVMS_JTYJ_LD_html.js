@@ -1,4 +1,4 @@
-const wk_mk_html_code = require('./wk_mk_html_code');
+const marked = require('marked');
 async function NVMS_JTYJ_LD_html(rj_kp) {
     var rj_1 = rj_kp
     rj_html = `
@@ -28,7 +28,7 @@ function show(id){
         }
         var vnwm_html = vnwm_uj.map(async (rn1, eqwy_1) => {
             var zkrs = rn1.match(/.*(?:】|》)/)
-                return wk_mk_html_code(`<div>
+                return marked.marked(`<div>
         <h4 onclick="show('a${eqwy_1}')">${zkrs}</h4>
         <div id="a${eqwy_1}" style="display:${oakl_yntz}">
         <pre><code class="language-js">${rn1}</code></pre>
