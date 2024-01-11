@@ -7,6 +7,7 @@ const wrvr = require('./KPLU/wrvr')
 const buildHtml = require("./buildHtml");
 const path = require('path')
 const nikc_jkub = require('./nikc_jkub')
+const nikc_jkub_v16 = require('./nikc_jkub_v16')
 const nikc_ld_diwr_zv_rjvt_rjqt_bqeo = require('./nikc_ld_diwr_zv_rjvt_rjqt_bqeo')
 const getMyIp = require('./getMyIp')
 const vnwm_1 = []
@@ -48,6 +49,7 @@ const obj_mark_src = {
     }
 }
 hd_rjqt_tum(copy_test_src)
+hd_rjqt_tum(copy_test_tar)
 hd_rjqt_tum(nikc_inputDir_mark)
 hd_rjqt_tum(nikc_outputDir_mark)
 
@@ -78,6 +80,19 @@ buildHtml({ inputDir: nikc_inputDir_mark, outputDir: nikc_outputDir_mark })
 ngnc_nikc_fywy_diwr(obj_Src, path.resolve())
 
 nikc_jkub(copy_test_src,
+    copy_test_tar,
+    neig_test)
+    .then(res => {
+        const obj_tar = nikc_ld_diwr_zv_rjvt_rjqt_bqeo(copy_test_tar)
+        obj_tar
+        console.assert(obj_tar['test_1']['hello_1'].toString() === 'hello 1', `copy failed`)
+        console.assert(!obj_tar['test_1']['hello_2'], `neig failed ${JSON.stringify(neig_test)}`)
+    }).catch(err => console.error(err))
+
+// zogl rjqt tum jkub v16 os
+hd_rjqt_tum(copy_test_tar)
+ngnc_nikc_fywy_diwr(obj_Src, path.resolve())
+nikc_jkub_v16(copy_test_src,
     copy_test_tar,
     neig_test)
     .then(res => {
