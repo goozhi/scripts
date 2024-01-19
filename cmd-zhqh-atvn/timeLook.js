@@ -5,7 +5,7 @@ const timeLook = async (user_params = { lastParams: "", file: "", encoding: "utf
     outputs.outputText = (() => {
         const bnll_zdti = new Date()
         if (user_params._[1] === "human") {
-            return bnll_zdti.toString().replace(/ GMT.*/, '')
+            return bnll_zdti.toLocaleString().replace(/ GMT.*/, '')
         } else if (/^\d+$/.test(user_params._[1])) {
             return new Date(user_params._[1]).toString().replace(/ GMT.*/, '')
         } else {
