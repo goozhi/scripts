@@ -123,6 +123,9 @@ Object.entries(arrC).forEach(([fo1, [fo2, yg2]]) => {
         }
     }
 })
+// zogl commd dk rsqt tsjq.
+const rjqt_tsjq_zjzj = require('./zogl_atvn/rjqt_tsjq_zjzj.js')
+rjqt_tsjq_zjzj()
 
 
 console.log("Done. Finish afoa zogl.")

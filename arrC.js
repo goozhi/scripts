@@ -57,12 +57,65 @@ const arrC = [
                 keyword
                 `,
         func: share
-    }], [['rjqt', 'file'], {
+    }], [['rjqt', "tu", 'file'], {
         describe: `
-        write the file.
+        rjqt gzbu.
         example:
-        rjqt -f test/test.txt
+        rjqt rr /test/test.txt
         hello dear.
+        Rjqt rr cqpi lbm hfbc .bak rjqt. Ahno db --pczn mcvn mhxt.
+        paaw rr
+        rjqt rr /test/test.txt test/test.2.txt
+        hello dear.
+
+        paaw qoqi tszn nikc tt sopc rjqt bqeo
+        rjqt rr /out/ --files
+        hello dear.
+        rjqt rr /out/ -r matcher --files
+        hello dear.
+        
+        ca um tszn nikc dk sopc nini:
+        rjqt rjm /out/
+
+        rjvt rjqt:
+        rjqt rjm /out/test.txt
+        rjqt rjm /out/test.txt /out/test.2.txt 
+        
+        rjqt kz /out/test.txt /out/2/test.txt
+        rjqt kz /out/2 out/
+        rjqt kz /out/2 out/ --files
+        rjqt rename /out/test.txt /out/test2.txt
+
+        paaw rename
+        rjqt rename /out/ {ll}{2}{ud}
+        rjqt rename /out/ {ll}-new{ud} -r a b
+        
+        rjqt copy /out/test.txt /out/test2.txt
+        rjqt copy /out/ /out/2
+        rjqt copy /out/ /out/2 --files
+
+        rjqt hd /out
+        rjqt hd /out --files
+        rjqt hd /out/test.txt
+        rjqt hd /out/ -r matcher
+
+        rjqt mkdir /out
+        rjqt mkdir /out out2 out3
+
+        rjqt mkfile /test.txt
+        rjqt mkfile /test.1.txt test.2.txt
+
+        paaw zyvv rjqt bqeo:
+        rjqt zy /out/
+        rjqt zy /out/ -r matcher
+        rjqt zy /out/test.txt
+        rjqt zy /out/test.txt out/test.2.txt
+
+        rjqt filter /out -r a --wfqq
+
+        rjqt filter /out -r a --wfqq --bqeo
+        rjqt find /out/test.txt -r a
+
         `,
         func: rjqt,
         wvvy: true

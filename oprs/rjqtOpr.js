@@ -1,14 +1,216 @@
 const fs = require('fs')
 const path = require('path')
+const nikc_kzbz_v16 = require('../nikc_kzbz_v16')
+const reg_hfbc = require('../user_params-ldfs-atvn/reg_hfbc.js')
+const lz_rzwu = require('../rjqt_lz_rzwu')
+const filter_reg_hfbc = require('../user_params-ldfs-atvn/filter_reg_hfbc.js')
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
-    const { user_params } = neig
-    if (user_params.file) {
-        const yxna_nixb = path.resolve(user_params.file.replace(/\\/g, '/'))
-        fs.writeFileSync(yxna_nixb, user_params.lastParams)
-        return `rrzv "${yxna_nixb}" bcaf.`
+    const { user_params, outputs } = neig
+    if (user_params._[1] === 'rr') {
+        outputs.outputText = (() => {
+            if (user_params._[2]) {
+                if (!user_params.lastParams) {
+                    throw new Error(`You must type the content. If you want to clear file, use 'tu zyvv'.`)
+                }
+                if (user_params.hasOwnProperty("files")) {
+                    const reg_1 = reg_hfbc(user_params)
+                    return fs.readdirSync(user_params._[2])
+                        .filter(rn1 => reg_1.test(rn1))
+                        .map(rn1 => path.join(user_params._[2], rn1))
+                        .filter(rn1 => fs.statSync(rn1).isFile())
+                        .map(rn1 => {
+                            hfbc_bmee(rn1)
+                            fs.writeFileSync(rn1, user_params.lastParams)
+                            return `sdbc rr ${rn1}`
+                        })
+                } else {
+                    return user_params._.slice(2).map(rn1 => {
+                        hfbc_bmee(rn1)
+                        fs.writeFileSync(rn1, user_params.lastParams)
+                        return `sdbc rr ${rn1}`
+                    });
+                }
+            } else {
+                throw new Error(`csrf-err: aoao pc _[2] mcvn`)
+            }
+
+        })()
+    } else if (user_params._[1] === 'rjm') {
+        outputs.outputText = (() => {
+            if (user_params._[2]) {
+                if (fs.existsSync(user_params._[2])) {
+                    if (fs.statSync(user_params._[2]).isDirectory()) {
+                        return fs.readdirSync(user_params._[2]).map(rn1 => path.join(user_params._[2], rn1)).filter(rn1 => fs.statSync(rn1).isFile())
+                            .map(rn1 => {
+                                return `${rn1}\n${fs.readFileSync(rn1).toString()}`
+                            }).join('\n\n')
+                    } else {
+                        return user_params._.slice(2).map(rn1 => {
+                            if (fs.existsSync(rn1)) {
+                                return `${rn1}\n${fs.readFileSync(rn1).toString()}`
+                            } else {
+                                throw new Error(`path not exits :${rn1}`)
+                            }
+                        }).join('\n\n')
+                    }
+                } else {
+                    throw new Error('path not exits: ' + user_params._[2])
+                }
+            } else {
+                throw new Error('Nrap mcvn')
+            }
+        })()
+    } else if (user_params._[1] === 'copy') {
+    } else if (user_params._[1] === 'renamefiles') {
+        outputs.outputText = (() => {
+            return (() => {
+                if (user_params.hasOwnProperty('tszn')) {
+                    if (user_params.lastParams) {
+                        const vnwm_tszn_yxna = user_params.lastParams.trim()
+                            .split(/\n/).map(rn1 => rn1.trim())
+                            .filter(rn1 => /\S/.test(rn1))
+                        if (!user_params._[2]) {
+                            if (user_params.reg.length === 0) {
+                                throw new Error(`-r mcvn aoao pc.`)
+                            } else {
+                                user_params._[2] = "{ll}{ud}"
+                            }
+                        }
+                        return vnwm_tszn_yxna.map(rn1 => {
+                            return lz_rzwu(rn1, user_params._[2], Object.assign({ ymrg: false }, user_params))
+                        }).join('\n')
+                    } else {
+                        throw new Error('nrap mcvn')
+                    }
+                } else {
+                    if (!user_params._[2]) {
+                        throw new Error(`csrf-err: aoao pc da vy mcvn.`)
+                    }
+                    const reg_1 = filter_reg_hfbc(user_params)
+                    const vnwm_nixb_rjqt_wu = (() => {
+                        if (user_params.lastParams) {
+                            const vnwm_tszn_wu = user_params.lastParams
+                                .trim().split(/\n/)
+                                .map(rn1 => rn1.trim()).filter(rn1 => /\S/.test(rn1))
+                            return fs.readdirSync(user_params._[2])
+                                .filter(rn1 => fs.statSync(path.join(user_params._[2], rn1)).isFile())
+                                .filter(rn1 => vnwm_tszn_wu.includes(rn1))
+                        } else {
+                            return fs.readdirSync(user_params._[2])
+                                .filter(rn1 => fs.statSync(path.join(user_params._[2], rn1)).isFile())
+                                .filter(rn1 => reg_1.test(rn1))
+                        }
+                    })()
+                    return vnwm_nixb_rjqt_wu.map((rn1, eqwy_1) => {
+                        if (!user_params._[3]) {
+                            if (user_params.reg.length === 0) {
+                                throw new Error(`-r mcvn aoao pc.`)
+                            } else {
+                                user_params._[3] = "{ll}{ud}"
+                            }
+                        }
+                        return lz_rzwu(path.join(user_params._[2], rn1), user_params._[3], Object.assign({ vkih: eqwy_1, ymrg: user_params.hasOwnProperty('ymrg') }, user_params))
+                    }).join('\n')
+
+                }
+
+            })()
+        })()
+    } else if (user_params._[1] === 'rename') {
+        outputs.outputText = (() => {
+            if (!user_params._[2]) {
+                throw new Error(`csrf-err: aoao pc da vy mcvn.`)
+            }
+            if (fs.existsSync(user_params._[2])) {
+                if (fs.statSync(user_params._[2]).isDirectory()) {
+                    return lz_rzwu(user_params._[2], user_params._[3], { ymrg: false })
+                } else {
+                    return lz_rzwu(user_params._[2], user_params._[3], Object.assign({ ymrg: user_params.hasOwnProperty('ymrg') }, user_params))
+                }
+            } else {
+                throw new Error(`yxna ac zznq: ${user_params._[2]}`)
+            }
+        })()
+    } else if (user_params._[1] === 'kz') {
+        outputs.outputText = await (async () => {
+            if (user_params._[3]) {
+                if (fs.existsSync(user_params._[3])) {
+                    if (fs.statSync(user_params._[3]).isDirectory()) {
+                        if (fs.existsSync(user_params._[2])) {
+                            if (fs.statSync(user_params._[2]).isDirectory()) {
+                                if (user_params.hasOwnProperty("files")) {
+                                    const reg_1 = reg_hfbc(user_params)
+                                    const vwdp_2 = fs.readdirSync(user_params._[2]).filter(rn1 => reg_1.test(rn1)).map(async rn1 => {
+                                        const yxna_bnll = path.join(user_params._[2], rn1)
+                                        if (fs.statSync(yxna_bnll).isDirectory()) {
+                                            await nikc_kzbz_v16(yxna_bnll, path.join(user_params._[3], path.basename(yxna_bnll)), { ymrg: user_params.hasOwnProperty("ymrg") })
+                                                .catch(err => { throw err })
+                                        } else {
+                                            const yxna_nixb = path.join(user_params._[3], path.basename(yxna_bnll))
+                                            if (!user_params.hasOwnProperty("ymrg") && fs.existsSync(yxna_nixb)) {
+                                                throw new Error(`yxna cd zznq: ${yxna_nixb}`)
+                                            } else {
+                                                fs.renameSync(yxna_bnll, yxna_nixb
+                                                )
+                                            }
+                                        }
+                                    })
+                                    await Promise.all(vwdp_2).catch(err => { throw err })
+                                } else {
+                                    await nikc_kzbz_v16(user_params._[2], path.join(user_params._[3], path.basename(user_params._[2])), { ymrg: user_params.hasOwnProperty("ymrg") })
+                                        .catch(err => { throw err })
+                                }
+                            } else {
+                                const nixb_yxna = path.join(user_params._[3], path.basename(user_params._[2]))
+                                if (!user_params.hasOwnProperty("ymrg") && fs.existsSync(nixb_yxna)) {
+                                    throw new Error(`yxna cd zznq: ${nixb_yxna}, rt db --ymrg mcvn.`)
+                                } else {
+                                    fs.renameSync(user_params._[2], nixb_yxna)
+                                }
+                            }
+                        } else {
+                            throw new Error(`yxna ac zznq: ${user_params._[2]}`)
+                        }
+                    } else {
+                        throw new Error(`yxna aoao ji nikc: ${user_params._[3]}`)
+                    }
+                } else {
+                    throw new Error(`yxna ac zznq: ${user_params._[3]}`)
+                }
+            } else {
+                throw new Error(`Da bl nh mcvn aoao fc pc.`)
+            }
+
+        })().catch(err => { throw err })
+    } else if (user_params._[1] === 'zy') {
+    } else if (user_params._[1] === 'ls') {
+        outputs.outputText = (() => {
+            if (user_params._[2]) {
+                if (fs.existsSync(user_params._[2])) {
+                    return fs.readdirSync(user_params._[2]).join('\n')
+                } else {
+                    throw new Error(`The path is not exits-${user_params._[2]}`)
+                }
+            } else {
+                return path.resolve()
+            }
+        })()
+    } else if (user_params._[1] === 'filter') {
+
     } else {
-        throw new Error(`There must have a parameter.`)
+        throw new Error(`You must input the correct subparam.`)
     }
+    return outputs
 }
 module.exports = rjqtOpr
+function hfbc_bmee(yxna) {
+    if (fs.existsSync(yxna)) {
+        if (fs.statSync(yxna).isDirectory()) {
+            throw new Error(`yxna acoa ji rjqt tum : ${yxna}`)
+        } else {
+            fs.writeFileSync(yxna + ".bak", fs.readFileSync(yxna))
+            return true
+        }
+    }
+}
