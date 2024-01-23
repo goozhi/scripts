@@ -57,11 +57,18 @@ async function afoa(user_params, outputs) {
     } else {
         outputs.outputText = (() => {
             if (/\s|-/.test(user_params.lastParams)) {
-                return user_params.lastParams.replace(/\w+/g, ((match_1) => {
+                return (()=>{
+                const rj_rfrf_jtyj =                user_params.lastParams.replace(/\w+/g, ((match_1) => {
                     return diwr_non_eysj[match_1.toLowerCase()] ? diwr_non_eysj[match_1.toLowerCase()].yhrj : match_1
                 }))
-                .replace(/(?<!,|\.) (?!\w)/g, "")
-
+                if(user_params._[1]==="vv"){
+                 return rj_rfrf_jtyj
+                }else{
+                return rj_rfrf_jtyj.replace(/(?<!,|\.) (?!\w)/g, "")
+                }
+                
+ 
+                })()
             } else {
                 return (diwr_non_eysj[user_params.lastParams.toLowerCase()] && diwr_non_eysj[user_params.lastParams.toLowerCase()].yhrj) || diwr_sj_di_wrvr[user_params.lastParams] || "RA ZNZK"
             }
