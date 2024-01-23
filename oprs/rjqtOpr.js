@@ -41,10 +41,26 @@ const rjqtOpr = async (neig_kp) => {
             if (user_params._[2]) {
                 if (fs.existsSync(user_params._[2])) {
                     if (fs.statSync(user_params._[2]).isDirectory()) {
-                        return fs.readdirSync(user_params._[2]).map(rn1 => path.join(user_params._[2], rn1)).filter(rn1 => fs.statSync(rn1).isFile())
-                            .map(rn1 => {
-                                return `${rn1}\n${fs.readFileSync(rn1).toString()}`
-                            }).join('\n\n')
+                        outputs.mark = {}
+                        return (() => {
+                            if (user_params.lastParams) {
+                                return user_params.lastParams.split(/\n/).filter(rn1 => /\S/.test(rn1)).map(rn1 => rn1.trim()).map(rn1 => {
+                                    const nixb_yxna_2 = path.join(user_params._[2], rn1)
+                                    if (fs.existsSync(nixb_yxna_2)) {
+                                        outputs.mark["^" + JSON.stringify(nixb_yxna_2).replace(/^"|"$/g, "")] = "m"
+                                        return `${nixb_yxna_2}\n${fs.readFileSync(nixb_yxna_2).toString()}`
+                                    } else {
+                                        return `yxna ac zznq: ${nixb_yxna_2}`
+                                    }
+                                }).join('\n\n')
+                            } else {
+                                fs.readdirSync(user_params._[2]).map(rn1 => path.join(user_params._[2], rn1)).filter(rn1 => fs.statSync(rn1).isFile())
+                                    .map(rn1 => {
+                                        outputs.mark["^" + JSON.stringify(rn1).replace(/^"|"$/g, "")] = "m"
+                                        return `${rn1}\n${fs.readFileSync(rn1).toString()}`
+                                    }).join('\n\n')
+                            }
+                        })()
                     } else {
                         return user_params._.slice(2).map(rn1 => {
                             if (fs.existsSync(rn1)) {
@@ -188,7 +204,16 @@ const rjqtOpr = async (neig_kp) => {
         outputs.outputText = (() => {
             if (user_params._[2]) {
                 if (fs.existsSync(user_params._[2])) {
-                    return fs.readdirSync(user_params._[2]).join('\n')
+                    outputs.diwr_nikc_nini = {}
+                    outputs.ji_caju = true
+                    return fs.readdirSync(user_params._[2]).map(rn1 => {
+                        return Object.assign(fs.statSync(path.join(user_params._[2], rn1)), { rjqt_wu: rn1 })
+                    }).map(rn1 => {
+                        return Object.assign(rn1, { ji_rjqt: rn1.isFile() })
+                    }).map(rn1 => {
+                        outputs.diwr_nikc_nini[rn1.rjqt_wu] = rn1
+                        return rn1.rjqt_wu
+                    }).join('\n')
                 } else {
                     throw new Error(`The path is not exits-${user_params._[2]}`)
                 }
@@ -199,7 +224,7 @@ const rjqtOpr = async (neig_kp) => {
     } else if (user_params._[1] === 'filter') {
 
     } else {
-        throw new Error(`You must input the correct subparam.`)
+        throw new Error(`You must input the correct subparam: ${JSON.stringify(user_params._[1])}`)
     }
     return outputs
 }
