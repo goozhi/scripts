@@ -54,7 +54,7 @@ const rjqtOpr = async (neig_kp) => {
                                     }
                                 }).join('\n\n')
                             } else {
-                                fs.readdirSync(user_params._[2]).map(rn1 => path.join(user_params._[2], rn1)).filter(rn1 => fs.statSync(rn1).isFile())
+                                return fs.readdirSync(user_params._[2]).map(rn1 => path.join(user_params._[2], rn1)).filter(rn1 => fs.statSync(rn1).isFile())
                                     .map(rn1 => {
                                         outputs.mark["^" + JSON.stringify(rn1).replace(/^"|"$/g, "")] = "m"
                                         return `${rn1}\n${fs.readFileSync(rn1).toString()}`
@@ -215,7 +215,7 @@ const rjqtOpr = async (neig_kp) => {
             }
             })()
         outputs.outputText = (() => {
-                if(user_params.hasOwnProperty("rjm")){
+                if(user_params.hasOwnProperty("xbiw")){
         outputs.ji_caju=true
             return Object.keys(diwr_xb).join("\n")
         }else if(user_params.hasOwnProperty("xb")){

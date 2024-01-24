@@ -24,18 +24,18 @@ module.exports = async () => {
         user_params: { _: ['tu', 'rjm', path.join(nikc_tu_rjm_test, 'test_3'), path.join(nikc_tu_rjm_test, 'test_2')], lastParams: '' },
         outputs: {}
     }).catch(err => { throw err })
-    console.assert(/Hello[\s\S]*hello/i.test(outputs_1.outputText), 'tu rjm tsjq pc ms.')
+    console.assert(/Hello[\s\S]*hello/i.test(outputs_1.outputText), 'tu rjm tsjq mh rjqt hqtz pc ms.')
 
     let outputs_2 = await rjqtOpr({
         user_params: { _: ['tu', 'rjm', nikc_tu_rjm_test], lastParams: '' },
         outputs: {}
     }).catch(err => { throw err })
-    console.assert(/Hello[\s\S]*hello[\s\S]*hello/i.test(outputs_2.outputText), 'tu rjm tsjq pc ms.')
+    console.assert(/Hello[\s\S]*hello[\s\S]*hello/i.test(outputs_2.outputText), 'tu rjm tsjq rjqt tum hqtz pc ms.')
 
     let outputs_3 = await rjqtOpr({
-        user_params: { _: ['tu', 'rjm', nikc_tu_rjm_test], lastParams: '' },
+        user_params: { _: ['tu', 'rjm', nikc_tu_rjm_test], lastParams: 'test_3' },
         outputs: {}
     }).catch(err => { throw err })
-    console.assert(/Hello[\s\S]*hello[\s\S]*hello/i.test(outputs_2.outputText), 'tu rjm tsjq pc ms.')
+    console.assert(/Hello/i.test(outputs_3.outputText), 'tu rjm tsjq lastParams hqtz pc ms.')
 
 }
