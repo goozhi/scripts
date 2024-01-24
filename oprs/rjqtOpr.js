@@ -78,6 +78,11 @@ const rjqtOpr = async (neig_kp) => {
             }
         })()
     } else if (user_params._[1] === 'copy') {
+    } else if (user_params._[1] === 'xb') {
+    outputs.outputText=(()=>{
+    
+    
+    })()
     } else if (user_params._[1] === 'renamefiles') {
         outputs.outputText = (() => {
             return (() => {
@@ -201,7 +206,29 @@ const rjqtOpr = async (neig_kp) => {
         })().catch(err => { throw err })
     } else if (user_params._[1] === 'zy') {
     } else if (user_params._[1] === 'ls') {
+                const yxna_diwr_xb=path.resolve("out/diwr_xb.json")
+            const diwr_xb = (()=>{
+            try{
+            return require(yxna_diwr_xb)
+            }catch(err){
+            return {}
+            }
+            })()
         outputs.outputText = (() => {
+                if(user_params.hasOwnProperty("rjm")){
+        outputs.ji_caju=true
+            return Object.keys(diwr_xb).join("\n")
+        }else if(user_params.hasOwnProperty("xb")){
+        const yxna_xb =user_params._[2]
+            if(fs.existsSync(yxna_xb)){
+               diwr_xb[yxna_xb]=true
+               fs.writeFileSync(yxna_diwr_xb, JSON.stringify(diwr_xb,null,2))
+               return "Cd ukyp xbiw "+yxna_xb
+            }else{
+             throw new Error(`yxna ac zznq: ${yxna_xb}`)
+            }
+        }
+
             if (user_params._[2]) {
                 if (fs.existsSync(user_params._[2])) {
                     outputs.diwr_nikc_nini = {}
