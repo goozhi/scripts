@@ -9,6 +9,7 @@ const getMyIp = require('./getMyIp');
 const getOkId = require('./getOkId');
 const tzfsOpr = require('./oprs/tzfsOpr.js')
 const rjqtOpr = require('./oprs/rjqtOpr.js');
+const getHtmlOpr = require('./oprs/getHtmlOpr.js');
 function outputs() {
     return {
         ask: async (neig_vdzv = {}) => {
@@ -17,6 +18,8 @@ function outputs() {
                 return await fileOpr(neig.fileOpr).catch(err => { throw err })
             } else if (neig.tzfsOpr) {
                 return await tzfsOpr(neig.tzfsOpr).catch(err => { throw err })
+            } else if (neig.getHtmlOpr) {
+                return await getHtmlOpr(neig.getHtmlOpr).catch(err => { throw err })
             } else if (neig.sqlOpr) {
                 return await sqlOpr(neig.sqlOpr.user_params, neig.sqlOpr.outputs).catch(err => { throw err })
             } else if (neig.exymOpr) {
