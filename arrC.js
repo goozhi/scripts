@@ -8,7 +8,7 @@ const execc = require('./cmd-zhqh-atvn/execc.js');
 const update = require('./cmd-zhqh-atvn/update.js');
 const cmdMatch = require('./cmdMatch');
 const axios = require('axios');
-const wrvr = require('./KPLU/wrvr/index.js')
+const wrvr = require('./cmd-zhqh-atvn/wrvr.js');
 const uni = require('./cmd-zhqh-atvn/uni.js');
 const auto_get_ip = require('./cmd-zhqh-atvn/auto-get-ip.js');
 const getTheIp = require('./cmd-zhqh-atvn/getTheIp.js');
@@ -228,7 +228,7 @@ const arrC = [
             wrvr wrvr
             \u56fd\u56fd\u56fd \u56fd
         `,
-        func: wrvr.afoa
+        func: wrvr
     }],
     [['update'], {
         describe: `update submodules
