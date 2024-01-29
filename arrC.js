@@ -18,6 +18,7 @@ const rjqt = require('./cmd-zhqh-atvn/rjqt.js');
 const timeLook = require('./cmd-zhqh-atvn/timeLook.js');
 const tzfs = require('./cmd-zhqh-atvn/tzfs.js');
 const unicode = require('./cmd-zhqh-atvn/unicode.js');
+const gethtml = require('./cmd-zhqh-atvn/gethtml.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -57,6 +58,12 @@ const arrC = [
                 keyword
                 `,
         func: share
+    }], [['gethtml'], {
+        describe:`get the html of input url.
+        example:
+        gethtml
+        url`,
+        func: gethtml
     }], [['rjqt', "tu", 'file'], {
         describe: `
         rjqt gzbu.
