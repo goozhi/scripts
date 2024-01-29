@@ -48,9 +48,9 @@ console.assert(Object.entries(diwr_ybkc_wrvr).length === yhrj_sjbx.length, `desc
 
 // check if the two version are the same
 
-const kplu_sjbx = fs.readFileSync(path.resolve("./KPLU/ce_ebwu_kplu_zv_yhrj_sjbx.java")).toString().split(/\n/)
+const kplu_sjbx = fs.readFileSync(path.join(__dirname,"../ce_ebwu_kplu_zv_yhrj_sjbx.java")).toString().split(/\n/)
 
-const kplu_ztwm = fs.readFileSync(path.resolve("./KPLU/SI_ZTWM_3.java")).toString().split(/\n/)
+const kplu_ztwm = fs.readFileSync(path.join(__dirname,"../SI_ZTWM_3.java")).toString().split(/\n/)
 
 version_check(yhrj_sjbx, kplu_sjbx)
 version_check(ztwm, kplu_ztwm)
