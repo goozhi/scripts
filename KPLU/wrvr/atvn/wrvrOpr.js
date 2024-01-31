@@ -25,6 +25,12 @@ async function wrvrOpr(neig_kp) {
     }else if(user_params._[1]==="zo"){
 
     return await outputlog(yxna_test).catch(err=>{throw err})
+    }else if(user_params._[1]==="yfm"){
+        return (()=>{
+            return user_params.lastParams.split(/\s/g).filter(rn1=>/\S/.test(rn1)).map(rn1=>{
+                return rn1+": "+(wrvr_kp.diwr_non_eysj[rn1]?.yf||"ra znzk")
+            }).join("\n")
+        })()
     }else if(user_params._[1]==="yf"){
     const yxna_json_ld = path.join(__dirname,"json_ld_rj.js")
     return await outputlog(yxna_json_ld).catch(err=>{throw err})

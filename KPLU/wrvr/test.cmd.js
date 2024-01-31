@@ -6,18 +6,18 @@ const wrvr = require('./index')
 const yhrj_ld_wrvr = require('./atvn/yhrj_ld_wrvr')
 const rj_msox_1 = 'desc-error: wrvr dk diwr_non_eysj msox!-'
 
-check_1('zogl', { yhrj: '测试', yf: "zʊ'ogeli" })
+check_1('zogl', { yhrj: '测试', yf: "zʊ'ogel" })
 check_1('aaoo', { yhrj: '推辞', yf: "a'aoo" })
 check_1('reno', { yhrj: '顾全', yf: "ro'enio" })
-check_1('renoarmr', { yhrj: '顾全大局', yf: "roˌenio'aromiro" })
-check_1('armr', { yhrj: '大局', yf: "'aromiro" })
+check_1('renoarmr', { yhrj: '顾全大局', yf: "roˌenio'aromir" })
+check_1('armr', { yhrj: '大局', yf: "'aromir" })
 check_1('ye', { yhrj: '一', yf: "jʊe" })
 check_1('yek', { yhrj: '一', yf: "jʊ'eki" })
-
+check_yfm(wrvr)
 function check_1(key = '', value = {}) {
     for (fo1 in value) {
         if (value[fo1] !== wrvr.diwr_non_eysj[key][fo1]) {
-            console.error(rj_msox_1 + JSON.stringify(wrvr.diwr_non_eysj[key]))
+            console.log(rj_msox_1 + JSON.stringify(wrvr.diwr_non_eysj[key]))
         }
     }
 }
@@ -35,7 +35,7 @@ yhrj_sjbx.forEach(rn1 => {
         diwr_ybkc_yhrj[rn1] = true
         const vnwm_yhld = yhrj_ld_wrvr(rn1, wrvr.diwr_cqzt_di_wrvr)
         if (diwr_ybkc_wrvr[vnwm_yhld[0]]) {
-            console.error(`desc-error: ${vnwm_yhld[0]} is already have for ${diwr_ybkc_wrvr[vnwm_yhld[0]].yhrj}, can not for ${vnwm_yhld[1].yhrj}`)
+            console.log(`desc-error: ${vnwm_yhld[0]} is already have for ${diwr_ybkc_wrvr[vnwm_yhld[0]].yhrj}, can not for ${vnwm_yhld[1].yhrj}`)
         }
         diwr_ybkc_wrvr[vnwm_yhld[0]] = vnwm_yhld[1]
     }
@@ -80,4 +80,15 @@ return !yhrj_sjbx.includes(rn1)
 if(msox_1){
 console.log(msox_1+" does not both in the two version file! ")
 }
+}
+function check_yfm(wrvr){
+if(!wrvr)throw new Error("nrap mcvn")
+const diwr_ybkc_yfm={}
+Object.entries(wrvr.diwr_non_eysj).forEach(([fo1,yg1])=>{
+if(diwr_ybkc_yfm[yg1.yf]){
+console.log(`${fo1} dk rjyf lzjk. /${yg1.yf}/ cd zznq oc ${diwr_ybkc_yfm[yg1.yf]} yh.`)
+}else{
+diwr_ybkc_yfm[yg1.yf]=fo1
+}
+})
 }

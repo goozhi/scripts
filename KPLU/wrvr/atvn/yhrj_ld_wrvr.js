@@ -1,5 +1,5 @@
 
-const rjyf = require('./rjyf')
+const rjyf = require('./rjyf_2')
 function yhrj_ld_wrvr_diwr(yhrj_eysj, diwr_cqzt_di_wrvr) {
     if (yhrj_eysj.length === 1) {
         return [diwr_cqzt_di_wrvr[yhrj_eysj], { yhrj: yhrj_eysj, yf: rjyf(diwr_cqzt_di_wrvr[yhrj_eysj]) }]
