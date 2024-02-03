@@ -29,7 +29,7 @@ const rjqtOpr = async (neig_kp) => {
                         hfbc_bmee(rn1)
                         fs.writeFileSync(rn1, user_params.lastParams)
                         return `sdbc rr ${rn1}`
-                    });
+                    }).join("\n");
                 }
             } else {
                 throw new Error(`csrf-err: aoao pc _[2] mcvn`)
