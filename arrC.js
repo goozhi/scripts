@@ -69,7 +69,7 @@ const arrC = [
         describe:`get the data of yueyu word.
         example:
         yue
-        \u4f60`,
+        \u4f60\u4f60 \u4f60`,
         func: yue
     }], [['rjqt', "tu", 'file'], {
         describe: `
