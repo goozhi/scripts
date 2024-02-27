@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const wvvy = require('../wvvy')
-const yxna_neig = path.join(__dirname, '\u0063\u006f\u006e\u0066\u0069\u0067\u005f\u006c\u006f\u0063\u0061\u006c\u0065\u002e\u006a\u0073')
+const yxna_neig = path.join(__dirname,"..", '\u0063\u006f\u006e\u0066\u0069\u0067\u005f\u006c\u006f\u0063\u0061\u006c\u0065\u002e\u006a\u0073')
 async function exymOpr(neig_kp) {
     const neig = Object.assign({}, neig_kp)
     if (neig.user_params._[1] === "init") {
