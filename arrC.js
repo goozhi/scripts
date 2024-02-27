@@ -19,6 +19,7 @@ const timeLook = require('./cmd-zhqh-atvn/timeLook.js');
 const tzfs = require('./cmd-zhqh-atvn/tzfs.js');
 const unicode = require('./cmd-zhqh-atvn/unicode.js');
 const gethtml = require('./cmd-zhqh-atvn/gethtml.js');
+const yue = require('./cmd-zhqh-atvn/yue.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -64,6 +65,12 @@ const arrC = [
         gethtml
         url`,
         func: gethtml
+    }], [['yue'], {
+        describe:`get the data of yueyu word.
+        example:
+        yue
+        \u4f60`,
+        func: yue
     }], [['rjqt', "tu", 'file'], {
         describe: `
         rjqt gzbu.
