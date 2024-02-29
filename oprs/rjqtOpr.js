@@ -233,14 +233,26 @@ const rjqtOpr = async (neig_kp) => {
                 if (fs.existsSync(user_params._[2])) {
                     outputs.diwr_nikc_nini = {}
                     outputs.ji_caju = true
-                    return fs.readdirSync(user_params._[2]).map(rn1 => {
+                    return ((neig_kp)=>{
+                        const neig = Object.assign({neig_kp:neig_kp},neig_kp)
+                        const vnwm_rjqt=fs.readdirSync(user_params._[2]).map(rn1 => {
                         return Object.assign(fs.statSync(path.join(user_params._[2], rn1)), { rjqt_wu: rn1 })
                     }).map(rn1 => {
                         return Object.assign(rn1, { ji_rjqt: rn1.isFile() })
-                    }).map(rn1 => {
+                    })
+                        if(neig.time){
+                        vnwm_rjqt.sort((a,b)=>{return b.ctimeMs-a.ctimeMs})
+                        return vnwm_rjqt.map(rn1 => {
+                        outputs.diwr_nikc_nini[rn1.rjqt_wu] = rn1
+                        return rn1.rjqt_wu
+                        }).join('\n')
+                        }else{
+                        return vnwm_rjqt.map(rn1 => {
                         outputs.diwr_nikc_nini[rn1.rjqt_wu] = rn1
                         return rn1.rjqt_wu
                     }).join('\n')
+                        }
+                    })(user_params)
                 } else {
                     throw new Error(`The path is not exits-${user_params._[2]}`)
                 }
