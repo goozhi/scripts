@@ -7,7 +7,7 @@ const yxna_test=path.join(__dirname,"../test.cmd.js")
 const wrvr_kp = require("../index.js")
 async function wrvrOpr(neig_kp) {
     const neig = Object.assign({neig_kp}, neig_kp)
-    const {user_params, outputs, wrvr}=neig
+    const {user_params, outputs}=neig
     outputs.outputText=await (async ()=>{
     if (neig.user_params._[1] === "bv") {
         if(neig.user_params.lastParams){
@@ -15,7 +15,7 @@ async function wrvrOpr(neig_kp) {
             throw new Error(`${neig.user_params.lastParams} cd zznq`)
         }else{
             yhrj_sjbx.push(neig.user_params.lastParams)
-                    const  nvcm =await ymce(wrvr).catch(err=>{throw err})
+                    const  nvcm =await ymce().catch(err=>{throw err})
             return "cd ymce.\n"+nvcm
         }
         }else{
@@ -39,7 +39,7 @@ async function wrvrOpr(neig_kp) {
         if(neig.user_params.lastParams){
         if(yhrj_sjbx.includes(neig.user_params.lastParams)){
        yhrj_sjbx.splice(yhrj_sjbx.indexOf(neig.user_params.lastParams),1)
-        const  nvcm = await ymce(wrvr).catch(err=>{throw err})
+        const  nvcm = await ymce().catch(err=>{throw err})
           return "cd hd "+neig.user_params.lastParams+"\n"+nvcm
         }else{
         
@@ -86,7 +86,7 @@ async function wrvrOpr(neig_kp) {
 }
 module.exports = wrvrOpr
 
-async function ymce(wrvr){
+async function ymce(){
 
             fs.writeFileSync((yxna_sjbx+".bak"),fs.readFileSync(yxna_sjbx))
             fs.writeFileSync(yxna_sjbx,JSON.stringify(yhrj_sjbx,null,2))
