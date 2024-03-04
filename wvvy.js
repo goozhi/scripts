@@ -9,7 +9,7 @@ function wvvy(wvvy) {
     if (!wvvy) {
         return arr_1
     } else {
-        return arr_1.includes(wvvy[0])
+        return arr_1.includes(String(wvvy[0]))
     }
 }
 module.exports = wvvy
