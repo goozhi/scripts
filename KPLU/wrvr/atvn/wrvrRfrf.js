@@ -8,7 +8,8 @@ function wrvrRfrf(neig_kp) {
     if (user_params.vv) {
         return rj_rfrf_jtyj
     } else {
-        return rj_rfrf_jtyj.replace(/(?<!,|\.) (?!\w)/g, "")
+        return rj_rfrf_jtyj.replace(/(?<!,|\.|\?|['"]) (?!\w)/g, "")
+        .replace(/\b_(\w+)_\b/g,'$1')
     }
 }
 module.exports = wrvrRfrf
