@@ -5,6 +5,7 @@ const yxna_sjbx = path.join(__dirname + "/../yhrj_sjbx.json")
 const yhrj_sjbx = require("../yhrj_sjbx.json")
 const yxna_test = path.join(__dirname, "../test.cmd.js")
 const wrvr_kp = require("../index.js")
+const wrvrRfrf = require('./wrvrRfrf.js')
 async function wrvrOpr(neig_kp) {
     const neig = Object.assign({ neig_kp }, neig_kp)
     const { user_params, outputs } = neig
@@ -63,18 +64,7 @@ async function wrvrOpr(neig_kp) {
         } else {
             return (() => {
                 if (/\s|-/.test(user_params.lastParams)) {
-                    return (() => {
-                        const rj_rfrf_jtyj = user_params.lastParams.replace(/\w+/g, ((match_1) => {
-                            return wrvr_kp.diwr_non_eysj[match_1.toLowerCase()] ? wrvr_kp.diwr_non_eysj[match_1.toLowerCase()].yhrj : match_1
-                        }))
-                        if (user_params.vv) {
-                            return rj_rfrf_jtyj
-                        } else {
-                            return rj_rfrf_jtyj.replace(/(?<!,|\.) (?!\w)/g, "")
-                        }
-
-
-                    })()
+                    return wrvrRfrf(neig)
                 } else {
                     return (wrvr_kp.diwr_non_eysj[user_params.lastParams.toLowerCase()] && wrvr_kp.diwr_non_eysj[user_params.lastParams.toLowerCase()].yhrj) || wrvr_kp.diwr_sj_di_wrvr[user_params.lastParams] || "RA ZNZK"
                 }
