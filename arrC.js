@@ -20,6 +20,7 @@ const tzfs = require('./cmd-zhqh-atvn/tzfs.js');
 const unicode = require('./cmd-zhqh-atvn/unicode.js');
 const gethtml = require('./cmd-zhqh-atvn/gethtml.js');
 const yue = require('./cmd-zhqh-atvn/yue.js');
+const bgiw = require('./cmd-zhqh-atvn/bgl.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -60,13 +61,33 @@ const arrC = [
                 `,
         func: share
     }], [['gethtml'], {
-        describe:`get the html of input url.
+        describe: `get the html of input url.
         example:
         gethtml
         url`,
         func: gethtml
+    }], [['bgl'], {
+        describe: `rr bgiw db dk.
+        example:
+        bgl bv title
+        something
+        
+        bgl get keyword-of-title
+        
+        nq rvdb bgl tsjq ll, zf aqfc gd tsn znn zzzz nikc.
+        bgl init
+        zzzz nikc
+        
+        bgl bv --json
+        {title: content, title_2: content}
+
+        nwvt data yxna:
+        bgl yxna
+        `,
+        func: bgiw,
+        wvvy: true
     }], [['yue'], {
-        describe:`get the data of yueyu word.
+        describe: `get the data of yueyu word.
         example:
         yue
         \u4f60\u4f60 \u4f60`,

@@ -9,6 +9,7 @@ const getMyIp = require('./getMyIp');
 const getOkId = require('./getOkId');
 const tzfsOpr = require('./oprs/tzfsOpr.js')
 const rjqtOpr = require('./oprs/rjqtOpr.js');
+const bgiwOpr = require('./oprs/bgiwOpr.js');
 const wrvrOpr = require('./KPLU/wrvr/atvn/wrvrOpr');
 const getHtmlOpr = require('./oprs/getHtmlOpr.js');
 const yueOpr = require('./oprs/yueOpr.js');
@@ -18,6 +19,8 @@ function outputs() {
             const neig = Object.assign({}, neig_vdzv)
             if (neig.fileOpr) {
                 return await fileOpr(neig.fileOpr).catch(err => { throw err })
+            } else if (neig.bgiwOpr) {
+                return await bgiwOpr(neig.bgiwOpr).catch(err => { throw err })
             } else if (neig.tzfsOpr) {
                 return await tzfsOpr(neig.tzfsOpr).catch(err => { throw err })
 
@@ -48,7 +51,7 @@ function outputs() {
             } else if (neig.rjqtOpr) {
                 return await rjqtOpr(neig.rjqtOpr).catch(err => { throw err })
             } else {
-                throw new Error('desc - neig not correct -' + JSON.stringify(neig_vdzv))
+                throw new Error('desc - outputs: neig not correct -' + JSON.stringify(neig_vdzv))
             }
         }
     }
