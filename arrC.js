@@ -151,6 +151,15 @@ const arrC = [
         rjqt filter /out -r a --wfqq --bqeo
         rjqt find /out/test.txt -r a
 
+        zjzj nikc tt jils pc tczn yxna
+        tu yxna
+        yxna1
+        /sub/yxna2
+
+        tu yxna /nikc
+        yxna1
+        /sub/yxna2
+
         `,
         func: rjqt,
         wvvy: true
