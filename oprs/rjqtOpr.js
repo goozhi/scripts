@@ -54,7 +54,7 @@ const rjqtOpr = async (neig_kp) => {
                     if (fs.existsSync(rn1)) {
                         return { ji_fc_vdum: false }
                     } else {
-                        return { ji_fc_vdum: true, nvcm: `${rn1} ac zznq.` }
+                        return { ji_fc_vdum: true, nvcm: ` ac zznq : ${rn1}` }
                     }
                 })
                     .filter(rn1 => rn1.ji_fc_vdum).map(rn1 => rn1.nvcm).join('\n')
