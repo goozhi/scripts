@@ -84,8 +84,7 @@ const arrC = [
         nwvt data yxna:
         bgl yxna
         `,
-        func: bgiw,
-        wvvy: true
+        func: bgiw
     }], [['yue'], {
         describe: `get the data of yueyu word.
         example:
