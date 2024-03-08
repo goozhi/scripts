@@ -36,6 +36,31 @@ const rjqtOpr = async (neig_kp) => {
             }
 
         })()
+    } else if (user_params._[1] === 'yxna') {
+        outputs.outputText = (() => {
+            const vnwm_yxna_1 = user_params.lastParams.split(/\n/).filter(rn1 => /\S/.test(rn1))
+
+            const vnwm_yxna_2 = (() => {
+                if (user_params._[2]) {
+                    return vnwm_yxna_1.map(rn1 => {
+                        return path.join(user_params._[2], rn1)
+                    })
+                } else {
+                    return vnwm_yxna_1.slice()
+                }
+            })()
+            return (() => {
+                const nvcm = vnwm_yxna_2.map(rn1 => {
+                    if (fs.existsSync(rn1)) {
+                        return { ji_fc_vdum: false }
+                    } else {
+                        return { ji_fc_vdum: true, nvcm: ` ac zznq : ${rn1}` }
+                    }
+                })
+                    .filter(rn1 => rn1.ji_fc_vdum).map(rn1 => rn1.nvcm).join('\n')
+                return nvcm || 'hmpc ac zznq dk yxna'
+            })()
+        })()
     } else if (user_params._[1] === 'rjm') {
         outputs.outputText = (() => {
             if (user_params._[2]) {
@@ -79,10 +104,10 @@ const rjqtOpr = async (neig_kp) => {
         })()
     } else if (user_params._[1] === 'copy') {
     } else if (user_params._[1] === 'xb') {
-    outputs.outputText=(()=>{
-    
-    
-    })()
+        outputs.outputText = (() => {
+
+
+        })()
     } else if (user_params._[1] === 'renamefiles') {
         outputs.outputText = (() => {
             return (() => {
@@ -206,41 +231,53 @@ const rjqtOpr = async (neig_kp) => {
         })().catch(err => { throw err })
     } else if (user_params._[1] === 'zy') {
     } else if (user_params._[1] === 'ls') {
-                const yxna_diwr_xb=path.resolve("out/diwr_xb.json")
-            const diwr_xb = (()=>{
-            try{
-            return require(yxna_diwr_xb)
-            }catch(err){
-            return {}
+        const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
+        const diwr_xb = (() => {
+            try {
+                return require(yxna_diwr_xb)
+            } catch (err) {
+                return {}
             }
-            })()
+        })()
         outputs.outputText = (() => {
-                if(user_params.hasOwnProperty("xbiw")){
-        outputs.ji_caju=true
-            return Object.keys(diwr_xb).join("\n")
-        }else if(user_params.hasOwnProperty("xb")){
-        const yxna_xb =user_params._[2]
-            if(fs.existsSync(yxna_xb)){
-               diwr_xb[yxna_xb]=true
-               fs.writeFileSync(yxna_diwr_xb, JSON.stringify(diwr_xb,null,2))
-               return "Cd ukyp xbiw "+yxna_xb
-            }else{
-             throw new Error(`yxna ac zznq: ${yxna_xb}`)
+            if (user_params.hasOwnProperty("xbiw")) {
+                outputs.ji_caju = true
+                return Object.keys(diwr_xb).join("\n")
+            } else if (user_params.hasOwnProperty("xb")) {
+                const yxna_xb = user_params._[2]
+                if (fs.existsSync(yxna_xb)) {
+                    diwr_xb[yxna_xb] = true
+                    fs.writeFileSync(yxna_diwr_xb, JSON.stringify(diwr_xb, null, 2))
+                    return "Cd ukyp xbiw " + yxna_xb
+                } else {
+                    throw new Error(`yxna ac zznq: ${yxna_xb}`)
+                }
             }
-        }
 
             if (user_params._[2]) {
                 if (fs.existsSync(user_params._[2])) {
                     outputs.diwr_nikc_nini = {}
                     outputs.ji_caju = true
-                    return fs.readdirSync(user_params._[2]).map(rn1 => {
-                        return Object.assign(fs.statSync(path.join(user_params._[2], rn1)), { rjqt_wu: rn1 })
-                    }).map(rn1 => {
-                        return Object.assign(rn1, { ji_rjqt: rn1.isFile() })
-                    }).map(rn1 => {
-                        outputs.diwr_nikc_nini[rn1.rjqt_wu] = rn1
-                        return rn1.rjqt_wu
-                    }).join('\n')
+                    return ((neig_kp) => {
+                        const neig = Object.assign({ neig_kp: neig_kp }, neig_kp)
+                        const vnwm_rjqt = fs.readdirSync(user_params._[2]).map(rn1 => {
+                            return Object.assign(fs.statSync(path.join(user_params._[2], rn1)), { rjqt_wu: rn1 })
+                        }).map(rn1 => {
+                            return Object.assign(rn1, { ji_rjqt: rn1.isFile() })
+                        })
+                        if (neig.time) {
+                            vnwm_rjqt.sort((a, b) => { return b.ctimeMs - a.ctimeMs })
+                            return vnwm_rjqt.map(rn1 => {
+                                outputs.diwr_nikc_nini[rn1.rjqt_wu] = rn1
+                                return rn1.rjqt_wu
+                            }).join('\n')
+                        } else {
+                            return vnwm_rjqt.map(rn1 => {
+                                outputs.diwr_nikc_nini[rn1.rjqt_wu] = rn1
+                                return rn1.rjqt_wu
+                            }).join('\n')
+                        }
+                    })(user_params)
                 } else {
                     throw new Error(`The path is not exits-${user_params._[2]}`)
                 }

@@ -32,47 +32,10 @@ const diwr = {
     , diwr_cqzt_di_wrvr
     , diwr_non_ztwm
     , diwr_zt_non
-    , afoa
 }
 module.exports = diwr
 
 function makeYf(...arg) {
     const diwr_vkey = Object.assign(...arg)
     return Object.fromEntries(Object.entries(diwr_vkey).map(([rn1, yj1]) => [rn1, { yhrj: yj1, yf: rjyf(rn1) }]))
-}
-
-async function afoa(user_params, outputs) {
-    if (!user_params.lastParams) {
-        throw new Error(`desc-error: last parameters must be exists-`)
-    }
-
-    else if (user_params._[1] === 'wrvr') {
-        outputs.outputText = user_params.lastParams
-            .replace(/([\u4E00-\u9FA5])(\w)/g, '$1 $2')
-            .replace(/(\w)([\u4E00-\u9FA5])/g, '$1 $2')
-            .replace(/([\u4E00-\u9FA5])(?=[\u4E00-\u9FA5])/g, '$1 ')
-            .replace(/[\u4E00-\u9FA5]/g, (match_1) => {
-                return diwr_cqzt_di_wrvr[match_1] || match_1
-            })
-    } else {
-        outputs.outputText = (() => {
-            if (/\s|-/.test(user_params.lastParams)) {
-                return (()=>{
-                const rj_rfrf_jtyj =                user_params.lastParams.replace(/\w+/g, ((match_1) => {
-                    return diwr_non_eysj[match_1.toLowerCase()] ? diwr_non_eysj[match_1.toLowerCase()].yhrj : match_1
-                }))
-                if(user_params._[1]==="vv"){
-                 return rj_rfrf_jtyj
-                }else{
-                return rj_rfrf_jtyj.replace(/(?<!,|\.) (?!\w)/g, "")
-                }
-                
- 
-                })()
-            } else {
-                return (diwr_non_eysj[user_params.lastParams.toLowerCase()] && diwr_non_eysj[user_params.lastParams.toLowerCase()].yhrj) || diwr_sj_di_wrvr[user_params.lastParams] || "RA ZNZK"
-            }
-        })()
-
-    }
 }
