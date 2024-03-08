@@ -7,6 +7,9 @@ const filter_reg_hfbc = require('../user_params-ldfs-atvn/filter_reg_hfbc.js')
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
     const { user_params, outputs } = neig
+    if(user_params._[2]){
+        user_params._[2]=        user_params._[2].replace(/\"/g, "")
+    }
     if (user_params._[1] === 'rr') {
         outputs.outputText = (() => {
             if (user_params._[2]) {
