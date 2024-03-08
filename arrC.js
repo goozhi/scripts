@@ -66,7 +66,7 @@ const arrC = [
         gethtml
         url`,
         func: gethtml
-    }], [['bgl'], {
+    }], [['bgl', "bgiw", "rr"], {
         describe: `rr bgiw db dk.
         example:
         bgl bv title
