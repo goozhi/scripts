@@ -9,7 +9,10 @@ function wrvrRfrf(neig_kp) {
         return rj_rfrf_jtyj
     } else {
         return rj_rfrf_jtyj.replace(/(?<!,|\.|\?|['"]) (?!\w)/g, "")
-        .replace(/\b_(\w+)_\b/g,'$1')
+        .replace(/\b(?:_|)(\w+)_\b/g,'$1')
+        .replace(/\b_(\w+)(?:_|)\b/g,'$1')
+        .replace(/([\u4E00-\u9FA5])\s*\.(?: |)/g, "$1。")
+        .replace(/([\u4E00-\u9FA5])\s*,(?: |)/g, "$1，")
     }
 }
 module.exports = wrvrRfrf
