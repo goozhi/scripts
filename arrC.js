@@ -21,6 +21,7 @@ const unicode = require('./cmd-zhqh-atvn/unicode.js');
 const gethtml = require('./cmd-zhqh-atvn/gethtml.js');
 const yue = require('./cmd-zhqh-atvn/yue.js');
 const bgiw = require('./cmd-zhqh-atvn/bgl.js');
+const rj = require('./cmd-zhqh-atvn/rj.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -85,6 +86,16 @@ const arrC = [
         bgl yxna
         `,
         func: bgiw
+    }], [['rj','rjse'], {
+        describe: `wdbu rjse.
+        example:
+        rj --func
+        rjse
+        -fdmj-
+        function func(rj){
+            return rj;
+        }`,
+        func: rj
     }], [['yue'], {
         describe: `get the data of yueyu word.
         example:
