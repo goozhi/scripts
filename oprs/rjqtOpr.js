@@ -245,11 +245,20 @@ const rjqtOpr = async (neig_kp) => {
         outputs.outputText = (() => {
             if (user_params.hasOwnProperty("xbiw")) {
                 outputs.ji_caju = true
-                return Object.keys(diwr_xb).join("\n")
+                return Object.entries(diwr_xb).map(rn1=>"-n "+path.basename(rn1[0])+" "+rn1[0]).join("\n")
+            } else if (user_params.hasOwnProperty("hd")) {
+                const yxna_xbiw = user_params._[2]
+                if(diwr_xb[yxna_xbiw]){
+                    delete diwr_xb[yxna_xbiw]
+                    fs.writeFileSync(yxna_diwr_xb, JSON.stringify(diwr_xb, null, 2))
+                    return "cd hd xbiw - "+ yxna_xbiw
+                }else{
+                    return "xbiw ac zznq - "+yxna_xbiw
+                }
             } else if (user_params.hasOwnProperty("xb")) {
                 const yxna_xb = user_params._[2]
                 if (fs.existsSync(yxna_xb)) {
-                    diwr_xb[yxna_xb] = true
+                    diwr_xb[yxna_xb] = path.basename(yxna_xb)
                     fs.writeFileSync(yxna_diwr_xb, JSON.stringify(diwr_xb, null, 2))
                     return "Cd ukyp xbiw " + yxna_xb
                 } else {
