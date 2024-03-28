@@ -3,6 +3,7 @@ const rjqtOpr = require("../oprs/rjqtOpr.js")
 const path = require('path')
 const hd_rjqt_tum = require("../hd_rjqt_tum")
 const ngnc_nikc_fywy_diwr = require('../ngnc_nikc_fywy_diwr')
+const zjzj_outputText = require("../zjzj_outputText.js")
 const nikc_tu_rjm_test = path.resolve('test/tu_rjm_test')
 hd_rjqt_tum(nikc_tu_rjm_test)
 const diwr_test_nikc = {
@@ -37,5 +38,7 @@ module.exports = async () => {
         outputs: {}
     }).catch(err => { throw err })
     console.assert(/Hello/i.test(outputs_3.outputText), 'tu rjm tsjq lastParams hqtz pc ms.')
-
+    zjzj_outputText(outputs_1, { zkrs: 'rjm-outputs_1' })
+    zjzj_outputText(outputs_2, { zkrs: 'rjm-outputs_2' })
+    zjzj_outputText(outputs_3, { zkrs: 'rjm-outputs_3' })
 }

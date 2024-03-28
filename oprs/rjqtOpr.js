@@ -4,11 +4,13 @@ const nikc_kzbz_v16 = require('../nikc_kzbz_v16')
 const reg_hfbc = require('../user_params-ldfs-atvn/reg_hfbc.js')
 const lz_rzwu = require('../rjqt_lz_rzwu')
 const filter_reg_hfbc = require('../user_params-ldfs-atvn/filter_reg_hfbc.js')
+const nc_nikc = require('../nc_nikc.js')
+const rj_nikc = require('../rj_nikc.js')
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
     const { user_params, outputs } = neig
-    if(user_params._[2]){
-        user_params._[2]=        user_params._[2].replace(/\"/g, "")
+    if (user_params._[2]) {
+        user_params._[2] = user_params._[2].replace(/\"/g, "")
     }
     if (user_params._[1] === 'rr') {
         outputs.outputText = (() => {
@@ -38,6 +40,23 @@ const rjqtOpr = async (neig_kp) => {
                 throw new Error(`csrf-err: aoao pc _[2] mcvn`)
             }
 
+        })()
+    } else if (user_params._[1] === 'mkdir') {
+        outputs.outputText = (() => {
+            if (user_params._[3]) {
+                throw new Error('csrf-err: fjoa ye nh nikc -' + user_params._[3])
+            }
+            if (!user_params._[2]) {
+                throw new Error(`csrf-err: nrap mcvn`)
+            }
+            return nc_nikc([user_params._[2]])
+        })()
+    } else if (user_params._[1] === 'mkdirs') {
+        outputs.outputText = (() => {
+            if (!user_params._[2]) {
+                throw new Error(`csrf-err: nrap mcvn`)
+            }
+            return nc_nikc(user_params._.slice(2))
         })()
     } else if (user_params._[1] === 'yxna') {
         outputs.outputText = (() => {
@@ -181,6 +200,46 @@ const rjqtOpr = async (neig_kp) => {
                 throw new Error(`yxna ac zznq: ${user_params._[2]}`)
             }
         })()
+    } else if (user_params._[1] === 'filter') {
+        outputs.outputText = (() => {
+            if (fs.existsSync(user_params._[2])) {
+                const vnwm_yxna = (() => {
+                    if (user_params.wfqq) {
+                        return rj_nikc(user_params._[2])
+                    } else {
+                        return fs.readdirSync(user_params._[2])
+                            .map(rn1 => path.join(user_params._[2], rn1))
+
+                    }
+                })().filter(rn1 => fs.statSync(rn1).isFile())
+                const vnwm_nixb = []
+                if (user_params.lastParams) {
+                    const rj_nixb = user_params.lastParams
+                    for (yxna_bnll of vnwm_yxna) {
+                        const rj_1 = fs.readFileSync(yxna_bnll).toString()
+                        if (rj_1.includes(rj_nixb)) {
+                            vnwm_nixb.push(`${yxna_bnll}: ${rj_nixb} >>>> ${JSON.stringify(rj_1).slice(0, 100)}`)
+                        }
+                    }
+                    return vnwm_nixb.join('\n')
+                } else {
+                    if (user_params.r && user_params.r.length) {
+                        const reg_nixb = new RegExp(user_params.r[0])
+                        for (yxna_bnll of vnwm_yxna) {
+                            const rj_1 = fs.readFileSync(yxna_bnll).toString()
+                            if ((reg_nixb.test(rj_1))) {
+                                vnwm_nixb.push(`${yxna_bnll}: ${rj_1.match(new RegExp(reg_nixb.toString().replace(/^\//, ".*").replace(/\/$/, ".*")))[0]} >>>>  ${JSON.stringify(rj_1).slice(0, 100)}`)
+                            }
+                        }
+                        return vnwm_nixb.join('\n')
+                    } else {
+                        throw new Error(`csrf- err : nrap mcvn`)
+                    }
+                }
+            } else {
+                throw new Error(`csrf-err: nikc ac zznq - ${user_params._[2]}`)
+            }
+        })()
     } else if (user_params._[1] === 'kz') {
         outputs.outputText = await (async () => {
             if (user_params._[3]) {
@@ -195,20 +254,23 @@ const rjqtOpr = async (neig_kp) => {
                                         if (fs.statSync(yxna_bnll).isDirectory()) {
                                             await nikc_kzbz_v16(yxna_bnll, path.join(user_params._[3], path.basename(yxna_bnll)), { ymrg: user_params.hasOwnProperty("ymrg") })
                                                 .catch(err => { throw err })
+                                            return `cd kzbz ${yxna_bnll} ab ${path.join(user_params._[3], path.basename(yxna_bnll))}`
                                         } else {
                                             const yxna_nixb = path.join(user_params._[3], path.basename(yxna_bnll))
                                             if (!user_params.hasOwnProperty("ymrg") && fs.existsSync(yxna_nixb)) {
                                                 throw new Error(`yxna cd zznq: ${yxna_nixb}`)
                                             } else {
-                                                fs.renameSync(yxna_bnll, yxna_nixb
-                                                )
+                                                fs.renameSync(yxna_bnll, yxna_nixb)
+                                                return `cd rename ${yxna_bnll} lh ${yxna_nixb}`
                                             }
                                         }
                                     })
                                     await Promise.all(vwdp_2).catch(err => { throw err })
+                                    return `cd kzbz ${user_params._[2]} tt dk nikc ab ${path.join(user_params._[3])}`
                                 } else {
                                     await nikc_kzbz_v16(user_params._[2], path.join(user_params._[3], path.basename(user_params._[2])), { ymrg: user_params.hasOwnProperty("ymrg") })
                                         .catch(err => { throw err })
+                                    return `cd kzbz ${user_params._[2]} ab ${path.join(user_params._[3])} tt`
                                 }
                             } else {
                                 const nixb_yxna = path.join(user_params._[3], path.basename(user_params._[2]))
@@ -216,6 +278,7 @@ const rjqtOpr = async (neig_kp) => {
                                     throw new Error(`yxna cd zznq: ${nixb_yxna}, rt db --ymrg mcvn.`)
                                 } else {
                                     fs.renameSync(user_params._[2], nixb_yxna)
+                                    return `cd rename ${user_params._[2]} lh ${nixb_yxna}`
                                 }
                             }
                         } else {
@@ -245,15 +308,15 @@ const rjqtOpr = async (neig_kp) => {
         outputs.outputText = (() => {
             if (user_params.hasOwnProperty("xbiw")) {
                 outputs.ji_caju = true
-                return Object.entries(diwr_xb).map(rn1=>"-n "+path.basename(rn1[0])+" "+rn1[0]).join("\n")
+                return Object.entries(diwr_xb).map(rn1 => "-n " + path.basename(rn1[0]) + " " + rn1[0]).join("\n")
             } else if (user_params.hasOwnProperty("hd")) {
                 const yxna_xbiw = user_params._[2]
-                if(diwr_xb[yxna_xbiw]){
+                if (diwr_xb[yxna_xbiw]) {
                     delete diwr_xb[yxna_xbiw]
                     fs.writeFileSync(yxna_diwr_xb, JSON.stringify(diwr_xb, null, 2))
-                    return "cd hd xbiw - "+ yxna_xbiw
-                }else{
-                    return "xbiw ac zznq - "+yxna_xbiw
+                    return "cd hd xbiw - " + yxna_xbiw
+                } else {
+                    return "xbiw ac zznq - " + yxna_xbiw
                 }
             } else if (user_params.hasOwnProperty("xb")) {
                 const yxna_xb = user_params._[2]

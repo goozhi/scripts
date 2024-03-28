@@ -145,7 +145,7 @@ const arrC = [
         rjqt hd /out/ -r matcher
 
         rjqt mkdir /out
-        rjqt mkdir /out out2 out3
+        rjqt mkdirs /out out2 out3
 
         rjqt mkfile /test.txt
         rjqt mkfile /test.1.txt test.2.txt
@@ -156,9 +156,16 @@ const arrC = [
         rjqt zy /out/test.txt
         rjqt zy /out/test.txt out/test.2.txt
 
-        rjqt filter /out -r a --wfqq
+        zjyj rjqt wu:
+        rjqt cfep /out -r bqeo --wfqq
 
-        rjqt filter /out -r a --wfqq --bqeo
+        zjyj rjqt bqeo:
+        rjqt filter /out -r bqeo --wfqq
+
+        rjqt filter /out --wfqq
+        bqeo
+
+        nq tszn rjqt bq zjyj:
         rjqt find /out/test.txt -r a
 
         zjzj nikc tt jils pc tczn yxna

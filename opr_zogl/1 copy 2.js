@@ -3,6 +3,7 @@ const fs = require('fs')
 const rjqtOpr = require("../oprs/rjqtOpr.js")
 const hd_rjqt_tum = require("../hd_rjqt_tum")
 const ngnc_nikc_fywy_diwr = require('../ngnc_nikc_fywy_diwr')
+const zjzj_outputText = require('../zjzj_outputText.js')
 const nikc_tu_kz_test = path.resolve('test/tu_kz_test')
 hd_rjqt_tum(nikc_tu_kz_test)
 const diwr_test_nikc = {
@@ -95,5 +96,8 @@ module.exports = async () => {
     } else {
         console.error(`csrf-err: tu kz rjqt reg hqtz um ms.`)
     }
-
+    zjzj_outputText(outputs_1, { zkrs: 'kz-outputs_1' })
+    zjzj_outputText(outputs_2, { zkrs: 'kz-outputs_2' })
+    zjzj_outputText(outputs_3, { zkrs: 'kz-outputs_3' })
+    zjzj_outputText(outputs_4, { zkrs: 'kz-outputs_4' })
 }

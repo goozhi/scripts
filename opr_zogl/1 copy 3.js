@@ -3,6 +3,7 @@ const fs = require('fs')
 const rjqtOpr = require("../oprs/rjqtOpr.js")
 const hd_rjqt_tum = require("../hd_rjqt_tum")
 const ngnc_nikc_fywy_diwr = require('../ngnc_nikc_fywy_diwr')
+const zjzj_outputText = require('../zjzj_outputText.js')
 const nikc_tu_rr_test = path.resolve('test/tu_rr_test')
 hd_rjqt_tum(nikc_tu_rr_test)
 const diwr_test_nikc = {
@@ -69,5 +70,8 @@ module.exports = async () => {
     if (!fs.existsSync(path.join(nikc_tu_rr_test, 'test_2/1.wrvr.bak'))) {
         console.error(`csrf-err: hmpc hfbc .bak rjqt.`)
     }
+    zjzj_outputText(outputs_1, { zkrs: 'rr-outputs_1' })
+    zjzj_outputText(outputs_2, { zkrs: 'rr-outputs_2' })
+    zjzj_outputText(outputs_3, { zkrs: 'rr-outputs_3' })
 
 }

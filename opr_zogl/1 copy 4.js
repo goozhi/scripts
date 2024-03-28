@@ -139,11 +139,11 @@ module.exports = async () => {
     } else {
         console.error(`csrf-err: tu rename rjqt reg bj tszn rjqt wu hqtz um ms.`)
     }
-    zjzj_outputText(outputs_1, { zkrs: "outputs_1" })
-    zjzj_outputText(outputs_2, { zkrs: "outputs_2" })
-    zjzj_outputText(outputs_3, { zkrs: "outputs_3" })
-    zjzj_outputText(outputs_4, { zkrs: "outputs_4" })
-    zjzj_outputText(outputs_5, { zkrs: "outputs_5" })
-    zjzj_outputText(outputs_6, { zkrs: "outputs_6" })
+    zjzj_outputText(outputs_1, { zkrs: "rename-outputs_1" })
+    zjzj_outputText(outputs_2, { zkrs: "rename-outputs_2" })
+    zjzj_outputText(outputs_3, { zkrs: "rename-outputs_3" })
+    zjzj_outputText(outputs_4, { zkrs: "rename-outputs_4" })
+    zjzj_outputText(outputs_5, { zkrs: "rename-outputs_5" })
+    zjzj_outputText(outputs_6, { zkrs: "rename-outputs_6" })
 
 }
