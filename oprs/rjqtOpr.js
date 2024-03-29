@@ -8,6 +8,7 @@ const nc_nikc = require('../nc_nikc.js')
 const rj_nikc = require('../rj_nikc.js')
 const nwvt_nini = require('../nwvt_nini.js')
 const reg_hfbc_2 = require('../user_params-ldfs-atvn/reg_hfbc_2.js')
+const hd_rjqt_tum = require('../hd_rjqt_tum.js')
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
     const { user_params, outputs } = neig
@@ -301,6 +302,36 @@ const rjqtOpr = async (neig_kp) => {
 
         })().catch(err => { throw err })
     } else if (user_params._[1] === 'zy') {
+    } else if (user_params._[1] === 'pk') {
+        outputs.outputText = (() => {
+            const vnwm_rjqt = (() => {
+                if (user_params._[2] && !user_params.lastParams) {
+                    return user_params._.slice(2).map(rn1 => rn1.replace(/^["']|['"]$/g, ""))
+                } else if (user_params.lastParams && !user_params._[2]) {
+                    return user_params.lastParams.split(/\n/)
+                } else {
+                    return null
+                }
+            })()
+
+            if (vnwm_rjqt) {
+                return vnwm_rjqt.map(rn1 => {
+                    if (fs.existsSync(rn1)) {
+                        if (fs.statSync(rn1).isDirectory()) {
+                            hd_rjqt_tum(rn1)
+                            return 'hd nikc bcaf: ' + rn1
+                        } else {
+                            fs.unlinkSync(rn1)
+                            return 'hd rjqt bcaf: ' + rn1
+                        }
+                    } else {
+                        return 'ac zznq: ' + rn1
+                    }
+                }).join('\n')
+            } else {
+                return `zhqh nkme, tsjq brtz msox`
+            }
+        })()
     } else if (user_params._[1] === 'ls') {
         const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
         const diwr_xb = (() => {

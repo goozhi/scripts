@@ -150,11 +150,27 @@ const arrC = [
         rjqt copy /out/ /out/2
         rjqt copy /out/ /out/2 --files
 
-        rjqt hd /out
+        ## hd nikc
+        rjqt pk /out
+        
+        ## hd rjqt
+        rjqt pk /out/test.txt /out/test.2.txt
+        
+        rjqt pk
+        /out/test.txt
+        /out/test.2.txt
+        
+        ## hd nikc tt dk sopc rjqt
         rjqt hd /out --files
-        rjqt hd /out/test.txt
+        
+        ## fywy eosr juzc tz hd nikc tt dk tszn rjqt
         rjqt hd /out/ -r matcher
-
+        
+        ## hd nikc tt tszn rjqt
+        rjqt hd /out
+        1.txt
+        2.txt
+        
         rjqt mkdir /out
         rjqt mkdirs /out out2 out3
 
