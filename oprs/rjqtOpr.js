@@ -6,6 +6,8 @@ const lz_rzwu = require('../rjqt_lz_rzwu')
 const filter_reg_hfbc = require('../user_params-ldfs-atvn/filter_reg_hfbc.js')
 const nc_nikc = require('../nc_nikc.js')
 const rj_nikc = require('../rj_nikc.js')
+const nwvt_nini = require('../nwvt_nini.js')
+const reg_hfbc_2 = require('../user_params-ldfs-atvn/reg_hfbc_2.js')
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
     const { user_params, outputs } = neig
@@ -21,7 +23,7 @@ const rjqtOpr = async (neig_kp) => {
                 if (user_params.hasOwnProperty("files")) {
                     const reg_1 = reg_hfbc(user_params)
                     return fs.readdirSync(user_params._[2])
-                        .filter(rn1 => reg_1.test(rn1))
+                        .filter(rn1 => user_params.r ? reg_1.test(rn1) : true)
                         .map(rn1 => path.join(user_params._[2], rn1))
                         .filter(rn1 => fs.statSync(rn1).isFile())
                         .map(rn1 => {
@@ -200,18 +202,21 @@ const rjqtOpr = async (neig_kp) => {
                 throw new Error(`yxna ac zznq: ${user_params._[2]}`)
             }
         })()
+    } else if (user_params._[1] === 'cfep') {
+        outputs.outputText = (() => {
+            if (fs.existsSync(user_params._[2])) {
+                const vnwm_nini = nwvt_nini(user_params)
+                return vnwm_nini.filter(rn1 => (user_params.lastParams && path.basename(rn1).includes(user_params.lastParams))
+                    || (user_params.r && user_params.r.length && reg_hfbc_2(user_params).test(path.basename(rn1)))
+                ).join('\n')
+            } else {
+                throw new Error(`csrf-err: nikc ac zznq - ${user_params._[2]}`)
+            }
+        })()
     } else if (user_params._[1] === 'filter') {
         outputs.outputText = (() => {
             if (fs.existsSync(user_params._[2])) {
-                const vnwm_yxna = (() => {
-                    if (user_params.wfqq) {
-                        return rj_nikc(user_params._[2])
-                    } else {
-                        return fs.readdirSync(user_params._[2])
-                            .map(rn1 => path.join(user_params._[2], rn1))
-
-                    }
-                })().filter(rn1 => fs.statSync(rn1).isFile())
+                const vnwm_yxna = nwvt_nini(user_params).filter(rn1 => fs.statSync(rn1).isFile())
                 const vnwm_nixb = []
                 if (user_params.lastParams) {
                     const rj_nixb = user_params.lastParams

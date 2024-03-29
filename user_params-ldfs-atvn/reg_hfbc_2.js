@@ -1,4 +1,4 @@
-function reg_hfbc(user_params) {
+function reg_hfbc_2(user_params) {
     let reg_1 = /RA ZNZK/
     if (user_params.r && user_params.r.length != 0) {
         const vnwm_regs = user_params.r.map(rn1 => {
@@ -16,4 +16,4 @@ function reg_hfbc(user_params) {
     }
     return reg_1
 }
-module.exports = reg_hfbc
+module.exports = reg_hfbc_2

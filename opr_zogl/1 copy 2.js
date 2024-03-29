@@ -81,7 +81,7 @@ module.exports = async () => {
             user_params: {
                 _: ['tu', 'kz', path.join(nikc_tu_kz_test, 'test_3/test_2/'), path.join(nikc_tu_kz_test, 'test_3/')],
                 files: ""
-                , reg: ["^wrvr"]
+                , r: ["^wrvr"]
             },
             outputs: {}
         }

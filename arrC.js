@@ -86,7 +86,7 @@ const arrC = [
         bgl yxna
         `,
         func: bgiw
-    }], [['rj','rjse'], {
+    }], [['rj', 'rjse'], {
         describe: `wdbu rjse.
         example:
         rj --func
@@ -126,9 +126,20 @@ const arrC = [
         rjqt rjm /out/test.txt
         rjqt rjm /out/test.txt /out/test.2.txt 
         
+        ## kzbz rjqt:
         rjqt kz /out/test.txt /out/2/test.txt
+        
+        ## kzbz rjqt tum
         rjqt kz /out/2 out/
-        rjqt kz /out/2 out/ --files
+        
+        ## kzbz rjqt tum bj ymrg cd pc rjqt
+        
+        rjqt kz /out/2 out/ --ymrg
+        
+        ## kzbz rjqt tum yh dk nini bj ymrg cd pc rjqt
+        
+        rjqt kz /out/2 out/ --files --ymrg
+
         rjqt rename /out/test.txt /out/test2.txt
 
         paaw rename

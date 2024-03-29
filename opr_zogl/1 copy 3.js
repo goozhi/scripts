@@ -59,7 +59,7 @@ module.exports = async () => {
         user_params: {
             _: ['tu', 'rr', path.join(nikc_tu_rr_test, 'test_2')]
             , lastParams: `hey\nguys`
-            , reg: ['\\.wrvr$']
+            , r: ['\\.wrvr$']
             , files: ''
         },
         outputs: {}
