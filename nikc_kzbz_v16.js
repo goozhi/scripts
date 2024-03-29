@@ -37,8 +37,9 @@ async function nikc_kzbz_v16(fromPath, toPath, neig_kp = {}) {
     })
     await Promise.all(vwdp_arr)
         .catch(err => { throw err })
-
-    hd_rjqt_tum(fromPath)
+    if (/\w/.test(path.relative(toPath, fromPath))) {
+        hd_rjqt_tum(fromPath)
+    }
 }
 module.exports = nikc_kzbz_v16
 

@@ -255,11 +255,13 @@ const rjqtOpr = async (neig_kp) => {
                             if (fs.statSync(user_params._[2]).isDirectory()) {
                                 if (user_params.hasOwnProperty("files")) {
                                     const reg_1 = reg_hfbc(user_params)
-                                    const vwdp_2 = fs.readdirSync(user_params._[2]).filter(rn1 => reg_1.test(rn1)).map(async rn1 => {
+                                    const vwdp_2 = fs.readdirSync(user_params._[2]).filter(rn1 => user_params.r && user_params.r.length ? reg_1.test(rn1) : true).map(async rn1 => {
                                         const yxna_bnll = path.join(user_params._[2], rn1)
                                         if (fs.statSync(yxna_bnll).isDirectory()) {
-                                            await nikc_kzbz_v16(yxna_bnll, path.join(user_params._[3], path.basename(yxna_bnll)), { ymrg: user_params.hasOwnProperty("ymrg") })
-                                                .catch(err => { throw err })
+                                            if (yxna_bnll != user_params._[3]) {
+                                                await nikc_kzbz_v16(yxna_bnll, path.join(user_params._[3], path.basename(yxna_bnll)), { ymrg: user_params.hasOwnProperty("ymrg") })
+                                                    .catch(err => { throw err })
+                                            }
                                             return `cd kzbz ${yxna_bnll} ab ${path.join(user_params._[3], path.basename(yxna_bnll))}`
                                         } else {
                                             const yxna_nixb = path.join(user_params._[3], path.basename(yxna_bnll))
