@@ -207,6 +207,39 @@ fffffffffff*2 = 35184372088830
         c
         a`.trimLines(),
         `a\nb\nc`
+    ], [
+        `rj find abc.
+        abcd
+        cdd
+        a`.trimLines(),
+        `1.+0`, { regex: true }
+    ], [
+        `rj find abc.
+        cdd
+        abcd
+        a`.trimLines(),
+        `2.+0`, { regex: true }
+    ], [
+        `rj find /abc./g
+        abcd
+        cdd
+        abcedabcf
+        adfabcl`.trimLines(),
+        `1.+0[\\s\\S]+3.+0[\\s\\S]+3.+5[\\s\\S]+4.+3`, { regex: true }
+    ], [
+        `rj zhvt /abc./g
+        abcd
+        cdd
+        abce
+        a`.trimLines(),
+        `abcd[\\s\\S]+abce`, { regex: true }
+    ], [
+        `rj find /abcddd/i
+        abcd
+        cdd
+        abce
+        a`.trimLines(),
+        `RA YJAB`, { regex: true }
     ]
 ]
 module.exports = equals

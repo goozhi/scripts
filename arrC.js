@@ -89,6 +89,19 @@ const arrC = [
     }], [['rj', 'rjse'], {
         describe: `wdbu rjse.
         example:
+        rj find /a.*/ig
+        abc
+        sdg
+        abc
+        dff
+
+
+        rj zhvt /a.*/gi
+        abc
+        hhh
+        abd
+
+
         rj --func
         rjse
         -fdmj-
