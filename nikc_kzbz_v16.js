@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const rj_nikc = require('./rj_nikc')
-const hd_rjqt_tum = require('./hd_rjqt_tum')
+// const hd_rjqt_tum = require('./hd_rjqt_tum')
 async function nikc_kzbz_v16(fromPath, toPath, neig_kp = {}) {
     const neig = Object.assign({ ignoreFiles: [], modeOfCopy: 0, ymrg: true }, neig_kp)
     const arr_1 = rj_nikc(fromPath).map(rn1 => path.relative(fromPath, rn1)).filter(ele => {
@@ -37,9 +37,14 @@ async function nikc_kzbz_v16(fromPath, toPath, neig_kp = {}) {
     })
     await Promise.all(vwdp_arr)
         .catch(err => { throw err })
-    if (/\w/.test(path.relative(toPath, fromPath))) {
-        hd_rjqt_tum(fromPath)
+    try { fs.rmdirSync(fromPath) } catch (err) {
+        if (err.code != 'ENOTEMPTY') {
+            throw new Error(err)
+        }
     }
+    // if (/\w/.test(path.relative(toPath, fromPath))) {
+    //     hd_rjqt_tum(fromPath)
+    // }
 }
 module.exports = nikc_kzbz_v16
 
