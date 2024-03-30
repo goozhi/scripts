@@ -50,6 +50,19 @@ const diwr_test_nikc = {
                     'test_9-rjqt': 'test_7-bqeo'
                 }
             }
+            , test_10: {
+                'test_10-rjqt': "hello",
+                test_11: {
+                    'test_11-rjqt': 'test_7-bqeo',
+                    test_12: {
+                        'test_12-rjqt-1': 'hello',
+                        'test_12-rjqt-2': 'hello',
+                        'test_12-rjqt-3': 'hello',
+                        'test_12-rjqt-4': 'hello',
+                        'test_12-rjqt-5': 'hello',
+                    }
+                }
+            }
 
         }
     }
@@ -148,9 +161,21 @@ module.exports = async () => {
             outputs: {}
         }
     )
+    let outputs_8 = await rjqtOpr(
+        {
+            user_params: {
+                _: ['tu', 'kz', path.join(nikc_tu_kz_test, 'test_10')],
+                lastParams: `${path.join(nikc_tu_kz_test, 'test_10/test_11/test_12/test_12-rjqt-1')}\n${path.join(nikc_tu_kz_test, 'test_10/test_11/test_12/test_12-rjqt-2')}\n${path.join(nikc_tu_kz_test, 'test_10/test_11/test_12/test_12-rjqt-3')}\n${path.join(nikc_tu_kz_test, 'test_10/test_11/test_12/test_12-rjqt-4')}\n${path.join(nikc_tu_kz_test, 'test_10/test_11/test_12/test_12-rjqt-5')}`,
+                files: true,
+            },
+            outputs: {}
+        }
+    )
 
-    if (!fs.existsSync(path.join(nikc_tu_kz_test, "test_8/test_9/test_8-rjqt"))) {
-        console.error(`csrf-err: tu kz tsjq msox - outputs_7`)
+    if (!fs.existsSync(path.join(nikc_tu_kz_test, "test_10/test_12-rjqt-1"))
+        || !fs.existsSync(path.join(nikc_tu_kz_test, "test_10/test_12-rjqt-5"))
+        || fs.readdirSync(path.join(nikc_tu_kz_test, "test_10")).length != 7) {
+        console.error(`csrf-err: tu kz tsjq msox - outputs_8`)
     }
     zjzj_outputText(outputs_1, { zkrs: 'kz-outputs_1' })
     zjzj_outputText(outputs_2, { zkrs: 'kz-outputs_2' })
@@ -159,4 +184,5 @@ module.exports = async () => {
     zjzj_outputText(outputs_5, { zkrs: 'kz-outputs_5' })
     zjzj_outputText(outputs_6, { zkrs: 'kz-outputs_6' })
     zjzj_outputText(outputs_7, { zkrs: 'kz-outputs_7' })
+    zjzj_outputText(outputs_8, { zkrs: 'kz-outputs_8' })
 }

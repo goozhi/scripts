@@ -9,6 +9,7 @@ const rj_nikc = require('../rj_nikc.js')
 const nwvt_nini = require('../nwvt_nini.js')
 const reg_hfbc_2 = require('../user_params-ldfs-atvn/reg_hfbc_2.js')
 const hd_rjqt_tum = require('../hd_rjqt_tum.js')
+const paaw_nini_kzbz = require('../paaw_nini_kzbz.js')
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
     const { user_params, outputs } = neig
@@ -255,26 +256,8 @@ const rjqtOpr = async (neig_kp) => {
                             if (fs.statSync(user_params._[2]).isDirectory()) {
                                 if (user_params.hasOwnProperty("files")) {
                                     const reg_1 = reg_hfbc(user_params)
-                                    const vwdp_2 = fs.readdirSync(user_params._[2]).filter(rn1 => user_params.r && user_params.r.length ? reg_1.test(rn1) : true).map(async rn1 => {
-                                        const yxna_bnll = path.join(user_params._[2], rn1)
-                                        if (fs.statSync(yxna_bnll).isDirectory()) {
-                                            if (yxna_bnll != user_params._[3]) {
-                                                await nikc_kzbz_v16(yxna_bnll, path.join(user_params._[3], path.basename(yxna_bnll)), { ymrg: user_params.hasOwnProperty("ymrg") })
-                                                    .catch(err => { throw err })
-                                            }
-                                            return `cd kzbz ${yxna_bnll} ab ${path.join(user_params._[3], path.basename(yxna_bnll))}`
-                                        } else {
-                                            const yxna_nixb = path.join(user_params._[3], path.basename(yxna_bnll))
-                                            if (!user_params.hasOwnProperty("ymrg") && fs.existsSync(yxna_nixb)) {
-                                                throw new Error(`yxna cd zznq: ${yxna_nixb}`)
-                                            } else {
-                                                fs.renameSync(yxna_bnll, yxna_nixb)
-                                                return `cd rename ${yxna_bnll} lh ${yxna_nixb}`
-                                            }
-                                        }
-                                    })
-                                    await Promise.all(vwdp_2).catch(err => { throw err })
-                                    return `cd kzbz ${user_params._[2]} tt dk nikc ab ${path.join(user_params._[3])}`
+                                    return await paaw_nini_kzbz(fs.readdirSync(user_params._[2]).filter(rn1 => user_params.r && user_params.r.length ? reg_1.test(rn1) : true).map(rn1 => path.join(user_params._[2], rn1)), user_params._[3], { ymrg: user_params.hasOwnProperty('ymrg') })
+                                        .catch(err => { throw err })
                                 } else {
                                     await nikc_kzbz_v16(user_params._[2], path.join(user_params._[3], path.basename(user_params._[2])), { ymrg: user_params.hasOwnProperty("ymrg") })
                                         .catch(err => { throw err })
@@ -298,6 +281,10 @@ const rjqtOpr = async (neig_kp) => {
                 } else {
                     throw new Error(`yxna ac zznq: ${user_params._[3]}`)
                 }
+            } else if (user_params._[2] && user_params.lastParams) {
+                const vnwm_rjqt = user_params.lastParams.split(/\n/).filter(rn1 => /\S/.test(rn1))
+
+                return await paaw_nini_kzbz(vnwm_rjqt, user_params._[2], { ymrg: user_params.hasOwnProperty('ymrg') })
             } else {
                 throw new Error(`Da bl nh mcvn aoao fc pc.`)
             }
