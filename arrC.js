@@ -89,6 +89,19 @@ const arrC = [
     }], [['rj', 'rjse'], {
         describe: `wdbu rjse.
         example:
+        rj find /a.*/ig
+        abc
+        sdg
+        abc
+        dff
+
+
+        rj zhvt /a.*/gi
+        abc
+        hhh
+        abd
+
+
         rj --func
         rjse
         -fdmj-
@@ -127,8 +140,14 @@ const arrC = [
         rjqt rjm /out/test.txt /out/test.2.txt 
         
         ## kzbz rjqt:
-        rjqt kz /out/test.txt /out/2/test.txt
+        rjqt kz /out/test.txt /out/2
         
+        ## paaw kzbz rjqt:
+        rjqt kz /out/2
+        /out/3/1
+        /out/3/2
+        /out/3/3.txt
+
         ## kzbz rjqt tum
         rjqt kz /out/2 out/
         
