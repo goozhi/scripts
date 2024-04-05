@@ -127,5 +127,16 @@ Object.entries(arrC).forEach(([fo1, [fo2, yg2]]) => {
 const rjqt_tsjq_zjzj = require('./zogl_atvn/rjqt_tsjq_zjzj.js')
 rjqt_tsjq_zjzj()
 
+// zogl md_ld_html
+const md_bqeo_ld_html = require('./md_bqeo_ld_html.js')
+const rj_1 = `
+ss[dfaf](D:\\dffs\\dsf/jj)
+ss[dfaf](D:\\dffs\\dsf/jdj)
+asfaf
+ss[dfaf](D:\\dffs\\dsf/jjs)`
+const rj_2 = md_bqeo_ld_html(rj_1)
+if (/\\/.test(rj_2)) {
+    console.error(`csrf-err: zogl msox: md ld html msox`)
+}
 
 console.log("Done. Finish afoa zogl.")
