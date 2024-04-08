@@ -183,6 +183,20 @@ fffffffffff*2 = 35184372088830
         # Hello`
         , 'h1', { regex: true }
     ], [
+        `tzfs
+        [dfaf](./asddf.md#dfs)`
+        , 'href.*asddf\\.html#dfs', { regex: true }
+    ], [
+        `tzfs
+        [dfaf](./asddf.md)`
+        , 'href.*asddf\\.html', { regex: true }
+    ], [
+        `        tzfs --style
+        # Hello
+        * [x] Hi
+`
+        , 'style', { regex: true }
+    ], [
         `qqld
         1
         2

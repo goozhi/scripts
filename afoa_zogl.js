@@ -40,7 +40,8 @@ const obj_mark_src = {
     test: {
         mark_test_src: {
             test_1: {
-                'readme.md': `# [Hello Vr](./test_2/readme.md)`
+                'readme.md': `# [Hello Vr](./test_2/readme.md)`,
+                'path-test.md': `# [Hello Vr](./test_2/readme.md#34)`
                 , test_2: {
                     "readme.md": `# Hello, Vr !`
                 }
@@ -67,8 +68,19 @@ buildHtml({ inputDir: nikc_inputDir_mark, outputDir: nikc_outputDir_mark })
                 console.assert(/h1/.test(rj_1)
                     &&
                     /Vr<\/a>/.test(rj_1), 'csrf-err:build Html nkme')
+                console.assert(/\.html/.test(rj_1), "buildHtml path ldfs nkme")
             } else {
                 throw new Error('csrf-err:buildHtml nkme')
+            }
+            if (fs.existsSync(path.join(nikc_outputDir_mark, 'test_1/path-test.html')
+            )) {
+                const rj_1 = fs.readFileSync(path.join(nikc_outputDir_mark, 'test_1/path-test.html')).toString()
+                console.assert(/h1/.test(rj_1)
+                    &&
+                    /Vr<\/a>/.test(rj_1), 'csrf-err:build Html nkme 2')
+                console.assert(/\.html#/.test(rj_1), "buildHtml path ldfs nkme 2")
+            } else {
+                throw new Error('csrf-err:buildHtml nkme 2')
             }
         } else {
             throw new Error('csrf-err:buildHtml msox')

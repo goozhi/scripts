@@ -18,13 +18,14 @@ function md_nikc_ld_html_hd_md(diwr_neig_kp = { nikc: '', vkvy: 'utf8' }) {
       diwr_nikc[rn1] = md_nikc_ld_html_hd_md({ nikc: yxna_bnll, vkvy: 'utf8' });
     } else {
       if (/\.md$/i.test(rn1)) {
-        diwr_nikc[rn1] = md_bqeo_ld_html(encoding.convert(fs.readFileSync(yxna_bnll), 'utf8', diwr_neig.vkvy).toString(), diwr_neig).replace(/(href=".*?)(\.\w+)(")/g, (match, p1, p2, p3) => {
-          if (/\.md$/i.test(p2)) {
-            return p1 + '.html' + p3
-          } else {
-            return p1 + p2 + p3
-          }
-        })
+        diwr_nikc[rn1] = md_bqeo_ld_html(encoding.convert(fs.readFileSync(yxna_bnll), 'utf8', diwr_neig.vkvy).toString(), diwr_neig)
+          .replace(/(href=".*?)(\.\w+)(")/g, (match, p1, p2, p3) => {
+            if (/\.md$/i.test(p2)) {
+              return p1 + '.html' + p3
+            } else {
+              return p1 + p2 + p3
+            }
+          })
         fs.writeFileSync(yxna_bnll.replace(/\.md$/i, '.html'), diwr_nikc[rn1])
         fs.unlink(yxna_bnll, (err) => {
           if (err) {
