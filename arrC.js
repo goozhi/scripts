@@ -279,6 +279,11 @@ const arrC = [
         
         tzfs
         # Hello
+
+        jcbz neig style:
+        tzfs --style
+        # Hello
+        * [x] Hi
         `,
         func: tzfs
     }],

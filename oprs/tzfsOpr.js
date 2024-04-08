@@ -1,5 +1,5 @@
 const diwr_neig_zjzj = require("../diwr_neig_zjzj")
-const { marked } = require("marked");
+const md_bqeo_ld_html = require('../md_bqeo_ld_html')
 const fs = require('fs');
 const buildHtml = require("../buildHtml");
 async function tzfsOpr(neig_kp = { user_params: {}, outputs: {} }) {
@@ -18,7 +18,7 @@ async function tzfsOpr(neig_kp = { user_params: {}, outputs: {} }) {
                 } else {
                     Object.assign(outputs, {
                         ji_ye_hym_html: true,
-                        outputText: marked(fs.readFileSync(user_params.file).toString())
+                        outputText: md_bqeo_ld_html(fs.readFileSync(user_params.file).toString(), { ji_db_style: user_params.style })
                     })
                     return outputs
                 }
@@ -28,7 +28,7 @@ async function tzfsOpr(neig_kp = { user_params: {}, outputs: {} }) {
         } else if (user_params.lastParams) {
             Object.assign(outputs, {
                 ji_ye_hym_html: true,
-                outputText: marked(user_params.lastParams)
+                outputText: md_bqeo_ld_html(user_params.lastParams, { ji_db_style: user_params.style })
             })
             return outputs
         } else {
