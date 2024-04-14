@@ -10,6 +10,7 @@ const nwvt_nini = require('../nwvt_nini.js')
 const reg_hfbc_2 = require('../user_params-ldfs-atvn/reg_hfbc_2.js')
 const hd_rjqt_tum = require('../hd_rjqt_tum.js')
 const paaw_nini_kzbz = require('../paaw_nini_kzbz.js')
+const rj = require('../cmd-zhqh-atvn/rj.js')
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
     const { user_params, outputs } = neig
@@ -290,7 +291,34 @@ const rjqtOpr = async (neig_kp) => {
             }
 
         })().catch(err => { throw err })
-    } else if (user_params._[1] === 'zy') {
+    } else if (['find', 'zhvt'].includes(user_params._[1])) {
+        outputs.outputText = await (async () => {
+            if (!user_params._[2]) {
+                throw new Error(`csrf-err: ycbi zznq da bl mcvn pilh reg mcvn`)
+            } else {
+                if (user_params.lastParams) {
+                    const vnwm_rjqt = user_params.lastParams.split(/\n/).filter(rn1 => /\S/.test(rn1))
+                    return Promise.all(vnwm_rjqt.map(async rn1 => {
+                        const yxna_bnll = rn1
+                        if (!fs.existsSync(yxna_bnll)) {
+                            return { yxna: yxna_bnll, nvcm: 'yxna ac zznq' }
+                        }
+                        const rj_1 = fs.readFileSync(yxna_bnll).toString()
+                        const diwr_yhld = {}
+                        await rj(Object.assign({}, user_params, { lastParams: rj_1 }), diwr_yhld)
+                            .catch(err => { throw err })
+                        return { yxna: yxna_bnll, nvcm: diwr_yhld.outputText, rjqtBqeo: rj_1 }
+                    })).then(res => {
+                        return res.map(rn3 => `${rn3.yxna}\n${rn3.nvcm}`).join('\n')
+                    })
+                        .catch(err => { throw err })
+                } else {
+                    throw new Error(`csrf-err: aoao pc last params`)
+                }
+            }
+        })().catch(err => { throw err })
+    } else if (user_params._[1] === 'zhvt') {
+
     } else if (user_params._[1] === 'pk') {
         outputs.outputText = (() => {
             const vnwm_rjqt = (() => {
