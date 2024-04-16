@@ -1,6 +1,5 @@
 const rj_yj = require("../rj_yj")
 const rj_yj_mh_nh = require("../rj_yj_mh_nh")
-const rj_yj_test = require("../rj_yj_mh_nh")
 const reg_hfbc = require("../user_params-ldfs-atvn/reg_hfbc")
 
 const rj = async (user_params = {}, outputs = { outputText: "" }) => {

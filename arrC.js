@@ -211,14 +211,25 @@ const arrC = [
         rjqt filter /out --wfqq
         bqeo
 
-        nq tszn rjqt bq zjyj:
-        rjqt find /out/test.txt -r a
+        ## paaw rjqt bq zjyj nixb bqeo dk trig
 
-        zjzj nikc tt jils pc tczn yxna
+        rjqt find reg-keyword
+        test.txt
+        /out/test.txt
+
+
+        ## paaw rjqt bq zhvt nixb bqeo
+
+        rjqt zhvt reg-keyword
+        test.txt
+        /out/test.txt
+
+        ## zjzj jils zznq tszn yxna
         tu yxna
         yxna1
         /sub/yxna2
 
+        ## zjzj nikc tt jils pc tszn yxna
         tu yxna /nikc
         yxna1
         /sub/yxna2
