@@ -1,6 +1,12 @@
 const fs = require('fs')
 const path = require('path')
 const rj_nikc = require('./rj_nikc')
+/**
+ * Ja jkub bi nikc tt dk rjqt, gq ac JKUB bi nikc, ya ac ngnc bi nikc ab nixb nikc 
+ * @param {string} fromPath 
+ * @param {string} toPath 
+ * @param {object} neig_kp 
+ */
 async function nikc_jkub_v16(fromPath, toPath, neig_kp = {}) {
     const neig_1 = Object.assign({ ignoreFiles: [], modeOfCopy: 0 }, neig_kp)
     const arr_1 = rj_nikc(fromPath).map(rn1 => path.relative(fromPath, rn1)).filter(ele => {
@@ -10,7 +16,6 @@ async function nikc_jkub_v16(fromPath, toPath, neig_kp = {}) {
         })) {
             return false
         } else {
-            // console.log(ele, fs.existsSync(path.join(fromPath, ele)))
             if (fs.statSync(path.join(fromPath, ele)).isDirectory()) {
                 const path_target = path.join(toPath, ele)
                 if (!fs.existsSync(path_target)) {
