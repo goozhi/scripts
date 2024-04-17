@@ -211,6 +211,11 @@ const arrC = [
         rjqt mkdir /out
         rjqt mkdirs /out out2 out3
 
+        rjqt mkdirs
+        /out
+        out2
+        out3
+
         rjqt mkfile /test.txt
         rjqt mkfile /test.1.txt test.2.txt
 

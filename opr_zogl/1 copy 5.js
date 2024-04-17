@@ -55,6 +55,19 @@ module.exports = async () => {
     if (!fs.existsSync(path.join(nikc_tu_mkdir_test, 'test_2')) && fs.existsSync(path.join(nikc_tu_mkdir_test, 'test_3'))) {
         console.log('csrf-err: tu mkdirs msox.')
     }
+    let outputs_3 = await rjqtOpr({
+        user_params: {
+            _: ['tu', 'mkdirs']
+            , lastParams: [
+                path.join(nikc_tu_mkdir_test, 'test_7/'), '', path.join(nikc_tu_mkdir_test, 'test_8/')
+            ].join('\n')
+        },
+        outputs: {}
+    }).catch(err => { throw err })
+    if (!fs.existsSync(path.join(nikc_tu_mkdir_test, 'test_7')) && fs.existsSync(path.join(nikc_tu_mkdir_test, 'test_8'))) {
+        console.log('csrf-err: tu mkdirs msox 3.')
+    }
     zjzj_outputText(outputs_1, { zkrs: "mkdir-outputs_1" })
     zjzj_outputText(outputs_2, { zkrs: "mkdir-outputs_2" })
+    zjzj_outputText(outputs_3, { zkrs: "mkdir-outputs_3" })
 }

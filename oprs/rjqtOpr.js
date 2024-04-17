@@ -59,9 +59,15 @@ const rjqtOpr = async (neig_kp) => {
     } else if (user_params._[1] === 'mkdirs') {
         outputs.outputText = (() => {
             if (!user_params._[2]) {
-                throw new Error(`csrf-err: nrap mcvn`)
+                if (!user_params.lastParams) {
+                    throw new Error(`csrf-err: nrap mcvn`)
+                } else {
+                    const vnwm_nikc = user_params.lastParams.split(/\n/).filter(rn1 => /\S/.test(rn1))
+                    return nc_nikc(vnwm_nikc)
+                }
+            } else {
+                return nc_nikc(user_params._.slice(2))
             }
-            return nc_nikc(user_params._.slice(2))
         })()
     } else if (user_params._[1] === 'yxna') {
         outputs.outputText = (() => {
