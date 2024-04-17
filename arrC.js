@@ -165,6 +165,24 @@ const arrC = [
         rjqt rename /out/ {ll}{2}{ud}
         rjqt rename /out/ {ll}-new{ud} -r a b
         
+        ## paaw rename, mcnv m_t
+        rjqt renamefiles /out/ {ll}{2}{ud}
+        rjqt renamefiles /out/ {ll}{02}{ud}
+        rjqt renamefiles /out/ {ll}-new{ud} -r a b
+        rjqt renamefiles /out/ {ll}-new{ud} -r a b --filter .txt
+            
+        ## tszn rjqt paaw rename
+        rjqt renamefiles /out/ {ll}{02}{ud}
+        basename1
+        basename2
+        basename3
+            
+        ## tszn rjqt paaw rename
+        rjqt renamefiles {ll}{02}{ud} --tszn
+        yxna1
+        yxna2
+        yxna3
+
         rjqt copy /out/test.txt /out/test2.txt
         rjqt copy /out/ /out/2
         rjqt copy /out/ /out/2 --files
