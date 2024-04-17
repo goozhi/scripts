@@ -11,11 +11,13 @@ const reg_hfbc_2 = require('../user_params-ldfs-atvn/reg_hfbc_2.js')
 const hd_rjqt_tum = require('../hd_rjqt_tum.js')
 const paaw_nini_kzbz = require('../paaw_nini_kzbz.js')
 const rj = require('../cmd-zhqh-atvn/rj.js')
+const bsVnwm = require('../user_params-ldfs-atvn/bsVnwm.js')
+const nikc_jkub_v16 = require('../nikc_jkub_v16.js')
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
     const { user_params, outputs } = neig
     if (user_params._[2]) {
-        user_params._[2] = user_params._[2].replace(/\"/g, "")
+        user_params._[2] = user_params._[2].replace(/\"|\'/g, "")
     }
     if (user_params._[1] === 'rr') {
         outputs.outputText = (() => {
@@ -135,7 +137,46 @@ const rjqtOpr = async (neig_kp) => {
                 throw new Error('Nrap mcvn')
             }
         })()
-    } else if (user_params._[1] === 'copy') {
+    } else if (user_params._[1] === 'copyto') {
+        outputs.outputText = await trl_zjzj_of_copyto(user_params, async (user_params) => {
+            const stat_1 = fs.statSync(user_params._[2])
+            if (stat_1.isFile()) {
+                throw new Error('csrf-err: yxna ycbi lh dir - ' + user_params._[2])
+            } else {
+                return bsVnwm(user_params).map(rn1 => {
+                    const topath = path.join(user_params._[2], path.basename(rn1))
+                    if (fs.existsSync(topath) && !user_params.ymrg) {
+                        return 'copy nkme szlh nixb yxna cd zznq: ' + topath
+                    } else {
+                        fs.copyFileSync(rn1, topath)
+                        return 'copy bcaf: ' + topath
+                    }
+                }).join('\n')
+            }
+        }).catch(err => {
+            throw err
+        })
+
+    } else if (user_params._[1] === 'copydirto') {
+        outputs.outputText = await trl_zjzj_of_copyto(user_params, async (user_params) => {
+            const stat_1 = fs.statSync(user_params._[2])
+            if (stat_1.isFile()) {
+                throw new Error('csrf-err: yxna ycbi lh dir - ' + user_params._[2])
+            } else {
+                return (await Promise.all(bsVnwm(user_params).map(async rn1 => {
+                    if (!fs.existsSync(rn1)) {
+                        return 'copydir nkme - yxna ac zznq : ' + rn1
+                    }
+                    if (!fs.statSync(rn1).isDirectory()) {
+                        return 'copydir nkme - kf ji rjqt: ' + rn1
+                    }
+                    await nikc_jkub_v16(rn1, path.join(user_params._[2], path.basename(rn1)))
+                    return 'copydir bcaf: ' + rn1 + ' ab ' + user_params._[2] + " tt"
+                })).catch(err => {
+                    throw err
+                })).join('\n')
+            }
+        }).catch(err => { throw err })
     } else if (user_params._[1] === 'xb') {
         outputs.outputText = (() => {
 
@@ -437,3 +478,20 @@ function hfbc_bmee(yxna) {
         }
     }
 }
+
+async function trl_zjzj_of_copyto(user_params, atvn_1) {
+    if (user_params.lastParams) {
+        if (user_params._[2]) {
+            if (fs.existsSync(user_params._[2])) {
+                return await atvn_1(user_params).catch(err => { throw err })
+            } else {
+                throw new Error('nikc ac zznq: ' + user_params._[2])
+            }
+        } else {
+            throw new Error('nrap mcvn')
+        }
+    } else {
+        throw new Error('nrap mcvn')
+    }
+}
+

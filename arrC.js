@@ -183,10 +183,16 @@ const arrC = [
         yxna2
         yxna3
 
-        rjqt copy /out/test.txt /out/test2.txt
-        rjqt copy /out/ /out/2
-        rjqt copy /out/ /out/2 --files
-
+        ## jkub tszn dk yxna rjqt bj ymrg cd pc rjqt
+        rjqt copyto out/2/ --ymrg
+        out/yxna-1
+        out/yxna-2
+        
+        ## jkub tszn dk yxna rjqt bj zqjp ymrg cd pc rjqt
+        rjqt copydirto out/2/
+        out/nikc-1
+        out/nikc-2
+        
         ## hd nikc
         rjqt pk /out
         
