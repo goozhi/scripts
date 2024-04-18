@@ -183,6 +183,11 @@ const arrC = [
         yxna2
         yxna3
 
+        ## eowl abs yxna
+        rjqt abs
+        /out/1
+        /out/2
+
         ## jkub tszn dk yxna rjqt bj ymrg cd pc rjqt
         rjqt copyto out/2/ --ymrg
         out/yxna-1

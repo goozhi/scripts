@@ -147,6 +147,16 @@ const rjqtOpr = async (neig_kp) => {
                 throw new Error('Nrap mcvn')
             }
         })()
+    } else if (user_params._[1] === 'abs') {
+        outputs.outputText = (() => {
+            return bsVnwm(user_params).map(rn1 => {
+                if (path.isAbsolute(rn1)) {
+                    return rn1
+                } else {
+                    return path.resolve(rn1)
+                }
+            }).join('\n')
+        })()
     } else if (user_params._[1] === 'copyto') {
         outputs.outputText = await trl_zjzj_of_copyto(user_params, async (user_params) => {
             const stat_1 = fs.statSync(user_params._[2])
