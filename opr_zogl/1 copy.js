@@ -1,5 +1,7 @@
 // zogl tu rjm
 const rjqtOpr = require("../oprs/rjqtOpr.js")
+const fs = require('fs')
+const encoding = require('encoding')
 const path = require('path')
 const hd_rjqt_tum = require("../hd_rjqt_tum")
 const ngnc_nikc_fywy_diwr = require('../ngnc_nikc_fywy_diwr')
@@ -38,7 +40,21 @@ module.exports = async () => {
         outputs: {}
     }).catch(err => { throw err })
     console.assert(/Hello/i.test(outputs_3.outputText), 'tu rjm tsjq lastParams hqtz pc ms.')
+
+    fs.writeFileSync(path.join(nikc_tu_rjm_test, 'test_4/test-gb2312'), encoding.convert('gb2312测试', 'gb2312', 'utf8'))
+    let outputs_4 = await rjqtOpr({
+        user_params: {
+            _: ['tu', 'rjm', nikc_tu_rjm_test]
+            , lastParams: 'test_4/test-gb2312'
+            , encoding: 'gb2312'
+        },
+        outputs: {}
+    }).catch(err => { throw err })
+    console.assert(/gb2312测试/i.test(outputs_4.outputText), 'tu rjm tsjq na ye encoding hqtz pc ms.')
+
+
     zjzj_outputText(outputs_1, { zkrs: 'rjm-outputs_1' })
     zjzj_outputText(outputs_2, { zkrs: 'rjm-outputs_2' })
     zjzj_outputText(outputs_3, { zkrs: 'rjm-outputs_3' })
+    zjzj_outputText(outputs_4, { zkrs: 'rjm-outputs_4' })
 }

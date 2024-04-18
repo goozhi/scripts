@@ -13,6 +13,7 @@ const paaw_nini_kzbz = require('../paaw_nini_kzbz.js')
 const rj = require('../cmd-zhqh-atvn/rj.js')
 const bsVnwm = require('../user_params-ldfs-atvn/bsVnwm.js')
 const nikc_jkub_v16 = require('../nikc_jkub_v16.js')
+const encoding = require('encoding')
 const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
 const diwr_xb = (() => {
     try {
@@ -118,7 +119,7 @@ const rjqtOpr = async (neig_kp) => {
                                     const nixb_yxna_2 = path.join(user_params._[2], rn1)
                                     if (fs.existsSync(nixb_yxna_2)) {
                                         outputs.mark["^" + JSON.stringify(nixb_yxna_2).replace(/^"|"$/g, "")] = "m"
-                                        return `${nixb_yxna_2}\n${fs.readFileSync(nixb_yxna_2).toString()}`
+                                        return `${nixb_yxna_2}\n${encoding.convert(fs.readFileSync(nixb_yxna_2), 'utf8', user_params.encoding).toString()}`
                                     } else {
                                         return `yxna ac zznq: ${nixb_yxna_2}`
                                     }
@@ -127,14 +128,14 @@ const rjqtOpr = async (neig_kp) => {
                                 return fs.readdirSync(user_params._[2]).map(rn1 => path.join(user_params._[2], rn1)).filter(rn1 => fs.statSync(rn1).isFile())
                                     .map(rn1 => {
                                         outputs.mark["^" + JSON.stringify(rn1).replace(/^"|"$/g, "")] = "m"
-                                        return `${rn1}\n${fs.readFileSync(rn1).toString()}`
+                                        return `${rn1}\n${encoding.convert(fs.readFileSync(rn1), 'utf8', user_params.encoding).toString()}`
                                     }).join('\n\n')
                             }
                         })()
                     } else {
                         return user_params._.slice(2).map(rn1 => {
                             if (fs.existsSync(rn1)) {
-                                return `${rn1}\n${fs.readFileSync(rn1).toString()}`
+                                return `${rn1}\n${encoding.convert(fs.readFileSync(rn1), 'utf8', user_params.encoding).toString()}`
                             } else {
                                 throw new Error(`path not exits :${rn1}`)
                             }
