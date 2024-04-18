@@ -512,14 +512,14 @@ async function trl_zjzj_of_copyto(user_params, atvn_1) {
 }
 
 function yxna_ymrg_wdbu(user_params) {
-    if (user_params._[1] === 'rr') {
-        return
-    }
     user_params._.forEach((rn1, index, arr_1) => {
         if (/\b__n/.test(rn1)) {
             arr_1[index] = ymrg_rj_yh_yxna(rn1)
         }
     });
+    if (user_params._[1] === 'rr') {
+        return
+    }
     if (/\b__n/.test(user_params.lastParams)) {
         user_params.lastParams = ymrg_rj_yh_yxna(user_params.lastParams)
     }
