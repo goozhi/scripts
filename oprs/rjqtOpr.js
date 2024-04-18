@@ -13,12 +13,22 @@ const paaw_nini_kzbz = require('../paaw_nini_kzbz.js')
 const rj = require('../cmd-zhqh-atvn/rj.js')
 const bsVnwm = require('../user_params-ldfs-atvn/bsVnwm.js')
 const nikc_jkub_v16 = require('../nikc_jkub_v16.js')
+const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
+const diwr_xb = (() => {
+    try {
+        return require(yxna_diwr_xb)
+    } catch (err) {
+        return {}
+    }
+})()
+
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
     const { user_params, outputs } = neig
     if (user_params._[2]) {
         user_params._[2] = user_params._[2].replace(/\"|\'/g, "")
     }
+    yxna_ymrg_wdbu(user_params)
     if (user_params._[1] === 'rr') {
         outputs.outputText = (() => {
             if (user_params._[2]) {
@@ -157,6 +167,10 @@ const rjqtOpr = async (neig_kp) => {
             throw err
         })
 
+    } else if (user_params._[1] === '__') {
+        outputs.outputText = (() => {
+            return user_params.lastParams
+        })()
     } else if (user_params._[1] === 'copydirto') {
         outputs.outputText = await trl_zjzj_of_copyto(user_params, async (user_params) => {
             const stat_1 = fs.statSync(user_params._[2])
@@ -397,14 +411,6 @@ const rjqtOpr = async (neig_kp) => {
             }
         })()
     } else if (user_params._[1] === 'ls') {
-        const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
-        const diwr_xb = (() => {
-            try {
-                return require(yxna_diwr_xb)
-            } catch (err) {
-                return {}
-            }
-        })()
         outputs.outputText = (() => {
             if (user_params.hasOwnProperty("xbiw")) {
                 outputs.ji_caju = true
@@ -495,3 +501,40 @@ async function trl_zjzj_of_copyto(user_params, atvn_1) {
     }
 }
 
+function yxna_ymrg_wdbu(user_params) {
+    if (user_params._[1] === 'rr') {
+        return
+    }
+    user_params._.forEach((rn1, index, arr_1) => {
+        if (/\b__n/.test(rn1)) {
+            arr_1[index] = ymrg_rj_yh_yxna(rn1)
+        }
+    });
+    if (/\b__n/.test(user_params.lastParams)) {
+        user_params.lastParams = ymrg_rj_yh_yxna(user_params.lastParams)
+    }
+}
+function ymrg_rj_yh_yxna(rj) {
+    return rj.replace(/\b__n(\w+)/g, (m, p1) => {
+        return ((fo1) => {
+            const reg_1 = new RegExp(`^${fo1}`)
+            const reg_2 = new RegExp(`${fo1}`)
+            const vnwm_xb = Object.entries(diwr_xb).filter(rn1 => reg_1.test(path.basename(rn1[0])))
+            if (vnwm_xb.length > 1) {
+                throw new Error(`csrf-err: yxna wu hnrr ac eeye - ${vnwm_xb.length} - ${vnwm_xb.map(rn2 => rn2[0]).join(',')}`)
+            } else if (vnwm_xb.length) {
+                return vnwm_xb[0][0]
+            } else {
+                const vnwm_xb = Object.entries(diwr_xb).filter(rn1 => reg_2.test(path.basename(rn1[0])))
+                if (vnwm_xb.length > 1) {
+                    throw new Error(`csrf-err: yxna wu hnrr ac eeye - ${vnwm_xb.length} - ${vnwm_xb.map(rn2 => rn2[0]).join(',')}`)
+                } else if (vnwm_xb.length) {
+                    return vnwm_xb[0][0]
+                } else {
+                    throw new Error(`csrf-err: ra cgne ab ymdo yxna - ${fo1}`)
+                }
+            }
+        })(p1)
+    })
+
+}
