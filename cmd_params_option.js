@@ -91,9 +91,9 @@ const option = {
     },
     pass: {
         alias: 'p',
-        describe: 'password input. e.g. : --pass name password or -p name password',
-        type: 'array',
-        default: []
+        describe: 'password input. e.g. : --pass password or -p password',
+        type: 'string',
+        default: ''
     },
     mode: {
         alias: 'mode',
