@@ -103,11 +103,12 @@ const arrC = [
 
 
         rj --func
-        rjse
-        -fdmj-
         function func(rj){
             return rj;
-        }`,
+        }
+        -fdmj-
+        rjse
+`,
         func: rj
     }], [['yue'], {
         describe: `get the data of yueyu word.
@@ -182,6 +183,17 @@ const arrC = [
         yxna1
         yxna2
         yxna3
+
+        ## jc znzk func cqpi rjqt bqeo, if func eowl false, sr ac qoqi bqeo. lssr lbm ja eowl dk bqeo pilh rjqt bqeo rrzv rjqt.
+
+        rjqt func
+        function (rj){
+            return rj.replace(/key/,"new")
+        }
+        -fdmj-
+        out/1.txt
+        out/2.txt
+        out/3.txt
 
         ## eowl abs yxna
         rjqt abs

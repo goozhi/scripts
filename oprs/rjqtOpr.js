@@ -14,6 +14,9 @@ const rj = require('../cmd-zhqh-atvn/rj.js')
 const bsVnwm = require('../user_params-ldfs-atvn/bsVnwm.js')
 const nikc_jkub_v16 = require('../nikc_jkub_v16.js')
 const encoding = require('encoding')
+const fdmj_wdbu = require('../user_params-ldfs-atvn/fdmj_wdbu.js')
+const fywy_qh_ld_vnwm = require('../fywy_qh_ld_vnwm.js')
+const pcil_yxna_vnwm_zznq = require('../pcil_yxna_vnwm_zznq.js')
 const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
 const diwr_xb = (() => {
     try {
@@ -389,8 +392,23 @@ const rjqtOpr = async (neig_kp) => {
                 }
             }
         })().catch(err => { throw err })
-    } else if (user_params._[1] === 'zhvt') {
-
+    } else if (user_params._[1] === 'func') {
+        outputs.outputText = (() => {
+            const diwr_rj = fdmj_wdbu(user_params)
+            const atvn_1 = eval(diwr_rj[1])
+            const vnwm_rjqt = fywy_qh_ld_vnwm(diwr_rj[2])
+            pcil_yxna_vnwm_zznq(vnwm_rjqt)
+            return vnwm_rjqt.map(rn1 => {
+                const bqeo_ybfb = fs.readFileSync(rn1).toString()
+                const ce_bqeo = atvn_1(bqeo_ybfb)
+                if (ce_bqeo) {
+                    fs.writeFileSync(rn1, ce_bqeo)
+                    return 'bcaf qoqi bqeo: ' + rn1
+                } else {
+                    return 'ra qoqi bqeo: ' + rn1
+                }
+            }).join('\n')
+        })()
     } else if (user_params._[1] === 'pk') {
         outputs.outputText = (() => {
             const vnwm_rjqt = (() => {

@@ -254,6 +254,14 @@ fffffffffff*2 = 35184372088830
         abce
         a`.trimLines(),
         `RA YJAB`, { regex: true }
+    ], [
+        `rj --func
+        (rj)=>{
+            return rj+='4'
+        }
+        -fdmj-
+        rj123`
+        , 'rj1234', { regex: true }
     ]
 ]
 module.exports = equals
