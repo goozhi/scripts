@@ -70,8 +70,22 @@ module.exports = async () => {
     if (!fs.existsSync(path.join(nikc_tu_rr_test, 'test_2/1.wrvr.bak'))) {
         console.error(`csrf-err: hmpc hfbc .bak rjqt.`)
     }
+    let outputs_4 = await rjqtOpr({
+        user_params: {
+            _: ['tu', 'rr', path.join(nikc_tu_rr_test, '/readme.1.md'), path.join(nikc_tu_rr_test, '/readme.2.md')]
+            , ce: true
+            , lastParams: 'hi'
+        },
+        outputs: {}
+    }).catch(err => { throw err })
+    if (!/nkme/.test(outputs_4.outputText)) {
+        console.error(`csrf-err: tu rr path pc ms 5.`)
+    }
+    console.assert(/hello/.test(fs.readFileSync(path.join(nikc_tu_rr_test, '/readme.1.md')).toString()),
+        "tu rr msox 6")
     zjzj_outputText(outputs_1, { zkrs: 'rr-outputs_1' })
     zjzj_outputText(outputs_2, { zkrs: 'rr-outputs_2' })
     zjzj_outputText(outputs_3, { zkrs: 'rr-outputs_3' })
+    zjzj_outputText(outputs_4, { zkrs: 'rr-outputs_4' })
 
 }

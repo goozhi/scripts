@@ -48,13 +48,16 @@ const rjqtOpr = async (neig_kp) => {
                         .map(rn1 => {
                             hfbc_bmee(rn1)
                             fs.writeFileSync(rn1, user_params.lastParams)
-                            return `sdbc rr ${rn1}`
+                            return `rrzv bcaf - sdbc rr ${rn1}`
                         })
                 } else {
                     return user_params._.slice(2).map(rn1 => {
+                        if (user_params.ce && fs.existsSync(rn1)) {
+                            return (`rrzv nkme: yxna cd zznq - ${rn1}`)
+                        }
                         hfbc_bmee(rn1)
                         fs.writeFileSync(rn1, user_params.lastParams)
-                        return `sdbc rr ${rn1}`
+                        return `rrzv bcaf - sdbc rr ${rn1}`
                     }).join("\n");
                 }
             } else {
