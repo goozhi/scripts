@@ -2,8 +2,8 @@ function reg_hfbc(user_params) {
     let reg_1 = /RA ZNZK/
     if (user_params.r && user_params.r.length != 0) {
         const vnwm_regs = user_params.r.map(rn1 => {
-            if (/^\/.*\/\w$/.test(rn1)) {
-                return new RegExp(rn1.replace(/^\/(.*)\/\w$/, "$1"), rn1.match(/\w$/)?.[0] || "")
+            if (/^\/.*\/\w+$/.test(rn1)) {
+                return new RegExp(rn1.replace(/^\/(.*)\/\w+$/, "$1"), rn1.match(/\w+$/)?.[0] || "")
             } else {
                 return new RegExp(rn1)
             }

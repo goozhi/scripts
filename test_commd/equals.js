@@ -255,6 +255,13 @@ fffffffffff*2 = 35184372088830
         a`.trimLines(),
         `RA YJAB`, { regex: true }
     ], [
+        `rj zhvt /abc/ig
+        abcd
+        cdd
+        aBce
+        a`.trimLines(),
+        `abc[\\s\\S]+aBc`, { regex: true }
+    ], [
         `rj --func
         (rj)=>{
             return rj+='4'
