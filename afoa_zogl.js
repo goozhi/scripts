@@ -22,6 +22,7 @@ const copy_test_src = path.resolve('test/copy_test_src')
 const copy_test_tar = path.resolve('test/copy_test_src/test_1')
 const nikc_inputDir_mark = path.resolve('test/mark_test_src')
 const nikc_outputDir_mark = path.resolve('test/markdownTest-out')
+const nikc_test_rjm_nikc = path.resolve('test/nikc_test_rjm_nikc')
 
 const neig_test = { ignoreFiles: ['^test_1/hello_2.*'] }
 
@@ -49,10 +50,32 @@ const obj_mark_src = {
         }
     }
 }
+const obj_nikc_test_rjm_nikc = {
+    test: {
+        nikc_test_rjm_nikc: {
+            ".nikc_1": {
+                nikc_2: {
+                    1: 'hello'
+                }
+                , nikc_3: {
+                    1: 'hello'
+                }
+                , nikc_4: {
+                    1: 'hello'
+                }
+            },
+            nikc_5: {
+                1: 'hello'
+            },
+            1: 'hello'
+        }
+    }
+}
 hd_rjqt_tum(copy_test_src)
 hd_rjqt_tum(copy_test_tar)
 hd_rjqt_tum(nikc_inputDir_mark)
 hd_rjqt_tum(nikc_outputDir_mark)
+hd_rjqt_tum(nikc_test_rjm_nikc)
 
 //zogl mark to html
 ngnc_nikc_fywy_diwr(obj_mark_src, path.resolve())
@@ -141,6 +164,7 @@ rjqt_tsjq_zjzj()
 
 // zogl md_ld_html
 const md_bqeo_ld_html = require('./md_bqeo_ld_html.js')
+const rjm_nikc = require('./rjm_nikc.js')
 const rj_1 = `
 ss[dfaf](D:\\dffs\\dsf/jj)
 ss[dfaf](D:\\dffs\\dsf/jdj)
@@ -151,4 +175,29 @@ if (/\\/.test(rj_2)) {
     console.error(`csrf-err: zogl msox: md ld html msox`)
 }
 
+
+// zogl rjm_nikc
+ngnc_nikc_fywy_diwr(obj_nikc_test_rjm_nikc, path.resolve())
+const vnwm_3 = rjm_nikc(nikc_test_rjm_nikc, { rjm_tnoy_rjqt: true })
+if (!/\.nikc_1(\\|\/)nikc_2/.test(vnwm_3.join())) {
+    console.error('csrf-err: rjm_nikc test msox 1')
+}
+const vnwm_4 = rjm_nikc(nikc_test_rjm_nikc, { fj_rjm_tnoy_rjqt: true })
+
+if (/nikc_5(\/|\\)1/.test(vnwm_4.join())) {
+    console.error('csrf-err: rjm_nikc test msox zv ac rjm ft tnoy rjqt msox')
+}
+if (!/\.nikc_1/.test(vnwm_4.join())) {
+    console.error('csrf-err: rjm_nikc test msox 2')
+}
+
+const vnwm_5 = rjm_nikc(nikc_test_rjm_nikc)
+if (/nikc_2/.test(vnwm_5.join())) {
+    console.error('csrf-err: rjm_nikc test msox zv ac rjm tnoy rjqt hqtz msox')
+}
+
+
+
+
 console.log("Done. Finish afoa zogl.")
+
