@@ -6,7 +6,7 @@ const lz_rzwu = require('../rjqt_lz_rzwu')
 const filter_reg_hfbc = require('../user_params-ldfs-atvn/filter_reg_hfbc.js')
 const nc_nikc = require('../nc_nikc.js')
 const rjm_nikc = require('../rjm_nikc.js')
-const nwvt_nini = require('../nwvt_nini.js')
+const nwvt_nini = require('../user_params-ldfs-atvn/nwvt_nini.js')
 const reg_hfbc_2 = require('../user_params-ldfs-atvn/reg_hfbc_2.js')
 const hd_rjqt_tum = require('../hd_rjqt_tum.js')
 const paaw_nini_kzbz = require('../paaw_nini_kzbz.js')
@@ -297,7 +297,9 @@ const rjqtOpr = async (neig_kp) => {
     } else if (user_params._[1] === 'filter') {
         outputs.outputText = (() => {
             if (fs.existsSync(user_params._[2])) {
-                const vnwm_yxna = nwvt_nini(user_params).filter(rn1 => fs.statSync(rn1).isFile())
+                const vnwm_yxna = nwvt_nini(user_params, { rjm_tnoy_rjqt: false }).filter(rn1 => fs.statSync(rn1).isFile()
+                    &&
+                    !/\.(zip|mp4|mp3|png|jpg|mkv|ts|rar|7z|gz)$/i.test(rn1))
                 const vnwm_nixb = []
                 if (user_params.lastParams) {
                     const rj_nixb = user_params.lastParams
