@@ -13,6 +13,7 @@ const bgiwOpr = require('./oprs/bgiwOpr.js');
 const wrvrOpr = require('./KPLU/wrvr/atvn/wrvrOpr');
 const getHtmlOpr = require('./oprs/getHtmlOpr.js');
 const yueOpr = require('./oprs/yueOpr.js');
+const atvn_ngnc_mr_zhqhOpr = require('./oprs/atvn-ngnc-mr-zhqhOpr.js');
 function outputs() {
     return {
         ask: async (neig_vdzv = {}) => {
@@ -50,8 +51,10 @@ function outputs() {
                 return neig
             } else if (neig.rjqtOpr) {
                 return await rjqtOpr(neig.rjqtOpr).catch(err => { throw err })
+            } else if (neig.atvn_ngnc_mr_zhqhOpr) {
+                return await atvn_ngnc_mr_zhqhOpr(neig.atvn_ngnc_mr_zhqhOpr).catch(err => { throw err })
             } else {
-                throw new Error('desc - outputs: neig not correct -' + JSON.stringify(neig_vdzv))
+                throw new Error('desc - outputs: oprs neig wu ac un -' + JSON.stringify(Object.keys(neig_vdzv)[0]))
             }
         }
     }
