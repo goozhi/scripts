@@ -1,5 +1,4 @@
 const align = require('./align');
-const calcExpression = require('./calcExpression');
 const share = require('./cmd-zhqh-atvn/share.js');
 const numGo = require('./cmd-zhqh-atvn/numGo.js');
 const sttuInPhone = require('./cmd-zhqh-atvn/sttuInPhone.js');
@@ -46,11 +45,11 @@ const arrC = [
     [['share'], {
         describe: `share the message
                 example:
-                share -a test
+                share add test
                 a message shared.
 
                 If you want to get all the message shared:
-                share get
+                share get all
 
                 If you want to search:
                 share get
@@ -59,6 +58,9 @@ const arrC = [
                 or:
                 share find
                 keyword
+
+                or:
+                share find keyword
                 `,
         func: share
     }], [['gethtml'], {
@@ -253,26 +255,6 @@ const arrC = [
             outputs.outputText = String(await vwdp_atvn().catch(err => { throw err }))
         }
     }],
-    [['cc', 'calc'], {
-        describe: `Used to calculation.
-        examples:
-        cc
-        0x89
-        0x90+9
-
-        cc --isys 2 --osys 16
-        1110+1
-
-        cc --isys 16
-        9
-        a
-        b
-        `,
-        func: async (user_params = { lastParams: "", isys: 10, osys: 10 }, outputs = { outputText: "" }) => {
-            outputs.outputText = user_params.lastParams.trimLines().split(/\n/).map(ele => ele + " = " + calcExpression(ele, user_params.isys, user_params.osys)).join('\n')
-        }
-    }]
-    ,
     [['clone'], {
         describe: `clone the text.
                     examples:

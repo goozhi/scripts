@@ -6,24 +6,26 @@ const path_log = path_andr + '/nodejs_log.txt'
 const readLogData = readData()
 const share = async (user_params = { lastParams, add: "" }, outputs = { outputText: "" }) => {
     readLogData.next({ outputs, share_arr })
-    if (user_params.add) {
+    if (user_params._[1] === 'add') {
         await outputs.ask({
             fileOpr: {
                 opr: 'appendIfExist',
                 existPath: path_andr,
                 path: path_log,
-                content: `zkrs-${user_params.add}-bqeo-${user_params.lastParams}\n`
+                content: `zkrs-${user_params._[2]}-bqeo-${user_params.lastParams}\n`
             }
         }).catch(err => { throw err })
-        share_arr.push({ theme: user_params.add, content: user_params.lastParams })
+        share_arr.push({ theme: user_params._[2], content: user_params.lastParams })
         outputs.outputText = `${user_params.lastParams} added successfully`
         return
     }
     else if (user_params._[1] === 'get') {
         if (user_params.lastParams) {
             outputs.outputText = share_arr.map(ele => ele.theme + ":\n" + ele.content).filter(ele => ele.includes(user_params.lastParams)).join('\n\n')
-        } else {
+        } else if (user_params._[2] === 'all') {
             outputs.outputText = share_arr.map(ele => ele.theme + ":\n" + ele.content).join('\n\n')
+        } else {
+            throw new Error(`please type a correct para! `)
         }
     } else if (user_params._[1] === "find") {
         if (user_params.lastParams) {
