@@ -19,11 +19,18 @@ const share = async (user_params = { lastParams, add: "" }, outputs = { outputTe
         outputs.outputText = `${user_params.lastParams} added successfully`
         return
     }
+    else if (user_params._[1] === 'ls') {
+        if (user_params._[2] === 'all') {
+            outputs.outputText = share_arr.map(ele => ele.theme + ":\n" + ele.content).join('\n\n')
+        } else {
+            throw new Error('csrf-err: You must type another param')
+        }
+    }
     else if (user_params._[1] === 'get') {
         if (user_params.lastParams) {
             outputs.outputText = share_arr.map(ele => ele.theme + ":\n" + ele.content).filter(ele => ele.includes(user_params.lastParams)).join('\n\n')
-        } else if (user_params._[2] === 'all') {
-            outputs.outputText = share_arr.map(ele => ele.theme + ":\n" + ele.content).join('\n\n')
+        } else if (user_params._[2]) {
+            outputs.outputText = share_arr.map(ele => ele.theme + ":\n" + ele.content).filter(ele => ele.includes(user_params._[2])).join('\n\n')
         } else {
             throw new Error(`please type a correct para! `)
         }
