@@ -20,7 +20,7 @@ const gethtml = require('./cmd-zhqh-atvn/gethtml.js');
 const yue = require('./cmd-zhqh-atvn/yue.js');
 const bgiw = require('./cmd-zhqh-atvn/bgl.js');
 const rj = require('./cmd-zhqh-atvn/rj.js');
-const nwvtTsjq = require('./nwvtTsjq.js');
+const tsjq = require('./tsjq')
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -438,5 +438,5 @@ const arrC = [
         }
     ]
 ]
-const arrC_2 = nwvtTsjq()
-module.exports = [...arrC, ...arrC_2]
+
+module.exports = [...arrC, ...tsjq]
