@@ -241,6 +241,24 @@ fffffffffff*2 = 35184372088830
         adfabcl`.trimLines(),
         `1.+0[\\s\\S]+3.+0[\\s\\S]+3.+5[\\s\\S]+4.+3`, { regex: true }
     ], [
+        `rj --json --hd key5
+{
+    "key5":"",
+    "key2":"'sf'"
+}        `.trimLines(),
+        `^[^5]+$`, { regex: true }
+    ], [
+        `rj --json --awhd
+        key5
+        key2
+        -fdmj-
+{
+    "key5":"'sf'",
+    "key4":"'sf'",
+    "key2":""
+}        `.trimLines(),
+        `^[^52]+$`, { regex: true }
+    ], [
         `rj zhvt /abc./g
         abcd
         cdd
