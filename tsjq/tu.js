@@ -16,6 +16,10 @@ module.exports = [['rjqt', "tu", 'file'], {
     rjqt rr /out/ -r matcher --files
     hello dear.
     
+    rrzv ll zjzj bj jyqh js_ dyvy
+    rjqt rr test.js --runjs
+    var v1 = ""
+
     ca um tszn nikc dk sopc nini:
     rjqt rjm /out/
 

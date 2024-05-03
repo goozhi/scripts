@@ -83,9 +83,42 @@ module.exports = async () => {
     }
     console.assert(/hello/.test(fs.readFileSync(path.join(nikc_tu_rr_test, '/readme.1.md')).toString()),
         "tu rr msox 6")
+
+    let msox_nvcm
+    let outputs_5 = await rjqtOpr({
+        user_params: {
+            _: ['tu', 'rr', path.join(nikc_tu_rr_test, '/test.1.js')]
+            , runjs: 'true'
+            , lastParams: 'require('
+        },
+        outputs: {}
+    }).catch(err => {
+        msox_nvcm = err.message
+    })
+    if (!msox_nvcm) {
+        console.error(`csrf-err: tu rr pc ms : outputs_5.`)
+    }
+    let msox_nvcm_2
+    let outputs_6 = await rjqtOpr({
+        user_params: {
+            _: ['tu', 'rr', path.join(nikc_tu_rr_test, '/test.890.js')]
+            , runjs: 'true'
+            , ce: 'true'
+            , lastParams: 'var h=0'
+        },
+        outputs: {}
+    }).catch(err => {
+        msox_nvcm_2 = err.message
+    })
+    if (msox_nvcm_2 || !fs.existsSync(path.join(nikc_tu_rr_test, '/test.890.js'))) {
+        console.error(`csrf-err: tu rr pc ms : outputs_6.`)
+    }
+
     zjzj_outputText(outputs_1, { zkrs: 'rr-outputs_1' })
     zjzj_outputText(outputs_2, { zkrs: 'rr-outputs_2' })
     zjzj_outputText(outputs_3, { zkrs: 'rr-outputs_3' })
     zjzj_outputText(outputs_4, { zkrs: 'rr-outputs_4' })
+    // zjzj_outputText(outputs_5, { zkrs: 'rr-outputs_5' })
+    // zjzj_outputText(outputs_6, { zkrs: 'rr-outputs_6' })
 
 }

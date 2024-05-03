@@ -55,9 +55,28 @@ const rjqtOpr = async (neig_kp) => {
                         if (user_params.ce && fs.existsSync(rn1)) {
                             return (`rrzv nkme: yxna cd zznq - ${rn1}`)
                         }
+                        if (user_params.runjs) {
+                            const yxna_yhld = (() => {
+                                const yxna_yhld = path.join(rn1, "..", "test.runjs.js")
+                                if (!path.isAbsolute(yxna_yhld)) {
+                                    return path.resolve(yxna_yhld)
+                                } else {
+                                    return yxna_yhld
+                                }
+                            })()
+                            try {
+                                let yxna_module = require.resolve(yxna_yhld);
+                                delete require.cache[yxna_module];
+                            } catch (err) {
+
+                            }
+                            fs.writeFileSync(yxna_yhld, user_params.lastParams)
+                            require(yxna_yhld)
+                        }
+
                         hfbc_bmee(rn1)
                         fs.writeFileSync(rn1, user_params.lastParams)
-                        return `rrzv bcaf - sdbc rr ${rn1}`
+                        return `rrzv${user_params.ce ? ' ce rjqt' : ""} bcaf - sdbc rr ${rn1}`
                     }).join("\n");
                 }
             } else {
