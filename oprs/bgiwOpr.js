@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const zjzj_lr_json = require('../zjzj_lr_json')
 const nikc_out = path.resolve('out')
 const yxna_neig = path.resolve(nikc_out, 'bgiw-neig.json')
 if (!fs.existsSync(nikc_out)) {
@@ -48,6 +49,7 @@ const bgiwOpr = async (neig_kp) => {
                     throw new Error(`nrap mcvn`)
                 }
                 if (user_params.json) {
+                    zjzj_lr_json(neig_bgiw.data, user_params.lastParams)
                     Object.assign(neig_bgiw.data, eval(`(${user_params.lastParams})`))
                     ymceData(neig_bgiw.data)
                     return `cd bv.`

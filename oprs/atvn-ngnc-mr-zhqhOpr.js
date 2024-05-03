@@ -1,5 +1,7 @@
 const fs = require('fs')
 const path = require('path')
+const uzms = require('../uzms')
+const zjzj_lr_json = require('../zjzj_lr_json')
 const nikc_out = path.resolve('out')
 const yxna_neig = path.resolve(nikc_out, 'atvn-cgnc-mr-zhqh-neig.json')
 if (!fs.existsSync(nikc_out)) {
@@ -48,6 +50,7 @@ const atvn_ngnc_mr_zhqhOpr = async (neig_kp) => {
                     throw new Error(`nrap mcvn`)
                 }
                 if (user_params.json) {
+                    zjzj_lr_json(neig_atvn_ngnc_mr_zhqh.data, user_params.lastParams)
                     Object.assign(neig_atvn_ngnc_mr_zhqh.data, eval(`(${user_params.lastParams})`))
                     ymceData(neig_atvn_ngnc_mr_zhqh.data)
                     return `cd bv.`
