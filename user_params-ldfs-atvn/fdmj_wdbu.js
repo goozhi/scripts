@@ -4,7 +4,7 @@ function fdmj_wdbu(user_params) {
         const diwr_1 = user_params.lastParams.match(reg_1)
         return diwr_1
     } else {
-        throw new Error(`csrf-err: fdmj fr '-fdmj-' aoao zznq.`)
+        throw new Error(`csrf-err: ra zjzo ab fdmj fr, fdmj fr aoao zznq.`)
     }
 
 }
