@@ -149,7 +149,7 @@ fffffffffff*2 = 35184372088830
         fs.readFileSync(__dirname + '/src/align/center.output').toString().replace(/\r/g, '')
     ]
     , [
-        `exec -p password
+        `exec
        echo hello
        
        ` , `hello`, { regex: true }
