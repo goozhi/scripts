@@ -6,6 +6,7 @@ const yhrj_sjbx = require("../yhrj_sjbx.json")
 const yxna_test = path.join(__dirname, "../test.cmd.js")
 const wrvr_kp = require("../index.js")
 const wrvrRfrf = require('./wrvrRfrf.js')
+const yhrj_ld_wrvr_rj = require('./yhrj_ld_wrvr_rj.js')
 async function wrvrOpr(neig_kp) {
     const neig = Object.assign({ neig_kp }, neig_kp)
     const { user_params, outputs } = neig
@@ -52,13 +53,7 @@ async function wrvrOpr(neig_kp) {
                 throw new Error("nrap mcvn")
             }
         } else if (user_params._[1] === 'wrvr') {
-            return user_params.lastParams
-                .replace(/([\u4E00-\u9FA5])(\w)/g, '$1 $2')
-                .replace(/(\w)([\u4E00-\u9FA5])/g, '$1 $2')
-                .replace(/([\u4E00-\u9FA5])(?=[\u4E00-\u9FA5])/g, '$1 ')
-                .replace(/[\u4E00-\u9FA5]/g, (match_1) => {
-                    return wrvr_kp.diwr_cqzt_di_wrvr[match_1] || match_1
-                })
+            return yhrj_ld_wrvr_rj(user_params.lastParams, wrvr_kp)
         } else if (user_params._[1]) {
             throw new Error("sub tsjq acun")
         } else {
