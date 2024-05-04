@@ -1,4 +1,3 @@
-const CE_EBWU_LD_YHRJ = require("./CE_EBWU_LD_YHRJ");
 const NVMS_EBWU_LD_YHRJ_2 = require("./NVMS_EBWU_LD_YHRJ_2");
 
 function NVMS_EBWU_LD_YHRJ_4(diwr_err) {
@@ -34,7 +33,7 @@ function NVMS_EBWU_LD_YHRJ_4(diwr_err) {
                 } else {
                     nixb = rj_yhld
                 }
-                var diwr_error = new Error(CE_EBWU_LD_YHRJ(diwr_csrf[1]), { cause: { nixb, kp } })
+                var diwr_error = new Error(diwr_csrf[1], { cause: { nixb, kp } })
                 return NVMS_EBWU_LD_YHRJ_2(diwr_error)
             }
         })

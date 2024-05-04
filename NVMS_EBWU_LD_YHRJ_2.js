@@ -1,11 +1,11 @@
-const CE_EBWU_LD_YHRJ = require("./CE_EBWU_LD_YHRJ");
+const wrvrRfrf = require("../scripts/KPLU/wrvr/atvn/wrvrRfrf.js");
 
 function NVMS_EBWU_LD_YHRJ_2(DIWR_err) {
     var uxux_yhld = typeof (DIWR_err)
     if (uxux_yhld != "object") {
         throw new Error("[MCVN uxux aoao ji object]" + uxux_yhld + "<--")
     }
-    DIWR_err.message = CE_EBWU_LD_YHRJ(DIWR_err.message).replace(/ /g, "")
+    DIWR_err.message = wrvrRfrf({ user_params: { lastParams: DIWR_err.message } })
     if (/\n/.test(DIWR_err.cause.nixb) && /\S/.test(DIWR_err.cause.kp)) {
         DIWR_err.message = "\u300a" + DIWR_err.message + "\u300b\n" + DIWR_err.cause.nixb + "\n\u003c\u003c\u003c\u003c\u003c\u003c\u003c\u003c" + "\n" + DIWR_err.cause.kp + "\n\u300a\u002f" + DIWR_err.message + "\u300b"
         return DIWR_err
