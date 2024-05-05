@@ -155,6 +155,14 @@ fffffffffff*2 = 35184372088830
        ` , `hello`, { regex: true }
     ]
     , [
+        `rj mkreg --lines
+        [a]
+        a|
+        (a)
+
+       `.trimLines(), `\\\\[a\\\\]\\|a\\\\|\|\\\\(a\\\\)`, { regex: true }
+    ]
+    , [
         `wrvr
         vr`,
         `志`

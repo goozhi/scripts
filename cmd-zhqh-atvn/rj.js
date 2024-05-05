@@ -1,6 +1,8 @@
+const SturnR = require("../SturnR")
 const fywy_qh_ld_vnwm = require("../fywy_qh_ld_vnwm")
 const rj_yj = require("../rj_yj")
 const rj_yj_mh_nh = require("../rj_yj_mh_nh")
+const bsVnwm = require("../user_params-ldfs-atvn/bsVnwm")
 const fdmj_wdbu = require("../user_params-ldfs-atvn/fdmj_wdbu")
 const reg_hfbc = require("../user_params-ldfs-atvn/reg_hfbc")
 const rj_wdbu = require("../user_params-ldfs-atvn/rj_wdbu")
@@ -10,6 +12,12 @@ const rj = async (user_params = {}, outputs = { outputText: "" }) => {
     outputs.outputText = (() => {
         if (user_params.func) {
             return rj_wdbu(user_params)
+        } else if (user_params._[1] === "mkreg") {
+            if (user_params.lines) {
+                return bsVnwm(user_params).map(rn1 => SturnR(rn1)).join('|')
+            } else {
+                uzms(`csrf-mcvn nrap-`)
+            }
         } else if (user_params._[1] === "zhvt") {
             const reg_1 = eowl_reg(user_params)
             if (/^\/.*\/\w*g\w*$/.test(user_params._[2])) {

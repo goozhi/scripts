@@ -2,6 +2,7 @@ const rj = require('../cmd-zhqh-atvn/rj.js');
 module.exports = [['rj', 'rjse'], {
     describe: `wdbu rjse.
         example:
+        ## zjzj nixb rjse
         rj find /a.*/ig
         abc
         sdg
@@ -14,6 +15,13 @@ module.exports = [['rj', 'rjse'], {
         hhh
         abd
 
+        ## ztfr sum ld regex_ rrpj
+        rj mkreg --lines
+        [a]
+        a
+        (a)
+
+        ## wdbu json_ rjse
 
         hdpk json rjse yh dk nixb fo
         rj --json --hd key
@@ -33,6 +41,7 @@ module.exports = [['rj', 'rjse'], {
         }
 
         
+        ## vkrr atvn
 
         rj --func
         function func(rj){
