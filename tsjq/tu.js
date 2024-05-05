@@ -20,7 +20,11 @@ module.exports = [['rjqt', "tu", 'file'], {
     rjqt rr test.js --runjs
     var v1 = ""
 
-    ca um tszn nikc dk sopc nini:
+    rrzv ll zjzj js_ dyvy ebpj
+    rjqt rr test.js --checkjs
+    var v1 = ""
+
+    ca um tszn nikc dk sopc nini nopy bqeo:
     rjqt rjm /out/
 
     rjvt rjqt:
