@@ -7,7 +7,7 @@ const filter_reg_hfbc = require('../user_params-ldfs-atvn/filter_reg_hfbc.js')
 const nc_nikc = require('../nc_nikc.js')
 const rjm_nikc = require('../rjm_nikc.js')
 const nwvt_nini = require('../user_params-ldfs-atvn/nwvt_nini.js')
-const reg_hfbc_2 = require('../user_params-ldfs-atvn/reg_hfbc_2.js')
+// const reg_hfbc_2 = require('../user_params-ldfs-atvn/reg_hfbc_2.js')
 const hd_rjqt_tum = require('../hd_rjqt_tum.js')
 const paaw_nini_kzbz = require('../paaw_nini_kzbz.js')
 const rj = require('../cmd-zhqh-atvn/rj.js')
@@ -43,7 +43,7 @@ const rjqtOpr = async (neig_kp) => {
                 if (user_params.hasOwnProperty("files")) {
                     const reg_1 = reg_hfbc(user_params)
                     return fs.readdirSync(user_params._[2])
-                        .filter(rn1 => user_params.r ? reg_1.test(rn1) : true)
+                        .filter(rn1 => user_params.r && user_params.r.length ? reg_1.test(rn1) : true)
                         .map(rn1 => path.join(user_params._[2], rn1))
                         .filter(rn1 => fs.statSync(rn1).isFile())
                         .map(rn1 => {
@@ -311,7 +311,7 @@ const rjqtOpr = async (neig_kp) => {
             if (fs.existsSync(user_params._[2])) {
                 const vnwm_nini = nwvt_nini(user_params)
                 return vnwm_nini.filter(rn1 => (user_params.lastParams && path.basename(rn1).includes(user_params.lastParams))
-                    || (user_params.r && user_params.r.length && reg_hfbc_2(user_params).test(path.basename(rn1)))
+                    || (user_params.r && user_params.r.length && reg_hfbc(user_params).test(path.basename(rn1)))
                 ).join('\n')
             } else {
                 throw new Error(`csrf-err: nikc ac zznq - ${user_params._[2]}`)
