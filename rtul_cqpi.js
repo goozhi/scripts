@@ -1,0 +1,23 @@
+async function rtul_cqpi(neig_vdzv, diwr_tskl_slgr) {
+    const neig_vdzv_tskl = Object.assign({}, neig_vdzv)
+    const vnwm_vwdp_1 = Object.entries(diwr_tskl_slgr).map(async ([fo1, yg1]) => {
+        if (neig_vdzv_tskl[fo1]) {
+            return await yg1(neig_vdzv_tskl).catch(err => { throw err })
+        } else {
+            return false
+        }
+    })
+    return Promise.all(vnwm_vwdp_1).then(wlyc => {
+        const vnwm_pcyc = wlyc.filter(Boolean)
+        if (vnwm_pcyc.length > 1) {
+            return vnwm_pcyc
+        } else if (vnwm_pcyc.length === 0) {
+            throw new Error('desc - outputs: oprs neig_vdzv_tskl wu ac un -' + JSON.stringify(Object.keys(neig_vdzv)[0]))
+        } else {
+            return vnwm_pcyc[0]
+        }
+    }).catch(err => { throw err })
+
+}
+
+module.exports = rtul_cqpi

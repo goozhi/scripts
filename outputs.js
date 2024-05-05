@@ -14,48 +14,68 @@ const wrvrOpr = require('./KPLU/wrvr/atvn/wrvrOpr');
 const getHtmlOpr = require('./oprs/getHtmlOpr.js');
 const yueOpr = require('./oprs/yueOpr.js');
 const atvn_ngnc_mr_zhqhOpr = require('./oprs/atvn-ngnc-mr-zhqhOpr.js');
-function outputs() {
+const rtul_cqpi = require('./rtul_cqpi.js');
+function outputs(neig_kp = {}) {
+    const neig_zi = Object.assign({ neig_kp }, neig_kp)
+    const diwr_tskl = {
+        fileOpr: async (neig_tskl) => {
+            return await fileOpr(neig_tskl.fileOpr).catch(err => { throw err })
+        },
+        bgiwOpr: async (neig_tskl) => {
+            return await bgiwOpr(neig_tskl.bgiwOpr).catch(err => { throw err })
+        },
+        tzfsOpr: async (neig_tskl) => {
+            return await tzfsOpr(neig_tskl.tzfsOpr).catch(err => { throw err })
+        },
+        wrvrOpr: async (neig_tskl) => {
+            return await wrvrOpr(neig_tskl.wrvrOpr).catch(err => { throw err })
+        },
+        getHtmlOpr: async (neig_tskl) => {
+            return await getHtmlOpr(neig_tskl.getHtmlOpr).catch(err => { throw err })
+        },
+        yueOpr: async (neig_tskl) => {
+            return await yueOpr(neig_tskl.yueOpr).catch(err => { throw err })
+        },
+        sqlOpr: async (neig_tskl) => {
+            return await sqlOpr(neig_tskl.sqlOpr.user_params, neig_tskl.sqlOpr.outputs).catch(err => { throw err })
+        },
+        exymOpr: async (neig_tskl) => {
+            return await exymOpr(neig_tskl.exymOpr).catch(err => { throw err })
+        },
+        getMyIp: async (neig_tskl) => {
+            return await getMyIp().catch(err => { throw err })
+        },
+        getWifiIp: async (neig_tskl) => {
+            return await getOkId({ port: neig_tskl.getWifiIp.port }).catch(err => { throw err })
+        },
+        autojs_todo: async (neig_tskl) => {
+            return await autojs_todo(neig_tskl.autojs_todo).catch(err => { throw err })
+        },
+        argsParser: async (neig_tskl) => {
+            return yargsParser(neig_tskl.argsParser).options(options).parse()
+        },
+        exec: async (neig_tskl) => {
+            return await exec(neig_tskl.exec).catch(err => { throw err })
+        },
+        useClient: async (neig_tskl) => {
+            return neig_tskl
+        },
+        rjqtOpr: async (neig_tskl) => {
+            return await rjqtOpr(neig_tskl.rjqtOpr).catch(err => { throw err })
+        },
+        atvn_ngnc_mr_zhqhOpr: async (neig_tskl) => {
+            return await atvn_ngnc_mr_zhqhOpr(neig_tskl.atvn_ngnc_mr_zhqhOpr).catch(err => { throw err })
+        }
+    }
+    if (neig_zi.diwr_tskl) {
+        Object.assign(diwr_tskl, neig_zi.diwr_tskl)
+    }
+
     return {
+        diwr_tskl: diwr_tskl
+        ,
         ask: async (neig_vdzv = {}) => {
-            const neig = Object.assign({}, neig_vdzv)
-            if (neig.fileOpr) {
-                return await fileOpr(neig.fileOpr).catch(err => { throw err })
-            } else if (neig.bgiwOpr) {
-                return await bgiwOpr(neig.bgiwOpr).catch(err => { throw err })
-            } else if (neig.tzfsOpr) {
-                return await tzfsOpr(neig.tzfsOpr).catch(err => { throw err })
-
-            } else if (neig.wrvrOpr) {
-                return await wrvrOpr(neig.wrvrOpr).catch(err => { throw err })
-
-            } else if (neig.getHtmlOpr) {
-                return await getHtmlOpr(neig.getHtmlOpr).catch(err => { throw err })
-
-            } else if (neig.yueOpr) {
-                return await yueOpr(neig.yueOpr).catch(err => { throw err })
-            } else if (neig.sqlOpr) {
-                return await sqlOpr(neig.sqlOpr.user_params, neig.sqlOpr.outputs).catch(err => { throw err })
-            } else if (neig.exymOpr) {
-                return await exymOpr(neig.exymOpr).catch(err => { throw err })
-            } else if (neig.getMyIp) {
-                return await getMyIp().catch(err => { throw err })
-            } else if (neig.getWifiIp) {
-                return await getOkId({ port: neig.getWifiIp.port }).catch(err => { throw err })
-            } else if (neig.autojs_todo) {
-                return await autojs_todo(neig.autojs_todo).catch(err => { throw err })
-            } else if (neig.argsParser) {
-                return yargsParser(neig.argsParser).options(options).parse()
-            } else if (neig.exec) {
-                return await exec(neig.exec).catch(err => { throw err })
-            } else if (neig.useClient) {
-                return neig
-            } else if (neig.rjqtOpr) {
-                return await rjqtOpr(neig.rjqtOpr).catch(err => { throw err })
-            } else if (neig.atvn_ngnc_mr_zhqhOpr) {
-                return await atvn_ngnc_mr_zhqhOpr(neig.atvn_ngnc_mr_zhqhOpr).catch(err => { throw err })
-            } else {
-                throw new Error('desc - outputs: oprs neig wu ac un -' + JSON.stringify(Object.keys(neig_vdzv)[0]))
-            }
+            return await rtul_cqpi(neig_vdzv, diwr_tskl).catch(err => { throw err })
         }
     }
 }
