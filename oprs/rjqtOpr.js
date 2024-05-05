@@ -17,6 +17,7 @@ const encoding = require('encoding')
 const fdmj_wdbu = require('../user_params-ldfs-atvn/fdmj_wdbu.js')
 const fywy_qh_ld_vnwm = require('../fywy_qh_ld_vnwm.js')
 const pcil_yxna_vnwm_zznq = require('../pcil_yxna_vnwm_zznq.js')
+const checkjs = require('../checkjs.js')
 const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
 const diwr_xb = (() => {
     try {
@@ -70,8 +71,11 @@ const rjqtOpr = async (neig_kp) => {
                             } catch (err) {
 
                             }
+                            checkjs(user_params.lastParams)
                             fs.writeFileSync(yxna_yhld, user_params.lastParams)
                             require(yxna_yhld)
+                        } else if (user_params.checkjs) {
+                            checkjs(user_params.lastParams)
                         }
 
                         hfbc_bmee(rn1)
