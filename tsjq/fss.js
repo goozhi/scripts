@@ -49,6 +49,10 @@ module.exports = [['rj', 'rjse'], {
         }
         -fdmj-
         rjse
+
+        ## ja rjse ld lh qq wyih bq ahdb dk rjse
+        rj qq-wyih
+        \`\${rn}\`
 `,
     func: rj
 }]

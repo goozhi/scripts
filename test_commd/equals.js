@@ -163,6 +163,11 @@ fffffffffff*2 = 35184372088830
        `.trimLines(), `\\\\[a\\\\]\\|a\\\\|\|\\\\(a\\\\)`, { regex: true }
     ]
     , [
+        `rj qq-wyih
+        \`\${rn}\`
+       `.trimLines(), `\\\`\\\${rn}\\\``
+    ]
+    , [
         `wrvr
         vr`,
         `志`

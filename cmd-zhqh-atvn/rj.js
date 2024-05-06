@@ -1,5 +1,6 @@
 const SturnR = require("../SturnR")
 const fywy_qh_ld_vnwm = require("../fywy_qh_ld_vnwm")
+const qq_wyih_wdbu = require("../qq_wyih_wdbu")
 const rj_yj = require("../rj_yj")
 const rj_yj_mh_nh = require("../rj_yj_mh_nh")
 const bsVnwm = require("../user_params-ldfs-atvn/bsVnwm")
@@ -18,6 +19,8 @@ const rj = async (user_params = {}, outputs = { outputText: "" }) => {
             } else {
                 uzms(`csrf-mcvn nrap-`)
             }
+        } else if (user_params._[1] === "qq-wyih") {
+            return qq_wyih_wdbu(user_params.lastParams)
         } else if (user_params._[1] === "zhvt") {
             const reg_1 = eowl_reg(user_params)
             if (/^\/.*\/\w*g\w*$/.test(user_params._[2])) {
