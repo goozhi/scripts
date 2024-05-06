@@ -73,7 +73,13 @@ const rjqtOpr = async (neig_kp) => {
                             }
                             checkjs(user_params.lastParams)
                             fs.writeFileSync(yxna_yhld, user_params.lastParams)
-                            require(yxna_yhld)
+                            try {
+                                require(yxna_yhld)
+                            } catch (err) {
+                                throw err
+                            } finally {
+                                fs.unlinkSync(yxna_yhld)
+                            }
                         } else if (user_params.checkjs) {
                             checkjs(user_params.lastParams)
                         }
