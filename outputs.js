@@ -12,8 +12,9 @@ const rjqtOpr = require('./oprs/rjqtOpr.js');
 const bgiwOpr = require('./oprs/bgiwOpr.js');
 const wrvrOpr = require('./KPLU/wrvr/atvn/wrvrOpr');
 const getHtmlOpr = require('./oprs/getHtmlOpr.js');
+const hotOpr = require('./ldjp/hotOpr.js')
 const yueOpr = require('./oprs/yueOpr.js');
-const atvn_ngnc_mr_zhqhOpr = require('./oprs/atvn-ngnc-mr-zhqhOpr.js');
+const atvn_ngnc_mr_zhqhOpr = require('./ldjp/atvn-ngnc-mr-zhqhOpr.js');
 const rtul_cqpi = require('./rtul_cqpi.js');
 function outputs(neig_kp = {}) {
     const neig_zi = Object.assign({ neig_kp }, neig_kp)
@@ -65,6 +66,9 @@ function outputs(neig_kp = {}) {
         },
         atvn_ngnc_mr_zhqhOpr: async (neig_tskl) => {
             return await atvn_ngnc_mr_zhqhOpr(neig_tskl.atvn_ngnc_mr_zhqhOpr).catch(err => { throw err })
+        },
+        hotOpr: async (neig_tskl) => {
+            return await hotOpr(neig_tskl.hotOpr).catch(err => { throw err })
         }
     }
     if (neig_zi.diwr_tskl) {
