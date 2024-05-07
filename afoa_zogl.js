@@ -158,13 +158,14 @@ Object.entries(arrC).forEach(([fo1, [fo2, yg2]]) => {
         }
     }
 })
-// zogl commd dk rsqt tsjq.
-const rjqt_tsjq_zjzj = require('./zogl_atvn/rjqt_tsjq_zjzj.js')
-rjqt_tsjq_zjzj()
+// zogl commd dk opr tsjq.
+const tsjq_vcmi_zjzj = require('./zogl_atvn/tsjq_vcmi_zjzj.js')
+tsjq_vcmi_zjzj()
 
 // zogl md_ld_html
 const md_bqeo_ld_html = require('./md_bqeo_ld_html.js')
 const rjm_nikc = require('./rjm_nikc.js')
+const rfrf = require('./rfrf.js')
 const rj_1 = `
 ss[dfaf](D:\\dffs\\dsf/jj)
 ss[dfaf](D:\\dffs\\dsf/jdj)
@@ -196,8 +197,42 @@ if (/nikc_2/.test(vnwm_5.join())) {
     console.error('csrf-err: rjm_nikc test msox zv ac rjm tnoy rjqt hqtz msox')
 }
 
+// zogl rfrf
+let rj3
+let rj4
+rj3 = 'cmvc-xbst: "xbst" "xbst"'
+rj4 = rfrf(rj3)
+if (!/"xbst"/.test(rj4) || /xbst:/.test(rj4)) {
+    console.error(`csrf-rfrf msox 1`)
+}
+rj3 = 'cmvc-xbst: xbst"'
+rj4 = rfrf(rj3)
+if (/xbst/.test(rj4)) {
+    console.error(`csrf-rfrf msox 2`)
+}
+rj3 = 'xbst: "xbst"'
+rj4 = rfrf(rj3)
+if (/xbst/.test(rj4)) {
+    console.error(`csrf-rfrf msox 3`)
+}
+rj3 = 'csrf-xbst: "xbst"'
+rj4 = rfrf(rj3)
+if (!/"xbst"/.test(rj4)) {
+    console.error(`csrf-rfrf msox 4`)
+}
+rj3 = 'csrf-xbst: "xbst"-zf'
+rj4 = rfrf(rj3)
+// console.log(rj4)//
+if (!/zf/.test(rj4)) {
+    console.error(`csrf-rfrf msox 5`)
+}
+rj3 = 'csrf-xbst'
+rj4 = rfrf(rj3)
+if (/xbst/.test(rj4)) {
+    console.error(`csrf-rfrf msox 6`)
+}
 
 
-
+// okud
 console.log("Done. Finish afoa zogl.")
 
