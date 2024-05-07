@@ -19,7 +19,8 @@ const unicode = require('./cmd-zhqh-atvn/unicode.js');
 const gethtml = require('./cmd-zhqh-atvn/gethtml.js');
 const yue = require('./cmd-zhqh-atvn/yue.js');
 const bgiw = require('./cmd-zhqh-atvn/bgl.js');
-const tsjq = require('./tsjq')
+const tsjq = require('./tsjq');
+const uzms = require('./uzms.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -357,6 +358,9 @@ const arrC = [
                 throw new Error(`The last parameters is null with command aid`)
             } else {
                 const command = cmdMatch(user_params.lastParams, options)
+                if (!command.describe) {
+                    uzms('csrf-tsjq hmpc describe_ pzva-' + user_params.lastParams)
+                }
                 outputs.outputText = command.describe.trimLines()
             }
         }
