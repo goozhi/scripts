@@ -14,6 +14,7 @@ var SturnR = function (RJSE1) {//SturnR
         .replace(/\)/g, "\\)")
         .replace(/\+/g, "\\+")
         .replace(/\*/g, "\\*")
+        .replace(/\./g, "\\.")
         .replace(/\$/g, "\\$")
         .replace(/\^/g, "\\^")
         .replace(/\|/g, "\\|")
