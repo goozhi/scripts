@@ -19,10 +19,10 @@ function json_vnwy_wdbu(diwr_json_vnwy_mr_neig, user_params, ymceData = () => { 
             } else {
                 zjzj_lastParam_atvn(user_params.lastParams)
                 Object.assign(diwr_json_vnwy_mr_neig.data, { [user_params._[2]]: user_params.lastParams })
-                rj_cqpi = 'bv ce zkrs'
+                rj_cqpi = 'cd bv ce zkrs'
             }
             ymceData()
-            return `cd ${rj_cqpi} : ` + user_params._[2]
+            return `cmvc-${rj_cqpi} : "${user_params._[2]}"`
         } else {
             throw new Error(`csrf-err: mcvn nrap-`)
         }
