@@ -7,6 +7,7 @@ const yxna_test = path.join(__dirname, "../test.cmd.js")
 const wrvr_kp = require("../index.js")
 const wrvrRfrf = require('./wrvrRfrf.js')
 const yhrj_ld_wrvr_rj = require('./yhrj_ld_wrvr_rj.js')
+const reg_wrvr_xjm_fr = require('../../../reg_wrvr_xjm_fr.js')
 async function wrvrOpr(neig_kp) {
     const neig = Object.assign({ neig_kp }, neig_kp)
     const { user_params, outputs } = neig
@@ -58,7 +59,7 @@ async function wrvrOpr(neig_kp) {
             throw new Error("sub tsjq acun")
         } else {
             return (() => {
-                if (/\s|-/.test(user_params.lastParams)) {
+                if (reg_wrvr_xjm_fr.test(user_params.lastParams)) {
                     return wrvrRfrf(neig)
                 } else {
                     return (wrvr_kp.diwr_non_eysj[user_params.lastParams.toLowerCase()] && wrvr_kp.diwr_non_eysj[user_params.lastParams.toLowerCase()].yhrj) || wrvr_kp.diwr_sj_di_wrvr[user_params.lastParams] || "RA ZNZK"
