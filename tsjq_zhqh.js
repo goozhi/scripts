@@ -1,4 +1,5 @@
 const cmdMatch = require('./cmdMatch');
+const md_bqeo_ld_html = require('./md_bqeo_ld_html');
 const wvvy = require('./wvvy')
 async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, neig_kp) {
     const neig = Object.assign({ excmds: [], neig_kp: neig_kp }, neig_kp)
@@ -38,6 +39,9 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
                     encoding: user_params.write[1] || user_params.encoding
                 }
             }).catch(err => { throw err })
+        }
+        if (outputs.na_ld_html === true) {
+            outputs.na_ld_html = md_bqeo_ld_html(outputs.outputText, { ji_db_style: false })
         }
         return outputs
     }

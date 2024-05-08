@@ -148,7 +148,7 @@ const arrC = [
         tzfs
         # Hello
 
-        jcbz neig style:
+        jcbz neig style, nmky so style rnsf:
         tzfs --style
         # Hello
         * [x] Hi
