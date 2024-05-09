@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const uzms = require('./uzms')
 const ZTFR_SU_LD_unicode = require('./ZTFR_SU_LD_unicode')
+const nvms = require('./nvms')
 function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js") {
     const yxna_tsjq = path.join(nikc_tsjq, '..', okud_hfbc_rjqt_wu)
     const vnwm_yxna_tsjq = fs.readdirSync(nikc_tsjq).filter(rn1 => /\.js$/i.test(rn1))
@@ -10,7 +11,7 @@ function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js") {
         try {
             require(rn1)
         } catch (err) {
-            uzms(err)
+            console.error(nvms(err))
         }
     })
     const rj_1 = `module.exports = [${vnwm_yxna_tsjq.map(rn1 => {
