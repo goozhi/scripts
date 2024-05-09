@@ -17,6 +17,7 @@ async function fileOpr(neig_vdzv = {}) {
             fs[key](neig.path, encoding.convert(neig.content, neig.encoding, 'utf8'))
             return { isOk: true }
         } else {
+            return { isOk: false}
             // throw new Error(`desc-path not exists-${neig.existPath || neig.path}`)
         }
     } else if (key === 'readFileSync') {
