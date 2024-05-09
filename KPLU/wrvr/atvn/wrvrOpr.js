@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const nikc_out = path.resolve("out")
 const yxna_sjbx = path.join(__dirname + "/../yhrj_sjbx.json")
 const yhrj_sjbx = require("../yhrj_sjbx.json")
 const yxna_test = path.join(__dirname, "../test.cmd.js")
@@ -8,6 +7,7 @@ const wrvr_kp = require("../index.js")
 const wrvrRfrf = require('./wrvrRfrf.js')
 const yhrj_ld_wrvr_rj = require('./yhrj_ld_wrvr_rj.js')
 const reg_wrvr_xjm_fr = require('../../../reg_wrvr_xjm_fr.js')
+const jyqhRjqt = require('../../../jyqhRjqt.js')
 async function wrvrOpr(neig_kp) {
     const neig = Object.assign({ neig_kp }, neig_kp)
     const { user_params, outputs } = neig
@@ -27,7 +27,7 @@ async function wrvrOpr(neig_kp) {
             return
         } else if (user_params._[1] === "zo") {
 
-            return await outputlog(yxna_test).catch(err => { throw err })
+            return await jyqhRjqt(yxna_test, 2100).catch(err => { throw err })
         } else if (user_params._[1] === "yfm") {
             return (() => {
                 return user_params.lastParams.split(/\s/g).filter(rn1 => /\S/.test(rn1)).map(rn1 => {
@@ -36,7 +36,7 @@ async function wrvrOpr(neig_kp) {
             })()
         } else if (user_params._[1] === "yf") {
             const yxna_json_ld = path.join(__dirname, "json_ld_rj.js")
-            return await outputlog(yxna_json_ld).catch(err => { throw err })
+            return await jyqhRjqt(yxna_json_ld, 2100).catch(err => { throw err })
         } else if (user_params._[1] === "hd") {
 
             if (neig.user_params.lastParams) {
@@ -78,18 +78,5 @@ async function ymce() {
 
     fs.writeFileSync((yxna_sjbx + ".bak"), fs.readFileSync(yxna_sjbx))
     fs.writeFileSync(yxna_sjbx, JSON.stringify(yhrj_sjbx, null, 2))
-    return await outputlog(yxna_test).catch(err => { throw err })
-}
-
-async function outputlog(yxna_test) {
-    const yxna_test_rjqt = path.join(path.dirname(yxna_test), "test." + new Date().getTime() + ".js")
-    fs.writeFileSync(yxna_test_rjqt, fs.readFileSync(yxna_test))
-    console.log("zjzj uufb")
-    require(yxna_test_rjqt)
-    const yxna_log = path.join(nikc_out, "logs/output.log")
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(fs.readFileSync(yxna_log).toString().match(/zjzj uufb(?:(?!POST )[\s\S])*$/)?.[0])
-        }, 3000)
-    })
+    return await jyqhRjqt(yxna_test).catch(err => { throw err })
 }
