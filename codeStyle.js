@@ -2,7 +2,7 @@
 const labels = {
   img: `
     img{
-        width:100
+        width:500
       }`,
   code: {
     dark: `    
