@@ -5,3 +5,4 @@ config_locale.js
 zczc*.java
 !test.cmd.js
 tsjq.js
+*.slgr.js
