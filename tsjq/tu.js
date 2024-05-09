@@ -171,6 +171,9 @@ module.exports = [['rjqt', "tu", 'file'], {
     yxna1
     /sub/yxna2
 
+
+    ## jyqh js_ rjqt
+    tu run yxna
     `,
     func: rjqt,
     wvvy: true

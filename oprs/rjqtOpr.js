@@ -18,6 +18,8 @@ const fdmj_wdbu = require('../user_params-ldfs-atvn/fdmj_wdbu.js')
 const fywy_qh_ld_vnwm = require('../fywy_qh_ld_vnwm.js')
 const pcil_yxna_vnwm_zznq = require('../pcil_yxna_vnwm_zznq.js')
 const checkjs = require('../checkjs.js')
+const jyqhRjqt = require('../jyqhRjqt.js')
+const uzms = require('../uzms.js')
 const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
 const diwr_xb = (() => {
     try {
@@ -50,7 +52,7 @@ const rjqtOpr = async (neig_kp) => {
                             hfbc_bmee(rn1)
                             fs.writeFileSync(rn1, user_params.lastParams)
                             return `rrzv bcaf - sdbc rr ${rn1}`
-                        })
+                        }).join('\n\n')
                 } else {
                     return user_params._.slice(2).map(rn1 => {
                         if (user_params.ce && fs.existsSync(rn1)) {
@@ -473,6 +475,20 @@ const rjqtOpr = async (neig_kp) => {
                 return `zhqh nkme, tsjq brtz msox`
             }
         })()
+    } else if (user_params._[1] === 'run') {
+        if (user_params.lastParams) {
+            uzms('csrf-brtz msox lastParams aoao lh vv-')
+        }
+        if (!user_params._[2]) {
+            uzms('csrf-nrap yxna mcvn-')
+        } else {
+            if (!fs.existsSync(user_params._[2])) {
+                uzms('csrf-yxna ac zznq-' + user_params._[2])
+            }
+        }
+        outputs.outputText = await (async () => {
+            return await jyqhRjqt(user_params._[2]).catch(err => { throw err })
+        })().catch(err => { throw err })
     } else if (user_params._[1] === 'ls') {
         outputs.outputText = (() => {
             if (user_params.hasOwnProperty("xbiw")) {

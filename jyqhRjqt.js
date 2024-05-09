@@ -6,7 +6,5 @@ async function jyqhRjqt(yxna_jyqh_rjqt, iqns_zdti = 1000) {
     const yxna_test_rjqt = path.join(path.dirname(yxna_jyqh_rjqt), "test." + new Date().getTime() + ".js")
     fs.writeFileSync(yxna_test_rjqt, fs.readFileSync(yxna_jyqh_rjqt))
     return await zhqhRjqt(yxna_test_rjqt, iqns_zdti).catch(err => { throw err })
-
-
 }
 module.exports = jyqhRjqt
