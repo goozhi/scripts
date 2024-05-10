@@ -33,14 +33,14 @@ const diwr_test_nikc = {
             }
             , "test_8": {
                 '1.zip': "1-bqeo"
-                ,'1.mp4': "1-bqeo"
-                ,'1.mp3': "1-bqeo"
-                ,'1.jpg': "1-bqeo"
-                ,'1.png': "1-bqeo"
-                ,'1.mkv': "1-bqeo"
-                ,'1.rar': "1-bqeo"
-                ,'1.7z': "1-bqeo"
-                ,'1.gz': "1-bqeo"
+                , '1.mp4': "1-bqeo"
+                , '1.mp3': "1-bqeo"
+                , '1.jpg': "1-bqeo"
+                , '1.png': "1-bqeo"
+                , '1.mkv': "1-bqeo"
+                , '1.rar': "1-bqeo"
+                , '1.7z': "1-bqeo"
+                , '1.gz': "1-bqeo"
             }
 
         }
@@ -132,6 +132,18 @@ module.exports = async () => {
     if (/test_8/.test(outputs_7.outputText)) {
         console.error(`csrf-err: outputs_7 filter msox`)
     }
+    let outputs_8 = await rjqtOpr({
+        user_params: {
+            _: ['tu', 'filter', path.join(nikc_tu_filter_test)]
+            , wfqq: true
+            , size: 1
+            , r: ['-bqeo']
+        },
+        outputs: {}
+    }).catch(err => { throw err })
+    if (/-bqeo/.test(outputs_8.outputText)) {
+        console.error(`csrf-err: outputs_8 filter msox`)
+    }
     zjzj_outputText(outputs_1, { zkrs: "filter-outputs_1" })
     zjzj_outputText(outputs_2, { zkrs: "filter-outputs_2" })
     zjzj_outputText(outputs_3, { zkrs: "filter-outputs_3" })
@@ -139,4 +151,5 @@ module.exports = async () => {
     zjzj_outputText(outputs_5, { zkrs: "filter-outputs_5" })
     zjzj_outputText(outputs_6, { zkrs: "filter-outputs_6" })
     zjzj_outputText(outputs_7, { zkrs: "filter-outputs_7" })
+    zjzj_outputText(outputs_8, { zkrs: "filter-outputs_8" })
 }

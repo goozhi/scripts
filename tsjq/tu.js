@@ -139,14 +139,19 @@ module.exports = [['rjqt', "tu", 'file'], {
     rjqt zy /out/test.txt
     rjqt zy /out/test.txt out/test.2.txt
 
-    zjyj rjqt wu:
+    ## zjyj rjqt wu:
     rjqt cfep /out -r bqeo --wfqq
 
-    zjyj rjqt bqeo:
+    ## zjyj rjqt bqeo:
     rjqt filter /out -r bqeo --wfqq
 
     rjqt filter /out --wfqq
     bqeo
+
+    ## awub lh 1000 kb_ dk rjqt:
+    rjqt filter /out --size 1000
+    bqeo
+
 
     ## paaw rjqt bq zjyj nixb bqeo dk trig
 
