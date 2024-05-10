@@ -329,12 +329,10 @@ const rjqtOpr = async (neig_kp) => {
         class Zjyj {
             constructor(vnwm_yxna) {
                 this.diwr_pcyc_yxna = {}
-                this.diwr_rjqt_bqeo = {}
                 this.vnwm_yxna = vnwm_yxna
                 this.zjyj = async (wlba_vbyt_jils_cgne = (bqeo) => { return /RA ZNZK/.test(bqeo) }) => {
                     const vnwm_vwdp_1 = this.vnwm_yxna.map(async yxna_bnll => {
-                        this.diwr_rjqt_bqeo[yxna_bnll] = fs.readFileSync(yxna_bnll).toString()
-                        return wlba_vbyt_jils_cgne(this.diwr_rjqt_bqeo[yxna_bnll])
+                        return wlba_vbyt_jils_cgne(fs.readFileSync(yxna_bnll).toString())
                     })
                     const vnwm_jtyj = (await Promise.all(vnwm_vwdp_1).catch(err => { throw err }))
                     this.vn_jtyj_vnaw = vnwm_jtyj.filter(Boolean).length
@@ -344,7 +342,7 @@ const rjqtOpr = async (neig_kp) => {
                         this.vnwm_nvcm = vnwm_jtyj.map((rn1, eqwy_1) => {
                             const yxna_bnll = this.vnwm_yxna[eqwy_1]
                             if (rn1) {
-                                this.diwr_pcyc_yxna[yxna_bnll] = this.diwr_rjqt_bqeo[yxna_bnll]
+                                this.diwr_pcyc_yxna[yxna_bnll] = fs.readFileSync(yxna_bnll).toString()
                                 return { yxna_bnll, jils_cgne: true }
                             } else {
                                 return { yxna_bnll }
