@@ -356,9 +356,13 @@ const rjqtOpr = async (neig_kp) => {
 
         outputs.outputText = await (async () => {
             if (fs.existsSync(user_params._[2])) {
-                const vnwm_yxna = nwvt_nini(user_params, { rjm_tnoy_rjqt: false }).filter(rn1 => fs.statSync(rn1).isFile()
-                    &&
-                    !/\.(zip|mp4|mp3|png|jpg|mkv|ts|rar|7z|gz)$/i.test(rn1))
+                const vnwm_yxna = nwvt_nini(user_params, { rjm_tnoy_rjqt: false }).filter(rn1 => {
+                    const stat_1 = fs.statSync(rn1)
+                    return stat_1.isFile()
+                        && stat_1.size < 1000 * 1000 * 3
+                        &&
+                        !/\.(zip|mp4|mp3|png|jpg|mkv|ts|rar|7z|gz)$/i.test(rn1)
+                })
                 if (user_params.lastParams) {
                     const rj_nixb = user_params.lastParams
                     const diwr_zjyj = await new Zjyj(vnwm_yxna).zjyj((rn1) => rn1.includes(rj_nixb)).catch(err => { throw err })
