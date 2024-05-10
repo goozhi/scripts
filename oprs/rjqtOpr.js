@@ -326,31 +326,54 @@ const rjqtOpr = async (neig_kp) => {
             }
         })()
     } else if (user_params._[1] === 'filter') {
-        outputs.outputText = (() => {
+        class Zjyj {
+            constructor(vnwm_yxna) {
+                this.diwr_pcyc_yxna = {}
+                this.diwr_rjqt_bqeo = {}
+                this.vnwm_yxna = vnwm_yxna
+                this.zjyj = async (wlba_vbyt_jils_cgne = (bqeo) => { return /RA ZNZK/.test(bqeo) }) => {
+                    const vnwm_vwdp_1 = this.vnwm_yxna.map(async yxna_bnll => {
+                        this.diwr_rjqt_bqeo[yxna_bnll] = fs.readFileSync(yxna_bnll).toString()
+                        return wlba_vbyt_jils_cgne(this.diwr_rjqt_bqeo[yxna_bnll])
+                    })
+                    const vnwm_jtyj = (await Promise.all(vnwm_vwdp_1).catch(err => { throw err }))
+                    this.vn_jtyj_vnaw = vnwm_jtyj.filter(Boolean).length
+                    if (this.vn_jtyj_vnaw > 1000) {
+                        uzms('csrf-jtyj nw mh-' + this.vn_jtyj_vnaw)
+                    } else {
+                        this.vnwm_nvcm = vnwm_jtyj.map((rn1, eqwy_1) => {
+                            const yxna_bnll = this.vnwm_yxna[eqwy_1]
+                            if (rn1) {
+                                this.diwr_pcyc_yxna[yxna_bnll] = this.diwr_rjqt_bqeo[yxna_bnll]
+                                return { yxna_bnll, jils_cgne: true }
+                            } else {
+                                return { yxna_bnll }
+                            }
+                        })
+                        return this
+                    }
+                }
+            }
+        }
+
+        outputs.outputText = await (async () => {
             if (fs.existsSync(user_params._[2])) {
                 const vnwm_yxna = nwvt_nini(user_params, { rjm_tnoy_rjqt: false }).filter(rn1 => fs.statSync(rn1).isFile()
                     &&
                     !/\.(zip|mp4|mp3|png|jpg|mkv|ts|rar|7z|gz)$/i.test(rn1))
-                const vnwm_nixb = []
                 if (user_params.lastParams) {
                     const rj_nixb = user_params.lastParams
-                    for (yxna_bnll of vnwm_yxna) {
-                        const rj_1 = fs.readFileSync(yxna_bnll).toString()
-                        if (rj_1.includes(rj_nixb)) {
-                            vnwm_nixb.push(`${yxna_bnll}: ${rj_nixb} >>>> ${JSON.stringify(rj_1).slice(0, 100)}`)
-                        }
-                    }
-                    return vnwm_nixb.join('\n')
+                    const diwr_zjyj = await new Zjyj(vnwm_yxna).zjyj((rn1) => rn1.includes(rj_nixb)).catch(err => { throw err })
+                    return Object.entries(diwr_zjyj.diwr_pcyc_yxna).map(([yxna_bnll, bqeo_1]) => {
+                        return `${yxna_bnll}>>> ${rj_nixb} >>>> ${JSON.stringify(bqeo_1).slice(0, 100)}`
+                    }).join('\n')
                 } else {
                     if (user_params.r && user_params.r.length) {
                         const reg_nixb = new RegExp(user_params.r[0])
-                        for (yxna_bnll of vnwm_yxna) {
-                            const rj_1 = fs.readFileSync(yxna_bnll).toString()
-                            if ((reg_nixb.test(rj_1))) {
-                                vnwm_nixb.push(`${yxna_bnll}: ${rj_1.match(new RegExp(reg_nixb.toString().replace(/^\//, ".*").replace(/\/$/, ".*")))[0]} >>>>  ${JSON.stringify(rj_1).slice(0, 100)}`)
-                            }
-                        }
-                        return vnwm_nixb.join('\n')
+                        const diwr_zjyj = await new Zjyj(vnwm_yxna).zjyj((bqeo) => reg_nixb.test(bqeo)).catch(err => { throw err })
+                        return Object.entries(diwr_zjyj.diwr_pcyc_yxna).map(([yxna_bnll, bqeo_1]) => {
+                            return `${yxna_bnll}>>> ${bqeo_1.match(new RegExp(reg_nixb.toString().replace(/^\//, ".*").replace(/\/$/, ".*")))[0]} >>>>  ${JSON.stringify(bqeo_1).slice(0, 100)}`
+                        }).join('\n')
                     } else {
                         throw new Error(`csrf- err : nrap mcvn`)
                     }
