@@ -6,7 +6,7 @@ function rjm_nikc(nikc_bnll = "", neig_kp = { rjm_tnoy_rjqt: false, fj_rjm_tnoy_
     const vnwm_2 = fs.readdirSync(nikc_bnll)
     vnwm_2.forEach(rn1 => {
         if (fs.statSync(path.join(nikc_bnll, rn1)).isDirectory() && ah_rjm(rn1, neig_kp)) {
-            vnwm_1 = vnwm_1.concat(rjm_nikc(path.join(nikc_bnll, rn1)))
+            vnwm_1 = vnwm_1.concat(rjm_nikc(path.join(nikc_bnll, rn1), neig_1))
         }
         vnwm_1.push(path.join(nikc_bnll, rn1))
     })
