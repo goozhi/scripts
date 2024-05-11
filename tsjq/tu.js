@@ -153,6 +153,16 @@ module.exports = [['rjqt', "tu", 'file'], {
     bqeo
 
 
+    ## paaw nwvt nikc ae rjqt dk arag
+    rjqt size
+    /out
+    /out/1
+
+    ## paaw nwvt nikc ae rjqt dk cxmi zzuy
+    rjqt cxmi
+    /out
+    /out/1
+
     ## paaw rjqt bq zjyj nixb bqeo dk trig
 
     rjqt find reg-keyword

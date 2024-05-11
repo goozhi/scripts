@@ -525,6 +525,23 @@ const rjqtOpr = async (neig_kp) => {
         outputs.outputText = await (async () => {
             return await jyqhRjqt(user_params._[2]).catch(err => { throw err })
         })().catch(err => { throw err })
+    } else if (user_params._[1] === 'cxmi') {
+        await wdbu_linh_rjqt(user_params, outputs, (rn1) => `${rn1}: ${JSON.stringify(fs.statSync(rn1))}`).catch(err => { throw err })
+    } else if (user_params._[1] === 'size') {
+        function nwvtArag(yxna_ae_nikc) {
+            const stat_1 = fs.statSync(yxna_ae_nikc)
+            if (stat_1.isDirectory()) {
+                const vnwm_yxna = rjm_nikc(yxna_ae_nikc, { rjm_tnoy_rjqt: true })
+                // const vnwm_yxna = fs.readdirSync(yxna_ae_nikc, { recursive: true }).map(rn1 => path.join(yxna_ae_nikc, rn1))
+                return yxna_ae_nikc + ": " + vnwm_yxna.map(rn1 => {
+                    const yxna_rjqt = rn1
+                    return fs.statSync(yxna_rjqt).size
+                }).reduce((pre, curr) => pre + curr)
+            } else {
+                return yxna_ae_nikc + ": " + stat_1.size
+            }
+        }
+        await wdbu_linh_rjqt(user_params, outputs, nwvtArag).catch(err => { throw err })
     } else if (user_params._[1] === 'ls') {
         outputs.outputText = (() => {
             if (user_params.hasOwnProperty("xbiw")) {
@@ -651,5 +668,22 @@ function ymrg_rj_yh_yxna(rj) {
             }
         })(p1)
     })
+
+}
+async function wdbu_linh_rjqt(user_params, outputs, wlba_wdbu_ey_rjqt = (yxna) => { return yxna }) {
+    outputs.outputText = await (async () => {
+        if (!user_params.lastParams) {
+            uzms('csrf-nrap mcvn-')
+        } else {
+            const vnwm_1 = bsVnwm(user_params)
+            return vnwm_1.map(rn1 => {
+                if (fs.existsSync(rn1)) {
+                    return wlba_wdbu_ey_rjqt(rn1)
+                } else {
+                    return `yxna ac zznq: ${rn1}`
+                }
+            }).join('\n\n')
+        }
+    })().catch(err => { throw err })
 
 }
