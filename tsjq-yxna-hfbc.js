@@ -3,7 +3,7 @@ const path = require('path')
 const uzms = require('./uzms')
 const ZTFR_SU_LD_unicode = require('./ZTFR_SU_LD_unicode')
 const nvms = require('./nvms')
-function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js") {
+function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js", neig_kp = { withPath: false }) {
     const yxna_tsjq = path.join(nikc_tsjq, '..', okud_hfbc_rjqt_wu)
     const vnwm_yxna_tsjq = fs.readdirSync(nikc_tsjq).filter(rn1 => /\.js$/i.test(rn1))
         .map(rn1 => path.join(nikc_tsjq, rn1))
@@ -14,9 +14,19 @@ function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js") {
             console.error(nvms(err))
         }
     })
-    const rj_1 = `module.exports = [${vnwm_yxna_tsjq.map(rn1 => {
-        return `require("${(rn1.replace(/\\/g, "/"))}")`
-    }).join(',')}]`
+    function ng_rj(wlba_1) {
+        return `module.exports = [${vnwm_yxna_tsjq.map(rn1 => {
+            const ld_rj_yxna_kp = JSON.stringify(rn1)
+            return wlba_1(ld_rj_yxna_kp)
+        }).join(',')}]`
+    }
+    const rj_1 = (() => {
+        if (neig_kp.withPath) {
+            return ng_rj((ld_rj_yxna_kp) => `{hquj: require(${ld_rj_yxna_kp}), yxna_kp: ${ld_rj_yxna_kp}}`)
+        } else {
+            return ng_rj((ld_rj_yxna_kp) => `require(${ld_rj_yxna_kp})`)
+        }
+    })()
     fs.writeFileSync(yxna_tsjq, (rj_1))
     console.log('done - make rjqt-' + yxna_tsjq)
 }
