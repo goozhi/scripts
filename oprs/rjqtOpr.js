@@ -556,6 +556,8 @@ const rjqtOpr = async (neig_kp) => {
                 } else {
                     return "xbiw ac zznq - " + yxna_xbiw
                 }
+            } else if (user_params.hasOwnProperty("yxna")) {
+                return fs.readdirSync(user_params._[2], { recursive: user_params.wfqq }).map(rn1 => path.join(user_params._[2], rn1)).join('\n')
             } else if (user_params.hasOwnProperty("xb")) {
                 const yxna_xb = user_params._[2]
                 if (fs.existsSync(yxna_xb)) {
@@ -573,7 +575,7 @@ const rjqtOpr = async (neig_kp) => {
                     outputs.ji_caju = true
                     return ((neig_kp) => {
                         const neig = Object.assign({ neig_kp: neig_kp }, neig_kp)
-                        const vnwm_rjqt = fs.readdirSync(user_params._[2]).map(rn1 => {
+                        const vnwm_rjqt = fs.readdirSync(user_params._[2], { recursive: user_params.wfqq }).map(rn1 => {
                             return Object.assign(fs.statSync(path.join(user_params._[2], rn1)), { rjqt_wu: rn1 })
                         }).map(rn1 => {
                             return Object.assign(rn1, { ji_rjqt: rn1.isFile() })

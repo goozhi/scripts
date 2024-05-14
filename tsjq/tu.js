@@ -24,12 +24,36 @@ module.exports = [['rjqt', "tu", 'file'], {
     rjqt rr test.js --checkjs
     var v1 = ""
 
-    ca um tszn nikc dk sopc nini nopy bqeo:
-    rjqt rjm /out/
+    ## ca um nikc dk nini wu
+    rjqt ls /out
 
-    rjvt rjqt:
-    rjqt rjm /out/test.txt
+    ## hmpc mcvn sr eowl bobi sonq dk nikc
+    tu ls
+    
+    ## caum yxna xbiw
+    tu ls out --xb
+    
+    ## rjvt yxna xbiw
+    tu ls out --xbiw
+
+    ## ca um nikc dk nini dk yxna
+    rjqt ls /out --yxna
+
+    ## ca um nikc dk nini dk yxna, wfqq
+    rjqt ls /out --yxna --wfqq
+
+    ## rjvt rjqt:
+    rjqt rjm /out/test.txt  --encoding gb2312
+    
+    ## paaw rjvt rjqt
+    tu rjm /out
+    
     rjqt rjm /out/test.txt /out/test.2.txt 
+    
+    tu rjm /out
+    test.1.js
+    test.2..js
+    test.ico
     
     ## kzbz rjqt:
     rjqt kz /out/test.txt /out/2
