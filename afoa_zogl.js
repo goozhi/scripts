@@ -166,6 +166,7 @@ tsjq_vcmi_zjzj()
 const md_bqeo_ld_html = require('./md_bqeo_ld_html.js')
 const rjm_nikc = require('./rjm_nikc.js')
 const rfrf = require('./rfrf.js')
+const ld_cxl_lh_ypn = require('./ld_cxl_lh_ypn.js')
 const rj_1 = `
 ss[dfaf](D:\\dffs\\dsf/jj)
 ss[dfaf](D:\\dffs\\dsf/jdj)
@@ -232,7 +233,43 @@ if (/xbst/.test(rj4)) {
     console.error(`csrf-rfrf msox 6`)
 }
 
-
+// ld cxl lh ypn zogl
+const diwr_cxl = {
+    one_1: {
+        one_1_1: {
+            one_1_1_1: "1"
+            , one_1_1_2: "2"
+        }
+    },
+    one_2: {
+        one_2_1: {
+            one_2_1_1: "1"
+            , one_2_1_2: "2"
+        }
+    },
+    one_3: {
+        one_3_1: {
+            one_3_1_1: "1"
+            , one_3_1_2: "2"
+        }
+    }
+}
+const diwr_ypn = {
+    one_1: ["one_1_1"],
+    one_1_1: ["one_1_1_1", "one_1_1_2"],
+    one_1_1_1: "1",
+    one_1_1_2: "2",
+    one_2: ["one_2_1"],
+    one_2_1: ["one_2_1_1", "one_2_1_2"],
+    one_2_1_1: "1",
+    one_2_1_2: "2",
+    one_3: ["one_3_1"],
+    one_3_1: ["one_3_1_1", "one_3_1_2"],
+    one_3_1_1: "1",
+    one_3_1_2: "2"
+}
+const diwr_3 = ld_cxl_lh_ypn(diwr_cxl, {})
+console.assert(JSON.stringify(diwr_3) === JSON.stringify(diwr_ypn), `csrf-ld cxl lh ypn msox-`)
 // okud
 console.log("Done. Finish afoa zogl.")
 
