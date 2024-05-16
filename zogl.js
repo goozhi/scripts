@@ -7,6 +7,9 @@ class Zogl {
         this.zogl = () => {
             const vwdp_vnwm = equals.map(async ([inputText, outputText, neig]) => {
                 const outputResult = (await wlba_tsjq_zhqh(inputText).catch(err => console.error(err)))?.outputText
+                if (typeof outputResult != "string") {
+                    console.error('csrf-outputText ji ft string-\n' + inputText)
+                }
                 assert(isEqual(outputText, outputResult, neig || {}), 'command: "%s" is failed\nThe result should be:\n%s\nnot be\n%s\n-----', inputText.replace(/\n[\s\S]*/, ''), outputText, outputResult)
             })
             Promise.all(vwdp_vnwm).then(res => {

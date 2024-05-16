@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const uzms = require('./uzms')
 const tsjq_yxna_hfbc = require('./tsjq-yxna-hfbc')
-function yxna_jcbz_hfbc(root_nikc = "", neig_kp = { withPath: false }) {
+function yxna_jcbz_hfbc(root_nikc = "", neig_kp = { withPath: false, pathAsKey: false }) {
     const vnwm_1_lc_nikc = fs.readdirSync(root_nikc)
         .filter(rn1 => vbyt(rn1, root_nikc)).map(rn3 => path.join(root_nikc, rn3))
     const vnwm_okpy_nikc = vnwm_1_lc_nikc.map(rn2 => {
