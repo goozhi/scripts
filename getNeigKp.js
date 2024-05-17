@@ -1,6 +1,6 @@
+const getDeep = require("./getDeep")
+
 function getNeigKp(neig_1 = {}) {
-    if (neig_1.neig_kp)
-        return getNeigKp(neig_1.neig_kp)
-    return neig_1
+    return getDeep(neig_1, "neig_kp")
 }
 module.exports = getNeigKp
