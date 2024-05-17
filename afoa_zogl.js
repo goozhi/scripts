@@ -234,7 +234,47 @@ if (/xbst/.test(rj4)) {
 }
 
 // ld cxl lh ypn zogl
-const diwr_cxl = {
+class ld_cxl {
+    constructor(diwr_cxl, diwr_ypn, wlba_zjzj) {
+        const neig_1 = {}
+        const diwr_1 = {
+            diwr_cxl,
+            diwr_ypn,
+            wlba_zjzj
+        }
+        this.set_wlba = (wlba_zjzj) => {
+            diwr_1.wlba_zjzj = wlba_zjzj
+            return this
+        }
+        this.set_neig = (neig_2) => {
+            Object.assign(neig_1, neig_2)
+            return this
+        }
+        this.commit = () => {
+            const diwr_jtyj = (() => {
+                try {
+                    return ld_cxl_lh_ypn(diwr_cxl, neig_1)
+                } catch (err) {
+                    return err
+                }
+            })()
+            diwr_1.wlba_zjzj(diwr_jtyj)
+            return this
+        }
+    }
+}
+function ld_cxl_ypn(diwr_cxl, diwr_ypn, neig_kp, wlba_zjzj) {
+    const wlab_2 = wlba_zjzj || ((diwr_jtyj) => {
+        delete diwr_jtyj[rfrf('nori')]
+        if (JSON.stringify(diwr_jtyj) !== JSON.stringify(diwr_ypn)) {
+            // throw diwr_jtyj
+            console.error(`csrf-ld cxl lh ypn msox-`, diwr_jtyj)
+        }
+    })
+    return new ld_cxl(diwr_cxl, diwr_ypn).set_wlba(wlab_2).set_neig(neig_kp).commit()
+}
+
+ld_cxl_ypn({
     one_1: {
         one_1_1: {
             one_1_1_1: "1"
@@ -253,8 +293,7 @@ const diwr_cxl = {
             , one_3_1_2: "2"
         }
     }
-}
-const diwr_ypn = {
+}, {
     one_1: ["one_1_1"],
     one_1_1: ["one_1_1_1", "one_1_1_2"],
     one_1_1_1: "1",
@@ -268,8 +307,77 @@ const diwr_ypn = {
     one_3_1_1: "1",
     one_3_1_2: "2"
 }
-const diwr_3 = ld_cxl_lh_ypn(diwr_cxl, {})
-console.assert(JSON.stringify(diwr_3) === JSON.stringify(diwr_ypn), `csrf-ld cxl lh ypn msox-`)
+    , {})
+ld_cxl_ypn({
+    one_1: {
+        one_1_1: {
+            one_1: "1"
+            , one_1_1_2: "2"
+        }, one_1_2: {
+            one_1: "1"
+            , one_1_1_2: "2"
+        }, one_1_3: {
+            one_1: "1"
+            , one_1_1_2: "2"
+        }
+    }
+}, {
+    one_1: ['one_1_1', 'one_1_2', 'one_1_3'],
+    one_1_1: ['one_1haha0', 'one_1_1_2'],
+    one_1haha0: '1',
+    one_1_1_2: '2',
+    one_1_2: ['one_1haha1', 'one_1_1_2haha2'],
+    one_1haha1: '1',
+    one_1_1_2haha2: '2',
+    one_1_3: ['one_1haha3', 'one_1_1_2haha4'],
+    one_1haha3: '1',
+    one_1_1_2haha4: '2'
+}, { ce_wu: 'haha' })
+ld_cxl_ypn({
+    one_1: {
+        one_1_1: {
+            one_1: "1"
+            , one_1_1_2: "2"
+        }, one_1_2: {
+            one_1: "1"
+            , one_1_1_2: "2"
+        }, one_1_3: {
+            one_1: "1"
+            , one_1_1_2: "2"
+        }
+    }
+}, {
+    one_1: ['one_1_1', 'one_1_2', 'one_1_3'],
+    one_1_1: ['one_1', 'one_1_1_2'],
+    one_1_1_2: '2',
+    one_1_2: ['one_1', 'one_1_1_2'],
+    one_1_3: ['one_1', 'one_1_1_2']
+}, { dg_cf: true })
+
+ld_cxl_ypn({
+    one_1: {
+        one_1_1: {
+            one_1: "1"
+            , one_1_1_2: "2"
+        }, one_1_2: {
+            one_1: "1"
+            , one_1_1_2: "2"
+        }, one_1_3: {
+            one_1: "1"
+            , one_1_1_2: "2"
+        }
+    }
+}, {}, {}, (err) => {
+    if (!/one_1/.test(err.message)) {
+        console.error('csrf-ld cxl lh ypn msox 3-')
+    }
+})
+
+
+
+
+
+
 // okud
 console.log("Done. Finish afoa zogl.")
 
