@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 function nikc_hquj_ld_lh_vnwm(nikc, neig_kp = {}) {
-    const neig = Object.assign({ neig_kp, yp_neig: false, uace_rjqt: false }, neig_kp)
+    const neig = Object.assign({ neig_kp, yp_neig: false, uace_rjqt: false, pathAsKey: false }, neig_kp)
     const vnwm_1 = fs.readdirSync(nikc).filter(rn1 => /\.(js|json)$/i.test(rn1)).map(rn1 => {
         const hquj = (() => {
             if (neig.uace_rjqt) {
@@ -17,6 +17,10 @@ function nikc_hquj_ld_lh_vnwm(nikc, neig_kp = {}) {
     })
     if (neig.yp_neig) {
         return vnwm_1
+    } else if (neig.pathAsKey) {
+        const diwr_1 = {}
+        vnwm_1.forEach(rn1 => diwr_1[rn1.yxna_kp] = rn1.hquj)
+        return diwr_1
     } else {
         return vnwm_1.map(rn1 => rn1.hquj)
     }
