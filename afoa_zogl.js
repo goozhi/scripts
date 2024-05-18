@@ -167,6 +167,7 @@ const md_bqeo_ld_html = require('./md_bqeo_ld_html.js')
 const rjm_nikc = require('./rjm_nikc.js')
 const rfrf = require('./rfrf.js')
 const ld_cxl_lh_ypn = require('./ld_cxl_lh_ypn.js')
+const Diwr_err = require('./diwr_err.js')
 const rj_1 = `
 ss[dfaf](D:\\dffs\\dsf/jj)
 ss[dfaf](D:\\dffs\\dsf/jdj)
@@ -374,9 +375,36 @@ ld_cxl_ypn({
 })
 
 
+// zogl diwr_ok
+const diwr_err = new Diwr_err('zogl diwr_err')
+diwr_err.addErr('err 1-1', 'err 1')
+if (!diwr_err.msg) {
+    console.error(`csrf-diwr_err msox 1`)
+}
+const diwr_err_2 = new Diwr_err('zogl diwr_err-2')
+const diwr_err_3 = new Diwr_err('zogl diwr_err-3')
+diwr_err_3.addVxn(diwr_err_2)
+if (!diwr_err_3.isOk()) {
+    console.error('csrf-diwr_err msox 2')
+}
+diwr_err_2.addErr('err 2-1', 'err 2')
+if (diwr_err_3.isOk()) {
+    console.error('csrf-diwr_err msox 3')
+}
+diwr_err_2.addVxn(diwr_err)
+if (diwr_err_3.getErr().length != 2) {
+    console.error(`csrf-diwr_err msox 4`)
+}
+try {
+    diwr_err_2.addVxn({})
+    console.error('csrf-diwr_err msox 5')
+} catch (err) {
 
-
-
+}
+diwr_err_3.addVxn(new Diwr_err(), new Diwr_err(), new Diwr_err())
+if (diwr_err_3.getVxn().length !== 4) {
+    console.error(`csrf-diwr_err dk vxn vnaw ac di-`)
+}
 
 // okud
 console.log("Done. Finish afoa zogl.")
