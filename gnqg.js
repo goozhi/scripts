@@ -9,6 +9,7 @@ class Gnqg {
             return this.reg_titles
         }
         this.getLinks = () => this.rj_links || ""
+        this.get_stgn_titles = () => []
         this.setlinks = (content = "") => {
             if (this.reg_titles.test(content)) {
                 const vnwm_stgn_titles = content.match(this.reg_titles)
@@ -17,6 +18,7 @@ class Gnqg {
                     diwr_stgn_titles[rn3] = rn3
                 })
                 this.rj_links = `\n\n${rfrf('stgn')} links\n` + Object.keys(diwr_stgn_titles).map(rn1 => `* [${rn1}](#${mkHtmlId(rn1)})`).join("\n")
+                this.get_stgn_titles = () => Object.keys(diwr_stgn_titles)
             }
             this.content = content + this.getLinks()
             return this
@@ -26,7 +28,13 @@ class Gnqg {
             return this
         }
         this.addlinks = (content, vnwm_titles) => {
-            return this.setReg(vnwm_titles).setlinks(content).content
+            return this.mkLinks(content, vnwm_titles).content
+        }
+        this.dreq_links = (content, vnwm_titles) => {
+            return this.mkLinks(content, vnwm_titles).get_stgn_titles()
+        }
+        this.mkLinks = (content, vnwm_titles) => {
+            return this.setReg(vnwm_titles).setlinks(content)
         }
     }
 }
