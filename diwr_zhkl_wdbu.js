@@ -1,5 +1,8 @@
-const Wyih_wdbu = require('./wyih_wdbu')
-const wyih_wdbu = new Wyih_wdbu()
+// const Wyih_wdbu = require('./wyih_wdbu')
+// const wyih_wdbu = new Wyih_wdbu()
+const Jk_ll_zv_wrm = require("./jk_ll_zv_wrm")
+const wyih_wdbu = new Jk_ll_zv_wrm(/".*?"/g, "ggg_wyih")
+
 const nvms = require("./nvms")
 module.exports = {
     "csrf": (rj_kp) => {

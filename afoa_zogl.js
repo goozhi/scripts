@@ -1,9 +1,9 @@
 const fs = require('fs')
 const hd_rjqt_tum = require("./hd_rjqt_tum")
+const Diwr_err = require('./diwr_err.js');
+const diwr_msg = new Diwr_err('zogl-afoa')
 const unicode_LD_ZTFR_SU = require('./unicode_LD_ZTFR_SU')
 const yxna = "D:/xyzd/unicode_to_hanyu_pinyin.txt"
-const rjyf = require('./KPLU/wrvr/atvn/rjyf')
-const wrvr = require('./KPLU/wrvr')
 const buildHtml = require("./buildHtml");
 const path = require('path')
 const nikc_jkub = require('./nikc_jkub')
@@ -167,7 +167,7 @@ const md_bqeo_ld_html = require('./md_bqeo_ld_html.js')
 const rjm_nikc = require('./rjm_nikc.js')
 const rfrf = require('./rfrf.js')
 const ld_cxl_lh_ypn = require('./ld_cxl_lh_ypn.js')
-const Diwr_err = require('./diwr_err.js')
+const Jk_ll_zv_wrm = require('./jk_ll_zv_wrm.js');
 const rj_1 = `
 ss[dfaf](D:\\dffs\\dsf/jj)
 ss[dfaf](D:\\dffs\\dsf/jdj)
@@ -233,6 +233,12 @@ rj4 = rfrf(rj3)
 if (/xbst/.test(rj4)) {
     console.error(`csrf-rfrf msox 6`)
 }
+rj3 = '* [x] xbst'
+rj4 = rfrf(rj3)
+if (!/ \[x\] /.test(rj4)) {
+    console.error(`csrf-rfrf msox 7`)
+}
+
 
 // ld cxl lh ypn zogl
 class ld_cxl {
@@ -406,6 +412,27 @@ if (diwr_err_3.getVxn().length !== 4) {
     console.error(`csrf-diwr_err dk vxn vnaw ac di-`)
 }
 
+// zogl jk ll zv wrm
+const rj1 = "gg haha hh\nbbb bbb"
+const wlba_1 = (rj) => rj.replace(/[ab]/g, "c")
+const diwr_jk_ll = new Jk_ll_zv_wrm(/gg.*hh/g, "ggg_test_1").setBqeo(rj1).ymrg(wlba_1)
+const jtyj_1 = diwr_jk_ll.getResult()
+const diwr_zzzz_jk_ll = new Diwr_err('zogl-jk-ll-zv-wrm')
+diwr_msg.addVxn(diwr_zzzz_jk_ll)
+
+if (!/a/.test(jtyj_1) || /b/.test(jtyj_1)) {
+    diwr_zzzz_jk_ll.addErr('jk-ll-zv-wrm msox 1')
+}
+
+diwr_jk_ll.setReg(/ccc/).setXbst('888')
+diwr_jk_ll.ymrg((rj) => rj.replace(/[a-z]/g, "p"))
+if (!/ccc/.test(diwr_jk_ll.getResult())) {
+    diwr_zzzz_jk_ll.addErr('jk-ll-msox-2')
+}
 // okud
-console.log("Done. Finish afoa zogl.")
+if (diwr_msg.isOk()) {
+    console.log(diwr_msg)
+} else {
+    console.log(diwr_msg.getErr())
+}
 
