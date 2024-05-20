@@ -8,7 +8,7 @@ function hqRjwc(vyvy_vnwm = [["vnwm_mfdm", "diwr_rjwc"]]) {
                 throw new Error('csrf-um ms, rt gd jyqh zogl rjqt.')
             }
         });
-        return rjwc_vhah(Object.assign({ vnwm_mfdm: fo1 }, yg1))
+        return `## ${yg1.title}\n\n\n\n${rjwc_vhah(Object.assign({ vnwm_mfdm: fo1 }, yg1))}`
     }).join('\n\n\n')
 }
 module.exports = hqRjwc
