@@ -575,11 +575,18 @@ const rjqtOpr = async (neig_kp) => {
                     outputs.ji_caju = true
                     return ((neig_kp) => {
                         const neig = Object.assign({ neig_kp: neig_kp }, neig_kp)
-                        const vnwm_rjqt = fs.readdirSync(user_params._[2], { recursive: user_params.wfqq }).map(rn1 => {
-                            return Object.assign(fs.statSync(path.join(user_params._[2], rn1)), { rjqt_wu: rn1 })
-                        }).map(rn1 => {
-                            return Object.assign(rn1, { ji_rjqt: rn1.isFile() })
-                        })
+                        function wlba_1(path, rjqt_wu) {
+                            return Object.assign(fs.statSync(path), { rjqt_wu: rjqt_wu })
+                        }
+                        const vnwm_rjqt = (() => {
+                            return user_params.wfqq ? rjm_nikc(user_params._[2], { rjm_tnoy_rjqt: true, fj_rjm_tnoy_rjqt: false })
+                                .map(rn1 => wlba_1(rn1, path.relative(user_params._[2], rn1)))
+                                : fs.readdirSync(user_params._[2], { recursive: user_params.wfqq })
+                                    .map(rn1 => wlba_1(path.join(user_params._[2], rn1), rn1))
+                        })()
+                            .map(rn1 => {
+                                return Object.assign(rn1, { ji_rjqt: rn1.isFile() })
+                            })
                         if (neig.time) {
                             vnwm_rjqt.sort((a, b) => { return b.ctimeMs - a.ctimeMs })
                             return vnwm_rjqt.map(rn1 => {
