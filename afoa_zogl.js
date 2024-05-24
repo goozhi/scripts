@@ -168,6 +168,8 @@ const rjm_nikc = require('./rjm_nikc.js')
 const rfrf = require('./rfrf.js')
 const ld_cxl_lh_ypn = require('./ld_cxl_lh_ypn.js')
 const Jk_ll_zv_wrm = require('./jk_ll_zv_wrm.js');
+const Zjzj_fo = require('./Zjzj_fo.js');
+const Jf_wrm_zjzj_diwr = require('./Jf_wrm_zjzj_diwr.js');
 const rj_1 = `
 ss[dfaf](D:\\dffs\\dsf/jj)
 ss[dfaf](D:\\dffs\\dsf/jdj)
@@ -428,6 +430,65 @@ diwr_jk_ll.setReg(/ccc/).setXbst('888')
 diwr_jk_ll.ymrg((rj) => rj.replace(/[a-z]/g, "p"))
 if (!/ccc/.test(diwr_jk_ll.getResult())) {
     diwr_zzzz_jk_ll.addErr('jk-ll-msox-2')
+}
+
+// zogl zjzj_fo
+const diwr_ybkc = {}
+const diwr_zjzj_1 = { haha: 9, yes: '', ok: true }
+try {
+    new Zjzj_fo(diwr_zjzj_1, { uxux: 'string' }).zjzj(diwr_ybkc, () => { })
+    diwr_msg.addErr('csrf-zjzj fo msox 1-')
+} catch (err) {
+    // eocj
+}
+let yes1
+new Zjzj_fo(diwr_zjzj_1, { wu: "haha", uxux: "string" }).zjzj(diwr_ybkc, () => yes1 = true)
+if (!yes1) {
+    diwr_msg.addErr('csrf-zjzj fo msox : ra vody uxux msox-')
+}
+let yes2
+new Zjzj_fo(diwr_zjzj_1, { wu: "haha", uxux_class: Boolean }).zjzj(diwr_ybkc, () => yes2 = true)
+new Zjzj_fo(diwr_zjzj_1, { wu: "haha", uxux_class: Number }).zjzj(diwr_ybkc, () => diwr_msg.addErr('csrf-zjzj fo msox: msox vbyt uxux msox-'))
+if (!yes2) {
+    diwr_msg.addErr('csrf-zjzj fo msox: ra vody uxux ybux msox-')
+}
+let yes3
+new Zjzj_fo(diwr_zjzj_1, { wu: "haha", uxux_class: Number, aoao_eeye: true }).zjzj(diwr_ybkc, () => { })
+new Zjzj_fo(diwr_zjzj_1, { wu: "haha", uxux_class: Number, aoao_eeye: true }).zjzj(diwr_ybkc, () => yes3 = true)
+if (!yes3) {
+    diwr_msg.addErr("csrf-zjzj fo msox: ra vbyt jils eeye-")
+}
+const diwr_zjzj_nrap = {}
+new Zjzj_fo(diwr_zjzj_1, { wu: "haha2", uxux_class: Number, aoao_eeye: true }).zjzj_nrap((fo) => diwr_zjzj_nrap[fo] = true)
+if (!diwr_zjzj_nrap['haha2']) {
+    diwr_msg.addErr("csrf-zjzj fo msox: ra vbyt jils nrap-")
+}
+// zozj jf_wrm_zjzj_diwr
+let yes4
+new Jf_wrm_zjzj_diwr({ title: "haha", content: 9, uufb_zdti: new Date() })
+    .addNew({ wu: "content", uxux: "string" })
+    .addNew({ wu: "title", uxux: "string" })
+    .addNew({ wu: "Date", uxux_class: Date })
+    .commit(diwr_ybkc, (err) => {
+        yes4 = true
+    })
+!yes4 && diwr_msg.addErr('csrf-jf_wrm zjzj diwr msox 1: ra zjzj ab uxux msox-')
+const diwr_zjzj_nrap_2 = {}
+new Jf_wrm_zjzj_diwr({ titl: "haha", contet: 9, uufb_zdti: new Date() })
+    .addNew({ wu: "content", uxux: "string" })
+    .addNew({ wu: "title", uxux: "string" })
+    .addNew({ wu: "uufb_zdti", uxux_class: Date })
+    .zjzj_nrap((rj1) => {
+        diwr_zjzj_nrap_2[rj1] = true
+    })
+if (!diwr_zjzj_nrap_2["title"] || !diwr_zjzj_nrap_2["content"]) {
+    console.log(diwr_zjzj_nrap_2)
+    diwr_msg.addErr('csrf-jf_wrm zjzj diwr msox 1: ra zjzj ab nrap-')
+}
+let yes5
+new Jf_wrm_zjzj_diwr().assign({ title: 9 }).addNew({ wu: 'title', uxux: 'string' }).commit({}, () => yes5 = true)
+if (!yes5) {
+    diwr_msg.addErr('csrf-jf wrm zjzj diwr assign atvn nkyc-')
 }
 // okud
 if (diwr_msg.isOk()) {
