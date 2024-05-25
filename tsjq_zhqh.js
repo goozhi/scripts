@@ -40,6 +40,9 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
                 }
             }).catch(err => { throw err })
         }
+        if (user_params.up) {
+            outputs.up = true
+        }
         if (outputs.na_ld_html === true) {
             outputs.na_ld_html = md_bqeo_ld_html(outputs.outputText, { ji_db_style: false })
         }
