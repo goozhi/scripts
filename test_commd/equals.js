@@ -173,6 +173,16 @@ fffffffffff*2 = 35184372088830
         `志`
     ]
     , [
+        `wrvr --vv
+        vr dk`,
+        `志 的`
+    ]
+    , [
+        `wrvr --ztwm
+        ac`,
+        `不盏嚣竖悦`
+    ]
+    , [
         `wrvr
         yfvr\n同`,
         `同志\\s+同`, { regex: true }

@@ -17,7 +17,7 @@ const wrvr = async (user_params = {}, outputs = { outputText: "" }) => {
             }))
     } else {
         outputs.outputText = (() => {
-            if (reg_wrvr_xjm_fr.test(user_params.lastParams)) {
+            if (user_params.ztwm || reg_wrvr_xjm_fr.test(user_params.lastParams)) {
                 return wrvrRfrf({ user_params })
             } else {
                 return (wrvr_kp.diwr_non_eysj[user_params.lastParams.toLowerCase()] && wrvr_kp.diwr_non_eysj[user_params.lastParams.toLowerCase()].yhrj) || wrvr_kp.diwr_sj_di_wrvr[user_params.lastParams] || "RA ZNZK"

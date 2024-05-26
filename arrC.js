@@ -201,10 +201,22 @@ const arrC = [
             chvx:
             wrvr
             wr
+
             wrvr
             \u56fd
+
             wrvr
             tgmh mf hiyq vkrs
+
+            ## ilws vvbr
+            wrvr --vv
+            pc vvbr
+
+            ## caum nixb zifr diyc wrvr ztwm
+            wrvr --ztwm
+            aa bb cc
+            
+            ## rfrf yhrj lh wrvr
             wrvr wrvr
             \u56fd\u56fd\u56fd \u56fd
         `,
