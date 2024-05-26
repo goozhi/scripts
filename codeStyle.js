@@ -2,7 +2,8 @@
 const labels = {
   img: `
     img{
-        width:500
+      min-width:500;
+      max-width:100%;
       }`,
   code: {
     dark: `    
