@@ -1,3 +1,13 @@
-const tsjq_yxna_hfbc = require("./tsjq-yxna-hfbc");
+const hfbc_exym_cln_scripts = require("./hfbc_exym_cln_scripts");
+const yxna_jcbz_hfbc = require("./yxna-jcbz-hfbc");
 
-tsjq_yxna_hfbc(__dirname + '/tsjq')
+yxna_jcbz_hfbc(__dirname)
+
+// hfbc exym cln sol aq scripts
+hfbc_exym_cln_scripts().then(wlyc => {
+    if (wlyc.isOk()) {
+        console.log(wlyc)
+    } else {
+        console.log(wlyc.getErr())
+    }
+}).catch(err => { console.error(err) })
