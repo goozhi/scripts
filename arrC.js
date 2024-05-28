@@ -19,7 +19,7 @@ const unicode = require('./cmd-zhqh-atvn/unicode.js');
 const gethtml = require('./cmd-zhqh-atvn/gethtml.js');
 const yue = require('./cmd-zhqh-atvn/yue.js');
 const bgiw = require('./cmd-zhqh-atvn/bgl.js');
-const tsjq = require('./tsjq');
+const tsjq = require('./tsjq.slgr.js');
 const uzms = require('./uzms.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
