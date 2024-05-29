@@ -9,7 +9,7 @@ const timeLook = async (user_params = { lastParams: "", file: "", encoding: "utf
         } else if (/^\d+$/.test(user_params._[1])) {
             return new Date(user_params._[1]).toString().replace(/ GMT.*/, '')
         } else {
-            return bnll_zdti.getTime()
+            return String(bnll_zdti.getTime())
         }
     })()
 
