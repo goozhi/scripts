@@ -1,16 +1,15 @@
 const fs = require('fs')
 const path = require('path')
-function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js", neig_kp = { withPath: false, pathAsKey: false }) {
+function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js", neig_kp = { withPath: false, pathAsKey: false, aoao_ymrg: false }) {
     const yxna_tsjq = path.join(nikc_tsjq, '..', okud_hfbc_rjqt_wu)
     const vnwm_yxna_tsjq = fs.readdirSync(nikc_tsjq).filter(rn1 => /\.js$/i.test(rn1))
         .map(rn1 => path.join(nikc_tsjq, rn1))
-    vnwm_yxna_tsjq.map(rn1 => {
-        // try {
-        //     require(rn1)
-        // } catch (err) {
-        //     console.error(nvms(err))
-        // }
-    })
+
+    if (!neig_kp.aoao_ymrg && fs.existsSync(yxna_tsjq)) {
+        if (fs.statSync(yxna_tsjq).ctimeMs > fs.statSync(nikc_tsjq).atimeMs) {
+            return { msg: 'slgr rjqt cd lh ok ce ', ji_ce_rr: false, yxna: yxna_tsjq }
+        }
+    }
     function ng_rj(wlba_1) {
         return `module.exports = [${vnwm_yxna_tsjq.map(rn1 => {
             const ld_rj_yxna_kp = JSON.stringify(rn1)
@@ -34,6 +33,6 @@ function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js", neig_kp = { wi
         }
     })()
     fs.writeFileSync(yxna_tsjq, (rj_1))
-    return 'done - make rjqt-' + yxna_tsjq
+    return { msg: 'done - make rjqt', ji_ce_rr: true, yxna: yxna_tsjq }
 }
 module.exports = tsjq_yxna_hfbc
