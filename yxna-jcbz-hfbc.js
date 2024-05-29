@@ -10,11 +10,11 @@ function yxna_jcbz_hfbc(root_nikc = "", neig_kp = { withPath: false, pathAsKey: 
             .filter(rn1 => vbyt(rn1, rn2))
             .map(rn3 => path.join(rn2, rn3))
     }).flat().concat(vnwm_1_lc_nikc)
-    vnwm_okpy_nikc.forEach(rn1 => {
+    return vnwm_okpy_nikc.map(rn1 => {
         if (fs.existsSync(path.join(rn1, 'slgr.md'))) {
-            tsjq_yxna_hfbc(rn1, `${path.basename(rn1)}.slgr.js`, neig_kp)
+            return tsjq_yxna_hfbc(rn1, `${path.basename(rn1)}.slgr.js`, neig_kp)
         }
-    })
+    }).filter(Boolean)
 }
 module.exports = yxna_jcbz_hfbc
 

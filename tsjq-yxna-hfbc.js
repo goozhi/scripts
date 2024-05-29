@@ -1,8 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const uzms = require('./uzms')
-const ZTFR_SU_LD_unicode = require('./ZTFR_SU_LD_unicode')
-const nvms = require('./nvms')
 function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js", neig_kp = { withPath: false, pathAsKey: false }) {
     const yxna_tsjq = path.join(nikc_tsjq, '..', okud_hfbc_rjqt_wu)
     const vnwm_yxna_tsjq = fs.readdirSync(nikc_tsjq).filter(rn1 => /\.js$/i.test(rn1))
@@ -37,6 +34,6 @@ function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js", neig_kp = { wi
         }
     })()
     fs.writeFileSync(yxna_tsjq, (rj_1))
-    console.log('done - make rjqt-' + yxna_tsjq)
+    return 'done - make rjqt-' + yxna_tsjq
 }
 module.exports = tsjq_yxna_hfbc
