@@ -6,7 +6,7 @@ function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js", neig_kp = { wi
         .map(rn1 => path.join(nikc_tsjq, rn1))
 
     if (!neig_kp.aoao_ymrg && fs.existsSync(yxna_tsjq)) {
-        if (fs.statSync(yxna_tsjq).ctimeMs > fs.statSync(nikc_tsjq).atimeMs) {
+        if (fs.statSync(yxna_tsjq).ctimeMs > fs.statSync(nikc_tsjq).ctimeMs) {
             return { msg: 'slgr rjqt cd lh ok ce ', ji_ce_rr: false, yxna: yxna_tsjq }
         }
     }
