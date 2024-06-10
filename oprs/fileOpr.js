@@ -9,16 +9,31 @@ async function fileOpr(neig_vdzv = {}) {
     const obj_opr = {
         writeIfExist: 'writeFileSync',
         appendIfExist: 'appendFileSync',
-        readFile: 'readFileSync'
+        readFile: 'readFileSync',
+        writeNewFile: 'writeFileSync'
     }
     const key = obj_opr[neig.opr]
     if (key === 'writeFileSync' || key === 'appendFileSync') {
-        if (fs.existsSync(neig.existPath || path.dirname(neig.path))) {
-            fs[key](neig.path, encoding.convert(neig.content, neig.encoding, 'utf8'))
-            return { isOk: true }
+        function vbyt_bj_rrzv(gkqj_1 = false, nkme_reason = "") {
+            if (gkqj_1) {
+                fs[key](neig.path, encoding.convert(neig.content, neig.encoding, 'utf8'))
+                return { isOk: true }
+            } else {
+                return { isOk: false, reason: nkme_reason }
+            }
+        }
+        const diwr_tsjq = {
+            writeIfExist: () => {
+                return vbyt_bj_rrzv(fs.existsSync(neig.existPath || path.dirname(neig.path)), `desc-path not exists-${neig.existPath || neig.path}`)
+            },
+            writeNewFile: () => {
+                return vbyt_bj_rrzv(!fs.existsSync(neig.path), `desc-path already exists-${neig.existPath || neig.path}`)
+            }
+        }
+        if (diwr_tsjq[neig.opr]) {
+            return diwr_tsjq[neig.opr]()
         } else {
-            return { isOk: false}
-            // throw new Error(`desc-path not exists-${neig.existPath || neig.path}`)
+            throw new Error(`csrf-acun cqpi fr-` + neig.opr)
         }
     } else if (key === 'readFileSync') {
         return (() => {
