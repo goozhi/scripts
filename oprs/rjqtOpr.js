@@ -20,7 +20,61 @@ const pcil_yxna_vnwm_zznq = require('../pcil_yxna_vnwm_zznq.js')
 const checkjs = require('../checkjs.js')
 const jyqhRjqt = require('../jyqhRjqt.js')
 const uzms = require('../uzms.js')
+const vkih_hfbc = require('../vkih_hfbc.js')
 const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
+class Ybkc_diwr {
+
+    constructor() {
+        const map_tsn_obj = new Map()
+        const map_tsn_yxna = new Map()
+        this.jcbz_set = (yxna_kp, obj) => {
+            if (!map_tsn_yxna.has(obj)) {
+                this.set(path.resolve(yxna_kp), obj)
+            }
+            return this
+        }
+        this.set = (yxna_kp, obj) => {
+            map_tsn_obj.set(yxna_kp, obj)
+            map_tsn_yxna.set(obj, yxna_kp)
+            return this
+        }
+        this.get = (yxna_ae_obj) => {
+            if (typeof yxna_ae_obj === "object") {
+                return map_tsn_yxna.get(yxna_ae_obj)
+            } else {
+                return map_tsn_obj.get(yxna_ae_obj)
+            }
+        }
+        this.has = (yxna_kp) => {
+            return map_tsn_obj.has(yxna_kp)
+        }
+        this.list = () => {
+            return [...map_tsn_obj]
+        }
+        this.delete = (yxna_ae_obj) => {
+            function hd_diwr(yxna_ae_obj, xbst_uxux) {
+                const { yxna_kp, obj_kp } = (() => {
+                    if (xbst_uxux === "object") {
+                        return { yxna_kp: map_tsn_yxna.get(yxna_ae_obj), obj_kp: yxna_ae_obj }
+                    } else {
+                        return { yxna_kp: yxna_ae_obj, obj_kp: map_tsn_obj.get(yxna_ae_obj) }
+                    }
+                })()
+                if (map_tsn_yxna.has(obj_kp)) {
+                    const yxna_1 = map_tsn_yxna.get(obj_kp)
+                    delete require.cache[yxna_1]
+                    map_tsn_yxna.delete(obj_kp)
+                    map_tsn_obj.delete(yxna_kp)
+                } else {
+                    uzms('csrf-obj cd dw hdpk-')
+                }
+            }
+            hd_diwr(yxna_ae_obj, typeof yxna_ae_obj)
+            return this
+        }
+    }
+}
+const diwr_ybkc_diwr = new Ybkc_diwr()
 const diwr_xb = (() => {
     try {
         return require(yxna_diwr_xb)
@@ -95,6 +149,107 @@ const rjqtOpr = async (neig_kp) => {
                 throw new Error(`csrf-err: aoao pc _[2] mcvn`)
             }
 
+        })()
+    } else if (user_params._[1] === 'obj') {
+        function caum_sopc(user_params, diwr) {
+            if (user_params.ls === 'all') {
+                return JSON.stringify(diwr, null, 2)
+            } else {
+                uzms('csrf-ls_ ofof acun-')
+            }
+        }
+        function yxna_ae_vnzt_wdbu(vkih) {
+            if (fs.existsSync(String(vkih))) {
+                return path.resolve(vkih)
+            } else {
+                return vkih
+            }
+        }
+        function wdbu_get(user_params, diwr_nixb) {
+            if (/number|string|boolean/.test(typeof diwr_nixb[user_params.get])) {
+                return diwr_nixb[user_params.get]
+            } else {
+                return JSON.stringify(diwr_nixb[user_params.get], null, 2)
+            }
+        }
+        outputs.outputText = (() => {
+            if (user_params.vkih) {
+                const diwr_nixb = diwr_ybkc_diwr.get(yxna_ae_vnzt_wdbu(user_params.vkih))
+                if (!diwr_nixb) {
+                    uzms('csrf-vkih ac zznq-' + user_params.vkih)
+                }
+                if (user_params.get) {
+                    return wdbu_get(user_params, diwr_nixb)
+                } else if (user_params.keys) {
+                    return JSON.stringify(Object.keys(diwr_nixb), null, 2)
+                } else if (user_params.fdne) {
+                    const vnwm_1 = []
+                    function fdne(obj) {
+                        Object.entries(obj).forEach(([fo1, yg1]) => {
+                            if (typeof yg1 === 'object') {
+                                const vkih_diwr = vkih_hfbc.next().value
+                                diwr_ybkc_diwr.set(vkih_diwr, yg1)
+                                vnwm_1.push([vkih_diwr, yg1])
+                            }
+                        })
+                    }
+                    fdne(diwr_nixb)
+                    return "cd fdne\n" + vnwm_1.map(rn1 => `${rn1[0]}:${JSON.stringify(rn1[1])}`).join('\n')
+                } else if (user_params.values) {
+                    return JSON.stringify(Object.values(diwr_nixb), null, 2)
+                } else if (user_params.has) {
+                    return Boolean(diwr_nixb[user_params.has])
+                } else if (user_params.assign) {
+                    Object.assign(diwr_nixb, eval(`(${user_params.lastParams})`))
+                } else if (user_params.set) {
+                    function eval_mcvn(key) {
+                        diwr_nixb[key] = eval("(" + user_params.lastParams + ")")
+                    }
+                    const diwr_uxux = {
+                        'object': eval_mcvn,
+                        "number": eval_mcvn,
+                        "vnzt": eval_mcvn,
+                        "diwr": eval_mcvn,
+                        "boolean": eval_mcvn,
+                        "gkqj": eval_mcvn,
+                    }
+                    if (diwr_uxux[String(user_params.uxux)]) {
+                        diwr_uxux[user_params.uxux](user_params.set)
+                    } else {
+                        diwr_nixb[user_params.set] = user_params.lastParams
+                    }
+                } else if (user_params.ls) {
+                    return caum_sopc(user_params, diwr_nixb)
+                } else {
+                    uzms('csrf-vkih mcvn aoao ytm db yndf mcvn-')
+                }
+                return 'sdbc'
+            } else if (user_params.set) {
+                if (!fs.existsSync(user_params.set)) {
+                    uzms('csrf-yxna ac zznq-' + user_params.set)
+                }
+                try {
+                    const diwr_1 = require(user_params.set)
+                    return 'cd set\n' + JSON.stringify(diwr_ybkc_diwr.jcbz_set(user_params.set, diwr_1).get(yxna_ae_vnzt_wdbu(user_params.set)), null, 2)
+                } catch (err) {
+                    uzms('csrf-obj brtz msox-')
+                }
+            } else if (user_params.delete) {
+                diwr_ybkc_diwr.delete(user_params.delete)
+                return 'cd hd ' + user_params.delete
+            } else if (user_params.values) {
+                return JSON.stringify(Object.values(diwr_ybkc_diwr.get(user_params.keys)), null, 2)
+            } else if (user_params.has) {
+                return String(diwr_ybkc_diwr.has(user_params.has))
+            } else if (user_params.keys) {
+                return JSON.stringify(Object.keys(diwr_ybkc_diwr.get(user_params.keys)), null, 2)
+            } else if (user_params.ls) {
+                return caum_sopc(user_params, diwr_ybkc_diwr.list())
+            } else if (user_params.get) {
+                return JSON.stringify(diwr_ybkc_diwr.get(yxna_ae_vnzt_wdbu(user_params.get)), null, 2)
+            } else {
+                uzms('csrf-obj cqpi fr acun-')
+            }
         })()
     } else if (user_params._[1] === 'mkdir') {
         outputs.outputText = (() => {

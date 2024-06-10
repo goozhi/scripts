@@ -213,6 +213,41 @@ module.exports = [['rjqt', "tu", 'file'], {
 
     ## jyqh js_ rjqt
     tu run yxna
+
+    ## ja yxna pilh obj wyzv
+    tu obj --set yxna
+
+    ## nwvt mrl zzl dk obj
+    tu obj --get vkih / tu obj --get yxna
+
+    ## ja mrl zzl dk obj bq dk obj zhvt bj fdne vkih
+    tu obj --vkih D:/RSGM/nodejs/vtn/kcl/1717995965630-7.js --fdne
+
+    ## nwvt obj dk pzva diyc dk bqeo
+    tu obj --vkih vkih --get property
+
+    ## syig obj dk value
+    tu obj --vkih vkih --set property
+    string
+
+    ## syig obj uxux dk value
+    tu obj --vkih vkih --set property --uxux object / diwr
+    JSON-obj
+
+    ## hdpk mrl zzl dk obj
+    tu obj --delete vkih
+
+    ## nwvt values
+    tu obj --vkih vkih --values
+    
+    ## nwvt keys
+    tu obj --vkih vkih --keys
+
+    ## caum sopc obj
+    tu obj --ls all
+
+    ## vbyt jils efpc bi key
+    tu obj --vkih vkih --has key
     `,
     func: rjqt,
     wvvy: true
