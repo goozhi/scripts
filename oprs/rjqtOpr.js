@@ -180,6 +180,21 @@ const rjqtOpr = async (neig_kp) => {
                 }
                 if (user_params.get) {
                     return wdbu_get(user_params, diwr_nixb)
+                } else if (user_params.rr) {
+                    const diwr_tsjq = {
+                        module: (rj) => { return "module.exports=" + rj },
+                        json: (rj) => { return rj }
+                    }
+                    if (!diwr_tsjq[user_params.rr]) {
+                        uzms('csrf-zf aoao tszn rrzv dk hqtz-' + user_params.rr)
+                    }
+                    if (fs.existsSync(user_params.vkih)) {
+                        fs.writeFileSync(user_params.vkih + ".bak", fs.readFileSync(user_params.vkih))
+                        fs.writeFileSync(user_params.vkih, diwr_tsjq[user_params.rr](JSON.stringify(diwr_nixb, null, 2)))
+                    } else {
+                        uzms('csrf-yxna ac zznq-' + user_params.vkih)
+                    }
+                    return 'cd rrzv ' + user_params.vkih
                 } else if (user_params.keys) {
                     return JSON.stringify(Object.keys(diwr_nixb), null, 2)
                 } else if (user_params.fdne) {

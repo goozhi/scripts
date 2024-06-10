@@ -246,6 +246,13 @@ module.exports = [['rjqt', "tu", 'file'], {
     ## caum sopc obj
     tu obj --ls all
 
+    ## ja mrl zzl yh dk obj no module hqtz rrzv diyc rjqt
+    tu obj --vkih vkih --rr module
+
+    ae json:
+    
+    tu obj --vkih vkih --rr json
+
     ## vbyt jils efpc bi key
     tu obj --vkih vkih --has key
     `,
