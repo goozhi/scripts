@@ -219,6 +219,26 @@ const arrC = [
             ## rfrf yhrj lh wrvr
             wrvr wrvr
             \u56fd\u56fd\u56fd \u56fd
+
+            ## bv ce eysj
+            wrvr bv
+            \u56fd\u5bb6
+
+            ## hd ce bv dk eysj
+            wrvr hd
+            \u56fd\u5bb6
+
+            ## wrvr zogl msox
+            wrvr zo
+
+            ## wrvr eysj rjyf zjqt
+            wrvr yfm
+            wryq yenh zfkk
+
+            ## wrvr yfdp java_ ss json_ rjqt
+            wrvr yf
+
+            
         `,
         func: wrvr
     }],
