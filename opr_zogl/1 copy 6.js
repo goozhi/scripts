@@ -144,6 +144,27 @@ module.exports = async () => {
     if (/-bqeo/.test(outputs_8.outputText)) {
         console.error(`csrf-err: outputs_8 filter msox`)
     }
+    let outputs_9 = await rjqtOpr({
+        user_params: {
+            _: ['tu', 'filter', 'tszn']
+            // , wfqq: true
+            // , size: 1
+            , r: ['test..xt-bqeo']
+            , lastParams: `
+            ${path.join(nikc_tu_filter_test,"test_4/test.txt")}
+            ${path.join(nikc_tu_filter_test,"test_4/test1.md")}
+            ${path.join(nikc_tu_filter_test,"test_4/test2.md")}
+            ${path.join(nikc_tu_filter_test,"test_4/test3.md")}
+            `
+        },
+        outputs: {}
+    }).catch(err => { throw err })
+    if (/txt-bqeo/.test(outputs_9.outputText)) {
+        console.error(`csrf-err: outputs_9 filter msox`)
+    }
+    if (/test3.md/.test(outputs_9.outputText)){
+        console.error(`csrf-err: outputs_9 filter msox 2`)
+    }
     zjzj_outputText(outputs_1, { zkrs: "filter-outputs_1" })
     zjzj_outputText(outputs_2, { zkrs: "filter-outputs_2" })
     zjzj_outputText(outputs_3, { zkrs: "filter-outputs_3" })
@@ -152,4 +173,5 @@ module.exports = async () => {
     zjzj_outputText(outputs_6, { zkrs: "filter-outputs_6" })
     zjzj_outputText(outputs_7, { zkrs: "filter-outputs_7" })
     zjzj_outputText(outputs_8, { zkrs: "filter-outputs_8" })
+    zjzj_outputText(outputs_9, { zkrs: "filter-outputs_9" })
 }

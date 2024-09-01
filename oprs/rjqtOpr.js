@@ -525,7 +525,36 @@ const rjqtOpr = async (neig_kp) => {
         }
 
         outputs.outputText = await (async () => {
-            if (fs.existsSync(user_params._[2])) {
+            async function reg_zjyj(vnwm_yxna, user_params) {
+                if (user_params.r && user_params.r.length) {
+                    const reg_nixb = new RegExp(user_params.r[0])
+                    const diwr_zjyj = await new Zjyj(vnwm_yxna).zjyj((bqeo) => reg_nixb.test(bqeo)).catch(err => { throw err })
+                    return Object.entries(diwr_zjyj.diwr_pcyc_yxna).map(([yxna_bnll, bqeo_1]) => {
+                        return brtz_fs_zjyj_jtyj(yxna_bnll
+                            , bqeo_1.match(new RegExp(reg_nixb.toString().replace(/^\//, ".*").replace(/\/$/, ".*")))[0]
+                            , JSON.stringify(bqeo_1).slice(0, 100)
+                            , user_params)
+                    }).join('\n')
+                } else {
+                    throw new Error(`csrf- err : nrap mcvn`)
+                }
+            }
+            function brtz_fs_zjyj_jtyj(yxna_bnll, rj_nixb, rluu_bqeo, user_params = {}) {
+                if (user_params.yxna) {
+                    return yxna_bnll
+                } else {
+                    return `${yxna_bnll}>>> ${rj_nixb} >>>> ${rluu_bqeo}`
+                }
+            }
+
+            if (user_params._[2] === 'tszn') {
+                if (user_params.lastParams) {
+                    const vnwm_yxna = bsVnwm(user_params)
+                    return await reg_zjyj(vnwm_yxna, user_params).catch(err => { throw err })
+                } else {
+                    uzms('csrf-lastParams aoao zznq-')
+                }
+            } else if (fs.existsSync(user_params._[2])) {
                 const vn_size_awub = (() => {
                     if (user_params.size) {
                         if (typeof user_params.size != 'number') {
@@ -544,13 +573,6 @@ const rjqtOpr = async (neig_kp) => {
                         &&
                         !/\.(zip|mp4|mp3|png|jpg|apk|mkv|ts|rar|7z|gz)$/i.test(rn1)
                 })
-                function brtz_fs_zjyj_jtyj(yxna_bnll, rj_nixb, rluu_bqeo, user_params = {}) {
-                    if (user_params.yxna) {
-                        return yxna_bnll
-                    } else {
-                        return `${yxna_bnll}>>> ${rj_nixb} >>>> ${rluu_bqeo}`
-                    }
-                }
                 if (user_params.lastParams) {
                     const rj_nixb = user_params.lastParams
                     const diwr_zjyj = await new Zjyj(vnwm_yxna).zjyj((rn1) => rn1.includes(rj_nixb)).catch(err => { throw err })
@@ -558,18 +580,7 @@ const rjqtOpr = async (neig_kp) => {
                         return brtz_fs_zjyj_jtyj(yxna_bnll, rj_nixb, JSON.stringify(bqeo_1).slice(0, 100), user_params)
                     }).join('\n')
                 } else {
-                    if (user_params.r && user_params.r.length) {
-                        const reg_nixb = new RegExp(user_params.r[0])
-                        const diwr_zjyj = await new Zjyj(vnwm_yxna).zjyj((bqeo) => reg_nixb.test(bqeo)).catch(err => { throw err })
-                        return Object.entries(diwr_zjyj.diwr_pcyc_yxna).map(([yxna_bnll, bqeo_1]) => {
-                            return brtz_fs_zjyj_jtyj(yxna_bnll
-                                , bqeo_1.match(new RegExp(reg_nixb.toString().replace(/^\//, ".*").replace(/\/$/, ".*")))[0]
-                                , JSON.stringify(bqeo_1).slice(0, 100)
-                                , user_params)
-                        }).join('\n')
-                    } else {
-                        throw new Error(`csrf- err : nrap mcvn`)
-                    }
+                    return await reg_zjyj(vnwm_yxna, user_params).catch(err => { throw err })
                 }
             } else {
                 throw new Error(`csrf-err: nikc ac zznq - ${user_params._[2]}`)

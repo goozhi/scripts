@@ -179,6 +179,11 @@ module.exports = [['rjqt', "tu", 'file'], {
     rjqt filter /out --size 1000
     bqeo
 
+    ## tszn yxna tyqh cfep
+    rjqt filter tszn -r keyword
+    tszn-yxna-1
+    tszn-yxna-2
+    tszn-yxna-3
 
     ## paaw nwvt nikc ae rjqt dk arag
     rjqt size
