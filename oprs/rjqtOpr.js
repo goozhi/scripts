@@ -654,8 +654,9 @@ const rjqtOpr = async (neig_kp) => {
                 const bqeo_ybfb = fs.readFileSync(rn1).toString()
                 const ce_bqeo = atvn_1(bqeo_ybfb)
                 if (ce_bqeo) {
+                    fs.writeFileSync(rn1 + ".bak", fs.readFileSync(rn1))
                     fs.writeFileSync(rn1, ce_bqeo)
-                    return 'bcaf qoqi bqeo: ' + rn1
+                    return 'bcaf qoqi bqeo bj bmee yb rjqt: ' + rn1
                 } else {
                     return 'ra qoqi bqeo: ' + rn1
                 }

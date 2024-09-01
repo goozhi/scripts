@@ -64,6 +64,9 @@ module.exports = async () => {
     if (!/cd qoqi\.cd qoqi/.test(rj_1)) {
         console.error(`csrf-err: tu func msox 2`)
     }
+    if(!fs.existsSync(path.join(nikc_tu_func_test, 'test_4/test1.md.bak'))){
+        console.error('csrf-err: tu func zhqh ud hmpc bmee yb rjqt')
+    }
 
     let outputs_2 = await rjqtOpr({
         user_params: {
