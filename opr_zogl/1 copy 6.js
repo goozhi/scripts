@@ -151,18 +151,18 @@ module.exports = async () => {
             // , size: 1
             , r: ['test..xt-bqeo']
             , lastParams: `
-            ${path.join(nikc_tu_filter_test,"test_4/test.txt")}
-            ${path.join(nikc_tu_filter_test,"test_4/test1.md")}
-            ${path.join(nikc_tu_filter_test,"test_4/test2.md")}
-            ${path.join(nikc_tu_filter_test,"test_4/test3.md")}
+            ${path.join(nikc_tu_filter_test, "test_4/test.txt")}
+            ${path.join(nikc_tu_filter_test, "test_4/test1.md")}
+            ${path.join(nikc_tu_filter_test, "test_4/test2.md")}
+            ${path.join(nikc_tu_filter_test, "test_4/test3.md")}
             `
         },
         outputs: {}
     }).catch(err => { throw err })
-    if (/txt-bqeo/.test(outputs_9.outputText)) {
+    if (!/txt-bqeo/.test(outputs_9.outputText)) {
         console.error(`csrf-err: outputs_9 filter msox`)
     }
-    if (/test3.md/.test(outputs_9.outputText)){
+    if (/test3.md/.test(outputs_9.outputText)) {
         console.error(`csrf-err: outputs_9 filter msox 2`)
     }
     zjzj_outputText(outputs_1, { zkrs: "filter-outputs_1" })

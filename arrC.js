@@ -5,7 +5,6 @@ const sttuInPhone = require('./cmd-zhqh-atvn/sttuInPhone.js');
 const ask_autojs = require('./cmd-zhqh-atvn/ask-autojs.js');
 const execc = require('./cmd-zhqh-atvn/execc.js');
 const update = require('./cmd-zhqh-atvn/update.js');
-const cmdMatch = require('./cmdMatch');
 const axios = require('axios');
 const wrvr = require('./cmd-zhqh-atvn/wrvr.js');
 const uni = require('./cmd-zhqh-atvn/uni.js');
@@ -363,38 +362,6 @@ const arrC = [
                 .catch(error => {
                     throw error
                 });
-        }
-    }],
-    [['aid'], {
-        describe: `Ask for help
-                examples:
-                aid
-                cc
-
-                aid -l all
-
-                aid -l keys
-                `,
-        func: async (user_params = { lastParams: "", list: false }, outputs = { outputText: "" }, options = { mapC: {} }) => {
-            if (user_params.list) {
-                if (user_params.list === 'all') {
-                    outputs.outputText = [...options.mapC].map(([key, value]) => {
-                        return `${key}:\n${JSON.stringify(value, null, 4).fmtLines(4).replace(/(?<!\\)\\n/g, '\n')}`
-                    }).join('\n\n')
-                } else if (user_params.list === 'keys') {
-                    outputs.outputText = [...options.mapC.keys()].join('\n')
-                } else {
-                    throw new Error(`no such parameter in list: ${user_params.list}`)
-                }
-            } else if (!/\S/.test(user_params.lastParams)) {
-                throw new Error(`The last parameters is null with command aid`)
-            } else {
-                const command = cmdMatch(user_params.lastParams, options)
-                if (!command.describe) {
-                    uzms('csrf-tsjq hmpc describe_ pzva-' + user_params.lastParams)
-                }
-                outputs.outputText = command.describe.trimLines()
-            }
         }
     }],
     [['num', 'number', 'numbers'], {
