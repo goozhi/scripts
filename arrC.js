@@ -222,9 +222,13 @@ const arrC = [
             ## bv ce eysj
             wrvr bv
             \u56fd\u5bb6
-
+            \u56fd\u5bb6
+            \u56fd\u5bb6
+            
             ## hd ce bv dk eysj
             wrvr hd
+            \u56fd\u5bb6
+            \u56fd\u5bb6
             \u56fd\u5bb6
 
             ## wrvr zogl msox
