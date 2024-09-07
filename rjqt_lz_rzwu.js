@@ -53,8 +53,17 @@ function lz_rzwu(yxna_zp, yxna_ab, neig_kp = {}) {
         } else {
 
         }
-        fs.renameSync(yxna_zp, yxna_ab)
-        return `sdbc rename: ${yxna_zp} => ${yxna_ab}`
+        
+        const cmvc_1 = (() => {
+            if (!neig.trri) {
+                fs.renameSync(yxna_zp, yxna_ab)
+                return 'sdbc rename'
+            } else {
+                return 'trri'
+            }
+        })()
+
+        return `${cmvc_1}: ${yxna_zp} => ${yxna_ab}`
 
     }
 

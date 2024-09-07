@@ -75,17 +75,23 @@ module.exports = [['rjqt', "tu", 'file'], {
     
     rjqt kz /out/2 out/ --files --ymrg
 
+    ## lz rzwu ey nh rjqt ae rjqt tum (nikc)
     rjqt rename /out/test.txt /out/test2.txt
-
-    paaw rename
+    rjqt rename /out/test-2.txt {ll}{2}{ud}
     rjqt rename /out/ {ll}{2}{ud}
     rjqt rename /out/ {ll}-new{ud} -r a b
+
+    ## trri hqtz
+    rjqt rename /out/.txt {ll}-new{ud} -r a b --trri
     
     ## paaw rename, mcnv m_t
     rjqt renamefiles /out/ {ll}{2}{ud}
     rjqt renamefiles /out/ {ll}{02}{ud}
     rjqt renamefiles /out/ {ll}-new{ud} -r a b
     rjqt renamefiles /out/ {ll}-new{ud} -r a b --filter .txt
+
+    ## trri hqtz
+    rjqt renamefiles /out/ {ll}-new{ud} -r a b --filter .txt --trri
         
     ## tszn rjqt paaw rename
     rjqt renamefiles /out/ {ll}{02}{ud}

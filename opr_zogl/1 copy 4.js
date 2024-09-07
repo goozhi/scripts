@@ -51,6 +51,18 @@ const diwr_test_nikc = {
                 'test2.md': "",
                 'test3.md': "",
             }
+            , test_7: {
+                'test1.md': "",
+                'test.txt': "",
+                'test2.md': "",
+                'test3.md': "",
+            }
+            , test_8: {
+                'test1.md': "",
+                'test.txt': "",
+                'test2.md': "",
+                'test3.md': "",
+            }
 
         }
     }
@@ -139,11 +151,51 @@ module.exports = async () => {
     } else {
         console.error(`csrf-err: tu rename rjqt reg bj tszn rjqt wu hqtz um ms.`)
     }
+    let outputs_7 = await rjqtOpr(
+        {
+            user_params: {
+                _: ['tu', 'renamefiles', path.join(nikc_tu_rename_test, 'test_7/'), "{ll}-{ud}"]
+                , lastParams: `test1.md\ntest2.md\ntest3.md`
+                , trri: true
+                , reg: ["\\.md", ".test"]
+            },
+            outputs: {}
+        }
+    )
+    if (fs.existsSync(path.join(nikc_tu_rename_test, 'test_7/test.txt'))
+        && !fs.existsSync(path.join(nikc_tu_rename_test, 'test_7/test3-.test'))) {
+    } else {
+        console.error(`csrf-err: tu renamefiles trri hqtz zv rjqt reg bj tszn rjqt wu hqtz um ms.`)
+    }
+    if (!/-\.test/.test(outputs_7.outputText)) {
+        console.error(`csrf-err: tu renamefiles n riri hqtz pc ms-${outputs_7.outputText}`)
+    }
+    let outputs_8 = await rjqtOpr(
+        {
+            user_params: {
+                _: ['tu', 'rename', path.join(nikc_tu_rename_test, 'test_8/test3.md'), "{ll}-{ud}"]
+                , trri: true
+                , reg: ["\\.md", ".test"]
+            },
+            outputs: {}
+        }
+    )
+    if (fs.existsSync(path.join(nikc_tu_rename_test, 'test_8/test.txt'))
+        && !fs.existsSync(path.join(nikc_tu_rename_test, 'test_8/test3-.test'))) {
+    } else {
+        console.error(`csrf-err: tu rename trri hqtz zv rjqt reg bj tszn rjqt wu hqtz um ms.`)
+    }
+    if (!/-\.test/.test(outputs_8.outputText)) {
+        console.error(`csrf-err: tu rename n riri hqtz pc ms-${outputs_8.outputText}`)
+    }
+
     zjzj_outputText(outputs_1, { zkrs: "rename-outputs_1" })
     zjzj_outputText(outputs_2, { zkrs: "rename-outputs_2" })
     zjzj_outputText(outputs_3, { zkrs: "rename-outputs_3" })
     zjzj_outputText(outputs_4, { zkrs: "rename-outputs_4" })
     zjzj_outputText(outputs_5, { zkrs: "rename-outputs_5" })
     zjzj_outputText(outputs_6, { zkrs: "rename-outputs_6" })
+    zjzj_outputText(outputs_7, { zkrs: "rename-outputs_7" })
+    zjzj_outputText(outputs_8, { zkrs: "rename-outputs_8" })
 
 }
