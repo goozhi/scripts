@@ -43,6 +43,18 @@ module.exports = async () => {
         console.log(3, outputs.outputText)
         diwr_msg.addErr('csrf-err: aid msox - dreq n rluu hqtz msox')
     }
+    await zhqh_func({
+        dreq: '2-qh',
+        ncar: 5,
+    }).catch(err => console.error(err))
+    if (!/tsjq1-leun\n.*2-qh/.test(outputs.outputText)) {
+        console.log(3, outputs.outputText)
+        diwr_msg.addErr('csrf-err: aid msox - dreq n rluu hqtz msox')
+    }
+
+
+
+
     async function zhqh_func(params_bnll = {}) {
         // Object.assign(user_params, params_bnll)
         await aid[1].func(params_bnll, outputs, { mapC: map_1 }).catch(err => { throw err })

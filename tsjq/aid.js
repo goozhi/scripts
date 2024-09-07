@@ -13,8 +13,11 @@ module.exports = [['aid'], {
 
             aid --dreq regex-keyword
 
-            ## rluu cgne n mb tt tszn qh vn
+            ## sc tt rluu cgne n mb tt tszn qh vn
             aid --dreq keyword --rluu 5
+
+            ## ncar nixb n klvq
+            aid --dreq keyword --ncar 5
             `,
     func: async (user_params = { lastParams: "", list: false }, outputs = { outputText: "" }, options = { mapC: {} }) => {
         if (user_params.list) {
@@ -50,28 +53,30 @@ module.exports = [['aid'], {
                         cgne_yscj: rn1.describe.match(new RegExp(".*" + rj_reg + ".*"))[0]
                     }
                 })
-                if (user_params.rluu) {
-                    if (/^\d+$/.test(user_params.rluu)) {
-                        const vn_qh_vn = Number(user_params.rluu)
-                        return brtz_fs_jtyj(vnwm_cd_cgne_yg.map(rn1 => {
-                            const vnwm_1 = rn1.describe.split(/\n/)
-                            const eqwy_1 = vnwm_1.indexOf(rn1.cgne_yscj)
-                            if (eqwy_1 === -1) {
-                                uzms('csrf-bqph msox: eqwy lh yl 1')
-                            }
-                            const rj_1 = vnwm_1.slice((eqwy_1 - vn_qh_vn < 0 ? 0 : eqwy_1 - vn_qh_vn), eqwy_1 + vn_qh_vn).join('\n')
-                            return rj_1
-                        }).join('\n---------------------\n'))
-                    } else {
-                        return brtz_fs_jtyj(vnwm_cd_cgne_yg.map(rn1 => rn1.describe).join('\n\n'))
-                    }
+                if (user_params.ncar || user_params.rluu) {
+                    return ncar(user_params.ncar || user_params.rluu || 1, user_params)
                 } else {
                     return brtz_fs_jtyj(vnwm_cd_cgne_yg.map(rn1 => rn1.cgne_yscj).join('\n\n'))
                 }
                 function brtz_fs_jtyj(rj_bqeo) {
                     return `## cgne n tsjq wu: \n${vnwm_cgne_fo.join('\n')}\n## cgne n describe:\n${rj_bqeo}`
                 }
-
+                function ncar(mcvn_qh, neig_kp = { rluu: false }) {
+                    if (/^\d+$/.test(mcvn_qh)) {
+                        const vn_qh_vn = Number(mcvn_qh)
+                        return brtz_fs_jtyj(vnwm_cd_cgne_yg.map(rn1 => {
+                            const vnwm_1 = rn1.describe.split(/\n/)
+                            const eqwy_1 = vnwm_1.indexOf(rn1.cgne_yscj)
+                            if (eqwy_1 === -1) {
+                                uzms('csrf-bqph msox: eqwy lh yl 1')
+                            }
+                            const rj_1 = vnwm_1.slice(neig_kp.rluu ? eqwy_1 : (eqwy_1 - vn_qh_vn < 0 ? 0 : eqwy_1 - vn_qh_vn), eqwy_1 + vn_qh_vn).join('\n')
+                            return rj_1
+                        }).join('\n---------------------\n'))
+                    } else {
+                        return brtz_fs_jtyj(vnwm_cd_cgne_yg.map(rn1 => rn1.describe).join('\n\n'))
+                    }
+                }
             })()
         } else if (!/\S/.test(user_params.lastParams)) {
             throw new Error(`The last parameters is null with command aid`)
