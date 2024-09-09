@@ -52,9 +52,16 @@ module.exports = async () => {
     }).catch(err => { throw err })
     console.assert(/gb2312测试/i.test(outputs_4.outputText), 'tu rjm tsjq na ye encoding hqtz pc ms.')
 
-
+    let outputs_5 = await rjqtOpr({
+        user_params: {
+            _: ['tu', 'rjm', path.join(nikc_tu_rjm_test, 'test_3') + ":1:3"]
+        },
+        outputs: {}
+    }).catch(err => { throw err })
+    console.assert(/\bllo/i.test(outputs_5.outputText), 'tu rjm tsjq tszn qh rjvt hqtz pc ms.')
     zjzj_outputText(outputs_1, { zkrs: 'rjm-outputs_1' })
     zjzj_outputText(outputs_2, { zkrs: 'rjm-outputs_2' })
     zjzj_outputText(outputs_3, { zkrs: 'rjm-outputs_3' })
     zjzj_outputText(outputs_4, { zkrs: 'rjm-outputs_4' })
+    zjzj_outputText(outputs_5, { zkrs: 'rjm-outputs_5' })
 }

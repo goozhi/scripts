@@ -86,9 +86,20 @@ const diwr_xb = (() => {
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
     const { user_params, outputs } = neig
-    if (user_params._[2]) {
-        user_params._[2] = user_params._[2].replace(/\"|\'/g, "")
-    }
+    const { vn_qh, vn_ca } = (() => {
+        let vn_qh
+        let vn_ca
+        if (user_params._[2]) {
+            user_params._[2] = user_params._[2]
+                .replace(/^(\"|\')|(\"|\')$/g, "")
+                .replace(/:(\d+):(\d+)/, (m1, p1, p2) => {
+                    vn_qh = p1
+                    vn_ca = p2
+                    return ''
+                })
+        }
+        return { vn_qh, vn_ca }
+    })()
     yxna_ymrg_wdbu(user_params)
     if (user_params._[1] === 'rr') {
         outputs.outputText = (() => {
@@ -356,7 +367,16 @@ const rjqtOpr = async (neig_kp) => {
                     } else {
                         return user_params._.slice(2).map(rn1 => {
                             if (fs.existsSync(rn1)) {
-                                return `${rn1}\n${encoding.convert(fs.readFileSync(rn1), 'utf8', user_params.encoding).toString()}`
+                                return `${rn1}\n${(() => {
+                                    const rj_1 = encoding.convert(fs.readFileSync(rn1), 'utf8', user_params.encoding).toString()
+                                    if (vn_qh) {
+                                        const rj_qh = rj_1.split(/\n/).slice(vn_qh - 1, vn_qh).join('\n')
+                                        return rj_qh + "\n"
+                                            + rj_qh.split('').slice(vn_ca - 1).join('')
+                                    } else {
+                                        return rj_1
+                                    }
+                                })()}`
                             } else {
                                 throw new Error(`path not exits :${rn1}`)
                             }

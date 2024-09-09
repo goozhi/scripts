@@ -55,6 +55,9 @@ module.exports = [['rjqt', "tu", 'file'], {
     test.2..js
     test.ico
     
+    ## rjm tszn qh tszn ca
+    tu rjm /out/.txt:375:53
+
     ## kzbz rjqt:
     rjqt kz /out/test.txt /out/2
     
