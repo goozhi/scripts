@@ -6,5 +6,7 @@ module.exports = new Map(Object.entries({
     "K": "Kr",
     "k": "kr",
     "y": "ye",
-    "Y": "Ye"
+    "Y": "Ye",
+    v: "nh",
+    V: "Nh"
 }))
