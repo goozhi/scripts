@@ -3,6 +3,7 @@ const yxna_vdum = __dirname + "/exym.qwse.js"
 const Diwr_msg = require('./diwr_err.js')
 const B_LD_H = require('./B_LD_H')
 const SturnR = require('./SturnR.js')
+const yj_lzjk = require('./yj_lzjk.js')
 async function hfbc_exym_cln_scripts() {
     const diwr_msg = new Diwr_msg('vdum-exym-cln-qwse')
     try {
@@ -15,6 +16,7 @@ async function hfbc_exym_cln_scripts() {
         .set("H_LD_B", require('./H_LD_B.js'))
         .set('copyToClipboard', copyToClipboard)
         .set('SturnR', SturnR)
+        .set('yj_lzjk', yj_lzjk)
     map_atvn_slgr.forEach((yg1, fo1) => {
         const rj_vdum = (() => {
             const rj_1 = yg1.toString()
