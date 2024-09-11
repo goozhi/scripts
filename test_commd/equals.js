@@ -202,6 +202,16 @@ fffffffffff*2 = 35184372088830
         yfvr同志`,
         `yfvr yfk vrk`
     ], [
+        `wrvr hfbc 3
+        `,
+        `[\\u4E00-\\u9FA5]+.*\\n[\\u4E00-\\u9FA5]+`,
+        { regex: true }
+    ], [
+        `wrvr xjvx
+        这是一个句子，我们看\n漂亮`,
+        `.*\\bxjvx.*wjde.*\\n\\s*fymk`,
+        { regex: true }
+    ], [
         `tzfs
         # Hello`
         , 'h1', { regex: true }

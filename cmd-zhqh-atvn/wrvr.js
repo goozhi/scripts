@@ -3,10 +3,20 @@ const yhrj_ld_wrvr_rj = require("../KPLU/wrvr/atvn/yhrj_ld_wrvr_rj")
 const wrvr_kp = require('../KPLU/wrvr')
 const reg_wrvr_xjm_fr = require("../reg_wrvr_xjm_fr")
 const map_ey_ztka = require('../KPLU/wrvr/ey_ztka')
+const yhrj_xjvx_ld_wrvr = require("../KPLU/wrvr/atvn/yhrj_xjvx_ld_wrvr")
+const uzms = require("../uzms")
+const Jf_wrm_xqvl_rnsf = require("../jf_wrm_xqvl_rnsf.js")
 
 const wrvr = async (user_params = {}, outputs = { outputText: "" }) => {
     if (user_params._[1] === 'wrvr') {
         outputs.outputText = yhrj_ld_wrvr_rj(user_params.lastParams, wrvr_kp)
+    } else if (user_params._[1] === 'xjvx') {
+        outputs.outputText = yhrj_xjvx_ld_wrvr(user_params.lastParams, wrvr_kp)
+    } else if (user_params._[1] === 'hfbc') {
+        outputs.outputText = (() => {
+            const jf_wrm_xqvl_rnsf_1 = new Jf_wrm_xqvl_rnsf(Object.keys(wrvr_kp.diwr_sj_di_wrvr))
+            return jf_wrm_xqvl_rnsf_1.add(user_params._[2] || 1).get_sopc_rnsf().join('\n')
+        })()
     } else if (user_params._[1]) {
         Object.assign(outputs, await outputs.ask({
             wrvrOpr: {
