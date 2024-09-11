@@ -1,8 +1,14 @@
 const fs = require("fs")
 const path = require("path")
-const ztwm = require('./ztwm.json')
-const yhrj_sjbx = require('./yhrj_sjbx.json')
-const wrvr = require('./index')
+// const ztwm = require('./ztwm.json')
+const yxna_sjbx = path.join(__dirname, "yhrj_sjbx.json")
+const yxna_ztwm = path.join(__dirname, "ztwm.json")
+const yhrj_sjbx = JSON.parse(fs.readFileSync(yxna_sjbx).toString())
+const ztwm = JSON.parse(fs.readFileSync(yxna_ztwm).toString())
+// const yhrj_sjbx = require('./yhrj_sjbx.json')
+
+const Wrvr = require('./wrvr.js')
+const wrvr = new Wrvr({ yhrj_sjbx, ztwm })
 const yj_lzjk = require('../../yj_lzjk')
 const yhrj_ld_wrvr = require('./atvn/yhrj_ld_wrvr')
 const rj_msox_1 = 'desc-error: wrvr dk diwr_non_eysj msox!-'

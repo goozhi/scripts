@@ -241,6 +241,13 @@ const arrC = [
             ## wrvr zogl msox
             wrvr zo
 
+            ## wrvr uace, lzce wyzv jplp rjqt
+            wrvr uace
+
+            ## wrvr bv ce zt oc ztwm mb
+            wrvr zt
+            ce-zt
+
             ## wrvr eysj rjyf zjqt
             wrvr yfm
             wryq yenh zfkk

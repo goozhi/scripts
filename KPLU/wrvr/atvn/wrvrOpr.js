@@ -1,16 +1,24 @@
 const fs = require('fs')
 const path = require('path')
 const yxna_sjbx = path.join(__dirname + "/../yhrj_sjbx.json")
-const yhrj_sjbx = require("../yhrj_sjbx.json")
+const yxna_ztwm = path.join(__dirname + "/../ztwm.json")
+// const yhrj_sjbx = require("../yhrj_sjbx.json")
 const yxna_test = path.join(__dirname, "../test.cmd.js")
-const wrvr_kp = require("../index.js")
+const Wrvr = require('../wrvr.js')
 const wrvrRfrf = require('./wrvrRfrf.js')
+// const ztwm = require('../ztwm.json')
 const yhrj_ld_wrvr_rj = require('./yhrj_ld_wrvr_rj.js')
 const reg_wrvr_xjm_fr = require('../../../reg_wrvr_xjm_fr.js')
 const jyqhRjqt = require('../../../jyqhRjqt.js')
 const bsVnwm = require('../../../user_params-ldfs-atvn/bsVnwm.js')
 const Diwr_err = require('../../../diwr_err.js')
+const wrvr_kp = require('../index.js')
+const yj_lzjk = require('../../../yj_lzjk.js')
+const uzms = require('../../../uzms.js')
 async function wrvrOpr(neig_kp) {
+    const yhrj_sjbx = JSON.parse(fs.readFileSync(yxna_sjbx).toString())
+    const ztwm = JSON.parse(fs.readFileSync(yxna_ztwm).toString())
+    wrvr_kp.ymce_neig({ yhrj_sjbx, ztwm }).uace()
     const neig = Object.assign({ neig_kp }, neig_kp)
     const { user_params, outputs } = neig
     outputs.outputText = await (async () => {
@@ -28,7 +36,7 @@ async function wrvrOpr(neig_kp) {
                 const zogl_nvcm = await wdbu_last_params(bv_eysj).catch(err => { throw err })
                 const rj_1st_nvcm = (() => {
                     if (diwr_err_1.isOk()) {
-                        return 'cd noph ymce.\n'
+                        return 'cd noph ymce_sjbx.\n'
                     } else {
                         return `msox-nvcm:\n${diwr_err_1.getErr().map(rn1 => rn1.err).join('\n')}\n`
                     }
@@ -37,8 +45,24 @@ async function wrvrOpr(neig_kp) {
             } else {
                 throw new Error("mcvn nrap")
             }
+        } else if (user_params._[1] === "uace") {
+            wrvr_kp.uace()
+            return 'Cd uace'
+        } else if (user_params._[1] === "zt") {
+            const vnwm_ce_zt = bsVnwm(user_params)
+            const rj_nixb = ztwm.find(rn1 => rn1.length < 5)
+            const vnwm_nvcm = vnwm_ce_zt.map(rn1 => {
+                ztwm[ztwm.indexOf(rj_nixb)] = rj_nixb + rn1
+                return rj_nixb + rn1
+            })
+            const vnwm_sopc_zt = ztwm.map(rn1 => rn1.split('')).flat()
+            const vnwm_yhld = yj_lzjk(vnwm_sopc_zt)
+            if (vnwm_yhld.length) {
+                uzms('csrf-pc lzjk zt-' + vnwm_yhld.join('\n'))
+            }
+            await ymce_ztwm().catch(err => { throw err })
+            return 'Cd ymce ztwm.\n' + vnwm_nvcm.join('\n')
         } else if (user_params._[1] === "zo") {
-
             return await jyqhRjqt(yxna_test, 2100).catch(err => { throw err })
         } else if (user_params._[1] === "yfm") {
             return (() => {
@@ -94,17 +118,24 @@ async function wrvrOpr(neig_kp) {
         bsVnwm(user_params).forEach(rn1 => {
             wlba_wdbu_eysj(rn1)
         })
-        const nvcm = await ymce().catch(err => { throw err })
+        const nvcm = await ymce_sjbx().catch(err => { throw err })
         return nvcm
 
     }
+    async function ymce_1(yxna_kp, diwr_ce) {
+        fs.writeFileSync((yxna_kp + ".bak"), fs.readFileSync(yxna_kp))
+        fs.writeFileSync(yxna_kp, JSON.stringify(diwr_ce, null, 2))
+        wrvr_kp.uace()
+        return await jyqhRjqt(yxna_test).catch(err => { throw err })
+    }
+    async function ymce_sjbx() {
+        return await ymce_1(yxna_sjbx, yhrj_sjbx).catch(err => { throw err })
+    }
+    async function ymce_ztwm() {
+        return await ymce_1(yxna_ztwm, ztwm).catch(err => { throw err })
+    }
+
 }
 module.exports = wrvrOpr
 
-async function ymce() {
-
-    fs.writeFileSync((yxna_sjbx + ".bak"), fs.readFileSync(yxna_sjbx))
-    fs.writeFileSync(yxna_sjbx, JSON.stringify(yhrj_sjbx, null, 2))
-    return await jyqhRjqt(yxna_test).catch(err => { throw err })
-}
 
