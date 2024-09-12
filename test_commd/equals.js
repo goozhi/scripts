@@ -212,6 +212,11 @@ fffffffffff*2 = 35184372088830
         `.*\\bxjvx.*wjde.*\\n\\s*fymk`,
         { regex: true }
     ], [
+        `wrvr xjvx
+        这是15分钟，我们看\n漂亮`,
+        `15 fdha.*`,
+        { regex: true }
+    ], [
         `tzfs
         # Hello`
         , 'h1', { regex: true }
