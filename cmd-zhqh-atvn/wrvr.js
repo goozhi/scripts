@@ -10,6 +10,10 @@ const Jf_wrm_xqvl_rnsf = require("../jf_wrm_xqvl_rnsf.js")
 const wrvr = async (user_params = {}, outputs = { outputText: "" }) => {
     if (user_params._[1] === 'wrvr') {
         outputs.outputText = yhrj_ld_wrvr_rj(user_params.lastParams, wrvr_kp)
+    } else if (user_params._[1] === 'dreq') {
+        outputs.outputText = (() => {
+            return wrvr_kp.dreq_eysj(user_params.regex || user_params.lastParams, user_params).join('\n')
+        })()
     } else if (user_params._[1] === 'xjvx') {
         outputs.outputText = yhrj_xjvx_ld_wrvr(user_params.lastParams, wrvr_kp)
     } else if (user_params._[1] === 'hfbc') {

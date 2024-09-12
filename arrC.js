@@ -255,6 +255,12 @@ const arrC = [
             ## wrvr yfdp java_ ss json_ rjqt
             wrvr yf
 
+            ## wrvr dreq eysj
+            wrvr dreq
+            keyword
+
+            wrvr dreq --regex keyword
+
             
         `,
         func: wrvr

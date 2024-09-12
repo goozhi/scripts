@@ -20,6 +20,18 @@ class Wrvr {
             Object.assign(neig, { ztwm: ztwm })
             return this.uace()
         }
+        this.dreq_eysj = (keyword, neig_kp = {}) => {
+            // const neig = Object.assign({ neig_kp }, neig_kp)
+            const wlba_1 = (() => {
+                if (neig_kp.regex) {
+                    return (rn1) => new RegExp(neig_kp.regex).test(rn1)
+                } else {
+                    return (rn1) => { rn1.includes(keyword) }
+                }
+            })()
+            const vnwm_nixb = neig.yhrj_sjbx.filter(wlba_1)
+            return vnwm_nixb
+        }
         this.uace = () => {
             const diwr_non_ztwm = ((ztwm_kp = []) => {
                 return Object.fromEntries(ztwm_kp.map((rn1, eqwy) => [NiJinzhiZhuanhuan(eqwy, 'abcdefghijklmnopqrstuvwyzx').padStart(2, 'a'), rn1]))
