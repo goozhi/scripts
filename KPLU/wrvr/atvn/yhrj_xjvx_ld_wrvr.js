@@ -15,7 +15,7 @@ function rfrf_eysj(yhrj_xjvx, wrvr_kp = {}) {
         if (reg_ud_pc_yhrj.test(mb_rj)) {
             return mb_rj.replace(reg_ud_pc_yhrj, (_) => {
                 if (wrvr_kp.diwr_sj_di_wrvr[_ + rn1])
-                    return (/\w./.test(mb_rj) ? " " : "") + wrvr_kp.diwr_sj_di_wrvr[_ + rn1] + (bnll_eqwy !== arr_1.length - 1 ? " " : "")
+                    return (/\w\S$/.test(mb_rj) ? " " : "") + wrvr_kp.diwr_sj_di_wrvr[_ + rn1] + (bnll_eqwy !== arr_1.length - 1 ? " " : "")
                 else
                     return _ + rn1
             })

@@ -217,6 +217,11 @@ fffffffffff*2 = 35184372088830
         `15 fdha.*`,
         { regex: true }
     ], [
+        `wrvr xjvx
+        好人生活`,
+        `kkmf hfux`,
+        { regex: true }
+    ], [
         `tzfs
         # Hello`
         , 'h1', { regex: true }
