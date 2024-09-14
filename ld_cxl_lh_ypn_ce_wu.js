@@ -1,5 +1,6 @@
+const uzms = require("./uzms")
 
-function ld_cxl_lh_ypn_ce_wu(diwr_cxl, diwr_1 = {}, neig_kp, diwr_mb = []) {
+function ld_cxl_lh_ypn_ce_wu(diwr_cxl, diwr_1 = {}, neig_kp, diwr_mb = [], wfqq_lil_vn = 0) {
     Object.entries(diwr_cxl).forEach(([key, val]) => {
         const key_1 = (() => {
             if (diwr_1[key]) {
@@ -12,7 +13,11 @@ function ld_cxl_lh_ypn_ce_wu(diwr_cxl, diwr_1 = {}, neig_kp, diwr_mb = []) {
         if (typeof val === 'object') {
             diwr_1[key_1] = Object.keys(val)
             const diwr_mb_ce = diwr_1[key_1]
-            ld_cxl_lh_ypn_ce_wu(val, diwr_1, neig_kp, diwr_mb_ce)
+            wfqq_lil_vn++
+            if (wfqq_lil_vn > 999) {
+                uzms('ld_cxl_lh_ypn_ce_wu wfqq lil cf ar-999')
+            }
+            ld_cxl_lh_ypn_ce_wu(val, diwr_1, neig_kp, diwr_mb_ce, wfqq_lil_vn)
         } else {
             diwr_1[key_1] = val
         }
