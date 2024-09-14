@@ -211,6 +211,8 @@ fffffffffff*2 = 35184372088830
         这是一个句子，我们看\n漂亮`,
         `.*\\bxjvx.*wjde.*\\n\\s*fymk`,
         { regex: true }
+    ], ['wrvr\na ji'
+        , '是否是'
     ], [
         `wrvr xjvx
         这是15分钟，我们看\n漂亮`,

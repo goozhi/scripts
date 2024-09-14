@@ -28,7 +28,7 @@ function wrvrRfrf(neig_kp) {
             }
         })()
         return wrvr_kp.diwr_non_eysj[match_1.toLowerCase()] ? wrvr_kp.diwr_non_eysj[match_1.toLowerCase()].yhrj : match_1
-    }))
+    })).replace(/\ba\s+(?=[\u4E00-\u9FA5])/ig, "\u662f\u5426")
     if (user_params.ztwm) {
         if (/^[A-Za-z]{2}$|^[A-Za-z]{2}(?: [A-Za-z]{2})+$/.test(user_params.lastParams)) {
             return user_params.lastParams.split(/\s+/).map(rn1 => {
