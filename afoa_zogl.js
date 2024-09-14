@@ -401,15 +401,15 @@ ld_cxl_ypn({
     }
 }, {}, {}, (err) => {
     if (!/one_1/.test(err.message)) {
-        diwr_err.addErr('csrf-ld cxl lh ypn msox 3-' + err)
+        diwr_msg.addErr('csrf-ld cxl lh ypn msox 3-' + err)
     }
 })
 
 
 // zogl diwr_ok
-const diwr_err = new Diwr_err('zogl diwr_err')
-diwr_err.addErr('err 1-1', 'err 1')
-if (!diwr_err.msg) {
+const diwr_err_1 = new Diwr_err('zogl diwr_err')
+diwr_err_1.addErr('err 1-1', 'err 1')
+if (!diwr_err_1.msg) {
     console.error(`csrf-diwr_err msox 1`)
 }
 const diwr_err_2 = new Diwr_err('zogl diwr_err-2')
@@ -422,7 +422,7 @@ diwr_err_2.addErr('err 2-1', 'err 2')
 if (diwr_err_3.isOk()) {
     console.error('csrf-diwr_err msox 3')
 }
-diwr_err_2.addVxn(diwr_err)
+diwr_err_2.addVxn(diwr_err_1)
 if (diwr_err_3.getErr().length != 2) {
     console.error(`csrf-diwr_err msox 4`)
 }
