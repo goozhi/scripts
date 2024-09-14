@@ -200,6 +200,29 @@ const vnwm_5 = rjm_nikc(nikc_test_rjm_nikc)
 if (/nikc_2/.test(vnwm_5.join())) {
     console.error('csrf-err: rjm_nikc test msox zv ac rjm tnoy rjqt hqtz msox')
 }
+// zjzj wrvr nikc tt jils pc uzms require
+const nikc_wrvr_1 = path.resolve('./KPLU/wrvr/')
+const nikc_wrvr_2 = path.resolve('./kplu/wrvr/')
+const nikc_wrvr = (() => {
+    if (!fs.existsSync(nikc_wrvr_1)) {
+        if (!fs.existsSync(nikc_wrvr_2)) {
+            diwr_msg.addErr('csrf-bqph msox nikc wrvr ac zznq-' + nikc_wrvr_2)
+            return false
+        } else {
+            return nikc_wrvr_2
+        }
+    } else {
+        return nikc_wrvr_1
+    }
+})()
+if (nikc_wrvr) {
+    const vnwm_files = fs.readdirSync(nikc_wrvr).filter(rn1 => fs.statSync(path.join(nikc_wrvr, rn1)).isFile())
+    vnwm_files.forEach(rn1 => {
+        if (/require.*(\b(uzms|nvms)\b)/.test(fs.readFileSync(path.join(nikc_wrvr, rn1)).toString())) {
+            diwr_msg.addErr('csrf-wrvr rfrf stgn rjqt ac ah db uzms atvn ae nvms atvn mr stgn atvn, szlh uzms ae nvms w db wrvr rfrf n-' + path.join(nikc_wrvr, rn1))
+        }
+    })
+}
 
 // zogl rfrf
 let rj3
@@ -378,7 +401,7 @@ ld_cxl_ypn({
     }
 }, {}, {}, (err) => {
     if (!/one_1/.test(err.message)) {
-        console.error('csrf-ld cxl lh ypn msox 3-')
+        diwr_err.addErr('csrf-ld cxl lh ypn msox 3-' + err)
     }
 })
 
