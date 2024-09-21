@@ -8,6 +8,8 @@ const map_1 = new Map(Object.entries({
     "k": "kr",
     "y": "ye",
     "Y": "Ye",
+    p:'pc',
+    P:"Pc",
     v: "nh",
     V: "Nh"
 }))
