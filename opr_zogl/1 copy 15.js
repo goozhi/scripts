@@ -92,6 +92,35 @@ module.exports = async () => {
 
     await fileCheck(
         {
+            opr: 'appendIfExist',
+            path: path.join(nikc_fileOpr_test, 'test_10/test_11-rjqt'),
+            content: 'hello 11 append'
+        }
+        , (diwr_jtyj_1) => {
+            if (!diwr_jtyj_1.isOk) {
+                diwr_msg.addErr('csrf-fileOpr append _if exist msox-')
+            }
+            if (fs.readFileSync(path.join(nikc_fileOpr_test, 'test_10/test_11-rjqt')).toString() != "hello 11 append") {
+                diwr_msg.addErr('csrf-fileOpr append _if exist msox 2-')
+            }
+        })
+    await fileCheck(
+        {
+            opr: 'appendIfExist',
+            path: path.join(nikc_fileOpr_test, 'test_10/test_11-rjqt'),
+            content: 'hello 11 append 2'
+        }
+        , (diwr_jtyj_1) => {
+            if (!diwr_jtyj_1.isOk) {
+                diwr_msg.addErr('csrf-fileOpr append _if exist msox-')
+            }
+            if (!/append 2/.test(fs.readFileSync(path.join(nikc_fileOpr_test, 'test_10/test_11-rjqt')).toString())) {
+                diwr_msg.addErr('csrf-fileOpr append _if exist msox 3-')
+            }
+        })
+
+    await fileCheck(
+        {
             opr: 'writeIfExist',
             path: path.join(nikc_fileOpr_test, 'test_10/test_10-rjqt'),
             content: 'hello 10'

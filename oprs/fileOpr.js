@@ -22,12 +22,18 @@ async function fileOpr(neig_vdzv = {}) {
                 return { isOk: false, reason: nkme_reason }
             }
         }
+        function rr_ae_qk(neig = {}) {
+            return vbyt_bj_rrzv(fs.existsSync(neig.existPath || path.dirname(neig.path)), `desc-path not exists-${neig.existPath || neig.path}`)
+        }
         const diwr_tsjq = {
             writeIfExist: () => {
-                return vbyt_bj_rrzv(fs.existsSync(neig.existPath || path.dirname(neig.path)), `desc-path not exists-${neig.existPath || neig.path}`)
+                return rr_ae_qk(neig)
             },
             writeNewFile: () => {
                 return vbyt_bj_rrzv(!fs.existsSync(neig.path), `desc-path already exists-${neig.existPath || neig.path}`)
+            }
+            , appendIfExist: () => {
+                return rr_ae_qk(neig)
             }
         }
         if (diwr_tsjq[neig.opr]) {

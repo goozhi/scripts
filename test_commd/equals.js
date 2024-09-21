@@ -223,6 +223,8 @@ fffffffffff*2 = 35184372088830
         好人生活`,
         `kkmf hfux`,
         { regex: true }
+    ], ['share add hello\nhi', '\\S', { regex: true }
+
     ], [
         `tzfs
         # Hello`
