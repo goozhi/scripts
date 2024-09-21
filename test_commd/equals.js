@@ -223,6 +223,10 @@ fffffffffff*2 = 35184372088830
         好人生活`,
         `kkmf hfux`,
         { regex: true }
+    ], ['share add hello\nhi', '\\S', { regex: true }
+
+    ], ['csrf\n csrf-err_zzuy-mcvn', 'err_zzuy', { regex: true }
+
     ], [
         `tzfs
         # Hello`
