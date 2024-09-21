@@ -225,6 +225,8 @@ fffffffffff*2 = 35184372088830
         { regex: true }
     ], ['share add hello\nhi', '\\S', { regex: true }
 
+    ], ['csrf\n csrf-err_zzuy-mcvn', 'err_zzuy', { regex: true }
+
     ], [
         `tzfs
         # Hello`
