@@ -10,6 +10,8 @@ class Diwr_err {
         let gkyq_Ok = true
         const vnwm_vxn = []
         const vnwm_err_thing = []
+        this.get_zkrs = () => zkrs
+        this.get_theme = () => zkrs
         this.getErr = () => {
             if (vnwm_vxn.length) {
                 return vnwm_vxn.reduce((errTing_mb, rn1) => {
@@ -23,7 +25,9 @@ class Diwr_err {
             gkyq_Ok = gkyq_1
             return this
         }
-
+        this.getErrToString = () => {
+            return this.getErr().map(rn1 => JSON.stringify({ code: rn1.code, time: rn1.time, err: rn1.err.message })).join('\n\n')
+        }
         this.addErr = (rj_err, code) => {
             const diwr_err_1 = (() => {
                 if (/^csrf-/.test(rj_err)) {
