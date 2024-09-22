@@ -1,6 +1,8 @@
 const fs = require('fs')
 const hd_rjqt_tum = require("./hd_rjqt_tum")
+const vbyt_lr_diwr_bqeo_stst_va = require('./vbyt_lr_diwr_bqeo_stst_va.js');
 const Diwr_err = require('./diwr_err.js');
+const mcvn_parser = require('./mcvn_parser.js');
 const diwr_msg = new Diwr_err('zogl-afoa')
 const unicode_LD_ZTFR_SU = require('./unicode_LD_ZTFR_SU')
 const yxna = "D:/xyzd/unicode_to_hanyu_pinyin.txt"
@@ -77,7 +79,103 @@ hd_rjqt_tum(nikc_inputDir_mark)
 hd_rjqt_tum(nikc_outputDir_mark)
 hd_rjqt_tum(nikc_test_rjm_nikc)
 
-//zogl mark to html
+//zogl vbyt_lr_diwr_bqeo_stst_va atvn jils grbu
+const diwr_zogl_kp = {
+    pzva_1: 0, pzva_2: ['string', 'why']
+    , pzva_3: { pzva_4: true, pzva_5: { pzva_6: 'hi!' } }
+}
+const diwr_zogl_ce = {
+    pzva_1: 0, pzva_2: ['string', 'why']
+    , pzva_3: { pzva_4: true, pzva_5: { pzva_6: 'hello!' } }
+}
+const diwr_msg_vbyt_diwr_bqeo_stst = vbyt_lr_diwr_bqeo_stst_va(diwr_zogl_kp, diwr_zogl_ce)
+if (!diwr_msg_vbyt_diwr_bqeo_stst.isOk()) {
+    const msg = diwr_msg_vbyt_diwr_bqeo_stst.getErr().map(rn1 => rn1.err.message)
+    if (!/hello!/.test(msg)) {
+        diwr_msg.addErr('csrf-zogl vbyt_lr_diwr_bqeo_stst_va atvn grbu va zd pc ms 2-')
+        // console.error(msg)//
+    }
+} else {
+    diwr_msg.addErr('csrf-zogl vbyt_lr_diwr_bqeo_stst_va atvn grbu va zd pc ms 1-')
+}
+Object.assign(diwr_zogl_kp.pzva_3.pzva_5, diwr_zogl_ce.pzva_3.pzva_5)
+const diwr_msg_vbyt_diwr_bqeo_stst_2 = vbyt_lr_diwr_bqeo_stst_va(diwr_zogl_kp, diwr_zogl_ce)
+if (!diwr_msg_vbyt_diwr_bqeo_stst_2.isOk()) {
+    diwr_msg.addErr('csrf-zogl vbyt_lr_diwr_bqeo_stst_va atvn grbu va zd pc ms 3-')
+}
+// zogl mcvn parser
+const yargsParser = require('yargs')
+const options = require('./cmd_params_option');
+const rj_tsjq_qh = 'tsjq-1 tsjq-2 tsjq-3 --mcvn-1 hello -r 1 2 3 --mcvn-2-p-vvbr "hello dear" --gkyq --mcvn-3-p-wyih \'"Hi!"\' -o --hello 0 tsjq-4'
+const diwr_mcvn_1 = yargsParser(rj_tsjq_qh).options(options).parse()
+const diwr_mcvn_2 = mcvn_parser(rj_tsjq_qh).options(options).parse()
+const diwr_msg_mcvn_parser = vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_1, diwr_mcvn_2)
+// console.log(diwr_mcvn_1, diwr_mcvn_2)//
+const diwr_mcvn_bmee = {
+    _: ['tsjq-1', 'tsjq-2', 'tsjq-3', 'tsjq-4'],
+    'mcvn-1': 'hello',
+    mcvn1: 'hello',
+    r: [1, 2, 3],
+    reg: [1, 2, 3],
+    'mcvn-2-p-vvbr': 'hello dear',
+    mcvn2PVvbr: 'hello dear',
+    gkyq: true,
+    'mcvn-3-p-wyih': '"Hi!"',
+    mcvn3PWyih: '"Hi!"',
+    o: true,
+    // hello: 0,
+    counts: 0,
+    c: 0,
+    steps: 1,
+    s: 1,
+    all: false,
+    A: false,
+    add: '',
+    a: '',
+    left: false,
+    list: '',
+    l: '',
+    find: [],
+    getAll: false,
+    'get-all': false,
+    write: [],
+    w: [],
+    encoding: 'utf8',
+    '-e': 'utf8',
+    e: 'utf8',
+    modify: '',
+    '-m': '',
+    m: '',
+    save: false,
+    b: false,
+    file: '',
+    '-f': '',
+    f: '',
+    delete: '',
+    '-d': '',
+    d: '',
+    pass: '',
+    p: '',
+    mode: [],
+    reverse: false,
+    inputSystem: 10,
+    isys: 10,
+    'input-system': 10,
+    outputSystem: 10,
+    osys: 10,
+    'output-system': 10,
+    '$0': 'afoa_zogl.js'
+}
+diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_bmee, diwr_mcvn_2, { gosi_hqtz: true }))
+const diwr_mcvn_3 = yargsParser().options(options).parse()
+const diwr_mcvn_4 = mcvn_parser().options(options).parse()
+diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_3, diwr_mcvn_4))
+const diwr_mcvn_5 = yargsParser('').options(options).parse()
+const diwr_mcvn_6 = mcvn_parser('').options(options).parse()
+diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_5, diwr_mcvn_6))
+diwr_msg.addVxn(diwr_msg_mcvn_parser)
+
+// zogl mark to html
 ngnc_nikc_fywy_diwr(obj_mark_src, path.resolve())
 buildHtml({ inputDir: nikc_inputDir_mark, outputDir: nikc_outputDir_mark })
     .then(res => {
@@ -170,6 +268,7 @@ const ld_cxl_lh_ypn = require('./ld_cxl_lh_ypn.js')
 const Jk_ll_zv_wrm = require('./jk_ll_zv_wrm.js');
 const Zjzj_fo = require('./Zjzj_fo.js');
 const Jf_wrm_zjzj_diwr = require('./Jf_wrm_zjzj_diwr.js');
+const rj = require('./cmd-zhqh-atvn/rj.js');
 const rj_1 = `
 ss[dfaf](D:\\dffs\\dsf/jj)
 ss[dfaf](D:\\dffs\\dsf/jdj)
@@ -406,7 +505,7 @@ ld_cxl_ypn({
 })
 
 
-// zogl diwr_ok
+// zogl Diwr_err class (diwr_msg)
 const diwr_err_1 = new Diwr_err('zogl diwr_err')
 diwr_err_1.addErr('err 1-1', 'err 1')
 if (!diwr_err_1.msg) {
@@ -436,7 +535,10 @@ diwr_err_3.addVxn(new Diwr_err(), new Diwr_err(), new Diwr_err())
 if (diwr_err_3.getVxn().length !== 4) {
     console.error(`csrf-diwr_err dk vxn vnaw ac di-`)
 }
-
+// console.log([diwr_err_3.getErrToString()])//
+if (typeof diwr_err_3.getErrToString() != 'string' || !/err 2-1/.test(diwr_err_3.getErrToString())) {
+    console.error(`csrf-diwr_err dk getErrToString msox-`)
+}
 // zogl jk ll zv wrm
 const rj1 = "gg haha hh\nbbb bbb"
 const wlba_1 = (rj) => rj.replace(/[ab]/g, "c")
