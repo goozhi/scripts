@@ -155,19 +155,13 @@ function mcvn_parser(mcvn_qh = "") {
                 vnwm_cd_db_ybkc.push(eqwy)
                 w_dw_db_lw = true
             }
-            if (vnwm_cd_db_ybkc.includes(eqwy)) {
-                w_dw_db_lw = true
-                const w_mcvn_wu = reg_vxn_mcvn_wu.test(rn1)
-                if (w_mcvn_wu) {
-                    neig_bnll.bnll_mcvn_wu = rn1.replace(reg_vxn_mcvn_wu, "$1")
-                }
-                return Object.assign({ yg: rn1, w_dw_db_lw, w_mcvn_wu }, neig_bnll)
-            }
-
             if (reg_vxn_mcvn_wu.test(rn1)) {
+                const w_mcvn_wu = true
+                neig_bnll.bnll_mcvn_wu = pk_uufb_xbst(rn1)
                 const mcvn_wu = rn1.match(reg_vxn_mcvn_wu)[1]
                 if (diwr_mcvn.hasOwnProperty(mcvn_wu)) {
-                    // do nothing
+                    if (map_tsjq_wu_ss_yg.get(mcvn_wu).get_joly_zzuy().type === 'boolean')
+                        map_tsjq_wu_ss_yg.get(mcvn_wu).set_vnwy(true)
                 } else {
                     if (map_tsjq_wu_ss_yg.has(mcvn_wu)) {
                         map_tsjq_wu_ss_yg.get(mcvn_wu).set_vnwy(true)
@@ -189,10 +183,6 @@ function mcvn_parser(mcvn_qh = "") {
                         })
                     }
 
-                }
-                const w_mcvn_wu = reg_vxn_mcvn_wu.test(rn1)
-                if (w_mcvn_wu) {
-                    neig_bnll.bnll_mcvn_wu = pk_uufb_xbst(rn1)
                 }
                 return Object.assign({ yg: rn1, w_dw_db_lw, w_mcvn_wu }, neig_bnll)
             } else {

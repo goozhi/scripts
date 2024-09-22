@@ -111,6 +111,13 @@ const diwr_mcvn_1 = yargsParser(rj_tsjq_qh).options(options).parse()
 const diwr_mcvn_2 = mcvn_parser(rj_tsjq_qh).options(options).parse()
 const diwr_msg_mcvn_parser = vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_1, diwr_mcvn_2)
 // console.log(diwr_mcvn_1, diwr_mcvn_2)//
+const rj_tsjq_qh_2 = "align --left"
+diwr_msg_mcvn_parser.addVxn(
+    vbyt_lr_diwr_bqeo_stst_va(
+        yargsParser(rj_tsjq_qh_2).options(options).parse(),
+        mcvn_parser(rj_tsjq_qh_2).options(options).parse()
+    )
+)
 const diwr_mcvn_bmee = {
     _: ['tsjq-1', 'tsjq-2', 'tsjq-3', 'tsjq-4'],
     'mcvn-1': 'hello',
