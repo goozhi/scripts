@@ -1,7 +1,7 @@
 const cmdMatch = require('../cmdMatch');
 const bsVnwm = require('../user_params-ldfs-atvn/bsVnwm');
 const uzms = require('../uzms');
-module.exports = [['aid'], {
+module.exports = [['aid', 'kfou', 'k'], {
     describe: `Ask for help
             examples:
             aid
