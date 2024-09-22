@@ -1,4 +1,6 @@
 const cmdMatch = require('./cmdMatch');
+const mcvn_parser = require('./mcvn_parser');
+const options = require('./cmd_params_option')
 const md_bqeo_ld_html = require('./md_bqeo_ld_html');
 const wvvy = require('./wvvy')
 async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, neig_kp) {
@@ -13,7 +15,8 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
         if (/^\s*help\s*$/i.test(firstLine)) {
             throw new Error('If you want to get some help, please type: \naid\naid\nfor help.')
         }
-        const user_params = Object.assign({}, await outputs.ask({ argsParser: firstLine }).catch(err => { throw err }), { lastParams: otherLines })
+        const user_params = Object.assign({}, mcvn_parser(firstLine).options(options).parse(), { lastParams: otherLines })
+        // const user_params = Object.assign({}, await outputs.ask({ argsParser: firstLine }).catch(err => { throw err }), { lastParams: otherLines })
 
         const mapC = new Map([...arrC, ...neig.excmds])
         if (!/\S/.test(user_params._[0])) {
