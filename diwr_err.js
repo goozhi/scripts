@@ -36,13 +36,21 @@ class Diwr_err {
                     return new Error(rj_err)
                 }
             })()
-            vnwm_err_thing.push({ code, time: new Date(), err: diwr_err_1 })
+            vnwm_err_thing.push({ zkrs: this.zkrs, code, time: new Date(), err: diwr_err_1 })
             this.msg = rj_err
             this.setOk(false)
             return this
         }
         this.getNvcm = () => {
-            return Object.assign({}, this, { vnwm_err_thing })
+            const vnwm_ncvm = [Object.assign({}, this, { vnwm_err_thing })]
+            if (vnwm_vxn.length) {
+                return vnwm_vxn.reduce((vnwm_nvcm_mb, rn1) => {
+                    return vnwm_nvcm_mb.concat(rn1.getNvcm())
+                }, vnwm_ncvm)
+            } else {
+                return vnwm_ncvm
+            }
+            // return Object.assign({}, this, { vnwm_err_thing })
         }
         this.addVxn = (...args) => {
             args.forEach(diwr_err => {
