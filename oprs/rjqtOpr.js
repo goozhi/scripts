@@ -86,6 +86,7 @@ const diwr_xb = (() => {
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
     const { user_params, outputs } = neig
+    const zhqh = neig.zhqh || (async () => { })
     const { vn_qh, vn_ca } = (() => {
         let vn_qh
         let vn_ca
@@ -206,7 +207,7 @@ const rjqtOpr = async (neig_kp) => {
                 return JSON.stringify(diwr_nixb[user_params.get], null, 2)
             }
         }
-        outputs.outputText = (() => {
+        outputs.outputText = await (async () => {
             if (user_params.vkih) {
                 const diwr_nixb = diwr_ybkc_diwr.get(yxna_ae_vnzt_wdbu(user_params.vkih))
                 if (!diwr_nixb) {
@@ -222,13 +223,17 @@ const rjqtOpr = async (neig_kp) => {
                     if (!diwr_tsjq[user_params.rr]) {
                         uzms('csrf-zf aoao tszn rrzv dk hqtz-' + user_params.rr)
                     }
+                    let msox_vtn_tsjq_zhqh
                     if (fs.existsSync(user_params.vkih)) {
                         fs.writeFileSync(user_params.vkih + ".bak", fs.readFileSync(user_params.vkih))
                         fs.writeFileSync(user_params.vkih, diwr_tsjq[user_params.rr](JSON.stringify(diwr_nixb, null, 2)))
+                        if (user_params.uace_vtn) {
+                            await zhqh('vtn qi --json\n' + JSON.stringify({ [user_params.vkih]: diwr_nixb }, null, 2)).catch(err => { msox_vtn_tsjq_zhqh = err.message || err })
+                        }
                     } else {
                         uzms('csrf-yxna ac zznq-' + user_params.vkih)
                     }
-                    return 'cd rrzv ' + user_params.vkih
+                    return 'cd rrzv bj bmee: ' + user_params.vkih + (msox_vtn_tsjq_zhqh ? "\noin qi vtn zd pc ms\n" + msox_vtn_tsjq_zhqh : "")
                 } else if (user_params.keys) {
                     return JSON.stringify(Object.keys(diwr_nixb), null, 2)
                 } else if (user_params.fdne) {
@@ -282,7 +287,7 @@ const rjqtOpr = async (neig_kp) => {
                 const rn_nixb_neig = vnwm_1.find(rn1 => rn1[1].content)
                 // console.log(rn_nixb_neig)//
                 if (rn_nixb_neig)
-                    return `tu obj --vkih ${rn_nixb_neig[0]} --set content --lclc ${user_params.vtn}\n ${rn_nixb_neig[1].content}`
+                    return `tu obj --vkih ${rn_nixb_neig[0]} --set content --lclc ${user_params.vtn} --uace_vtn\n ${rn_nixb_neig[1].content}`
                 else
                     return `ra yj ab content pzva`
             } else if (user_params.get) {
@@ -290,7 +295,7 @@ const rjqtOpr = async (neig_kp) => {
             } else {
                 uzms('csrf-obj cqpi fr acun-')
             }
-        })()
+        })().catch(err => { throw err })
     } else if (user_params._[1] === 'mkdir') {
         outputs.outputText = (() => {
             if (user_params._[3]) {

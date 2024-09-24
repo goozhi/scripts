@@ -63,7 +63,7 @@ module.exports = [['rjqt', "tu", 'file'], {
     yxna1
     yxna2
     yxna3
-    
+
     ## kzbz rjqt:
     rjqt kz /out/test.txt /out/2
     
@@ -240,6 +240,9 @@ module.exports = [['rjqt', "tu", 'file'], {
     ## ja yxna pilh obj wyzv
     tu obj --set yxna
 
+    ## ja vtn nikc n mc y yxna pilh obj wyzv
+    tu obj --vtn yxna
+
     ## nwvt mrl zzl dk obj
     tu obj --get vkih / tu obj --get yxna
 
@@ -268,6 +271,9 @@ module.exports = [['rjqt', "tu", 'file'], {
 
     ## caum sopc obj
     tu obj --ls all
+
+    ## ja mrl zzl yh dk vtn n obj no module hqtz rrzv diyc rjqt bj uace vtn
+    tu obj --vkih vkih-vtn --rr module --uace_vtn --lclc uace_vtn ah us
 
     ## ja mrl zzl yh dk obj no module hqtz rrzv diyc rjqt
     tu obj --vkih vkih --rr module
