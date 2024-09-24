@@ -22,6 +22,7 @@ function Jc_znn_ll_aol() {
         di_wm: new lclc('vnwm', 'di wm zv tbm'),
         vcl_ypn: new lclc(['diwr', 'map'], 'vcl ypn zv tbm'),
         vw: new lclc('diwr', 'Promise diwr'),
+        yo: new lclc('diwr', 'ux n yoch diwr'),
         vy: new lclc('vnwm', 'vyvy vnwm'),
         jf_wrm: new lclc('diwr', 'jf wrm zv tbm')
     })
