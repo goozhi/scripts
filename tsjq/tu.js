@@ -58,6 +58,12 @@ module.exports = [['rjqt', "tu", 'file'], {
     ## rjm tszn qh tszn ca
     tu rjm /out/.txt:375:53
 
+    ## paaw rj vt tszn n non yxna rjqt
+    tu readfiles
+    yxna1
+    yxna2
+    yxna3
+    
     ## kzbz rjqt:
     rjqt kz /out/test.txt /out/2
     

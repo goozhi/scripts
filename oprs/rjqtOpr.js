@@ -419,9 +419,16 @@ const rjqtOpr = async (neig_kp) => {
             throw err
         })
 
-    } else if (user_params._[1] === '__') {
+    } else if (user_params._[1] === 'readfiles') {
         outputs.outputText = (() => {
-            return user_params.lastParams
+            const vnwm_files = bsVnwm(user_params)
+            return vnwm_files.map(rn1 => {
+                if (fs.existsSync(rn1)) {
+                    return `${rn1}\n${fs.readFileSync(rn1).toString()}`
+                } else {
+                    return `file not exists: ${rn1}`
+                }
+            }).join('\n')
         })()
     } else if (user_params._[1] === 'copydirto') {
         outputs.outputText = await trl_zjzj_of_copyto(user_params, async (user_params) => {
