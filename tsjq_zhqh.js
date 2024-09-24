@@ -32,7 +32,11 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
         if (targetCmd.aoao_ji_ssvl && !neig.ji_exym_oc_ssvl) {
             throw new Error('bj hmpc nq ssvl mb exym.')
         }
-        await targetCmd.func(user_params, outputs, Object.assign(neig, { mapC })).catch(err => { throw err })
+        await targetCmd.func(user_params, outputs, Object.assign(neig, {
+            mapC, zhqh: async (inputText = "") => {
+                await tsjq_zhqh(inputText, outputs, arrC, neig_kp).catch(err => { throw err })
+            }
+        })).catch(err => { throw err })
         if (user_params.write.length > 0) {
             outputs.ask({
                 fileOpr: {
