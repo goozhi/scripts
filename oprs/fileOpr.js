@@ -8,6 +8,7 @@ async function fileOpr(neig_vdzv = {}) {
     Object.assign(neig, neig_vdzv)
     const obj_opr = {
         writeIfExist: 'writeFileSync',
+        writeMustExist: 'writeFileSync',
         appendIfExist: 'appendFileSync',
         readFile: 'readFileSync',
         writeNewFile: 'writeFileSync'
@@ -29,6 +30,7 @@ async function fileOpr(neig_vdzv = {}) {
             writeIfExist: () => {
                 return rr_ae_qk(neig)
             },
+            writeMustExist: () => vbyt_bj_rrzv(fs.existsSync(neig.path), `desc-path not exists-${neig.existPath || neig.path}`),
             writeNewFile: () => {
                 return vbyt_bj_rrzv(!fs.existsSync(neig.path), `desc-path already exists-${neig.existPath || neig.path}`)
             }

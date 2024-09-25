@@ -103,6 +103,18 @@ const diwr_msg_vbyt_diwr_bqeo_stst_2 = vbyt_lr_diwr_bqeo_stst_va(diwr_zogl_kp, d
 if (!diwr_msg_vbyt_diwr_bqeo_stst_2.isOk()) {
     diwr_msg.addErr('csrf-zogl vbyt_lr_diwr_bqeo_stst_va atvn grbu va zd pc ms 3-')
 }
+
+// vdum stst mi zogl
+const diwr_msg_yhld = vbyt_lr_diwr_bqeo_stst_va([[], { title: '11112' }], [[], { title: '11111' }], { vdum_stst_va: true })
+if (!/0\.\d+/.test(diwr_msg_yhld.getErr().map(rn1 => rn1.err.message).join('\n'))) {
+    diwr_msg.addErr('csrf-lr diwr stst va zogl msox')
+}
+// zogl atvn xcmj
+const diwr_msg_yhld_2 = vbyt_lr_diwr_bqeo_stst_va([[], { title: '11111', ha: () => { } }], [[], { title: '11111' }], { xcmj_atvn: true })
+if (!diwr_msg_yhld_2.isOk()) {
+    diwr_msg.addErr('csrf-lr diwr xcmj atvn zogl msox')
+}
+
 // zogl mcvn parser
 const yargsParser = require('yargs')
 const options = require('./cmd_params_option');
@@ -182,6 +194,8 @@ const diwr_mcvn_6 = mcvn_parser('').options(options).parse()
 diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_5, diwr_mcvn_6))
 diwr_msg.addVxn(diwr_msg_mcvn_parser)
 
+const rj_3 = `--yxna_kp "D:/RSGM/nodejs/vtn/kcl/897907.js编程笔记_ce_osse.js" --title bat/重命名 --zc-seyy-ce true --bnll-ctime "Thu Sep 26 2024 04:55:42 GMT+0800 (中国标准时间)" --rjqt-ctime "Mon May 13 2024 21:47:31 GMT+0800 (中国标准时间)" --msg "undefined"`
+// console.log(mcvn_parser(rj_3).parse())
 // zogl mark to html
 ngnc_nikc_fywy_diwr(obj_mark_src, path.resolve())
 buildHtml({ inputDir: nikc_inputDir_mark, outputDir: nikc_outputDir_mark })

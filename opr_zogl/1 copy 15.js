@@ -80,6 +80,7 @@ module.exports = async () => {
         }
         return wlba_1(diwr_jtyj_1)
     }
+
     await fileCheck({
         opr: 'writeNewFile',
         path: path.join(nikc_fileOpr_test, 'test_10/test_10-rjqt'),
@@ -87,6 +88,19 @@ module.exports = async () => {
     }, (diwr_jtyj_1) => {
         if (diwr_jtyj_1.isOk) {
             diwr_msg.addErr('csrf-fileOpr write new File msox-')
+        }
+    })
+
+    await fileCheck({
+        opr: 'writeMustExist',
+        path: path.join(nikc_fileOpr_test, 'test_10/test_10-rjqt'),
+        content: 'hello 10 - cd qi'
+    }, (diwr_jtyj_1) => {
+        if (!diwr_jtyj_1.isOk) {
+            diwr_msg.addErr('csrf-fileOpr write must exist hqtz msox-')
+        }
+        if (!/cd qi/.test(fs.readFileSync(path.join(nikc_fileOpr_test, 'test_10/test_10-rjqt')).toString())) {
+            diwr_msg.addErr('csrf-file Opr write must exist hqtz nkme-')
         }
     })
 
