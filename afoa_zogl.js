@@ -195,7 +195,10 @@ diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_5, diwr_mcvn_6))
 diwr_msg.addVxn(diwr_msg_mcvn_parser)
 
 const rj_3 = `--yxna_kp "D:/RSGM/nodejs/vtn/kcl/897907.js编程笔记_ce_osse.js" --title bat/重命名 --zc-seyy-ce true --bnll-ctime "Thu Sep 26 2024 04:55:42 GMT+0800 (中国标准时间)" --rjqt-ctime "Mon May 13 2024 21:47:31 GMT+0800 (中国标准时间)" --msg "undefined"`
-// console.log(mcvn_parser(rj_3).parse())
+const rj_4 = '-p ssr tu ls'
+diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(yargsParser(rj_4).options(options).parse(), mcvn_parser(rj_4).options(options).parse()))
+
+// console.log(mcvn_parser(rj_4).options(options).parse())//
 // zogl mark to html
 ngnc_nikc_fywy_diwr(obj_mark_src, path.resolve())
 buildHtml({ inputDir: nikc_inputDir_mark, outputDir: nikc_outputDir_mark })

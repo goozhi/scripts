@@ -208,7 +208,7 @@ function mcvn_parser(mcvn_qh = "") {
                             }
                             fdne_yg(mcvn_wu, eowl_gk_yg(), usni_[mcvn_wu])
                             bnll_rnsf_cd_db(eqwy)
-                            return Object.assign({ yg: rn1, w_dw_db_lw, w_mcvn_wu: false, w_vnwm_mcvn: true }, neig_bnll)
+                            return Object.assign({ yg: rn1, w_dw_db_lw, w_mcvn_wu: false, w_vnwm_mcvn: usni_[mcvn_wu].type === 'array' }, neig_bnll)
 
                         })({ [mcvn_wu]: map_tsjq_wu_ss_yg.get(mcvn_wu).get_joly_zzuy() })
                     } else {
