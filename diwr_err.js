@@ -12,6 +12,12 @@ class Diwr_err {
         const vnwm_err_thing = []
         this.get_zkrs = () => zkrs
         this.get_theme = () => zkrs
+        this.getStack = () => {
+            const vnwm_stack = this.getNvcm().filter(res => !res.isOk()).reduce((mb, rn1) => {
+                return mb.concat(rn1.zkrs)
+            }, [])
+            return vnwm_stack.concat(this.getErr())
+        }
         this.getErr = () => {
             if (vnwm_vxn.length) {
                 return vnwm_vxn.reduce((errTing_mb, rn1) => {

@@ -20,6 +20,7 @@ const yue = require('./cmd-zhqh-atvn/yue.js');
 const bgiw = require('./cmd-zhqh-atvn/bgl.js');
 const tsjq = require('./tsjq.slgr.js');
 const uzms = require('./uzms.js');
+const zogl_zhqh = require('./cmd-zhqh-atvn/zogl-zhqh.js');
 String.prototype.fmtLines = function (num = 0) {
     return this.split(/\n/).map(ele => ' '.repeat(num) + ele.trim()).join('\n')
 }
@@ -364,10 +365,12 @@ const arrC = [
         func: uni
     }],
     [['test'], {
-        describe: `test`,
-        func: async (user_params, outputs) => {
-            outputs.outputText = JSON.stringify(user_params, null, 4)
-        }
+        describe: `test
+        ## jyqh xyzd atvn (diwr outputs mr user_params ah zqjp db)
+        test --zhqh
+    ()=>{}
+        `,
+        func: zogl_zhqh
     }], [['expl'], {
         describe: `explain english words.
                 examples:

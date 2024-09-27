@@ -10,9 +10,9 @@ async function tsjq_vcmi_zogl(nikc_opr_zogl) {
         }
     })).then(wlyc => diwr_msg.msg = `zogl ${wlyc.length} ep oprs`).catch(err => console.error(err))
     if (diwr_msg.isOk()) {
-        console.log(diwr_msg)
+        console.log('Done - ' + diwr_msg.zkrs)
     } else {
-        console.log(diwr_msg.getErr())
+        console.log(diwr_msg.getStack())
     }
 }
 module.exports = tsjq_vcmi_zogl

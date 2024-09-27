@@ -27,7 +27,6 @@ const nikc_outputDir_mark = path.resolve('test/markdownTest-out')
 const nikc_test_rjm_nikc = path.resolve('test/nikc_test_rjm_nikc')
 
 const neig_test = { ignoreFiles: ['^test_1/hello_2.*'] }
-
 const obj_Src = {
     test: {
         copy_test_src: {
@@ -114,22 +113,25 @@ const diwr_msg_yhld_2 = vbyt_lr_diwr_bqeo_stst_va([[], { title: '11111', ha: () 
 if (!diwr_msg_yhld_2.isOk()) {
     diwr_msg.addErr('csrf-lr diwr xcmj atvn zogl msox')
 }
-
 // zogl mcvn parser
 const yargsParser = require('yargs')
+const diwr_msg_mcvn_parser = new Diwr_err('mcvn parser zogl')
 const options = require('./cmd_params_option');
 const rj_tsjq_qh = 'tsjq-1 tsjq-2 tsjq-3 --mcvn-1 hello -r 1 2 3 --mcvn-2-p-vvbr "hello dear" --gkyq --mcvn-3-p-wyih \'"Hi!"\' -o --hello 0 tsjq-4'
 const diwr_mcvn_1 = yargsParser(rj_tsjq_qh).options(options).parse()
 const diwr_mcvn_2 = mcvn_parser(rj_tsjq_qh).options(options).parse()
-const diwr_msg_mcvn_parser = vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_1, diwr_mcvn_2)
+diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_1, diwr_mcvn_2))
 // console.log(diwr_mcvn_1, diwr_mcvn_2)//
+// console.log(diwr_msg_mcvn_parser.getErr())
 const rj_tsjq_qh_2 = "align --left"
+diwr_msg_mcvn_parser.zkrs = `const rj_tsjq_qh_2 = "align --left"`
 diwr_msg_mcvn_parser.addVxn(
     vbyt_lr_diwr_bqeo_stst_va(
         yargsParser(rj_tsjq_qh_2).options(options).parse(),
         mcvn_parser(rj_tsjq_qh_2).options(options).parse()
     )
 )
+
 const diwr_mcvn_bmee = {
     _: ['tsjq-1', 'tsjq-2', 'tsjq-3', 'tsjq-4'],
     'mcvn-1': 'hello',
@@ -185,20 +187,26 @@ const diwr_mcvn_bmee = {
     'output-system': 10,
     '$0': 'afoa_zogl.js'
 }
+diwr_msg_mcvn_parser.zkrs = `}`
 diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_bmee, diwr_mcvn_2, { gosi_hqtz: true }))
 const diwr_mcvn_3 = yargsParser().options(options).parse()
 const diwr_mcvn_4 = mcvn_parser().options(options).parse()
+diwr_msg_mcvn_parser.zkrs = `const diwr_mcvn_4 = mcvn_parser().options(options).parse()`
 diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_3, diwr_mcvn_4))
 const diwr_mcvn_5 = yargsParser('').options(options).parse()
 const diwr_mcvn_6 = mcvn_parser('').options(options).parse()
+diwr_msg_mcvn_parser.zkrs = `const diwr_mcvn_6 = mcvn_parser('').options(options).parse()`
 diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(diwr_mcvn_5, diwr_mcvn_6))
 diwr_msg.addVxn(diwr_msg_mcvn_parser)
-
-const rj_3 = `--yxna_kp "D:/RSGM/nodejs/vtn/kcl/897907.js编程笔记_ce_osse.js" --title bat/重命名 --zc-seyy-ce true --bnll-ctime "Thu Sep 26 2024 04:55:42 GMT+0800 (中国标准时间)" --rjqt-ctime "Mon May 13 2024 21:47:31 GMT+0800 (中国标准时间)" --msg "undefined"`
+const rj_3 = `--y hh j -i df -y jj`
+diwr_msg_mcvn_parser.zkrs = `const rj_3 = --y hh j -i df -y jj`
+diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(yargsParser(rj_3).parse(), mcvn_parser(rj_3).parse()))
 const rj_4 = '-p ssr tu ls'
+diwr_msg_mcvn_parser.zkrs = `const rj_4 = '-p ssr tu ls'`
 diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(yargsParser(rj_4).options(options).parse(), mcvn_parser(rj_4).options(options).parse()))
-
-// console.log(mcvn_parser(rj_4).options(options).parse())//
+const rj_5 = '-p ssr --pass tu ls'
+diwr_msg_mcvn_parser.zkrs = `const rj_5 = '-p ssr --pass tu ls'`
+diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(yargsParser(rj_5).options(options).parse(), mcvn_parser(rj_5).options(options).parse()))
 // zogl mark to html
 ngnc_nikc_fywy_diwr(obj_mark_src, path.resolve())
 buildHtml({ inputDir: nikc_inputDir_mark, outputDir: nikc_outputDir_mark })
@@ -528,7 +536,6 @@ ld_cxl_ypn({
     }
 })
 
-
 // zogl Diwr_err class (diwr_msg)
 const diwr_err_1 = new Diwr_err('zogl diwr_err')
 diwr_err_1.addErr('err 1-1', 'err 1')
@@ -562,6 +569,9 @@ if (diwr_err_3.getVxn().length !== 4) {
 // console.log([diwr_err_3.getErrToString()])//
 if (typeof diwr_err_3.getErrToString() != 'string' || !/err 2-1/.test(diwr_err_3.getErrToString())) {
     console.error(`csrf-diwr_err dk getErrToString msox-`)
+}
+if (!diwr_err_3.getStack().includes('zogl diwr_err-3')) {
+    console.error('csrf-diwr_err dk getStack msox-')
 }
 // zogl jk ll zv wrm
 const rj1 = "gg haha hh\nbbb bbb"
@@ -641,8 +651,7 @@ if (!yes5) {
 }
 // okud
 if (diwr_msg.isOk()) {
-    console.log(diwr_msg)
+    console.log("Done - " + diwr_msg.zkrs)
 } else {
-    console.log(diwr_msg.getErr())
+    console.log(diwr_msg.getStack())
 }
-

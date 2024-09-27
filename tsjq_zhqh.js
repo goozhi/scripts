@@ -32,10 +32,12 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
         if (targetCmd.aoao_ji_ssvl && !neig.ji_exym_oc_ssvl) {
             throw new Error('bj hmpc nq ssvl mb exym.')
         }
+        async function lliz_zhqh(inputText = "") {
+            outputs.w_zhqh_mh_lil = true
+            await tsjq_zhqh(inputText, outputs, arrC, neig_kp).catch(err => { throw err })
+        }
         await targetCmd.func(user_params, outputs, Object.assign(neig, {
-            mapC, zhqh: async (inputText = "") => {
-                await tsjq_zhqh(inputText, outputs, arrC, neig_kp).catch(err => { throw err })
-            }
+            mapC
         })).catch(err => { throw err })
         if (user_params.write.length > 0) {
             outputs.ask({
@@ -49,6 +51,12 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
         }
         if (user_params.up) {
             outputs.up = true
+        }
+        if (outputs.rj_zhqh_tsjq) {
+            const rj_zhqh_tsjq = outputs.rj_zhqh_tsjq
+            outputs.rj_zhqh_tsjq = false
+            outputs.mb_lil_zhqh = inputText
+            await lliz_zhqh(rj_zhqh_tsjq).catch(err => { throw err })
         }
         if (outputs.na_ld_html === true) {
             outputs.na_ld_html = md_bqeo_ld_html(outputs.outputText, { ji_db_style: false })

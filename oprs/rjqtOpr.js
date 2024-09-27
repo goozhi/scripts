@@ -86,7 +86,7 @@ const diwr_xb = (() => {
 const rjqtOpr = async (neig_kp) => {
     const neig = Object.assign({}, neig_kp)
     const { user_params, outputs } = neig
-    const zhqh = neig.zhqh || (async () => { })
+    // const zhqh = neig.zhqh || (async () => { })
     const { vn_qh, vn_ca } = (() => {
         let vn_qh
         let vn_ca
@@ -228,7 +228,8 @@ const rjqtOpr = async (neig_kp) => {
                         fs.writeFileSync(user_params.vkih + ".bak", fs.readFileSync(user_params.vkih))
                         fs.writeFileSync(user_params.vkih, diwr_tsjq[user_params.rr](JSON.stringify(diwr_nixb, null, 2)))
                         if (user_params.uace_vtn) {
-                            await zhqh('vtn qi --json\n' + JSON.stringify({ [user_params.vkih]: diwr_nixb }, null, 2)).catch(err => { msox_vtn_tsjq_zhqh = err.message || err })
+                            diwr_nixb.setCtime?.(new Date())
+                            // await zhqh('vtn qi --json\n' + JSON.stringify({ [user_params.vkih]: diwr_nixb }, null, 2)).catch(err => { msox_vtn_tsjq_zhqh = err.message || err })
                         }
                     } else {
                         uzms('csrf-yxna ac zznq-' + user_params.vkih)

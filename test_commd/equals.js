@@ -200,7 +200,7 @@ fffffffffff*2 = 35184372088830
     , [
         `wrvr wrvr
         yfvr同志`,
-        `yfvr yfk vrk`
+        `yfvr yf vr`
     ], [
         `wrvr hfbc 3
         `,
@@ -223,6 +223,10 @@ fffffffffff*2 = 35184372088830
         好人生活`,
         `kkmf hfux`,
         { regex: true }
+    ], [
+        `test --zhqh
+    ()=>{outputs.outputText='hello'}`,
+        `hello`,
     ], ['share add hello\nhi', '\\S', { regex: true }
 
     ], ['csrf\n csrf-err_zzuy-mcvn', 'err_zzuy', { regex: true }
@@ -255,7 +259,7 @@ fffffffffff*2 = 35184372088830
     , [
         `wrvr wrvr
         同志yfvr`,
-        `yfk vrk yfvr`
+        `yf vr yfvr`
     ]
     , [
         `unicode\nhello`,
