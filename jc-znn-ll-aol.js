@@ -24,7 +24,8 @@ function Jc_znn_ll_aol() {
         vw: new lclc('diwr', 'Promise diwr'),
         yo: new lclc('diwr', 'ux n yoch diwr'),
         vy: new lclc('vnwm', 'vyvy vnwm'),
-        jf_wrm: new lclc('diwr', 'jf wrm zv tbm')
+        jf_wrm: new lclc('diwr', 'jf wrm zv tbm'),
+        wl: new lclc('atvn', 'wlba atvn')
     })
     this.log = () => {
         Object.entries(this).map(([fo1, yg1]) => {

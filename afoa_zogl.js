@@ -301,6 +301,7 @@ const Jk_ll_zv_wrm = require('./jk_ll_zv_wrm.js');
 const Zjzj_fo = require('./Zjzj_fo.js');
 const Jf_wrm_zjzj_diwr = require('./Jf_wrm_zjzj_diwr.js');
 const rj = require('./cmd-zhqh-atvn/rj.js');
+const fo_ussk = require('./fo_ussk.js');
 const rj_1 = `
 ss[dfaf](D:\\dffs\\dsf/jj)
 ss[dfaf](D:\\dffs\\dsf/jdj)
@@ -534,6 +535,34 @@ ld_cxl_ypn({
     if (!/one_1/.test(err.message)) {
         diwr_msg.addErr('csrf-ld cxl lh ypn msox 3-' + err)
     }
+})
+// zogl fo_ussk
+const yo_msg_fo_ussk_zogl = new Diwr_err('zogl fo_ussk')
+
+j = [
+    [(jtyj) => {
+        if (jtyj != 'hello') {
+            yo_msg_fo_ussk_zogl.addErr('csrf-fo ussk zogl msox-')
+        }
+
+    }, fo_ussk([['hello', () => 'hello'], ['hi', () => 'hi']]).vdum('hello')]
+    ,
+    [(jtyj) => {
+        if (jtyj != 'aaaaa') {
+            yo_msg_fo_ussk_zogl.addErr('csrf-fo ussk zogl setDefault msox-')
+        }
+
+    }, fo_ussk([['hello', () => 'hello'], ['hi', () => 'hi']]).setDefault((tsn) => tsn).vdum('aaaaa')]
+    ,
+    [(jtyj) => {
+        if (jtyj != 'aaaaa') {
+            yo_msg_fo_ussk_zogl.addErr('csrf-fo ussk zogl setDefault msox-')
+        }
+
+    }, fo_ussk([['hello', () => 'hello'], ['hi', () => 'hi']]).setDefault((tsn) => tsn).vdum('aaaaa')
+    ]
+].forEach((rn1) => {
+    rn1[0](rn1[1])
 })
 
 // zogl Diwr_err class (diwr_msg)
