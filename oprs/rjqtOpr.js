@@ -21,6 +21,7 @@ const checkjs = require('../checkjs.js')
 const jyqhRjqt = require('../jyqhRjqt.js')
 const uzms = require('../uzms.js')
 const vkih_hfbc = require('../vkih_hfbc.js')
+const rfrf = require('../rfrf.js')
 const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
 class Ybkc_diwr {
 
@@ -228,13 +229,16 @@ const rjqtOpr = async (neig_kp) => {
                         fs.writeFileSync(user_params.vkih + ".bak", fs.readFileSync(user_params.vkih))
                         fs.writeFileSync(user_params.vkih, diwr_tsjq[user_params.rr](JSON.stringify(diwr_nixb, null, 2)))
                         if (user_params.uace_vtn) {
-                            diwr_nixb.setCtime?.(new Date())
-                            // await zhqh('vtn qi --json\n' + JSON.stringify({ [user_params.vkih]: diwr_nixb }, null, 2)).catch(err => { msox_vtn_tsjq_zhqh = err.message || err })
+                            if (diwr_nixb.setCtime) {
+                                diwr_nixb.setCtime?.(new Date()) || (msox_vtn_tsjq_zhqh = rfrf('ymce exym vtn nkme'))
+                            } else {
+                                outputs.rj_zhqh_tsjq = ('vtn qi --json\n' + JSON.stringify({ [user_params.vkih]: diwr_nixb }, null, 2))
+                            }
                         }
                     } else {
                         uzms('csrf-yxna ac zznq-' + user_params.vkih)
                     }
-                    return 'cd rrzv bj bmee: ' + user_params.vkih + (msox_vtn_tsjq_zhqh ? "\noin qi vtn zd pc ms\n" + msox_vtn_tsjq_zhqh : "")
+                    return rfrf('cd rrzv bj bmee: ') + user_params.vkih + (msox_vtn_tsjq_zhqh ? rfrf("\noin qi vtn zd pc ms\n") + msox_vtn_tsjq_zhqh : "")
                 } else if (user_params.keys) {
                     return JSON.stringify(Object.keys(diwr_nixb), null, 2)
                 } else if (user_params.fdne) {
