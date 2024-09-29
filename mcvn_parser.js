@@ -233,7 +233,7 @@ function mcvn_parser(mcvn_qh = "") {
         Object.entries(usni_).forEach(([fo1, yg1]) => {
             const eowl_yg = () => {
                 if (yg1.hasOwnProperty('default')) {
-                    return yg1.default
+                    return JSON.parse(JSON.stringify(yg1.default))
                 } else if (yg1.hasOwnProperty('type')) {
                     return (() => {
                         return diwr_uxux_diyc_imfb_yg[yg1.type.toLowerCase()] || ""
