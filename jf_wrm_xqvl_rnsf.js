@@ -17,7 +17,7 @@ class Jf_wrm_xqvl_rnsf {
                 }
             } else if (neig.xqvl_hqtz === 'ytnc') {
                 const da_y_diwr = diwr_1.bv_ye().get_bnll()
-                const da_y_eqwy = da_y_diwr.eqwy
+                let da_y_eqwy = da_y_diwr.eqwy
                 for (let vn_1 = 0; vn_1 < vnaw_1 - 1; vn_1++) {
                     const vn_2 = da_y_eqwy++
                     if (vnwm_kp[vn_2] === undefined) {
