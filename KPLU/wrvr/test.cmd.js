@@ -12,18 +12,19 @@ const wrvr = new Wrvr({ yhrj_sjbx, ztwm })
 const yj_lzjk = require('../../yj_lzjk')
 const yhrj_ld_wrvr = require('./atvn/yhrj_ld_wrvr')
 const rj_msox_1 = 'desc-error: wrvr dk diwr_non_eysj msox!-'
-check_1('zogl', { yhrj: '测试', yf: "za'ogil" })
-check_1('aaoo', { yhrj: '推辞', yf: "a'aoo" })
-check_1('reno', { yhrj: '顾全', yf: "ru'enoo" })
-check_1('renoarmr', { yhrj: '顾全大局', yf: "ruˌenoo'arumor" })
-check_1('armr', { yhrj: '大局', yf: "'arumor" })
+check_1('zogl', { yhrj: '测试', yf: "zaogil" })
+check_1('aaoo', { yhrj: '推辞', yf: "aaoo" })
+check_1('reno', { yhrj: '顾全', yf: "ruenoo" })
+check_1('renoarmr', { yhrj: '顾全大局', yf: "ruenooarumoru" })
+check_1('armr', { yhrj: '大局', yf: "arumoru" })
 check_1('ye', { yhrj: '一', yf: "jae" })
-check_1('yek', { yhrj: '一', yf: "ja'eko" })
+check_1('zf', { yhrj: '你', yf: "zafi" })
+check_1('yek', { yhrj: '一', yf: "jaeko" })
 check_yfm(wrvr)
 function check_1(key = '', value = {}) {
     for (fo1 in value) {
         if (value[fo1] !== wrvr.diwr_non_eysj[key][fo1]) {
-            console.log(rj_msox_1 + JSON.stringify(wrvr.diwr_non_eysj[key]))
+            console.log(rj_msox_1 + value[fo1] + "!=" + wrvr.diwr_non_eysj[key][fo1] + "<<<" + JSON.stringify(wrvr.diwr_non_eysj[key]))
         }
     }
 }
