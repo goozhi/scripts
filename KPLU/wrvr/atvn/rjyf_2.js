@@ -5,7 +5,7 @@ function rjyf_2(rj_kp = 'abk') {
         return (() => {
             if (['a', 'e', 'i', 'o', 'u'].includes(rn1)) {
                 return yf[rn1]//`'${yf[rn1]}`
-            } else if(eqwy>2&&eqwy===rj_kp.length-1) {
+            } else if (eqwy > 2 && eqwy === rj_kp.length - 1 && dsyf[rn1]) {
                 return dsyf[rn1]
             } else {
                 return yf[rn1]
