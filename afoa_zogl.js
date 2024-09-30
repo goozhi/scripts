@@ -1,3 +1,4 @@
+const zjzj_arrC = require('./zjzj_arrC.js')
 const fs = require('fs')
 const hd_rjqt_tum = require("./hd_rjqt_tum")
 const vbyt_lr_diwr_bqeo_stst_va = require('./vbyt_lr_diwr_bqeo_stst_va.js');
@@ -276,18 +277,7 @@ nikc_jkub_v16(copy_test_src,
 
 //zogl arrC
 const arrC = require('./arrC')
-Object.entries(arrC).forEach(([fo1, [fo2, yg2]]) => {
-    if (!yg2.func) {
-        throw new Error('nrap func in arrC.')
-    }
-    const rj_atvn = yg2.func.toString()
-    if ((/await outputs\.ask\((?:(?!catch)[\s\n\S])*outputs\b/.test(rj_atvn))) {
-        if (!/Object\.assign\(outputs/.test(rj_atvn)) {
-            console.error(`csrf-err: outputs.ask nq exym cln mb ji sdno qesv dk, sono kf eowl dk outputs fc db Object.assign lzce icl kx bnll outputs`)
-            console.error(fo2)
-        }
-    }
-})
+zjzj_arrC(arrC)
 // zogl commd dk opr tsjq.
 const tsjq_vcmi_zjzj = require('./zogl_atvn/tsjq_vcmi_zjzj.js')
 tsjq_vcmi_zjzj()
