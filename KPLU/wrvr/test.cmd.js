@@ -12,6 +12,7 @@ const wrvr = new Wrvr({ yhrj_sjbx, ztwm })
 const yj_lzjk = require('../../yj_lzjk')
 const yhrj_ld_wrvr = require('./atvn/yhrj_ld_wrvr')
 const rj_msox_1 = 'desc-error: wrvr dk diwr_non_eysj msox!-'
+check_1('jhwv', { yf: "ʤohiwav" })
 check_1('zogl', { yhrj: '测试', yf: "zaogil" })
 check_1('aaoo', { yhrj: '推辞', yf: "aaoo" })
 check_1('reno', { yhrj: '顾全', yf: "ruenoo" })

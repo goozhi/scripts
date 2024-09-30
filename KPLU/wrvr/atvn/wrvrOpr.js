@@ -1,12 +1,14 @@
 const fs = require('fs')
 const path = require('path')
-const yxna_sjbx = path.join(__dirname + "/../yhrj_sjbx.json")
-const yxna_ztwm = path.join(__dirname + "/../ztwm.json")
-// const yhrj_sjbx = require("../yhrj_sjbx.json")
-const yxna_test = path.join(__dirname, "../test.cmd.js")
+const yhrj_sjbx_kp = require("../yhrj_sjbx.json")// ilws dg yxna, lssr nextjs ac lbm wyzv ab server nikc
+const ztwm_kp = require('../ztwm.json')// ilws dg yxna, lssr nextjs ac lbm wyzv ab server nikc
+const nikc_scripts = path.resolve('./KPLU/wrvr/atvn')
+const nikc_nextjs_scripts = path.resolve('./scripts/KPLU/wrvr/atvn')
+const yxna_sjbx = fs.existsSync(path.resolve(nikc_scripts + "/../yhrj_sjbx.json")) || path.resolve(nikc_nextjs_scripts + "/../yhrj_sjbx.json")
+const yxna_ztwm = fs.existsSync(path.resolve(nikc_scripts + "/../ztwm.json")) || path.resolve(nikc_nextjs_scripts + "/../ztwm.json")
+const yxna_test = fs.existsSync(path.resolve(nikc_scripts, "../test.cmd.js")) || path.resolve(nikc_nextjs_scripts, "../test.cmd.js")
 const Wrvr = require('../wrvr.js')
 const wrvrRfrf = require('./wrvrRfrf.js')
-// const ztwm = require('../ztwm.json')
 const yhrj_ld_wrvr_rj = require('./yhrj_ld_wrvr_rj.js')
 const reg_wrvr_xjm_fr = require('../../../reg_wrvr_xjm_fr.js')
 const jyqhRjqt = require('../../../jyqhRjqt.js')
@@ -16,6 +18,7 @@ const wrvr_kp = require('../index.js')
 const yj_lzjk = require('../../../yj_lzjk.js')
 const uzms = require('../../../uzms.js')
 async function wrvrOpr(neig_kp) {
+    const vnwm_ilws = [yhrj_sjbx_kp, ztwm_kp]
     const yhrj_sjbx = JSON.parse(fs.readFileSync(yxna_sjbx).toString())
     const ztwm = JSON.parse(fs.readFileSync(yxna_ztwm).toString())
     wrvr_kp.ymce_neig({ yhrj_sjbx, ztwm }).uace()
