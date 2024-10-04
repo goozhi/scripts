@@ -1,11 +1,14 @@
 const NiJinzhiZhuanhuan = require('../../NiJinzhiZhuanhuan')
-const rjyf = require('./atvn/rjyf')
+const rjyf2 = require('./atvn/rjyf_2')
 const yhrj_ld_wrvr = require('./atvn/yhrj_ld_wrvr')
+const yo_hfbc_rjyf_mcvn = require('./atvn/yo_hfbc_rjyf_mcvn')
+yo_hfbc_rjyf_mcvn.hfbc_rjyf_mcvn()
 class Wrvr {
     constructor(neig_kp = {}) {
+        const diwr_eysj = {}
         function makeYf(...arg) {
             const diwr_vkey = Object.assign(...arg)
-            return Object.fromEntries(Object.entries(diwr_vkey).map(([rn1, yj1]) => [rn1, { yhrj: yj1, yf: rjyf(rn1) }]))
+            return Object.fromEntries(Object.entries(diwr_vkey).map(([rn1, yj1]) => [rn1, { yhrj: yj1, yf: rjyf2(rn1) }]))
         }
         const neig = Object.assign({ neig_kp, yhrj_sjbx: [], ztwm: [] }, neig_kp)
         this.ymce_neig = (neig_kp) => {
@@ -43,18 +46,21 @@ class Wrvr {
             })(diwr_non_ztwm)
 
             const diwr_cqzt_di_wrvr = Object.fromEntries(Object.entries(diwr_zt_non).map(ele => [ele[1], ele[0]]))
-
-            const diwr_eysj = ((diwr_cqzt_di_wrvr = {}, yhrj_sjbx = {}) => {
+            for (let key in diwr_eysj) {
+                delete (diwr_eysj[key])
+            }
+            // throw diwr_eysj['izlp']
+            Object.assign(diwr_eysj, ((diwr_cqzt_di_wrvr = {}, yhrj_sjbx = {}) => {
                 return Object.fromEntries(yhrj_sjbx.map((yhrj_eysj) => {
                     return yhrj_ld_wrvr(yhrj_eysj, diwr_cqzt_di_wrvr)
                 }))
-            })(diwr_cqzt_di_wrvr, neig.yhrj_sjbx)
+            })(diwr_cqzt_di_wrvr, neig.yhrj_sjbx))
             const diwr_zt_1 = {}
             for (let key in diwr_zt_non) {
                 if (/k$/.test(key))
                     diwr_zt_1[key.replace(/k$/, "")] = diwr_zt_non[key]
             }
-            const diwr_non_eysj = Object.assign(diwr_eysj, makeYf(diwr_zt_non, diwr_zt_1),)
+            const diwr_non_eysj = Object.assign(diwr_eysj, makeYf(diwr_zt_non, diwr_zt_1))
             const diwr_sj_di_wrvr = Object.fromEntries(Object.entries(diwr_eysj).map(rn1 => [rn1[1].yhrj, rn1[0]]))
             const diwr = {
                 diwr_non_eysj
