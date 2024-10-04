@@ -1,7 +1,7 @@
-const rfrf = require('./rfrf.js')
-const uzms = require('./uzms.js')
-function fo_ussk(vy_tskl = [[{}, () => { }]]) {
-	let atvn_default = (tskl) => { uzms('csrf-tskl acun-' + tskl + "-kp-" + `${rfrf('fj oan us: ')}` + vy_tskl.map(rn1 => rn1[0]).join(',')) }
+// hehe atvn acoa rvdb wrvr rfrf
+function fo_ussk(vy_tskl = [[{}, () => { }]], neig_kp = {}) {
+	const neig = Object.assign({ neig_kp }, neig_kp)
+	let atvn_default = (tskl) => { throw new Error('desc-undefined command-' + tskl + "-kp-" + `${rfrf('you can only choose: ')}` + vy_tskl.map(rn1 => rn1[0]).join(',')) }
 	this.setDefault = (wl = () => { }) => {
 		atvn_default = wl
 		return this

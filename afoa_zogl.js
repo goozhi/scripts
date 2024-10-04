@@ -292,6 +292,7 @@ const Zjzj_fo = require('./Zjzj_fo.js');
 const Jf_wrm_zjzj_diwr = require('./Jf_wrm_zjzj_diwr.js');
 const rj = require('./cmd-zhqh-atvn/rj.js');
 const fo_ussk = require('./fo_ussk.js');
+const Jcbz_hfbc_rjyf_mcvn = require('./KPLU/wrvr/atvn/jcbz_hfbc_rjyf_mcvn.js');
 const rj_1 = `
 ss[dfaf](D:\\dffs\\dsf/jj)
 ss[dfaf](D:\\dffs\\dsf/jdj)
@@ -302,6 +303,70 @@ if (/\\/.test(rj_2)) {
     console.error(`csrf-err: zogl msox: md ld html msox`)
 }
 
+// zogl Jcbz_hfbc_rjyf_mcvn
+const yo_msg_Jcbz_hfbc_rjyf_mcvn = new Diwr_err('zkrs - Jcbz_hfbc_rjyf_mcvn')
+const yf = require('./KPLU/wrvr/yf.json')
+
+const ytm_yf = {
+    nou: "nu",
+    yau: "yu",
+    lou: "lu",
+}
+const eysj_nomr_rjyf = {
+    no: "nəʊ",
+    mo: "məʊ",
+    ji: "ʤi"
+}
+const eysj_ll_yf = {
+    ge: "ge",
+    he: "he",
+    re: "re",
+    ke: "ke",
+    fe: "fe",
+    ne: "ne",
+    pe: "pe",
+    le: "le"
+}
+const ll_ae_ds_n_ztka = {
+    ny: 'nai',
+    vy: 'vai',
+    // zk: 'zik'
+}
+const eysj_ds_rjyf = {
+    // zk: 'zik'
+    py: "pai",
+    zd: "zid",
+    th: "θ",
+    dn: "dn",
+    jr: "ʤәr",
+}
+const eysj_yhti_rjyf = {
+    // zk: 'zik'
+    py: "pai",
+    zd: "zid",
+    th: "θ",
+    dn: "dn",
+    jr: "ʤәr",
+}
+const lr_zt_rjyf = {
+    'lu': 'lu'
+}
+const diwr_mcvn_zogl = {
+    eysj_ds_rjyf,
+    eysj_ll_yf,
+    eysj_nomr_rjyf,
+    ll_ae_ds_n_ztka,
+    ytm_yf,
+    eysj_yhti_rjyf,
+    lr_zt_rjyf,
+    yf
+}
+const bmee_yhld = Object.assign({}, diwr_mcvn_zogl.eysj_ll_yf)
+const yo_zogl_yoch = new Jcbz_hfbc_rjyf_mcvn(diwr_mcvn_zogl)
+yo_zogl_yoch.hfbc_rjyf_mcvn()
+if (vbyt_lr_diwr_bqeo_stst_va(bmee_yhld, diwr_mcvn_zogl.eysj_ll_yf).isOk()) {
+    yo_msg_Jcbz_hfbc_rjyf_mcvn.addErr('csrf-zogl hfbc msox-')
+}
 
 // zogl rjm_nikc
 ngnc_nikc_fywy_diwr(obj_nikc_test_rjm_nikc, path.resolve())

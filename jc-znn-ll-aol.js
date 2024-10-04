@@ -1,8 +1,24 @@
+const fo_ussk = require("./fo_ussk")
 const rfrf = require("./rfrf")
 
 class lclc {
     constructor(uxux, desc) {
         this.uxux = typeof uxux === 'string' ? [uxux] : uxux
+        this.uxux.forEach(rn1 => {
+            new fo_ussk([
+                ['object', () => 'object'],
+                ['diwr', () => 'object'],
+                ['string', () => 'string'],
+                ['boolean', () => 'boolean'],
+                ['function', () => 'function'],
+                ['class', () => 'function'],
+                ['atvn', () => 'function'],
+                ['number', () => 'number'],
+                ['symbol', () => 'symbol'],
+                ['bigint', () => 'bigint'],
+                ['undefined', () => 'undefined'],
+            ]).setDefault(() => { throw new Error('csrf-acun uxux-' + rn1) }).vdum(rn1)
+        })
         this.desc = desc || uxux
         let gkqj_ji_rfrf_wrvr = true
         this.ji_rfrf_wrvr = () => gkqj_ji_rfrf_wrvr
@@ -20,11 +36,15 @@ function Jc_znn_ll_aol() {
     this.atvn = new lclc('function')
     Object.assign(this, {
         di_wm: new lclc('vnwm', 'di wm zv tbm'),
-        vcl_ypn: new lclc(['diwr', 'map'], 'vcl ypn zv tbm'),
+        vcl_ypn: new lclc(['diwr'], 'vcl ypn zv tbm'),
         vw: new lclc('diwr', 'Promise diwr'),
         yo: new lclc('diwr', 'ux n yoch diwr'),
         vy: new lclc('vnwm', 'vyvy vnwm'),
-        jf_wrm: new lclc('diwr', 'jf wrm zv tbm'),
+        jf: new lclc('diwr', 'jf wrm zv tbm n diwr yntz'),
+        Jf: new lclc('class', 'jf wrm zv tbm n class yntz'),
+        jk_ll: new lclc(['atvn', 'diwr'], 'jk ll zv atn ae jk ll zv wrm'),
+        Jk_ll: new lclc('class', 'zhqh jk ll zv atn n class'),
+        rj_di: new lclc(['diwr', 'string'], 'string ae object gtaw'),
         wl: new lclc('atvn', 'wlba atvn')
     })
     this.log = () => {
