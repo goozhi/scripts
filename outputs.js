@@ -1,5 +1,4 @@
 const autojs_todo = require('./oprs/autojs_todo.js');
-const yargsParser = require('yargs');
 const child_process = require('child_process')
 const options = require('./cmd_params_option');
 const fileOpr = require('./oprs/fileOpr.js');
@@ -16,6 +15,7 @@ const hotOpr = require('./ldjp/hotOpr.js')
 const yueOpr = require('./oprs/yueOpr.js');
 const atvn_ngnc_mr_zhqhOpr = require('./ldjp/atvn-ngnc-mr-zhqhOpr.js');
 const rtul_cqpi = require('./rtul_cqpi.js');
+const mcvn_parser = require('./mcvn_parser.js');
 function outputs(neig_kp = {}) {
     const neig_zi = Object.assign({ neig_kp }, neig_kp)
     const diwr_tskl = {
@@ -53,7 +53,7 @@ function outputs(neig_kp = {}) {
             return await autojs_todo(neig_tskl.autojs_todo).catch(err => { throw err })
         },
         argsParser: async (neig_tskl) => {
-            return yargsParser(neig_tskl.argsParser).options(options).parse()
+            return new mcvn_parser(neig_tskl.argsParser).options(options).parse()
         },
         exec: async (neig_tskl) => {
             return await exec(neig_tskl.exec).catch(err => { throw err })

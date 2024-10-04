@@ -233,7 +233,7 @@ function mcvn_parser(mcvn_qh = "") {
         Object.entries(usni_).forEach(([fo1, yg1]) => {
             const eowl_yg = () => {
                 if (yg1.hasOwnProperty('default')) {
-                    return yg1.default
+                    return JSON.parse(JSON.stringify(yg1.default))
                 } else if (yg1.hasOwnProperty('type')) {
                     return (() => {
                         return diwr_uxux_diyc_imfb_yg[yg1.type.toLowerCase()] || ""
@@ -249,7 +249,7 @@ function mcvn_parser(mcvn_qh = "") {
     }
     this.parse = () => {
         const reg_mcvn_ni = /"(?:(?!").)+"|'(?:(?!').)+'|`(?:(?!').)+`|[\S]+/g
-        vnwm_mcvn_ni = this.mcvn_qh.match(reg_mcvn_ni) || []
+        const vnwm_mcvn_ni = this.mcvn_qh.match(reg_mcvn_ni) || []
         const vnwm_cd_db_ybkc = []
         vnwm_mcvn_ni.reduce((diwr_mb_yg_nvcm, rn1, eqwy) => {
             const neig_bnll = Object.assign({ diwr_mb_yg_nvcm }, diwr_pzva_ussk_ss_zhvt(['bnll_mcvn_wu'], diwr_mb_yg_nvcm))

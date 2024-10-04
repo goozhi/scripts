@@ -6,7 +6,7 @@ const diwr_yxna_bx = {
 }
 Object.values(diwr_yxna_bx).forEach(rn1 => {
     if (!fs.existsSync(rn1)) {
-        uzms('csrf-yxna ac zznq-' + rn1)
+        console.error('csrf-yxna ac zznq-' + rn1)
     }
 })
 module.exports = diwr_yxna_bx
