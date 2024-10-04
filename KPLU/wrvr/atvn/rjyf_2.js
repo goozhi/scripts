@@ -1,4 +1,5 @@
 const yf = require('../yf.json')
+const diwr_reg_yfm_wmgr = require('../../../diwr_reg_yfm_wmgr')
 // const dsyf = require('../dsyf.json')
 const diwr_rjyf_mcvn = require('./rjyf_mcvn')
 const fo_ussk = require('../../../fo_ussk')
@@ -185,12 +186,10 @@ function rjyf_tzfs_wdbu(rjyf = "") {
             return jtyj_1
         }
     })()
-    const rn_yfm = ['a', 'i', 'e', 'o', 'u', 'ɪ', "ɜ"]
-    const rj_reg_rn_yfm = "(?:" + rn_yfm.join('|') + ")"
-    const rj_reg_ft_rn_yfm = "[^j" + rn_yfm.join('') + "]"
-    const rj_reg_n_a_n_wmgr = `(${rj_reg_ft_rn_yfm})(${rj_reg_rn_yfm})(${rj_reg_ft_rn_yfm})`
-    const reg_yt_yfm = new RegExp("^" + rj_reg_n_a_n_wmgr + rj_reg_n_a_n_wmgr + "$")
-    if (reg_yt_yfm.test(jtyj_2.replace(/-| /, ""))) {
+    const rj_reg_n_a_n_wmgr = diwr_reg_yfm_wmgr.rj_reg_n_a_n_wmgr
+    const { rj_reg_sl_ux_wmgr } = diwr_reg_yfm_wmgr
+    const reg_aqn_yt_yfm_gmwr = new RegExp(`^${rj_reg_n_a_n_wmgr}(?:${rj_reg_sl_ux_wmgr}|${rj_reg_n_a_n_wmgr})$`)
+    if (reg_aqn_yt_yfm_gmwr.test(jtyj_2.replace(/-| /, ""))) {
         return jtyj_2.replace(/(?:-| )/, "").replace(new RegExp(rj_reg_n_a_n_wmgr), (_, p1, p2, p3) => {
             if (yf[p3]) {
                 return p1 + p2 + yf[p3]
@@ -201,6 +200,14 @@ function rjyf_tzfs_wdbu(rjyf = "") {
         })
     } else {
         return jtyj_2
+            .replace(/-ps$/, 'ps')
+            .replace(/-pt$/, 'pt')
+            .replace(/-st$/, 'st')
+            .replace(/-bt$/, 'bt')
+            .replace(/-kt$/, 'kt')
+            .replace(/s-(?=[ptdkglnmrvb])/, 's')
+
+            .replace(/ss/, 'sis')
     }
 }
 
@@ -256,6 +263,7 @@ function bpn_vt_ld(rj_kp, neig_kp = {}) {
             const lastIndex = reg.lastIndex
             const diwr_bnll_cgne_jtyj = reg.exec(rj_ra_cgne_bqeo)
             if (diwr_bnll_cgne_jtyj) {
+        
                 const last_nini = vnwm_ybkc_1[vnwm_ybkc_1.length - 1]
                 const vnwm_lzyp = vnwm_ybkc_1.map((rn1, eqwy_2) => {
                     rn1.bnll_ybbp_vkih = eqwy_2
@@ -319,7 +327,7 @@ function bpn_vt_ld(rj_kp, neig_kp = {}) {
             cgne_bj_ybbp(reg_yf, yf, { eqwy: eqwy, wdgd: 1, zkrs: 'nmky-yf' })
 
         cgne_bj_ybbp(reg_nomr, eysj_nomr_rjyf, { eqwy: eqwy, wdgd: 2, zkrs: 'nomr' })
-        // if (rj_kp === 'scjo' && eqwy === 3) {
+        // if (rj_kp === 'astu' && eqwy === 3) {
         //     console.log(888, eqwy, vnwm_ybkc_1)
         // }
         return lg_ab_bnll

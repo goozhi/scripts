@@ -167,31 +167,31 @@ class Jcbz_hfbc_rjyf_mcvn {
             }
             new Hfbc_ll_ae_ud_yfm_mcvn(/^.z/).set_xcmj_bnl_ud_rj_lh(['a']).set_reye_da_vy_yfm('z-').hfbc_zv_da_vy_lh_serm()
             new Hfbc_ll_ae_ud_yfm_mcvn(/^.m/).set_xcmj_bnl_da_y_ztka_lh(['q', 'c', 'p', 'b']).set_reye_da_vy_yfm('m-').hfbc_zv_da_vy_lh_serm()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/^.n/).set_xcmj_bnl_da_y_ztka_lh(['q', 'p', 'u']).set_reye_da_vy_yfm('n-').hfbc_zv_da_vy_lh_serm()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/^.n/).set_xcmj_bnl_da_y_ztka_lh(['q', 'p']).set_reye_da_vy_yfm('n-').hfbc_zv_da_vy_lh_serm()
             new Hfbc_ll_ae_ud_yfm_mcvn(/^.s/).set_xcmj_bnl_da_y_ztka_lh([]).set_reye_da_vy_yfm('s-').hfbc_zv_da_vy_lh_serm()
             // new Hfbc_ll_ae_ud_yfm_mcvn(/^.j/).set_reye_da_vy_yfm('ʤi').set_xcmj_bnl_da_y_ztka_lh(['w']).hfbc_zv_da_vy_lh_serm()
             new Hfbc_ll_ae_ud_yfm_mcvn(/^.y/).set_xcmj_bnl_da_y_ztka_lh(['o', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/^.i/).set_xcmj_bnl_da_y_ztka_lh(['f', 'g', 'h', 'o', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/^.i/).set_xcmj_bnl_da_y_ztka_lh(['f', 'g', 'o', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
             new Hfbc_ll_ae_ud_yfm_mcvn(/^.a/).set_xcmj_bnl_da_y_ztka_lh(['o', 'x', 'y', 'z', 'v', 'w', 'k', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/^.e/).set_xcmj_bnl_da_y_ztka_lh(['b', 'd', 'o', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/^.u/).set_xcmj_bnl_da_y_ztka_lh(['o', 's', 't', 'r', 'p', 'q', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/^.e/).set_xcmj_bnl_da_y_ztka_lh(['d', 'o', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/^.u/).set_xcmj_bnl_da_y_ztka_lh(['o', 't', 'r', 'p', 'q', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
             new Hfbc_ll_ae_ud_yfm_mcvn(/^.o/).set_xcmj_bnl_da_y_ztka_lh(['o', 'j', 'k', 'l', 'm', 'n', 'c', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/.i$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['f', 'g', 'h', 'o', 'c', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/.a$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['o', 'x', 'y', 'z', 'v', 'w', 'k', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/.e$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['b', 's', 'd', 'o', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/.u$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['o', 's', 't', 'r', 'p', 'q', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/.o$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['o', 'k', 'c', 'l', 'm', 'e', 'u', 'a', 'i', 'x']).set_reye_da_vy_yfm('əʊ').hfbc_zv_da_y_lh_djo()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/.i$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['o', 'c', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/.a$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['o', 'x', 'y', 'z', 'w', 'k', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/.e$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['o', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/.u$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['o', 'p', 'q', 'e', 'u', 'a', 'i', 'x']).hfbc_zv_da_y_lh_djo()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/.o$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['o', 'e', 'u', 'a', 'i', 'x']).set_reye_da_vy_yfm('əʊ').hfbc_zv_da_y_lh_djo()
             new Hfbc_ll_ae_ud_yfm_mcvn(/.n$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['c', 'e', 'u', 'a', 'q', 'i', 'x']).hfbc_zv_da_y_lh_djo()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/.m$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['c', 'e', 'u', 'b', 'p', 'q', 'i', 'x']).hfbc_zv_da_y_lh_hese_yfm()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/.m$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['c', 'e', 'u', 'p', 'q', 'i', 'x']).hfbc_zv_da_y_lh_hese_yfm()
             new Hfbc_ll_ae_ud_yfm_mcvn(/.r$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['c', 'e', 'u', 'a', 'i', 'x']).set_reye_da_vy_yfm('әr').hfbc_zv_da_y_lh_djo()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/.l$/).set_w_ud_yfm_wdbu(true).set_aoao_da_y_ztka_lh(['i', 'e']).set_reye_da_vy_yfm('l').hfbc_zv_da_y_lh_djo()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/.l$/).set_w_ud_yfm_wdbu(true).set_aoao_da_y_ztka_lh(['i', 'k', 'l', 'e', 's']).set_reye_da_vy_yfm('l').hfbc_zv_da_y_lh_djo()
             new Hfbc_ll_ae_ud_yfm_mcvn(/.j$/).set_w_ud_yfm_wdbu(true).set_aoao_da_y_ztka_lh(['i', 'e', 'o']).set_reye_da_vy_yfm('ʤ').hfbc_zv_da_y_lh_djo()
             new Hfbc_ll_ae_ud_yfm_mcvn(/x.$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh([]).set_reye_da_y_yfm('ks').hfbc_zv_da_y_lh_djo()
-            new Hfbc_ll_ae_ud_yfm_mcvn(/.y$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh([]).hfbc_zv_da_y_lh_djo()
+            new Hfbc_ll_ae_ud_yfm_mcvn(/.y$/).set_w_ud_yfm_wdbu(true).set_xcmj_bnl_da_y_ztka_lh(['e', 'a', 'u', 'i', 'o']).hfbc_zv_da_y_lh_djo()
             new Yhti_yfm_vkfs(this.rjyf_mcvn)
             new Lr_zt_yfm_hfbc(this.rjyf_mcvn).vdum()
             new Ok_ud_y_yfm(this.rjyf_mcvn).vdum()
-            // throw this.rjyf_mcvn.lr_zt_rjyf['ey']
+            // throw this.rjyf_mcvn.eysj_ds_rjyf['co']
         }
         function Ok_ud_y_yfm(rjyf_mcvn) {
             this.vdum = () => {
@@ -281,7 +281,7 @@ class Jcbz_hfbc_rjyf_mcvn {
         function Yhti_yfm_vkfs(rjyf_mcvn) {
             function rnyf_wdbu(djo, rnyf) {
                 return new fo_ussk([
-                    ['o', () => djo === 'z' ? 'o' : 'əʊ']
+                    ['o', () => djo === 'z' ? 'o' : 'o']
                 ]).setDefault(() => rnyf).vdum(rnyf)
             }
             function epqt_ah_ldrg(djo, rn) {
@@ -291,7 +291,7 @@ class Jcbz_hfbc_rjyf_mcvn {
                     ['e', () => []],// b d c
                     ['i', () => []],//'g', 'h', 'f'
                     ['o', () => []],//'m', 'l', 'n', 'j','k'
-                    ['y', () => ['c']]
+                    ['y', () => []]//'c'
                 ]).setDefault(() => []).vdum(rn).includes(djo) ? false : true
             }
             const vnwm_nixb_wmgr = vnwm_eysj_bx.filter(rn1 => /[^aeiou][aeiou]/.test(rn1))

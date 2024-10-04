@@ -16,10 +16,16 @@ const ytm_yf = {
 }
 const lr_zt_rjyf = {
     wj: "oʤ",
+    hh: "hʌn",
     lu: 'lu'
 }
 const eysj_yhti_rjyf = {
-    lu: 'lu'
+    lu: 'lu',
+    // sn: 'sn', sn fl gkdb oc sn[ktdbsz] yh(13 n eysj), yndf zbhm qqgq ym ac kk.
+    sh: 'shi',
+    // sl: "slo", cd zqjp db uuld cgne pj lq ja s zqjp vo s yfm, gq acdb bi yhti xbyb pj.
+    // sp: "spu", cd zqjp db uuld cgne pj lq ja s zqjp vo s yfm, gq acdb bi yhti xbyb pj.
+    // st: "stu", cd zqjp db uuld cgne pj lq ja s zqjp vo s yfm, gq acdb bi yhti xbyb pj.
 }
 const eysj_nomr_rjyf = {
     no: "nəʊ",
@@ -69,6 +75,7 @@ const eysj_nomr_rjyf = {
 const eysj_ll_yf = {
     wy: 'wai',
     py: "pai",
+    tu: "tju",
     tr: "tru",
     pr: "pru",
     qr: "kru",
@@ -118,8 +125,14 @@ const ll_ae_ds_n_ztka = {
     // zk: 'zik'
 }
 const eysj_ds_rjyf = {
-    // zk: 'zik'
+    kt: 'kt',
+    bt: 'bt',
+    st: 'st',
+    pt: 'pt',
+    ps: 'ps',
+    zk: 'zik',
     zd: "zid",
+    zt: "zit",
     sh: "shi",
     th: "θ",
     dm: "dәm",
@@ -134,6 +147,7 @@ const eysj_ds_rjyf = {
     jm: "ʤʌm",
     pm: "pʌm",
     tm: "tʌm",
+    ph: "pʌn",
     wm: "wɜm",
 }
 module.exports = {
