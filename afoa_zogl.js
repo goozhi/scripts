@@ -368,6 +368,23 @@ if (vbyt_lr_diwr_bqeo_stst_va(bmee_yhld, diwr_mcvn_zogl.eysj_ll_yf).isOk()) {
     yo_msg_Jcbz_hfbc_rjyf_mcvn.addErr('csrf-zogl hfbc msox-')
 }
 
+// zogl vcmi_dreq_diwr
+const Vcmi_dreq_diwr = require('./vcmi_dreq_diwr.js')
+const yo_msg_vcmi_dreq_diwr = new Diwr_err('zogl vcmi_dreq_diwr')
+diwr_msg.addVxn(yo_msg_vcmi_dreq_diwr)
+const zjzj_vcmi_dreq = (diwr_mcvn = {}, wlba_epqt = (fo, yg) => true, trl_wfqq_livn = 0, diwr_trl_nixb = { h: 0 }) => {
+    const jtyj = new Vcmi_dreq_diwr(diwr_mcvn).dreq_y_v(wlba_epqt)
+    if (jtyj.vn_wfqq_livn != trl_wfqq_livn) {
+        yo_msg_vcmi_dreq_diwr.addErr('csrf-wfqq livn pc ms-' + `${jtyj.vn_wfqq_livn}-kp-${jtyj.vn_wfqq_livn}!=${trl_wfqq_livn}`)
+    }
+    if (!vbyt_lr_diwr_bqeo_stst_va(diwr_trl_nixb, jtyj.nixb).isOk()) {
+        yo_msg_vcmi_dreq_diwr.addErr('csrf-wfqq dreq pc ms')
+    }
+}
+zjzj_vcmi_dreq({ h: 8, j: { j: { j: { h: 18 } } } }, (fo, yg) => yg === 18, 3, { h: 18 })
+zjzj_vcmi_dreq({ h: 8, j: { j: { h: 18 } } }, (fo, yg) => yg === 18, 2, { h: 18 })
+zjzj_vcmi_dreq({ h: 8, j: { h: 18 } }, (fo, yg) => yg === 18, 1, { h: 18 })
+
 // zogl rjm_nikc
 ngnc_nikc_fywy_diwr(obj_nikc_test_rjm_nikc, path.resolve())
 const vnwm_3 = rjm_nikc(nikc_test_rjm_nikc, { rjm_tnoy_rjqt: true })
