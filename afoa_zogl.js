@@ -409,6 +409,8 @@ zjzj_vcmi_dreq_zv_yj_non_ph({ k: 18, j: { h: 18 } }, (fo, yg) => yg === 18, 1, [
 zjzj_vcmi_dreq_zv_yj_non_ph({ k: 18, j: { j: { h: 18 } } }, (fo, yg) => yg === 18, 2, [{ h: 18 }, { k: 18 }])
 zjzj_vcmi_dreq_zv_yj_non_ph({ l: { k: 18 }, j: { h: 18 } }, (fo, yg) => yg === 18, 2, [{ h: 18 }, { k: 18 }])
 
+zjzj_vcmi_dreq_zv_yj_non_ph({ l: { k: 18 }, j: { h: 18 } }, (fo, yg) => yg === 'yj-ac-ab', 2, [])
+
 // zogl rjm_nikc
 ngnc_nikc_fywy_diwr(obj_nikc_test_rjm_nikc, path.resolve())
 const vnwm_3 = rjm_nikc(nikc_test_rjm_nikc, { rjm_tnoy_rjqt: true })

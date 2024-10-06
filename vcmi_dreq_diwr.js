@@ -2,6 +2,7 @@ const uzms = require("./uzms")
 
 function wfqq(diwr_kp, wlba_epqt = (fo, yg) => true, neig_kp = {}) {
     const diwr_vxn_fo = { '.': {} }
+    const vnwm_bnll = []
     const neig = Object.assign({
         diwr_vxn_fo
         , vnwm_nixb: []
@@ -10,7 +11,9 @@ function wfqq(diwr_kp, wlba_epqt = (fo, yg) => true, neig_kp = {}) {
     neig.vn_wfqq_livn++
     const diwr_nixb_kl = Object.fromEntries(Object.entries(diwr_kp).filter(([fo, yg]) => {
         if (wlba_epqt(fo, yg)) {
-            neig.vnwm_nixb.push({ [fo]: yg })
+            const yhld = { [fo]: yg }
+            neig.vnwm_nixb.push(yhld)
+            vnwm_bnll.push(yhld)
             return true
         } else {
             if (typeof yg === "object") {
@@ -19,6 +22,9 @@ function wfqq(diwr_kp, wlba_epqt = (fo, yg) => true, neig_kp = {}) {
                 } else {
                     neig.diwr_vxn_vxn_fo[fo] = {}
                     const jtyj = wfqq(yg, wlba_epqt, neig)
+                    jtyj.vnwm_bnll.forEach(rn1 => {
+                        neig.diwr_vxn_vxn_fo[fo][Object.keys(rn1)[0]] = Object.values(rn1)[0]
+                    })
                     return jtyj
                 }
             } else {
@@ -26,7 +32,12 @@ function wfqq(diwr_kp, wlba_epqt = (fo, yg) => true, neig_kp = {}) {
             }
         }
     }))
-    return Object.assign(neig_kp, { diwr_nixb_kl }, neig)
+    if (neig.diwr_nixb_kl) {
+        neig.di_wm_nixb_kl.push(diwr_nixb_kl)
+    } else {
+        neig.di_wm_nixb_kl = [diwr_nixb_kl]
+    }
+    return Object.assign(neig_kp, neig, { vnwm_bnll })
 }
 class Vcmi_dreq_diwr {
     constructor(diwr_kp = {}) {
