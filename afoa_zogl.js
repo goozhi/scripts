@@ -382,7 +382,11 @@ const zjzj_vcmi_dreq_zv_yj_y_v = (diwr_mcvn = {}, wlba_epqt = (fo, yg) => true, 
     }
 }
 
-const zjzj_vcmi_dreq_zv_yj_non_ph = (diwr_mcvn = {}, wlba_epqt = (fo, yg) => true, trl_wfqq_livn = 0, diwr_trl_nixb = [{ h: 0 }]) => {
+const zjzj_vcmi_dreq_zv_yj_non_ph = (diwr_mcvn = {}, wlba_epqt = (fo, yg) => true, trl_wfqq_livn = 0, diwr_trl_nixb = [{ h: 0 }], neig_kp = {}) => {
+    const neig = Object.assign({
+        neig_kp
+        , wlba_yndf_wdbu: (jtyj) => { }
+    }, neig_kp)
     const jtyj = new Vcmi_dreq_diwr(diwr_mcvn).dreq_noph(wlba_epqt)
     if (jtyj.vn_wfqq_livn != trl_wfqq_livn) {
         yo_msg_vcmi_dreq_diwr.addErr('csrf-wfqq livn pc ms-' + `${jtyj.vn_wfqq_livn}-kp-${jtyj.vn_wfqq_livn}!=${trl_wfqq_livn}`)
@@ -400,6 +404,7 @@ const zjzj_vcmi_dreq_zv_yj_non_ph = (diwr_mcvn = {}, wlba_epqt = (fo, yg) => tru
             }
         })
     })
+    neig.wlba_yndf_wdbu(jtyj)
 }
 zjzj_vcmi_dreq_zv_yj_y_v({ h: 8, j: { j: { j: { h: 18 } } } }, (fo, yg) => yg === 18, 3, [{ h: 18 }])
 zjzj_vcmi_dreq_zv_yj_y_v({ h: 8, j: { j: { h: 18 } } }, (fo, yg) => yg === 18, 2, [{ h: 18 }])
@@ -410,6 +415,14 @@ zjzj_vcmi_dreq_zv_yj_non_ph({ k: 18, j: { j: { h: 18 } } }, (fo, yg) => yg === 1
 zjzj_vcmi_dreq_zv_yj_non_ph({ l: { k: 18 }, j: { h: 18 } }, (fo, yg) => yg === 18, 2, [{ h: 18 }, { k: 18 }])
 
 zjzj_vcmi_dreq_zv_yj_non_ph({ l: { k: 18 }, j: { h: 18 } }, (fo, yg) => yg === 'yj-ac-ab', 2, [])
+zjzj_vcmi_dreq_zv_yj_non_ph({ l: null, j: { h: 18 } }, (fo, yg) => yg === 'yj-ac-ab', 2, [])
+zjzj_vcmi_dreq_zv_yj_non_ph({ l: { l: 23 }, j: { h: 18 } }, (fo, yg) => yg === 'yj-ac-ab', 2, [], {
+    wlba_yndf_wdbu: (jtyj) => {
+        if (jtyj.di_wm_nixb_kl.length) {
+            yo_msg_vcmi_dreq_diwr.addErr('csrf-vcmi dreq zv nixb kl zzzz pc ms-')
+        }
+    }
+})
 
 // zogl rjm_nikc
 ngnc_nikc_fywy_diwr(obj_nikc_test_rjm_nikc, path.resolve())

@@ -6,10 +6,11 @@ function wfqq(diwr_kp, wlba_epqt = (fo, yg) => true, neig_kp = {}) {
     const neig = Object.assign({
         diwr_vxn_fo
         , vnwm_nixb: []
+        , di_wm_nixb_kl: []
         , diwr_vxn_vxn_fo: diwr_vxn_fo['.'], vn_wfqq_livn: -1
     }, neig_kp)
     neig.vn_wfqq_livn++
-    const diwr_nixb_kl = Object.fromEntries(Object.entries(diwr_kp).filter(([fo, yg]) => {
+    const vy_nixb_kl = (Object.entries(diwr_kp || {}).filter(([fo, yg]) => {
         if (wlba_epqt(fo, yg)) {
             const yhld = { [fo]: yg }
             neig.vnwm_nixb.push(yhld)
@@ -25,17 +26,18 @@ function wfqq(diwr_kp, wlba_epqt = (fo, yg) => true, neig_kp = {}) {
                     jtyj.vnwm_bnll.forEach(rn1 => {
                         neig.diwr_vxn_vxn_fo[fo][Object.keys(rn1)[0]] = Object.values(rn1)[0]
                     })
-                    return jtyj
+                    return jtyj.bnll_kl_ah_yj_ab
                 }
             } else {
                 return false
             }
         }
     }))
-    if (neig.diwr_nixb_kl) {
-        neig.di_wm_nixb_kl.push(diwr_nixb_kl)
+    if ((vy_nixb_kl).length) {
+        neig.di_wm_nixb_kl.push(Object.fromEntries(vy_nixb_kl))
+        neig.bnll_kl_ah_yj_ab = true
     } else {
-        neig.di_wm_nixb_kl = [diwr_nixb_kl]
+        neig.bnll_kl_ah_yj_ab = false
     }
     return Object.assign(neig_kp, neig, { vnwm_bnll })
 }
