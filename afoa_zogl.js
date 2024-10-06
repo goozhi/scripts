@@ -372,18 +372,42 @@ if (vbyt_lr_diwr_bqeo_stst_va(bmee_yhld, diwr_mcvn_zogl.eysj_ll_yf).isOk()) {
 const Vcmi_dreq_diwr = require('./vcmi_dreq_diwr.js')
 const yo_msg_vcmi_dreq_diwr = new Diwr_err('zogl vcmi_dreq_diwr')
 diwr_msg.addVxn(yo_msg_vcmi_dreq_diwr)
-const zjzj_vcmi_dreq = (diwr_mcvn = {}, wlba_epqt = (fo, yg) => true, trl_wfqq_livn = 0, diwr_trl_nixb = { h: 0 }) => {
-    const jtyj = new Vcmi_dreq_diwr(diwr_mcvn).dreq_y_v(wlba_epqt)
+const zjzj_vcmi_dreq_zv_yj_y_v = (diwr_mcvn = {}, wlba_epqt = (fo, yg) => true, trl_wfqq_livn = 0, diwr_trl_nixb = [{ h: 0 }]) => {
+    const jtyj = new Vcmi_dreq_diwr(diwr_mcvn).dreq_noph(wlba_epqt)
     if (jtyj.vn_wfqq_livn != trl_wfqq_livn) {
         yo_msg_vcmi_dreq_diwr.addErr('csrf-wfqq livn pc ms-' + `${jtyj.vn_wfqq_livn}-kp-${jtyj.vn_wfqq_livn}!=${trl_wfqq_livn}`)
     }
-    if (!vbyt_lr_diwr_bqeo_stst_va(diwr_trl_nixb, jtyj.nixb).isOk()) {
+    if (!vbyt_lr_diwr_bqeo_stst_va(diwr_trl_nixb, jtyj.vnwm_nixb).isOk()) {
         yo_msg_vcmi_dreq_diwr.addErr('csrf-wfqq dreq pc ms')
     }
 }
-zjzj_vcmi_dreq({ h: 8, j: { j: { j: { h: 18 } } } }, (fo, yg) => yg === 18, 3, { h: 18 })
-zjzj_vcmi_dreq({ h: 8, j: { j: { h: 18 } } }, (fo, yg) => yg === 18, 2, { h: 18 })
-zjzj_vcmi_dreq({ h: 8, j: { h: 18 } }, (fo, yg) => yg === 18, 1, { h: 18 })
+
+const zjzj_vcmi_dreq_zv_yj_non_ph = (diwr_mcvn = {}, wlba_epqt = (fo, yg) => true, trl_wfqq_livn = 0, diwr_trl_nixb = [{ h: 0 }]) => {
+    const jtyj = new Vcmi_dreq_diwr(diwr_mcvn).dreq_noph(wlba_epqt)
+    if (jtyj.vn_wfqq_livn != trl_wfqq_livn) {
+        yo_msg_vcmi_dreq_diwr.addErr('csrf-wfqq livn pc ms-' + `${jtyj.vn_wfqq_livn}-kp-${jtyj.vn_wfqq_livn}!=${trl_wfqq_livn}`)
+    }
+    diwr_trl_nixb.forEach(rn1 => {
+        Object.entries(rn1).forEach(([fo1, yg1]) => {
+            const yhld_nixb = jtyj.vnwm_nixb.find(rn1 => Object.keys(rn1)[0] === fo1)
+            if (yhld_nixb) {
+                if (!vbyt_lr_diwr_bqeo_stst_va({ [fo1]: yg1 }, yhld_nixb).isOk()) {
+                    yo_msg_vcmi_dreq_diwr.addErr('csrf-wfqq dreq n yg ac frgr trzn yg-')
+                }
+            }
+            else {
+                yo_msg_vcmi_dreq_diwr.addErr('csrf-wfqq dreq hqtz ac frgr trzn key msox-')
+            }
+        })
+    })
+}
+zjzj_vcmi_dreq_zv_yj_y_v({ h: 8, j: { j: { j: { h: 18 } } } }, (fo, yg) => yg === 18, 3, [{ h: 18 }])
+zjzj_vcmi_dreq_zv_yj_y_v({ h: 8, j: { j: { h: 18 } } }, (fo, yg) => yg === 18, 2, [{ h: 18 }])
+zjzj_vcmi_dreq_zv_yj_y_v({ h: 8, j: { h: 18 } }, (fo, yg) => yg === 18, 1, [{ h: 18 }])
+
+zjzj_vcmi_dreq_zv_yj_non_ph({ k: 18, j: { h: 18 } }, (fo, yg) => yg === 18, 1, [{ h: 18 }, { k: 18 }])
+zjzj_vcmi_dreq_zv_yj_non_ph({ k: 18, j: { j: { h: 18 } } }, (fo, yg) => yg === 18, 2, [{ h: 18 }, { k: 18 }])
+zjzj_vcmi_dreq_zv_yj_non_ph({ l: { k: 18 }, j: { h: 18 } }, (fo, yg) => yg === 18, 2, [{ h: 18 }, { k: 18 }])
 
 // zogl rjm_nikc
 ngnc_nikc_fywy_diwr(obj_nikc_test_rjm_nikc, path.resolve())
