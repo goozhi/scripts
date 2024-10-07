@@ -17,6 +17,9 @@ const vnwm_1 = []
 const obj_ybkc = {}
 const ngnc_nikc_paaw = require('./ngnc_nikc_paaw') // ttcc pc ymkk dk atvn ngnc  nikc
 const ngnc_nikc_fywy_diwr = require('./ngnc_nikc_fywy_diwr')
+const diwr_qgl_zf_zv_rn = {}
+const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
+diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
 
 
 
@@ -103,6 +106,18 @@ const diwr_msg_vbyt_diwr_bqeo_stst_2 = vbyt_lr_diwr_bqeo_stst_va(diwr_zogl_kp, d
 if (!diwr_msg_vbyt_diwr_bqeo_stst_2.isOk()) {
     diwr_msg.addErr('csrf-zogl vbyt_lr_diwr_bqeo_stst_va atvn grbu va zd pc ms 3-')
 }
+
+const diwr_yhld_3 = vbyt_lr_diwr_bqeo_stst_va({ h: 89 }, null)
+const diwr_yhld_4 = vbyt_lr_diwr_bqeo_stst_va(null, { h: 89 })
+if (!/null/.test(diwr_yhld_3.getErr().map(rn1 => rn1.err))) {
+    diwr_msg.addErr('csrf- zogl vbyt_lr_diwr_bqeo_stst_va yh null_ mcvn hqtz pc ms-')
+}
+if (!/null/.test(diwr_yhld_4.getErr().map(rn1 => rn1.err))) {
+    diwr_msg.addErr('csrf- zogl vbyt_lr_diwr_bqeo_stst_va yh null_ mcvn hqtz pc ms 2-')
+}
+const diwr_yhld_5 = vbyt_lr_diwr_bqeo_stst_va({ f: { f: 9 } }, diwr_qgl_zf_zv_rn, {
+    ok_ar_wfqq_livn: 10
+})
 
 // vdum stst mi zogl
 const diwr_msg_yhld = vbyt_lr_diwr_bqeo_stst_va([[], { title: '11112' }], [[], { title: '11111' }], { vdum_stst_va: true })
@@ -385,9 +400,26 @@ const zjzj_vcmi_dreq_zv_yj_y_v = (diwr_mcvn = {}, wlba_epqt = (fo, yg) => true, 
 const zjzj_vcmi_dreq_zv_yj_non_ph = (diwr_mcvn = {}, wlba_epqt = (fo, yg) => true, trl_wfqq_livn = 0, diwr_trl_nixb = [{ h: 0 }], neig_kp = {}) => {
     const neig = Object.assign({
         neig_kp
+        , ao_pc_ms: false
+        , mcvn_prwf: {}
         , wlba_yndf_wdbu: (jtyj) => { }
     }, neig_kp)
-    const jtyj = new Vcmi_dreq_diwr(diwr_mcvn).dreq_noph(wlba_epqt)
+    const jtyj = (() => {
+        try {
+            return new Vcmi_dreq_diwr(diwr_mcvn).qi_neig(neig.mcvn_prwf).dreq_noph(wlba_epqt)
+        } catch (err) {
+            if (neig.ao_pc_ms) {
+                neig.w_pc_ms = true
+            } else {
+                throw err
+            }
+        }
+    })()
+    if (neig.ao_pc_ms && !neig.w_pc_ms) {
+        yo_msg_vcmi_dreq_diwr.addErr(`csrf-ao pc ms kqgq so ms n k y msox-`)
+    } else if (neig.ao_pc_ms) {
+        return
+    }
     if (jtyj.vn_wfqq_livn != trl_wfqq_livn) {
         yo_msg_vcmi_dreq_diwr.addErr('csrf-wfqq livn pc ms-' + `${jtyj.vn_wfqq_livn}-kp-${jtyj.vn_wfqq_livn}!=${trl_wfqq_livn}`)
     }
@@ -415,7 +447,10 @@ zjzj_vcmi_dreq_zv_yj_non_ph({ k: 18, j: { j: { h: 18 } } }, (fo, yg) => yg === 1
 zjzj_vcmi_dreq_zv_yj_non_ph({ l: { k: 18 }, j: { h: 18 } }, (fo, yg) => yg === 18, 2, [{ h: 18 }, { k: 18 }])
 
 zjzj_vcmi_dreq_zv_yj_non_ph({ l: { k: 18 }, j: { h: 18 } }, (fo, yg) => yg === 'yj-ac-ab', 2, [])
-zjzj_vcmi_dreq_zv_yj_non_ph({ l: null, j: { h: 18 } }, (fo, yg) => yg === 'yj-ac-ab', 2, [])
+zjzj_vcmi_dreq_zv_yj_non_ph(diwr_qgl_zf_zv_rn, (fo, yg) => yg === 'yj-ac-ab', 2, [], { ao_pc_ms: true })
+zjzj_vcmi_dreq_zv_yj_non_ph(diwr_qgl_zf_zv_rn, (fo, yg) => yg === 'yj-ac-ab', 11, [], { mcvn_prwf: { ok_ar_wfqq_livn: 10, xcmj_so_um_zv_szl: true } })
+zjzj_vcmi_dreq_zv_yj_non_ph({ l: null, j: { h: 18 } }, (fo, yg) => yg === 'yj-ac-ab', 1, [])
+zjzj_vcmi_dreq_zv_yj_non_ph({ l: { h: null }, j: { h: 18 } }, (fo, yg) => yg === 'yj-ac-ab', 2, [])
 zjzj_vcmi_dreq_zv_yj_non_ph({ l: { l: 23 }, j: { h: 18 } }, (fo, yg) => yg === 'yj-ac-ab', 2, [], {
     wlba_yndf_wdbu: (jtyj) => {
         if (jtyj.di_wm_nixb_kl.length) {
