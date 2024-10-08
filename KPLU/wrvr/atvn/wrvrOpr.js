@@ -70,7 +70,7 @@ async function wrvrOpr(neig_kp) {
         } else if (user_params._[1] === "yfm") {
             return (() => {
                 return user_params.lastParams.split(/\s/g).filter(rn1 => /\S/.test(rn1)).map(rn1 => {
-                    return rn1 + ": " + (wrvr_kp.diwr_non_eysj[rn1]?.yf || "ra znzk")
+                    return rn1 + ": " + (wrvr_kp.diwr_non_eysj[rn1.match(/\w+/)?.[0].toLowerCase()]?.yf || "ra-znzk")
                 }).join("\n")
             })()
         } else if (user_params._[1] === "yf") {
