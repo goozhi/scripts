@@ -10,6 +10,12 @@ const map_1 = new Map(Object.entries({
     "Y": "Ye",
     p:'pc',
     P:"Pc",
+    m: "wj",
+    M: "Wj",
+    t: "fg",
+    T: "Fg",
+    i: "一个",
+    I: "一个",
     v: "nh",
     V: "Nh"
 }))
