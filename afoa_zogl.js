@@ -687,6 +687,11 @@ const yo_msg_fo_ussk_zogl = new Diwr_err('zogl fo_ussk')
 
 j = [
     [(jtyj) => {
+        if (jtyj !== '255') {
+            yo_msg_fo_ussk_zogl.addErr('csrf-fo ussk fo hqtz msox-')
+        }
+    }, fo_ussk([['a1', (rj) => "1" + rj], ['a2', (rj) => "2" + rj]]).set_hqtz('fo').vdum({ a2: '55' })],
+    [(jtyj) => {
         if (jtyj != 'hello') {
             yo_msg_fo_ussk_zogl.addErr('csrf-fo ussk zogl msox-')
         }
