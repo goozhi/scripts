@@ -37,7 +37,7 @@ function fo_ussk(vy_tskl = [[{}, () => { }]], neig_kp = {}) {
 	this.bnll_nini
 	this.bnll_mcvn
 	this.get = (jc_mil_zv_yg) => {
-		return this.bnll_nini = vy_tskl.find(([fo1, yg1]) => {
+		this.bnll_nini = vy_tskl.find(([fo1, yg1]) => {
 			if (typeof jc_mil_zv_yg === 'object') {
 				this.bnll_mcvn = jc_mil_zv_yg[fo1]
 			} else {
@@ -45,6 +45,10 @@ function fo_ussk(vy_tskl = [[{}, () => { }]], neig_kp = {}) {
 			}
 			return this.wl_epqt(fo1, jc_mil_zv_yg)
 		})
+		if (this.bnll_nini && typeof this.bnll_nini[1] != "function") {
+			throw new Error('csrf-przv fo_ussk n mcvn msox, atvn mcvn uxux aoao lh atvn gq ac lh-' + typeof this.bnll_nini[1])
+		}
+		return this.bnll_nini
 	}
 	this.vdum = (jc_mil_zv_yg) => this.get(jc_mil_zv_yg) ? this.bnll_nini[1](this.bnll_mcvn) : atvn_default(jc_mil_zv_yg)
 	return this
