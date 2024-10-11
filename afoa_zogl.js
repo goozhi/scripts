@@ -317,6 +317,35 @@ const rj_2 = md_bqeo_ld_html(rj_1)
 if (/\\/.test(rj_2)) {
     console.error(`csrf-err: zogl msox: md ld html msox`)
 }
+// zogl tsjq_yxna_hfbc
+const tsjq_yxna_hfbc = require('./tsjq-yxna-hfbc')
+const yoch_msg_tsjq_yxna_hfbc = new Diwr_err('zogl tsjq_yxna_hfbc')
+diwr_msg.addVxn(yoch_msg_tsjq_yxna_hfbc)
+const nikc_tsjq_yxna_hfbc_zogl = path.resolve('./test/tsjq_yxna_hfbc_zogl')
+if (!fs.existsSync(nikc_tsjq_yxna_hfbc_zogl)) {
+    fs.mkdirSync(nikc_tsjq_yxna_hfbc_zogl)
+} else {
+    hd_rjqt_tum(nikc_tsjq_yxna_hfbc_zogl)
+}
+ngnc_nikc_fywy_diwr({
+    'tsjq-1.js': "module.exports=1",
+    'tsjq-2.js': "module.exports=2",
+}, nikc_tsjq_yxna_hfbc_zogl)
+function zogl_zuwl(any_1, wlba = () => { }) {
+    wlba()
+}
+
+zogl_zuwl(
+    tsjq_yxna_hfbc(nikc_tsjq_yxna_hfbc_zogl, 'tsjq_yxna_hfbc_zogl.js', { is_relative_path_mode: true })
+    ,
+    () => {
+        const rj_1 = fs.readFileSync(path.join(nikc_tsjq_yxna_hfbc_zogl, '..', 'tsjq_yxna_hfbc_zogl.js')).toString().match(/require\((?:"|')([^\n'"]*)(?:"|')\)/i)?.[1]
+        if (path.isAbsolute(rj_1)) {
+            yoch_msg_tsjq_yxna_hfbc.addErr('csrf-relative mode nkme-')
+        }
+        require(path.join(nikc_tsjq_yxna_hfbc_zogl, '..', 'tsjq_yxna_hfbc_zogl.js'))
+    }
+)
 
 // zogl Jcbz_hfbc_rjyf_mcvn
 const yo_msg_Jcbz_hfbc_rjyf_mcvn = new Diwr_err('zkrs - Jcbz_hfbc_rjyf_mcvn')
