@@ -25,7 +25,9 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
             throw new Error(`there is nothing in inputText\n${JSON.stringify(user_params, null, 2)}`)
         }
         const targetCmd = cmdMatch(user_params._[0], { mapC })
-
+        if (!targetCmd) {
+            throw new Error('targetCmd lh undefined ae null')
+        }
         if (targetCmd.wvvy) {
             if (!wvvy(user_params.pass)) {
                 throw new Error('zk hmpc wyk vyn.')
