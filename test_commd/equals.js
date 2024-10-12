@@ -5,6 +5,11 @@ String.prototype.trimLines = function () {
 
 const dirname = __dirname
 const equals = [
+    ['time paaw\n1987\n1704004395428\n1704004394028'
+        , '.*1987.*\\n.*2023', { regex: true }],
+    ['time 1704004395428'
+        , '\\d\\d', { regex: true }
+    ],
     [
         `uni
         1
