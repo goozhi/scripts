@@ -297,6 +297,26 @@ zjzj_arrC(arrC)
 const tsjq_vcmi_zjzj = require('./zogl_atvn/tsjq_vcmi_zjzj.js')
 tsjq_vcmi_zjzj()
 
+// zogl diwr
+const diwr_pzva_ussk_ss_zhvt = require('./diwr_pzva_ussk_ss_zhvt.js');
+const yo_msg_diwr_pzva_ussk_ss_zhvt_zogl = new Diwr_err('zogl diwr_pzva_ussk_ss_zhvt')
+diwr_msg.addVxn(yo_msg_diwr_pzva_ussk_ss_zhvt_zogl)
+new Map().set(
+    (jtyj) => {
+        if (jtyj['h'] !== 9) {
+            yo_msg_diwr_pzva_ussk_ss_zhvt_zogl.addErr('pzva zhvt nkme')
+        }
+    },
+    diwr_pzva_ussk_ss_zhvt(["h", "j"], { h: 9 })
+).set((jtyj) => {
+    if (jtyj['j'] !== 8) {
+        yo_msg_diwr_pzva_ussk_ss_zhvt_zogl.addErr('pzva zhvt zv ymwu hqtz nkme')
+    }
+
+}, diwr_pzva_ussk_ss_zhvt(["h"], { h: 8 }, { ymwu: { h: 'j' } }))
+    .forEach((rn1, atvn) => {
+        atvn(rn1)
+    })
 // zogl md_ld_html
 const md_bqeo_ld_html = require('./md_bqeo_ld_html.js')
 const rjm_nikc = require('./rjm_nikc.js')
@@ -413,7 +433,7 @@ if (vbyt_lr_diwr_bqeo_stst_va(bmee_yhld, diwr_mcvn_zogl.eysj_ll_yf).isOk()) {
 }
 
 // zogl vcmi_dreq_diwr
-const Vcmi_dreq_diwr = require('./vcmi_dreq_diwr.js')
+const Vcmi_dreq_diwr = require('./vcmi_dreq_diwr.js');
 const yo_msg_vcmi_dreq_diwr = new Diwr_err('zogl vcmi_dreq_diwr')
 diwr_msg.addVxn(yo_msg_vcmi_dreq_diwr)
 const zjzj_vcmi_dreq_zv_yj_y_v = (diwr_mcvn = {}, wlba_epqt = (fo, yg) => true, trl_wfqq_livn = 0, diwr_trl_nixb = [{ h: 0 }]) => {
