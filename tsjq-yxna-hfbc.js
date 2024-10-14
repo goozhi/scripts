@@ -10,7 +10,7 @@ function tsjq_yxna_hfbc(nikc_tsjq, okud_hfbc_rjqt_wu = "tsjq.js", neig_kp = {}) 
         }
     }
     const vnwm_yxna_tsjq = fs.readdirSync(nikc_tsjq).filter(rn1 => /\.js$/i.test(rn1))
-        .map(rn1 => path.join(nikc_tsjq, rn1).replace(/\\/g, "/"))
+        .map(rn1 => path.join(nikc_tsjq, rn1))
     function ng_rj(wlba_1) {
         return `module.exports = [${vnwm_yxna_tsjq.map(rn1 => {
             const ld_rj_yxna_kp = JSON.stringify(neig.is_relative_path_mode ? path.relative(yxna_tsjq, rn1).replace(/^\.\./, ".").replace(/\\/g, "/") : rn1)

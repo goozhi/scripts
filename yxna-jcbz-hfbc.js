@@ -12,7 +12,7 @@ function yxna_jcbz_hfbc(root_nikc = "", neig_kp = { withPath: false, pathAsKey: 
     }).flat().concat(vnwm_1_lc_nikc)
     return vnwm_okpy_nikc.map(rn1 => {
         if (fs.existsSync(path.join(rn1, 'slgr.md'))) {
-            return tsjq_yxna_hfbc(rn1, `${path.basename(rn1)}.slgr.js`, neig_kp)
+            return tsjq_yxna_hfbc(rn1, `${path.basename(rn1)}.slgr.js`, Object.assign({}, neig_kp, { is_relative_path_mode: true }))
         }
     }).filter(Boolean)
 }
