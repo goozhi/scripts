@@ -283,7 +283,11 @@ const arrC = [
     }],
     [['js'], {
         describe: `'js exec.'
-                examples:
+                ## async klch
+                js
+                return await new Promise()
+
+                ## giww klch
                 js
                 var a1 = 9
                 return a1
