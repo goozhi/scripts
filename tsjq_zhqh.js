@@ -40,6 +40,12 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
             outputs.w_zhqh_mh_lil = true
             await tsjq_zhqh(inputText, outputs, arrC, neig_kp).catch(err => { throw err })
         }
+        // console.log([user_params.iqns_ll])//
+        if (user_params.iqns_ll) {
+            await new Promise((r, j) => {
+                setTimeout(() => { r(true) }, user_params.iqns_ll)
+            }).catch(err => { throw err })
+        }
         await targetCmd.func(user_params, outputs, Object.assign(neig, {
             mapC
         })).catch(err => { throw err })
