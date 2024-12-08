@@ -14,6 +14,19 @@ const wrvr = async (user_params = {}, outputs = { outputText: "" }) => {
         outputs.outputText = (() => {
             return wrvr_kp.dreq_eysj(user_params.regex || user_params.lastParams, user_params).join('\n')
         })()
+    } else if (user_params._[1] === "vn") {
+        const vnwm_cql_vn = "\u96f6\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d".split("")
+        outputs.outputText = (() => {
+            if (user_params.qq) {
+                return user_params.lastParams.replace(/\[(\w{2,3})\]/g,(m1,p1)=>{
+                    return `${vnwm_cql_vn.indexOf(wrvr_kp.diwr_zt_non[p1])}`
+                })      
+            }else{
+                return user_params.lastParams.replace(/\d/g,(m1)=>{
+                    return `[${wrvr_kp.diwr_cqzt_di_wrvr[vnwm_cql_vn[m1]].replace(/(?<=^\w\w)k$/,"")}]`
+                })   
+            }
+        })()
     } else if (user_params._[1] === 'xjvx') {
         outputs.outputText = yhrj_xjvx_ld_wrvr(user_params.lastParams, wrvr_kp)
     } else if (user_params._[1] === 'hfbc') {

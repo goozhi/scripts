@@ -267,7 +267,14 @@ const arrC = [
             keyword
 
             wrvr dreq --regex keyword
-
+            
+            ## vnzt ypwv lh wrvr
+            wrvr vn
+            123
+            
+            ## rswv wrvr ypwv n vnzt
+            wrvr vn --qq
+            [ye][vy][bl]
             
         `,
         func: wrvr
