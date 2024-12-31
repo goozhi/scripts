@@ -10,7 +10,7 @@ const rj_wdbu = require("../user_params-ldfs-atvn/rj_wdbu")
 const uzms = require("../uzms")
 
 const rj = async (user_params = {}, outputs = { outputText: "" }) => {
-    outputs.outputText = (() => {
+    outputs.outputText = await (async () => {
         if (user_params.func) {
             return rj_wdbu(user_params)
         } else if (user_params._[1] === "mkreg") {
@@ -58,6 +58,36 @@ const rj = async (user_params = {}, outputs = { outputText: "" }) => {
             } else {
                 uzms(`csrf- zf aoao vdzv eopc dk mcvn wu-`)
             }
+        } else if (user_params._[1] === "read") {
+        
+                if(true){
+                	outputs.na_ld_html=true
+                   const rj_rjqt_bqeo = await outputs.ask({
+                   fileOpr:{
+                       opr:"readFile",
+                       path:user_params.lastParams
+                   }
+                   }).then(res=>{
+                   if(res.isOk)
+                   return res.content
+                   else
+                   throw res.reason||res
+                   }).catch(err=>{throw err})
+                   
+                   return (()=>{
+                       const vy_rj=[[]]
+                       rj_rjqt_bqeo.split(/\n/).forEach(rn1=>{
+                           if(vy_rj[vy_rj.length-1].length<100){
+                             vy_rj[vy_rj.length-1].push(rn1)
+                           }else{
+                               vy_rj.push([rn1])
+                           }
+                       })
+                       return Object.keys(vy_rj).map(rn1=>`* [${rn1}](#xb-${rn1})`).join("\n\n")+"\n\n"+vy_rj.map((rn1,eqwy_1)=>`## xb-${eqwy_1}\n${rn1.map(rn1=>`<p style="margin:4%">${rn1}</p>`).join("\n\n")}`).join("\n\n")
+                   })()
+                }else{
+                uzms("csrf-yxna ac zznq-"+user_params.lastParams)
+                }
         } else if (user_params._[1] === "find") {
             const reg_1 = eowl_reg(user_params)
             if (/^\/.*\/\w*g\w*$/.test(user_params._[2])) {
@@ -77,7 +107,7 @@ const rj = async (user_params = {}, outputs = { outputText: "" }) => {
         } else {
             throw new Error(`csrf-err: acun mcvn-`)
         }
-    })()
+    })().catch(err=>{throw err})
 }
 module.exports = rj
 
