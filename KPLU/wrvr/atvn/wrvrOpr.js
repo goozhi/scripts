@@ -69,6 +69,14 @@ async function wrvrOpr(neig_kp) {
             return await jyqhRjqt(yxna_test, 2100).catch(err => { throw err })
         } else if (user_params._[1] === "yfm") {
             return (() => {
+            if(user_params.ytm){
+                return user_params.lastParams.replace(/(\w+.*\w)/g, (m,p1)=>{
+                    return m.replace(/\w+/g,(m)=>{
+                    return wrvr_kp.diwr_non_eysj[m.toLowerCase()]?.yf||m
+                    })
+                    //m.split(/ /).map(rn1=>wrvr_kp.diwr_non_eysj[rn1]?.yf||rn1).join(" ")
+                })
+            }
                 return user_params.lastParams.split(/\s/g).filter(rn1 => /\S/.test(rn1)).map(rn1 => {
                     return rn1 + ": " + (wrvr_kp.diwr_non_eysj[rn1.match(/\w+/)?.[0].toLowerCase()]?.yf || "ra-znzk")
                 }).join("\n")

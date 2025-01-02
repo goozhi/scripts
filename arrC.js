@@ -258,7 +258,10 @@ const arrC = [
             ## wrvr eysj rjyf zjqt
             wrvr yfm
             wryq yenh zfkk
-
+            ## ja wrvr xjvx ld diyc rjyf
+            wrvr yfm --ytm
+            kr ji ye nh klch
+            
             ## wrvr yfdp java_ ss json_ rjqt
             wrvr yf
 
