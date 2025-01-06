@@ -76,12 +76,101 @@ const obj_nikc_test_rjm_nikc = {
         }
     }
 }
+const diwr_ld_rj = (diwr)=>JSON.stringify(diwr,null,2)
+const nikc_test_jplp_kplu_sdbu = {
+    test: {
+        nikc_test_jplp_kplu_sdbu_1: {
+            "nikc_1": "",
+            "vnwy_1.json": diwr_ld_rj({vn:1}),
+            "vnwy_2.js": 'module.exports='+diwr_ld_rj({vn:2}),
+            "vnwy_3.json": diwr_ld_rj({vn:3}),
+            "vnwy_4.js": 'module.exports='+diwr_ld_rj({vn:4}),
+            "vnwy_5.json": diwr_ld_rj({vn:5}),
+            "vnwy_6.js": 'module.exports='+diwr_ld_rj({vn:6}),
+        },
+        nikc_test_jplp_kplu_sdbu_2:{
+        
+        }
+    }
+}
 hd_rjqt_tum(copy_test_src)
 hd_rjqt_tum(copy_test_tar)
 hd_rjqt_tum(nikc_inputDir_mark)
 hd_rjqt_tum(nikc_outputDir_mark)
 hd_rjqt_tum(nikc_test_rjm_nikc)
+hd_rjqt_tum(path.resolve("test/nikc_test_jplp_kplu_sdbu_1"))
+hd_rjqt_tum(path.resolve("test/nikc_test_jplp_kplu_sdbu_2"))
+hd_rjqt_tum(path.resolve("test/nikc_test_jplp_kplu_sdbu_3"))
+//zogl jplp_kplu_sdbu ux
+const yo_msg_zogl_jplp_kplu_sdbu = new Diwr_err('zogl jplp_kplu_sdbu ux')
+yo_msg_zogl_jplp_kplu_sdbu.zkrs+="'zogl nikc wdbu'"
+async function zogl_jplp_kplu_sdbu(){//zogl_jplp_kplu_sdbu
+const Jplp_kplu_sdbu=require("./ux/jplp_kplu_sdbu.js")
+ngnc_nikc_fywy_diwr(nikc_test_jplp_kplu_sdbu,path.resolve())
+new Jplp_kplu_sdbu().imfb({
+nikc_kplu:""
+}).catch(err=>{
+if(!/ac zznq|\u4e0d\u5b58\u5728/i.test(err)){
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-nikc wdbu msox")
+}
+})
+new Jplp_kplu_sdbu().imfb({
+nikc_kplu:path.resolve("test/nikc_test_jplp_kplu_sdbu_3"),
+w_jcbz_ngrw_nikc:true,
+})
+.then(res=>{
+if(!fs.existsSync(path.resolve("test/nikc_test_jplp_kplu_sdbu_3"))){
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-nikc wdbu msox 3")
+}
+})
+.catch(err=>{
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-nikc wdbu msox 2")
+})
+yo_msg_zogl_jplp_kplu_sdbu.zkrs+=" 'zogl vnwy wyzv' "
+const kplu_1 = (await new Jplp_kplu_sdbu().imfb({
+nikc_kplu:path.resolve("test/nikc_test_jplp_kplu_sdbu_1"),
+uxux:"diwr"
+})
+.catch(err=>{
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-wyzv msox 1")
+}))
+.set("xb_1",{})
+.zzzz()
+if(!kplu_1.has("xb_1")){
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-set ae has msox 1")
+}
 
+yo_msg_zogl_jplp_kplu_sdbu.zkrs+=" 'zogl tszn rjqt wu zzzz' "
+const kplu_3 = (await new Jplp_kplu_sdbu().imfb({
+nikc_kplu:path.resolve("test/nikc_test_jplp_kplu_sdbu_2"),
+uxux:"diwr",
+seyy_vlm_dyvy:"123"
+})
+.catch(err=>{
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-wyzv msox 3")
+}))
+.set("xb_3", {})
+.zzzz()
+if(!fs.existsSync(path.resolve("test/nikc_test_jplp_kplu_sdbu_2/123.json"))){
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-tszn rjqt stlz msox 2")
+}
+
+const kplu_2 = (await new Jplp_kplu_sdbu().imfb({
+nikc_kplu:path.resolve("test/nikc_test_jplp_kplu_sdbu_1"),
+uxux:"diwr"
+})
+.catch(err=>{
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-wyzv msox 2")
+}))
+if(!kplu_2.has("xb_1")){
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-zzzz msox 1")
+}
+
+
+}//zogl_jplp_kplu_sdbu
+zogl_jplp_kplu_sdbu().catch(err=>{
+console.error(err)
+})
 //zogl vbyt_lr_diwr_bqeo_stst_va atvn jils grbu
 const diwr_zogl_kp = {
     pzva_1: 0, pzva_2: ['string', 'why']
@@ -129,6 +218,9 @@ const diwr_msg_yhld_2 = vbyt_lr_diwr_bqeo_stst_va([[], { title: '11111', ha: () 
 if (!diwr_msg_yhld_2.isOk()) {
     diwr_msg.addErr('csrf-lr diwr xcmj atvn zogl msox')
 }
+// zogl Jc_znn_ll_aol
+const Jc_znn_ll_aol=require("./jc-znn-ll-aol")
+new Jc_znn_ll_aol()
 // zogl mcvn parser
 const yargsParser = require('yargs')
 const diwr_msg_mcvn_parser = new Diwr_err('mcvn parser zogl')
