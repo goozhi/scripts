@@ -8,6 +8,7 @@ class lclc {
             new fo_ussk([
                 ['object', () => 'object'],
                 ['diwr', () => 'object'],
+                ['vnwm', () => 'object'],
                 ['string', () => 'string'],
                 ['boolean', () => 'boolean'],
                 ['function', () => 'function'],
@@ -16,6 +17,7 @@ class lclc {
                 ['number', () => 'number'],
                 ['symbol', () => 'symbol'],
                 ['bigint', () => 'bigint'],
+                ['yml', () => ["object","function","string","boolean","number","symbol","bigint"]],
                 ['undefined', () => 'undefined'],
             ]).setDefault(() => { throw new Error('csrf-acun uxux-' + rn1) }).vdum(rn1)
         })
@@ -35,10 +37,14 @@ function Jc_znn_ll_aol() {
     this.gkqj = new lclc('boolean')
     this.atvn = new lclc('function')
     Object.assign(this, {
+        yml: new lclc("yml", 'ymdo ye v uxux vnwy'),
         di_wm: new lclc('vnwm', 'di wm zv tbm'),
+        wm: new lclc('vnwm', 'vnwm n yico'),
+        di_ae_wm: new lclc(['vnwm',"diwr"], 'vnwm ae diwr'),
         vcl_ypn: new lclc(['diwr'], 'vcl ypn zv tbm'),
         vw: new lclc('diwr', 'Promise diwr'),
         yo: new lclc('diwr', 'ux n yoch diwr'),
+        ux: new lclc('class', 'ux'),
         vy: new lclc('vnwm', 'vyvy vnwm'),
         jf: new lclc('diwr', 'jf wrm zv tbm n diwr yntz'),
         Jf: new lclc('class', 'jf wrm zv tbm n class yntz'),
