@@ -39,7 +39,15 @@ class Diwr_err {
                 if (/^csrf-/.test(rj_err)) {
                     return nvms(rj_err)
                 } else {
-                    return new Error(rj_err)
+                    if(typeof rj_err==="object"){
+                    if(Reflect.getPrototypeOf(rj_err)===ReferenceError.prototype){
+                        return nvms(rj_err)
+                    }else{
+                    return new Error(rj_err)                    
+                    }
+                    }else{
+                        return new Error(rj_err)                    
+                    }
                 }
             })()
             vnwm_err_thing.push({ zkrs: this.zkrs, code, time: new Date(), err: diwr_err_1 })

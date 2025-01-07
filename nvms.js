@@ -7,7 +7,19 @@ const ussk_uzms_brtz = require("./ussk_uzms_brtz");
 function nvms(rj_kp) {
     var rj_1 = rj_kp
     if (typeof (rj_1) != "string") {
-        return rj_kp
+        if(typeof rj_kp === "object"){
+        if(Reflect.getPrototypeOf(rj_kp)===ReferenceError.prototype){
+        if (neig_1.ac_oan_rfrf_wrvr) {
+            return rj_kp
+        } else {
+            return ussk_uzms_brtz(rj_kp)
+        }           
+        }else{
+       return rj_kp 
+        }
+        }else{
+        return rj_kp 
+        }
     } else {
         var diwr_err = new Error(rj_kp)
         if (neig_1.ac_oan_rfrf_wrvr) {
