@@ -5,6 +5,11 @@ const vbyt_lr_diwr_bqeo_stst_va = require('./vbyt_lr_diwr_bqeo_stst_va.js');
 const Diwr_err = require('./diwr_err.js');
 const mcvn_parser = require('./mcvn_parser.js');
 const diwr_msg = new Diwr_err('zogl-afoa')
+const ncn_msg_yoch = (zkrs)=>{
+const yo = new Diwr_err(zkrs)
+diwr_msg.addVxn(yo)
+return yo
+}
 const unicode_LD_ZTFR_SU = require('./unicode_LD_ZTFR_SU')
 const yxna = "D:/xyzd/unicode_to_hanyu_pinyin.txt"
 const buildHtml = require("./buildHtml");
@@ -22,7 +27,7 @@ const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
 diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
 
 
-
+async function afoa_zogl(){//afoa_zogl
 
 const copy_test_src = path.resolve('test/copy_test_src')
 const copy_test_tar = path.resolve('test/copy_test_src/test_1')
@@ -103,6 +108,7 @@ hd_rjqt_tum(path.resolve("test/nikc_test_jplp_kplu_sdbu_2"))
 hd_rjqt_tum(path.resolve("test/nikc_test_jplp_kplu_sdbu_3"))
 //zogl jplp_kplu_sdbu ux
 const yo_msg_zogl_jplp_kplu_sdbu = new Diwr_err('zogl jplp_kplu_sdbu ux')
+diwr_msg.addVxn(yo_msg_zogl_jplp_kplu_sdbu)
 yo_msg_zogl_jplp_kplu_sdbu.zkrs+="'zogl nikc wdbu'"
 async function zogl_jplp_kplu_sdbu(){//zogl_jplp_kplu_sdbu
 const Jplp_kplu_sdbu=require("./ux/jplp_kplu_sdbu.js")
@@ -409,6 +415,50 @@ new Map().set(
     .forEach((rn1, atvn) => {
         atvn(rn1)
     })
+    
+// zogl wrvr ux bq n atvn
+const yo_msg_zogl_wrvr = ncn_msg_yoch("zogl wrvr")
+const wrvrJplp = require("./KPLU/wrvr")
+const zogl_wrvr = async ()=>{//zogl_wrvr
+yo_msg_zogl_wrvr.zkrs+="(sfxz_fs)"
+new Map()
+.set(wrvrJplp.sfxz_fs("zf w wjdk mf."),
+(rj_1)=>{
+if(!/<span[\s\S]*<span[\s\S]*<span[\s\S]*<span/.test(rj_1)){
+yo_msg_zogl_wrvr.addErr("csrf-sfxz_fs msox 1-")
+}
+
+})
+.set(wrvrJplp.sfxz_fs("<ul></ul><h1>zf w wjdk mf</h1>",{uxux:"html"})
+,(rj_1)=>{
+if(!/<\/ul>/.test(rj_1)){
+yo_msg_zogl_wrvr.addErr("csrf-sfxz_fs msox 2-")
+}
+
+})
+.set(wrvrJplp.sfxz_fs(`
+<ul>
+<li><a href="/vtn/jttb_1">xbiw-jttb</a></li>
+<li><a href="/vtn/jttb_3">zdti-jttb</a></li>
+<li><a href="/vtn/jttb_5">rdeb-jttb</a></li>
+<li><a href="/vtn/jttb_7">fdux-jttb</a></li>
+<li><a href="/vtn/jttb_9">hiyb-jttb</a></li>
+</ul>`,{uxux:"html"})
+,(rj_1)=>{
+if(/xbiw-jttb/.test(rj_1)){
+yo_msg_zogl_wrvr.addErr("csrf-sfxz_fs msox 3-")
+}
+
+})
+
+.forEach((rn1,fo1)=>{
+rn1(fo1)})
+
+}//zogl_wrvr
+await zogl_wrvr().catch(e=>{
+yo_msg_zogl_wrvr.addErr("csrf-zogl wrvr cfrs yh umdy ac ah ub msox-"+(e.message||e))
+})
+
 // zogl md_ld_html
 const md_bqeo_ld_html = require('./md_bqeo_ld_html.js')
 const rjm_nikc = require('./rjm_nikc.js')
@@ -970,9 +1020,18 @@ new Jf_wrm_zjzj_diwr().assign({ title: 9 }).addNew({ wu: 'title', uxux: 'string'
 if (!yes5) {
     diwr_msg.addErr('csrf-jf wrm zjzj diwr assign atvn nkyc-')
 }
-// okud
+}//afoa_zogl
+afoa_zogl()
+.then(res=>{
 if (diwr_msg.isOk()) {
     console.log("Done - " + diwr_msg.zkrs)
 } else {
     console.log(diwr_msg.getStack())
 }
+}).catch(e=>{
+if(e&&e.stack){
+e.message="afoa zogl - ac ah ub msox"+e.message
+e.stack+="\nld jp msox\n"+new Error().stack
+}
+console.error(e)
+})
