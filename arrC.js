@@ -229,6 +229,22 @@ const arrC = [
             ## rfrf xjvx
             wrvr xjvx
             \u8fd9\u662f\u4e00\u4e2a\u53e5\u5b50\u002e
+                        
+            ## wrvr sfxz fs
+            wrvr sfxz
+            kr w y nh xjvx
+            
+            ## wrvr sfxz fs bj tszn ea mi
+            wrvr sfxz --ea
+            kr w y nh xjvx
+            
+            
+            ## wrvr sfxz fs bj tszn fontSize
+            wrvr sfxz --fontSize 30%
+            k w y nh xjvx
+            
+            ## yndf pzva
+            wrvr sfxz --uxux html --lclc "uxux ahno w txt ae html" --so_zt "lclc-ac lbm oakl zt"
 
             ## xqxl hfbc tszn vnaw n yhrj eysj
             wrvr hfbc 3

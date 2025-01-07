@@ -27,6 +27,21 @@ const wrvr = async (user_params = {}, outputs = { outputText: "" }) => {
                 })   
             }
         })()
+    } else if (user_params._[1] === 'sfxz') {
+         outputs.outputText = (()=>{//wdbu_html
+         const rj_html = (wrvr_kp.sfxz_fs(user_params.lastParams, user_params))
+         outputs.rj_zhqh_tsjq="html vdum\n"+rj_html
+return rj_html
+         })()//wdbu_html
+    } else if (user_params._[1] === 'color') {
+         outputs.outputText = (()=>{
+             if(user_params.non){//non
+             return wrvr_kp.get_html_sfxz_non()
+             }//non
+             return user_params.lastParams.replace(/\w+/g,(m)=>{
+                return `[${m}:${wrvr_kp.diwr_wrvr_zt_di_sfxz[m]?.background||""}]`             
+             })
+         })()
     } else if (user_params._[1] === 'xjvx') {
         outputs.outputText = yhrj_xjvx_ld_wrvr(user_params.lastParams, wrvr_kp)
     } else if (user_params._[1] === 'hfbc') {
