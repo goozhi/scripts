@@ -1,5 +1,6 @@
 const NiJinzhiZhuanhuan = require('../../NiJinzhiZhuanhuan')
 const rjyf2 = require('./atvn/rjyf_2')
+const md_ld_html = require("../../md_ld_html")
 const ussk_cqpi=require("../../ussk_cqpi")
 const yhrj_ld_wrvr = require('./atvn/yhrj_ld_wrvr')
 const yo_hfbc_rjyf_mcvn = require('./atvn/yo_hfbc_rjyf_mcvn')
@@ -82,7 +83,7 @@ class Wrvr {
             ea:11
             , fontSize: "larger"
             , so_zt: false
-            , uxux: "txt" // html
+            , uxux: "txt" // html md
             , w_ac_ncn_style:false},neig_kp)
 if(!neig.w_ac_ncn_style){
 return `<div style="margin: 4%;font-size: ${neig.fontSize};">
@@ -97,7 +98,7 @@ ${ld_sfxz(rj_kp, neig)}
 function ld_sfxz(rj_kp, neig_kp={}){//ld_sfxz
 let rj_4 = rj_kp
 const neig = Object.assign({neig_kp},{
-uxux:"txt",// html
+uxux:"txt",// html md
 },neig_kp)
 return ussk_cqpi(new Map()
 .set("txt",()=>{//txt_hqtz
@@ -112,6 +113,11 @@ return rj_kp.replace(/(>)([^<>]+)(<)/g,(m1,p1,p2,p3)=>{//replace_all
 return `${p1}${eowl_pre(p2,"code")}${p3}`
 })//replace_all
 })//html_hqtz
+.set("md",()=>{//md_hqtz
+return md_ld_html(rj_kp).replace(/(>)([^<>]+)(<)/g,(m1,p1,p2,p3)=>{//replace_all
+return `${p1}${eowl_pre(p2,"code")}${p3}`
+})//replace_all
+})//md_hqtz
 )
 .vdum(neig.uxux)
 
