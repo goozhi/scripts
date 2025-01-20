@@ -183,6 +183,12 @@ fffffffffff*2 = 35184372088830
         `志 的`
     ]
     , [
+        `wrvr dreq
+        一`,
+        `.一`,
+        {regex:true}
+    ]
+    , [
         `wrvr --ztwm
         ac`,
         `不 盏 嚣 竖 悦`
