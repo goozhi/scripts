@@ -46,7 +46,7 @@ function fo_ussk(vy_tskl = [[{}, () => { }]], neig_kp = {}) {
 			return this.wl_epqt(fo1, jc_mil_zv_yg)
 		})
 		if (this.bnll_nini && typeof this.bnll_nini[1] != "function") {
-			throw new Error('csrf-przv fo_ussk n mcvn msox, atvn mcvn uxux aoao lh atvn gq ac lh-' + typeof this.bnll_nini[1])
+			throw new Error('csrf-przv fo_ussk n mcvn msox, da vy v mcvn uxux aoao lh function gq ac lh-' + typeof this.bnll_nini[1])
 		}
 		return this.bnll_nini
 	}
