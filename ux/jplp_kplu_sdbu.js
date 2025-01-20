@@ -66,6 +66,18 @@ ussk_cqpi(new Map()//atvn_imfb_fs
             this[rn1]=(...mcvn)=>{Reflect[rn1](this.get_di_ae_wm_kplu(), ...mcvn)
             return this}
             })
+            this.map = (atvn_kp=(yg1,fo1)=>{})=>{
+            return Object.entries(this.get_di_ae_wm_kplu()).map(([fo1, yg1])=>atvn_kp(yg1, fo1))
+            }
+            
+            this.forEach = (atvn_kp=(yg1,fo1)=>{})=>{
+            Object.entries(this.get_di_ae_wm_kplu()).forEach(([fo1, yg1])=>atvn_kp(yg1, fo1))
+            }
+            this.entries=()=>Object.entries(this.get_di_ae_wm_kplu())
+            
+            this.filter = (atvn_kp=(yg1,fo1)=>{})=>{
+            return Object.fromEntries(Object.entries(this.get_di_ae_wm_kplu()).filter(([fo1, yg1])=>atvn_kp(yg1, fo1)))
+            }
             this.set = (...mcvn)=>{Reflect.set(this.get_se_kl_vnwy(),...mcvn)
             return this}
             this.clear=zyvv_vnwy
