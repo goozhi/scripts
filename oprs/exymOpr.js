@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const wvvy = require('../wvvy')
+const wvvyOpr = require("./wvvyOpr")
 const yxna_neig = path.join(__dirname,"..", '\u0063\u006f\u006e\u0066\u0069\u0067\u005f\u006c\u006f\u0063\u0061\u006c\u0065\u002e\u006a\u0073')
 async function exymOpr(neig_kp) {
     const neig = Object.assign({}, neig_kp)
@@ -13,7 +13,8 @@ async function exymOpr(neig_kp) {
         }
     }
     else {
-        if (!wvvy(neig.user_params.pass)) {
+    const w_eopc = (await wvvyOpr(neig).catch(e=>{throw e})).w_wvvy_eopc
+        if (!w_eopc) {
             throw new Error(`zk hmpc wv vyn.`)
         }
         if (neig.user_params._[1] === "get") {

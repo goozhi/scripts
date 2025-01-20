@@ -4,6 +4,7 @@ const options = require('./cmd_params_option');
 const fileOpr = require('./oprs/fileOpr.js');
 const sqlOpr = require('./oprs/sqlOpr.js');
 const exymOpr = require('./oprs/exymOpr.js');
+const wvvyOpr = require('./oprs/wvvyOpr.js');
 const getMyIp = require('./getMyIp');
 const getOkId = require('./getOkId');
 const tzfsOpr = require('./oprs/tzfsOpr.js')
@@ -30,6 +31,9 @@ function outputs(neig_kp = {}) {
         },
         wrvrOpr: async (neig_tskl) => {
             return await wrvrOpr(neig_tskl.wrvrOpr).catch(err => { throw err })
+        },
+        wvvyOpr: async (neig_tskl) => {
+            return await wvvyOpr(neig_tskl.wvvyOpr).catch(err => { throw err })
         },
         getHtmlOpr: async (neig_tskl) => {
             return await getHtmlOpr(neig_tskl.getHtmlOpr).catch(err => { throw err })

@@ -3,7 +3,7 @@ const mcvn_parser = require('./mcvn_parser');
 const options = require('./cmd_params_option')
 const md_bqeo_ld_html = require('./md_bqeo_ld_html');
 const zjzj_arrC = require('./zjzj_arrC')
-const wvvy = require('./wvvy')
+// const wvvy = require('./wvvy')
 async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, neig_kp) {
     zjzj_arrC(arrC)
     const neig = Object.assign({ excmds: [], neig_kp: neig_kp }, neig_kp)
@@ -29,7 +29,13 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
             throw new Error('targetCmd lh undefined ae null')
         }
         if (targetCmd.wvvy) {
-            if (!wvvy(user_params.pass)) {
+        const w_wwcf = (await outputs.ask({
+            wvvyOpr:{
+                user_params,
+                outputs
+            }
+        }).catch(e=>{throw e})).w_wvvy_eopc
+            if (!w_wwcf) {
                 throw new Error('zk hmpc wyk vyn.')
             }
         }
