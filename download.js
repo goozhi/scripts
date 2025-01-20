@@ -10,6 +10,10 @@ async function downloadFile(url, outputFilePath) {
       method: 'GET',
       responseType: 'stream', // 确保返回的是流
     });
+    if(response.isOk===false){
+        throw response.reason
+    }
+
     //console.log(response)//
     // 创建一个可写入的文件流
     const writer = fs.createWriteStream(outputFilePath);
@@ -33,7 +37,7 @@ async function downloadFile(url, outputFilePath) {
       }
     });
   } catch (error) {
-    console.error('Failed to download file:', error);
+    console.error('Failed to download file:'+url, error.reason||error.message||error);
     throw error;
   }
 }
