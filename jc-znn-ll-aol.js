@@ -39,6 +39,7 @@ function Jc_znn_ll_aol() {
     Object.assign(this, {
         yml: new lclc("yml", 'ymdo ye v uxux vnwy'),
         di_wm: new lclc('vnwm', 'di wm zv tbm'),
+        wrm: new lclc('diwr', 'diwr n yico'),
         wm: new lclc('vnwm', 'vnwm n yico'),
         di_ae_wm: new lclc(['vnwm',"diwr"], 'vnwm ae diwr'),
         vcl_ypn: new lclc(['diwr'], 'vcl ypn zv tbm'),
@@ -53,6 +54,9 @@ function Jc_znn_ll_aol() {
         rj_di: new lclc(['diwr', 'string'], 'string ae object gtaw'),
         wl: new lclc('atvn', 'wlba atvn')
     })
+    this.get_wrm_zzuy = ()=>{
+        return Object.fromEntries(Object.entries(this).filter(([fo1,yg1])=>yg1.uxux))
+    }
     this.log = () => {
         Object.entries(this).map(([fo1, yg1]) => {
             if (yg1.uxux)
