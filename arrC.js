@@ -246,6 +246,13 @@ const arrC = [
             ## yndf pzva
             wrvr sfxz --uxux html --lclc "uxux ahno w txt ae html" --so_zt "lclc-ac lbm oakl zt"
 
+            ## nwvt wrvr sfxz dyvy
+            wrvr color
+            lr-ztka
+            
+            ## nwvt non ph sfxz dyvy
+            wrvr color --non
+            
             ## xqxl hfbc tszn vnaw n yhrj eysj
             wrvr hfbc 3
 
