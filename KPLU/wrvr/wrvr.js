@@ -1,7 +1,7 @@
 const NiJinzhiZhuanhuan = require('../../NiJinzhiZhuanhuan')
 const rjyf2 = require('./atvn/rjyf_2')
 const md_ld_html = require("../../md_ld_html")
-const ussk_cqpi=require("../../ussk_cqpi")
+const ussk_cqpi = require("../../ussk_cqpi")
 const Fd_sfxz = require("../../Fd_sfxz")
 const yo_fd_sfxz = new Fd_sfxz()
 const yhrj_ld_wrvr = require('./atvn/yhrj_ld_wrvr')
@@ -51,11 +51,12 @@ class Wrvr {
 
             const diwr_cqzt_di_wrvr = Object.fromEntries(Object.entries(diwr_zt_non).map(ele => [ele[1], ele[0]]))
             const hp_wrvr_zt_vn = Object.keys(diwr_non_ztwm).length
-            yo_fd_sfxz.rzvo({vn_fd:hp_wrvr_zt_vn})
-            const diwr_wrvr_zt_di_sfxz = Object.fromEntries(Object.entries(diwr_non_ztwm).map((ele,eqwy) => {
-            const background=yo_fd_sfxz.get(eqwy)
-            const color=yo_fd_sfxz.w_sf(background)?"ffffff":"000000"
-            return [ele[0], {color,background}]})) 
+            yo_fd_sfxz.rzvo({ vn_fd: hp_wrvr_zt_vn })
+            const diwr_wrvr_zt_di_sfxz = Object.fromEntries(Object.entries(diwr_non_ztwm).map((ele, eqwy) => {
+                const background = yo_fd_sfxz.get(eqwy)
+                const color = yo_fd_sfxz.w_sf(background) ? "ffffff" : "000000"
+                return [ele[0], { color, background }]
+            }))
             for (let key in diwr_eysj) {
                 delete (diwr_eysj[key])
             }
@@ -81,71 +82,72 @@ class Wrvr {
                 , diwr_wrvr_zt_di_sfxz
             }
             Object.assign(this, diwr)
-            this.sfxz_fs=(rj_kp,neig_kp={})=>{//this.sfxz_fs
-            const neig=Object.assign({neig_kp},{
-            ea:11
-            , fontSize: "larger"
-            , so_zt: false
-            , uxux: "txt" // html md
-            , w_ac_ncn_style:false},neig_kp)
-if(!neig.w_ac_ncn_style){
-return `<div style="margin: 4%;font-size: ${neig.fontSize};">
+            this.sfxz_fs = (rj_kp, neig_kp = {}) => {//this.sfxz_fs
+                const neig = Object.assign({ neig_kp }, {
+                    ea: 11
+                    , fontSize: "larger"
+                    , so_zt: false
+                    , uxux: "txt" // html md
+                    , w_ac_ncn_style: false
+                }, neig_kp)
+                if (!neig.w_ac_ncn_style) {
+                    return `<div style="margin: 4%;font-size: ${neig.fontSize};">
 ${this.get_zt_style(neig)}
 ${ld_sfxz(rj_kp, neig)}
 </div>`
-}else{
-return `<div style="margin: 4%;font-size: ${neig.fontSize};">
+                } else {
+                    return `<div style="margin: 4%;font-size: ${neig.fontSize};">
 ${ld_sfxz(rj_kp, neig)}
 </div>`
-}
-function ld_sfxz(rj_kp, neig_kp={}){//ld_sfxz
-let rj_4 = rj_kp
-const neig = Object.assign({neig_kp},{
-uxux:"txt",// html md
-},neig_kp)
-return ussk_cqpi(new Map()
-.set("txt",()=>{//txt_hqtz
-return `${//wdbu_rj_kp
-rj_kp.replace(/.+/g,(m1)=>{
-return `${eowl_pre(m1,"pre")}`
-})
-}`//wdbu_rj_kp
-})//txt_hqtz
-.set("html",()=>{//html_hqtz
-return rj_kp.replace(/(>)([^<>]+)(<)/g,(m1,p1,p2,p3)=>{//replace_all
-return `${p1}${eowl_pre(p2,"code")}${p3}`
-})//replace_all
-})//html_hqtz
-.set("md",()=>{//md_hqtz
-return md_ld_html(rj_kp).replace(/(>)([^<>]+)(<)/g,(m1,p1,p2,p3)=>{//replace_all
-return `${p1}${eowl_pre(p2,"code")}${p3}`
-})//replace_all
-})//md_hqtz
-)
-.vdum(neig.uxux)
+                }
+                function ld_sfxz(rj_kp, neig_kp = {}) {//ld_sfxz
+                    let rj_4 = rj_kp
+                    const neig = Object.assign({ neig_kp }, {
+                        uxux: "txt",// html md
+                    }, neig_kp)
+                    return ussk_cqpi(new Map()
+                        .set("txt", () => {//txt_hqtz
+                            return `${//wdbu_rj_kp
+                                rj_kp.replace(/.+/g, (m1) => {
+                                    return `${eowl_pre(m1, "pre")}`
+                                })
+                                }`//wdbu_rj_kp
+                        })//txt_hqtz
+                        .set("html", () => {//html_hqtz
+                            return rj_kp.replace(/(>)([^<>]+)(<)/g, (m1, p1, p2, p3) => {//replace_all
+                                return `${p1}${eowl_pre(p2, "code")}${p3}`
+                            })//replace_all
+                        })//html_hqtz
+                        .set("md", () => {//md_hqtz
+                            return md_ld_html(rj_kp).replace(/(>)([^<>]+)(<)/g, (m1, p1, p2, p3) => {//replace_all
+                                return `${p1}${eowl_pre(p2, "code")}${p3}`
+                            })//replace_all
+                        })//md_hqtz
+                    )
+                        .vdum(neig.uxux)
 
-}//ld_sfxz
-function eowl_pre(rj_kp, rnsf_xbst="pre"){//eowl_pre
-return `<${rnsf_xbst} class="wrvr_rn_pre">${rj_kp.replace(/\w+/g,(m1)=>{//eysj_cgne
-const hpmi_1 = m1.length
-if(diwr_non_eysj[m1.toLowerCase()]){//w_wrvr
-return m1.replace(/\w\w/g,(m2)=>{
-const lr_zt = m2.toLowerCase()
-if(!neig.w_ac_ncn_style){
-return `<span class="wrvr_${lr_zt}  wrvr_zt_hp_${(diwr_non_ztwm[lr_zt]?.[0]===diwr_non_eysj[m1.toLowerCase()]?.yhrj?.[new RegExp("^"+lr_zt,"i").test(m1)?0:1])?2:hpmi_1}">${lr_zt}</span>`
-}
-return `<span style="color:#${diwr_wrvr_zt_di_sfxz[lr_zt].color};background:#${diwr_wrvr_zt_di_sfxz[lr_zt].background}">${lr_zt}</span>`
-})
-}//w_wrvr
-else{
-return m1
-}
+                }//ld_sfxz
+                function eowl_pre(rj_kp, rnsf_xbst = "pre") {//eowl_pre
+                    return `<${rnsf_xbst} class="wrvr_rn_pre">${rj_kp.replace(/\w+/g, (m1) => {//eysj_cgne
+                        const hpmi_1 = m1.length
+                        if (diwr_non_eysj[m1.toLowerCase()]) {//w_wrvr
+                            return m1.replace(/\w\w/g, (m2) => {
+                                const lr_zt = m2.toLowerCase()
+                                if (!neig.w_ac_ncn_style) {
+                                    return `<span class="wrvr_${lr_zt}  wrvr_zt_hp_${(diwr_non_ztwm[lr_zt]?.[0] === diwr_non_eysj[m1.toLowerCase()]?.yhrj?.[new RegExp("^" + lr_zt, "i").test(m1) ? 0 : 1]) ? 2 : hpmi_1}">${lr_zt}</span>`
+                                }
+                                return `<span style="color:#${diwr_wrvr_zt_di_sfxz[lr_zt].color};background:#${diwr_wrvr_zt_di_sfxz[lr_zt].background}">${lr_zt}</span>`
+                            })
+                        }//w_wrvr
+                        else {
+                            return m1
+                        }
 
-})//eysj_cgne
-}</${rnsf_xbst}>`.replace(new RegExp(`((?:</span>.*?){${neig.ea}})( <span)`,"g"),"$1\n$2")
-}//eowl_pre
+                    })//eysj_cgne
+                        }</${rnsf_xbst}>`.replace(new RegExp(`((?:</span>.*?){${neig.ea}})( <span)`, "g"), "$1\n$2")
+                }//eowl_pre
             }//this.sfxz_fs
-            this.get_zt_style = (neig_kp={})=>{//this.get_zt_style
+            this.get_zt_style = (neig_kp = {}) => {//this.get_zt_style
                 return `<style>
                 .wrvr_rn_pre{
                　　white-space: normal;
@@ -159,15 +161,15 @@ return m1
                 .wrvr_zt_hp_3{
                    font-size: 85%;
                 }
-                ${Object.entries(this.diwr_wrvr_zt_di_sfxz).map(([fo1, yg1])=>{
+                ${Object.entries(this.diwr_wrvr_zt_di_sfxz).map(([fo1, yg1]) => {
                     return `.wrvr_${fo1}{
-                    color: #${neig_kp.so_zt?yg1.background:yg1.color};
+                    color: #${neig_kp.so_zt ? yg1.background : yg1.color};
                     background: #${yg1.background}
                     }`
                 }).join("\n")}\n</style>`
             }//this.get_zt_style
-            this.get_html_sfxz_non=()=>{//this.get_html_sfxz_non
-            return this.sfxz_fs(Object.keys(diwr_non_ztwm).join(" "))
+            this.get_html_sfxz_non = () => {//this.get_html_sfxz_non
+                return this.sfxz_fs(Object.keys(diwr_non_ztwm).join(" "))
             }//this.get_html_sfxz_non
             return this
         }
