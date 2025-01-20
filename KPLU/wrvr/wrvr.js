@@ -2,6 +2,8 @@ const NiJinzhiZhuanhuan = require('../../NiJinzhiZhuanhuan')
 const rjyf2 = require('./atvn/rjyf_2')
 const md_ld_html = require("../../md_ld_html")
 const ussk_cqpi=require("../../ussk_cqpi")
+const Fd_sfxz = require("../../Fd_sfxz")
+const yo_fd_sfxz = new Fd_sfxz()
 const yhrj_ld_wrvr = require('./atvn/yhrj_ld_wrvr')
 const yo_hfbc_rjyf_mcvn = require('./atvn/yo_hfbc_rjyf_mcvn')
 yo_hfbc_rjyf_mcvn.hfbc_rjyf_mcvn()
@@ -31,7 +33,7 @@ class Wrvr {
                 if (neig_kp.regex) {
                     return (rn1) => new RegExp(neig_kp.regex).test(rn1)
                 } else {
-                    return (rn1) => { rn1.includes(keyword) }
+                    return (rn1) => { return rn1.includes(keyword.trim()) }
                 }
             })()
             const vnwm_nixb = neig.yhrj_sjbx.filter(wlba_1)
@@ -49,9 +51,10 @@ class Wrvr {
 
             const diwr_cqzt_di_wrvr = Object.fromEntries(Object.entries(diwr_zt_non).map(ele => [ele[1], ele[0]]))
             const hp_wrvr_zt_vn = Object.keys(diwr_non_ztwm).length
+            yo_fd_sfxz.rzvo({vn_fd:hp_wrvr_zt_vn})
             const diwr_wrvr_zt_di_sfxz = Object.fromEntries(Object.entries(diwr_non_ztwm).map((ele,eqwy) => {
-            const background=Math.floor(0xffffff/(hp_wrvr_zt_vn)*eqwy).toString(16).padStart(6,"0")
-            const color=w_sf(background)?"ffffff":"000000"
+            const background=yo_fd_sfxz.get(eqwy)
+            const color=yo_fd_sfxz.w_sf(background)?"ffffff":"000000"
             return [ele[0], {color,background}]})) 
             for (let key in diwr_eysj) {
                 delete (diwr_eysj[key])
@@ -172,8 +175,3 @@ return m1
     }
 }
 module.exports = Wrvr
-function w_sf(rj_color){
-const diwr_sfxz = rj_color.match(/(..)(..)(..)/)
-const vnwm_vn_sfxz = new Array(3).fill(1).map((rn1,eqwy)=>Number("0x"+diwr_sfxz[eqwy+1]))
-return vnwm_vn_sfxz.reduce((rn1,rn2)=>rn1+rn2)/3<130?true:false
-}

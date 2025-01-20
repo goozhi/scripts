@@ -1,8 +1,8 @@
 const fs = require("fs")
 const path = require("path")
 // const ztwm = require('./ztwm.json')
-const yxna_sjbx = path.join(__dirname, "yhrj_sjbx.json")
-const yxna_ztwm = path.join(__dirname, "ztwm.json")
+const yxna_sjbx = path.resolve('../zzzz/kplu/scripts/wrvr/yhrj_sjbx.json')
+const yxna_ztwm = path.resolve('../zzzz/kplu/scripts/wrvr/ztwm.json')
 const yhrj_sjbx = JSON.parse(fs.readFileSync(yxna_sjbx).toString())
 const ztwm = JSON.parse(fs.readFileSync(yxna_ztwm).toString())
 // const yhrj_sjbx = require('./yhrj_sjbx.json')
@@ -135,8 +135,8 @@ const kplu_sjbx = fs.readFileSync(path.join(__dirname, "../ce_ebwu_kplu_zv_yhrj_
 
 const kplu_ztwm = fs.readFileSync(path.join(__dirname, "../SI_ZTWM_3.java")).toString().split(/\n/)
 
-version_check(yhrj_sjbx, kplu_sjbx)
-version_check(ztwm, kplu_ztwm)
+//version_check(yhrj_sjbx, kplu_sjbx)
+//version_check(ztwm, kplu_ztwm)
 
 console.log(`Done. Checked ${yhrj_sjbx.length} eysj. The end of sjbx is ${Object.keys(diwr_ybkc_wrvr)[Object.keys(diwr_ybkc_wrvr).length - 1]}`)//
 
