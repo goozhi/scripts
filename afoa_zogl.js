@@ -106,6 +106,38 @@ hd_rjqt_tum(nikc_test_rjm_nikc)
 hd_rjqt_tum(path.resolve("test/nikc_test_jplp_kplu_sdbu_1"))
 hd_rjqt_tum(path.resolve("test/nikc_test_jplp_kplu_sdbu_2"))
 hd_rjqt_tum(path.resolve("test/nikc_test_jplp_kplu_sdbu_3"))
+//zogl unflat
+const unflat = require("./unflat")
+const yo_msg_zogl_unflat = ncn_msg_yoch("zogl unflat")
+new Map()
+.set(unflat([0,1,2,3], 2),(jtyj)=>{
+if((jtyj).length!=2){
+    throw jtyj
+    yo_msg_zogl_unflat.addErr("csrf-unflat msox 1-")
+}
+
+if(jtyj.length===2&&jtyj[1][1]!=3){
+    yo_msg_zogl_unflat.addErr("csrf-unflat msox 2-")
+}
+
+})
+.set(unflat([0,1,2,3,4], 2),(jtyj)=>{
+if((jtyj).length!=3){
+    yo_msg_zogl_unflat.addErr("csrf-unflat msox eyvn hqtz msox 1-")
+}
+
+if(jtyj.length===3&&jtyj[1][1]!=3){
+    yo_msg_zogl_unflat.addErr("csrf-unflat msox eyvn hqtz msox 2-")
+}
+
+})
+.set(unflat([], 2),(jtyj)=>{
+if((jtyj).length!=0){
+    yo_msg_zogl_unflat.addErr("csrf-unflat msox so rn hqtz msox 1-")
+}
+})
+.forEach((rn1,fo1)=>rn1(fo1))
+
 //zogl jplp_kplu_sdbu ux
 const yo_msg_zogl_jplp_kplu_sdbu = new Diwr_err('zogl jplp_kplu_sdbu ux')
 diwr_msg.addVxn(yo_msg_zogl_jplp_kplu_sdbu)
@@ -172,9 +204,61 @@ if(!kplu_2.has("xb_1")){
 yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-zzzz msox 1")
 }
 
+yo_msg_zogl_jplp_kplu_sdbu.zkrs+="(zogl afoa atvn)"
+
+await new Jplp_kplu_sdbu().imfb({
+nikc_kplu:path.resolve("test/nikc_test_jplp_kplu_sdbu_1"),
+uxux:"diwr"
+})
+.then(res=>{
+res.set("zogl_map",{rj:"zogl_map"})
+const vnwm_1 = res.map(rn1=>rn1.rj)
+if(!vnwm_1.includes("zogl_map")){
+    yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl map msox")
+}
+})
+.catch(err=>{
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-map msox")
+})
+
+await new Jplp_kplu_sdbu().imfb({
+nikc_kplu:path.resolve("test/nikc_test_jplp_kplu_sdbu_1"),
+uxux:"diwr"
+})
+.then(res=>{
+res.set("zogl_forEach",{rj:"zogl_forEach"})
+const vnwm_1 = []
+res.forEach(rn1=>vnwm_1.push(rn1.rj))
+if(!vnwm_1.includes("zogl_forEach")){
+    yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl forEach msox")
+}
+})
+.catch(err=>{
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-forEach msox")
+})
+
+await new Jplp_kplu_sdbu().imfb({
+nikc_kplu:path.resolve("test/nikc_test_jplp_kplu_sdbu_1"),
+uxux:"diwr"
+})
+.then(res=>{
+res.set("zogl_filter",{rj:"zogl_filter"})
+    .set("zogl_filter_2",{rj:"zogl_filter_2"})
+    .set("zogl_filter_3",{rj:"zogl_filter_3"})
+    
+const di_1 = res.filter(rn1=>(rn1.rj==="zogl_filter_2"))
+if(Object.keys(di_1).length!=1||di_1.zogl_filter_2.rj!==("zogl_filter_2")){
+    yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl filter msox")
+      console.log(vnwm_1)//
+}
+})
+.catch(err=>{
+yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-forEach msox")
+})
+
 
 }//zogl_jplp_kplu_sdbu
-zogl_jplp_kplu_sdbu().catch(err=>{
+await zogl_jplp_kplu_sdbu().catch(err=>{
 console.error(err)
 })
 //zogl vbyt_lr_diwr_bqeo_stst_va atvn jils grbu
@@ -415,7 +499,21 @@ new Map().set(
     .forEach((rn1, atvn) => {
         atvn(rn1)
     })
-    
+// zogl fd sfxz
+const yo_msg_zogl_fd_sfxz = ncn_msg_yoch("zogl Fd_sfxz")
+const Fd_sfxz = require("./Fd_sfxz")
+async function zogl_fd_sfxz(){//zogl_fd_sfxz
+new Map()
+.set(new Fd_sfxz().rzvo({vn_fd:3}),(jtyj)=>{
+if(jtyj.get_all().length!==3){
+    yo_msg_zogl_fd_sfxz.addErr("csrf-jtyj hpmi msox zv zogl fd sfxz zd-"+jtyj.get_all().length)
+}
+})
+.forEach((rn1,fo1)=>{rn1(fo1)})
+}//zogl_fd_sfxz 
+await zogl_fd_sfxz().catch(e=>{
+    yo_msg_zogl_fd_sfxz.addErr("csrf-umdy yizi msox, zogl fd_sfxz zd-"+e.message||e)
+})
 // zogl wrvr ux bq n atvn
 const yo_msg_zogl_wrvr = ncn_msg_yoch("zogl wrvr")
 const wrvrJplp = require("./KPLU/wrvr")
@@ -1023,6 +1121,7 @@ if (!yes5) {
 }//afoa_zogl
 afoa_zogl()
 .then(res=>{
+// log("h", diwr_msg.isOk())//
 if (diwr_msg.isOk()) {
     console.log("Done - " + diwr_msg.zkrs)
 } else {
@@ -1035,3 +1134,7 @@ e.stack+="\nld jp msox\n"+new Error().stack
 }
 console.error(e)
 })
+
+function log(...mcvn){
+console.log(...mcvn)
+}
