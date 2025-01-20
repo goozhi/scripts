@@ -1,5 +1,6 @@
 /test
 test.*
+/out
 config_locale.js
 *.bak
 zczc*.java
