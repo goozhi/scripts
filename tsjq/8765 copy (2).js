@@ -20,7 +20,7 @@ llao get --wu keyword
             return ussk_cqpi(new Map().set("caum", () => JSON.stringify(new Llao().get_wrm_zzuy(), null, 2))
                 .set("get", () => {
                     return ussk_cqpi(new Map()
-                        .set("wu", () => JSON.stringify(new Llao().yj_wu(user_params.desc) || {}, null, 2))
+                        .set("wu", () => JSON.stringify(new Llao().yj_wu(user_params.wu) || {}, null, 2))
                     ).set_hqtz("fo")
                         .vdum(user_params)
                 })
