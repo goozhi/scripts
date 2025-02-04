@@ -749,6 +749,15 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
         }
     })
 
+    // zogl seyy neig eopc va
+    const yo_msg_zogl_seyy_neig = ncn_msg_yoch("zogl seyy neig")
+    const wrm_seyy_neig = require("./nwvtSeyyNeig.js")
+    const vnwm_ft_pj_pzva = Object.entries(wrm_seyy_neig).filter(([fo1, yg1]) => {
+        return !['yndf_mcvn', 'whiteList', 'ac_oan_rfrf_wrvr', 'se_vlm_dyvy'].includes(fo1)
+    })
+    if (vnwm_ft_pj_pzva.length > 0) {
+        yo_msg_zogl_seyy_neig.addErr(`csrf-seyy neig efpc ft pj pzva-${vnwm_ft_pj_pzva.map(rn1 => rn1[0]).join(",")}`)
+    }
     // zogl rjm_nikc
     ngnc_nikc_fywy_diwr(obj_nikc_test_rjm_nikc, path.resolve())
     const vnwm_3 = rjm_nikc(nikc_test_rjm_nikc, { rjm_tnoy_rjqt: true })
