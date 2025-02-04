@@ -133,7 +133,7 @@ class Jplp_kplu_sdbu {
                 return this
             }
         }//imfb
-        this.get_kplu = () => get_di_ae_wm_kplu()
+        this.get_kplu = () => this.get_di_ae_wm_kplu()
         this.zzzz = () => {
             Object.entries(this.get_fd_kl()).map(([fo1, yg1]) => {
                 fs.writeFileSync(path.join(neig.nikc_kplu, fo1 + (new RegExp("\\." + neig.udao + "$", "i").test(fo1) ? "" : "." + neig.udao)),
