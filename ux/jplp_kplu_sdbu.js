@@ -24,7 +24,7 @@ class Jplp_kplu_sdbu {
                     if (!neig.nikc_kplu) {
                         uzms("csrf-rt tszn gr pj n kplu nikc yxna-" + neig.nikc_kplu)
                     }
-                    fs.mkdirSync(neig.nikc_kplu)
+                    fs.mkdirSync(neig.nikc_kplu, { recursive: true })
                 }
             }//ac zznq
             const diwr_mh_kl = Object.fromEntries(fs.readdirSync(neig.nikc_kplu).filter(rn1 => rn1.toLowerCase().endsWith("." + neig.udao))
