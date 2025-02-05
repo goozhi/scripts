@@ -95,7 +95,18 @@ async function afoa_zogl() {//afoa_zogl
             },
             nikc_test_jplp_kplu_sdbu_2: {
 
-            }
+            },
+            // nikc_test_jplp_kplu_sdbu_3: {
+            // }, cd pc atvn nq db bi nikc
+            nikc_test_jplp_kplu_sdbu_4: {
+                "nikc_1": "",
+                "vnwy_1.json": diwr_ld_rj({ vn1: 1 }),
+                "vnwy_2.js": 'module.exports=' + diwr_ld_rj({ vn2: 2 }),
+                "vnwy_3.json": diwr_ld_rj({ vn3: 3 }),
+                "vnwy_4.js": 'module.exports=' + diwr_ld_rj({ vn4: 4 }),
+                "vnwy_5.json": diwr_ld_rj({ vn5: 5 }),
+                "vnwy_6.js": 'module.exports=' + diwr_ld_rj({ vn6: 6 }),
+            },
         }
     }
     hd_rjqt_tum(copy_test_src)
@@ -112,7 +123,6 @@ async function afoa_zogl() {//afoa_zogl
     new Map()
         .set(unflat([0, 1, 2, 3], 2), (jtyj) => {
             if ((jtyj).length != 2) {
-                throw jtyj
                 yo_msg_zogl_unflat.addErr("csrf-unflat msox 1-")
             }
 
@@ -205,6 +215,21 @@ async function afoa_zogl() {//afoa_zogl
         }
 
         yo_msg_zogl_jplp_kplu_sdbu.zkrs += "(zogl afoa atvn)"
+
+        await new Jplp_kplu_sdbu().imfb({
+            nikc_kplu: path.resolve("test/nikc_test_jplp_kplu_sdbu_4"),
+            uxux: "diwr"
+        })
+            .then(res => {
+                const wm = res.find(yg1 => yg1 === 3)
+                if (wm[0] != 'vn3' || wm[1] != 3) {
+                    yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl find msox")
+                }
+            })
+            .catch(err => {
+                yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-find msox")
+            })
+
 
         await new Jplp_kplu_sdbu().imfb({
             nikc_kplu: path.resolve("test/nikc_test_jplp_kplu_sdbu_1"),
