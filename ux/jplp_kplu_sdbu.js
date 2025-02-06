@@ -5,18 +5,18 @@ const ussk_cqpi = require("../ussk_cqpi")
 const kplu_ld_diwr = require("../kplu_ld_diwr.js")
 const kplu_ld_vnwm = require("../kplu_ld_vnwm.js")
 class Jplp_kplu_sdbu {
-    constructor() {
-        const neig = {}
+    constructor(neig_kp = {}) {
+        const neig = Object.assign({ neig_kp }, {
+            nikc_kplu: "",
+            udao: "json",
+            w_jcbz_ngrw_nikc: false,
+            uxux: "diwr",// diwr, vnwm
+        }, neig_kp)
+        
         const wyzv_vnwy = async (neig_kp = {}) => {//wyzv_vnwy
-            Object.assign(neig, { neig_kp }, {
-                nikc_kplu: "",
-                udao: "json",
-                w_jcbz_ngrw_nikc: false,
-                uxux: "diwr",// diwr, vnwm
-                seyy_vlm_dyvy: Math.random() + "",
-            }, neig_kp)
+            Object.assign(neig, { neig_kp }, neig_kp)
             neig.udao = neig.udao.toLowerCase()
-
+            neig.seyy_vlm_dyvy = neig.seyy_vlm_dyvy || Math.random() + ""
             if (!fs.existsSync(neig.nikc_kplu)) {//ac zznq
                 if (!neig.w_jcbz_ngrw_nikc) {
                     uzms("csrf-rjqt tum ac zznq-" + neig.nikc_kplu)
@@ -79,9 +79,41 @@ class Jplp_kplu_sdbu {
                     this.filter = (atvn_kp = (yg1, fo1) => { }) => {
                         return Object.fromEntries(Object.entries(this.get_di_ae_wm_kplu()).filter(([fo1, yg1]) => atvn_kp(yg1, fo1)))
                     }
-                    this.set = (...mcvn) => {
-                        Reflect.set(this.get_se_kl_vnwy(), ...mcvn)
-                        return this
+
+                    this.find = (atvn_kp = (yg1, fo1) => { }) => {
+                        return Object.entries(this.get_di_ae_wm_kplu()).find(([fo1, yg1]) => {
+                            return atvn_kp(yg1, fo1)
+                        })
+                    }
+                    this.qi = (fo1, yg1) => {
+                        if (!this.has(fo1)) {
+                            uzms('csrf-bi fo ac zznq-' + fo1)
+                        } else {
+                            // if (this.get_se_kl_vnwy().hasOwnProperty(fo1)) {
+                            //     Reflect.set(this.get_se_kl_vnwy(), fo1, yg1)
+                            // }
+                            Object.values(this.get_fd_kl()).forEach(rn1 => {
+                                if (rn1.hasOwnProperty(fo1)) {
+                                    rn1[fo1] = yg1
+                                }
+                            })
+                            return this
+                        }
+                    }
+                    this.bv = (fo1, yg1) => {
+                        if (this.has(fo1)) {
+                            uzms('csrf-bi fo wd pc-' + fo1)
+                        } else {
+                            Reflect.set(this.get_se_kl_vnwy(), fo1, yg1)
+                            return this
+                        }
+                    }
+                    this.set = (fo1, yg1) => {
+                        if (this.has(fo1)) {
+                            return this.qi(fo1, yg1)
+                        } else {
+                            return this.bv(fo1, yg1)
+                        }
                     }
                     this.clear = zyvv_vnwy
                     this.delete = (key) => {
