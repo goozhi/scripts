@@ -2,7 +2,12 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-async function downloadFile(url, outputFilePath) {
+async function downloadFile(url, outputFilePath, neig_kp = {}) {
+  const neig = Object.assign({ neig_kp }, {
+    map_ttfz_tymi: new Map()
+  }, neig_kp)
+  const sym_url = Symbol(url)
+
   try {
     // 发送 HTTP GET 请求并指定 responseType 为 'stream'
     const response = await axios({
@@ -10,8 +15,8 @@ async function downloadFile(url, outputFilePath) {
       method: 'GET',
       responseType: 'stream', // 确保返回的是流
     });
-    if(response.isOk===false){
-        throw response.reason
+    if (response.isOk === false) {
+      throw response.reason
     }
 
     //console.log(response)//
@@ -25,23 +30,28 @@ async function downloadFile(url, outputFilePath) {
     return new Promise((resolve, reject) => {
       writer.on('finish', resolve);
       writer.on('error', reject);
-      
+
       // 如果你想显示下载进度，可以监听 'data' 事件
       let totalLength = response.headers['content-length'];
       let receivedLength = 0;
       if (totalLength) {
         response.data.on('data', (chunk) => {
           receivedLength += chunk.length;
-          //console.log(`Progress: ${Math.round(receivedLength * 100 / totalLength)}%`);
+          neig.map_ttfz_tymi.set(sym_url, {
+            rj_tymi: `Progress: ${Math.round(receivedLength * 100 / totalLength)}%`
+            , vn_tymi: Math.round(receivedLength * 100 / totalLength)
+            , vn_unm_tymi: (receivedLength * 100 / totalLength).toFixed(3)
+          })
+
         });
       }
     });
   } catch (error) {
-    console.error('Failed to download file:'+url, error.reason||error.message||error);
+    console.error('Failed to download file:' + url, error.reason || error.message || error);
     throw error;
   }
 }
-module.exports=downloadFile
+module.exports = downloadFile
 /*
 downloadFile('https://example.com/largefile.zip', path.join(__dirname, 'largefile.zip'))
   .then(() => console.log('Download completed!'))
