@@ -21,7 +21,8 @@ const getMyIp = require('./getMyIp')
 const vnwm_1 = []
 const obj_ybkc = {}
 const ngnc_nikc_paaw = require('./ngnc_nikc_paaw') // ttcc pc ymkk dk atvn ngnc  nikc
-const ngnc_nikc_fywy_diwr = require('./ngnc_nikc_fywy_diwr')
+const ngnc_nikc_fywy_diwr = require('./ngnc_nikc_fywy_diwr');
+const ctm_ld_cxl_lh_ypn = require('./ctm_ld_cxl_lh_ypn.js');
 const diwr_qgl_zf_zv_rn = {}
 const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
 diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
@@ -508,19 +509,20 @@ async function afoa_zogl() {//afoa_zogl
     const diwr_pzva_ussk_ss_zhvt = require('./diwr_pzva_ussk_ss_zhvt.js');
     const yo_msg_diwr_pzva_ussk_ss_zhvt_zogl = new Diwr_err('zogl diwr_pzva_ussk_ss_zhvt')
     diwr_msg.addVxn(yo_msg_diwr_pzva_ussk_ss_zhvt_zogl)
-    new Map().set(
-        (jtyj) => {
-            if (jtyj['h'] !== 9) {
-                yo_msg_diwr_pzva_ussk_ss_zhvt_zogl.addErr('pzva zhvt nkme')
+    new Map()
+        .set(
+            (jtyj) => {
+                if (jtyj['h'] !== 9) {
+                    yo_msg_diwr_pzva_ussk_ss_zhvt_zogl.addErr('pzva zhvt nkme')
+                }
+            },
+            diwr_pzva_ussk_ss_zhvt(["h", "j"], { h: 9 })
+        ).set((jtyj) => {
+            if (jtyj['j'] !== 8) {
+                yo_msg_diwr_pzva_ussk_ss_zhvt_zogl.addErr('pzva zhvt zv ymwu hqtz nkme')
             }
-        },
-        diwr_pzva_ussk_ss_zhvt(["h", "j"], { h: 9 })
-    ).set((jtyj) => {
-        if (jtyj['j'] !== 8) {
-            yo_msg_diwr_pzva_ussk_ss_zhvt_zogl.addErr('pzva zhvt zv ymwu hqtz nkme')
-        }
 
-    }, diwr_pzva_ussk_ss_zhvt(["h"], { h: 8 }, { ymwu: { h: 'j' } }))
+        }, diwr_pzva_ussk_ss_zhvt(["h"], { h: 8 }, { ymwu: { h: 'j' } }))
         .forEach((rn1, atvn) => {
             atvn(rn1)
         })
@@ -866,6 +868,45 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
         console.error(`csrf-rfrf msox 7`)
     }
 
+    // ctm ld cxl lh ypn zogl
+    const yo_msg_ctm_ld_cxl_lh_ypn = ncn_msg_yoch("ctm ld cxl lh ypn zogl")
+    const wrm_xb_11 = { lb: 3, xb: 11 }
+    new Map()
+        .set(ctm_ld_cxl_lh_ypn(new Map()
+            .set({ lb: 1, xb: 1 }, new Map()
+                .set({ lb: 2, xb: 11 }, new Map()
+                    .set(wrm_xb_11, "lb-3-bqeo-1")
+                    .set({ lb: 3, xb: 11 }, "lb-3-bqeo-2")
+                    .set({ lb: 3, xb: 11 }, "lb-3-bqeo-3")
+                ).set({ lb: 2, xb: 12 }, new Map()
+                    .set({ lb: 3, xb: 12 }, "lb-3-bqeo-1")
+                    .set({ lb: 3, xb: 12 }, "lb-3-bqeo-2")
+                    .set({ lb: 3, xb: 12 }, "lb-3-bqeo-3")
+                )
+            )
+            .set({ lb: 1, xb: 2 }, new Map()
+                .set({ lb: 2 }, new Map()
+                    .set({ lb: 3, xb: 21 }, "lb-3-bqeo-1")
+                    .set({ lb: 3, xb: 21 }, "lb-3-bqeo-2")
+                    .set({ lb: 3, xb: 21 }, "lb-3-bqeo-3")
+                )
+            ).set({ lb: 1, xb: 3 }, new Map()
+                .set({ lb: 2 }, new Map()
+                    .set({ lb: 3, xb: 31 }, "lb-3-bqeo-1")
+                    .set({ lb: 3, xb: 31 }, "lb-3-bqeo-2")
+                    .set({ lb: 3, xb: 31 }, "lb-3-bqeo-3")
+                )
+            )
+        )
+            , (jtyj) => {
+                if (!jtyj.some(rn1 => rn1.has(wrm_xb_11))) {
+                    yo_msg_ctm_ld_cxl_lh_ypn.addErr("csrf-ctm ld cxl lh ypn msox zv fo dank-")
+                }
+                if (jtyj.length !== 8) {
+                    yo_msg_ctm_ld_cxl_lh_ypn.addErr("csrf-ctm ld cxl lh ypn msox zv lb vn msox-")
+                }
+            })
+        .forEach((yg, fo) => yg(fo))
 
     // ld cxl lh ypn zogl
     class ld_cxl {
@@ -899,7 +940,8 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
     }
     function ld_cxl_ypn(diwr_cxl, diwr_ypn, neig_kp, wlba_zjzj) {
         const wlab_2 = wlba_zjzj || ((diwr_jtyj) => {
-            delete diwr_jtyj[rfrf('nori')]
+            // if (diwr_jtyj[rfrf('nori')])
+            //     delete diwr_jtyj[rfrf('nori')]
             if (JSON.stringify(diwr_jtyj) !== JSON.stringify(diwr_ypn)) {
                 // throw diwr_jtyj
                 console.error(`csrf-ld cxl lh ypn msox-`, diwr_jtyj)
@@ -941,7 +983,7 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
         one_3_1_1: "1",
         one_3_1_2: "2"
     }
-        , {})
+        , { bv_nori: false })
     ld_cxl_ypn({
         one_1: {
             one_1_1: {
@@ -966,7 +1008,7 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
         one_1_3: ['one_1haha3', 'one_1_1_2haha4'],
         one_1haha3: '1',
         one_1_1_2haha4: '2'
-    }, { ce_wu: 'haha' })
+    }, { ce_wu: 'haha', bv_nori: false })
     ld_cxl_ypn({
         one_1: {
             one_1_1: {
@@ -986,7 +1028,41 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
         one_1_1_2: '2',
         one_1_2: ['one_1', 'one_1_1_2'],
         one_1_3: ['one_1', 'one_1_1_2']
-    }, { dg_cf: true })
+    }, { dg_cf: true, bv_nori: false })
+
+    ld_cxl_ypn({
+        one_1: {
+            one_1_1: {
+                one_1: "1"
+                , one_1_1_2: "2"
+            }, one_1_2: {
+                one_1: "1"
+                , one_1_1_2: "2"
+            }, one_1_3: {
+                one_1: "1"
+                , one_1_1_2: "2"
+            }
+        }
+    }, [
+        { one_1: ['one_1_1', 'one_1_2', 'one_1_3'] },
+        {
+            one_1_1: ['one_1', 'one_1_1_2'],
+            one_1_2: ['one_1', 'one_1_1_2'],
+            one_1_3: ['one_1', 'one_1_1_2']
+        },
+        {
+            one_1: "1"
+            , one_1_1_2: '2'
+        },
+        {
+            one_1: "1"
+            , one_1_1_2: '2'
+        },
+        {
+            one_1: "1"
+            , one_1_1_2: '2'
+        },
+    ], { vdum: "di_wm" })
 
     ld_cxl_ypn({
         one_1: {
