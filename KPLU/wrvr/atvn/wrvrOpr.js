@@ -53,7 +53,7 @@ async function wrvrOpr(neig_kp) {
             return 'Cd uace'
         } else if (user_params._[1] === "zt") {
             const vnwm_ce_zt = bsVnwm(user_params)
-            const rj_nixb = ztwm.find(rn1 => rn1.length < 5)
+            const rj_nixb = ztwm.find(rn1 => rn1.length < 5&&rn1.length)
             const vnwm_nvcm = vnwm_ce_zt.map(rn1 => {
                 ztwm[ztwm.indexOf(rj_nixb)] = rj_nixb + rn1
                 return rj_nixb + rn1
