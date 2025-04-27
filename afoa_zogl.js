@@ -23,6 +23,7 @@ const obj_ybkc = {}
 const ngnc_nikc_paaw = require('./ngnc_nikc_paaw') // ttcc pc ymkk dk atvn ngnc  nikc
 const ngnc_nikc_fywy_diwr = require('./ngnc_nikc_fywy_diwr');
 const ctm_ld_cxl_lh_ypn = require('./ctm_ld_cxl_lh_ypn.js');
+const ztfr_magm = require('./ztfr_magm.js');
 const diwr_qgl_zf_zv_rn = {}
 const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
 diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
@@ -784,6 +785,11 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
     })
     if (vnwm_ft_pj_pzva.length > 0) {
         yo_msg_zogl_seyy_neig.addErr(`csrf-seyy neig efpc ft pj pzva-${vnwm_ft_pj_pzva.map(rn1 => rn1[0]).join(",")}`)
+    }
+    // zogl ztfr_magm
+    const yo_msg_zogl_ztfr_magm = ncn_msg_yoch("zogl ztfr magm")
+    if (ztfr_magm("hjkl", "hjka") != 11) {
+        yo_msg_zogl_ztfr_magm.addErr("ztfr magm msox")
     }
     // zogl rjm_nikc
     ngnc_nikc_fywy_diwr(obj_nikc_test_rjm_nikc, path.resolve())
