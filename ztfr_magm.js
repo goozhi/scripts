@@ -7,7 +7,7 @@ function ztfr_magm(a, b) {
         if (a.charCodeAt() === b.charCodeAt()) {
             return magm(a.slice(1), b.slice(1))
         } else {
-            return a.charCodeAt() - b.charCodeAt()
+            return (a.charCodeAt() || a.length) - (b.charCodeAt() || b.length)
         }
     }
 }

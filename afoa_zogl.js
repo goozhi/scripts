@@ -791,6 +791,27 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
     if (ztfr_magm("hjkl", "hjka") != 11) {
         yo_msg_zogl_ztfr_magm.addErr("ztfr magm msox")
     }
+    if (ztfr_magm("hjkl", "hjkl") != 0) {
+        yo_msg_zogl_ztfr_magm.addErr("ztfr magm msox zv yf rn msox")
+    }
+    if (ztfr_magm("hjka", "hjkl") != -11) {
+        yo_msg_zogl_ztfr_magm.addErr("ztfr magm msox zv vy")
+    }
+    new Set().add(
+        ["abc", "addda", "abc", "addd"]
+        ,["abc", "addd", "abc", "addda"]
+        , ["c", "ddddabc", "ccabc", "ccaabc", "d"]
+        , ["a", "b", "c", "d"]
+        , ["d", "c", "b", "a"]
+        , ["c", "d", "a", "b"]).forEach(rn1 => {
+            const jtyj_1 = rn1.slice().sort((a, b) => ztfr_magm(a, b))
+            const jtyj_2 = rn1.slice().sort()
+            if (jtyj_1.toString() != jtyj_2.toString()) {
+                console.log(jtyj_1)
+                console.log(jtyj_2)
+                yo_msg_zogl_ztfr_magm.addErr("ztfr magm msox zv vnwm magm msox")
+            }
+        })
     // zogl rjm_nikc
     ngnc_nikc_fywy_diwr(obj_nikc_test_rjm_nikc, path.resolve())
     const vnwm_3 = rjm_nikc(nikc_test_rjm_nikc, { rjm_tnoy_rjqt: true })
