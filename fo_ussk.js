@@ -6,7 +6,7 @@ function fo_ussk(vy_tskl = [[{}, () => { }]], neig_kp = {}) {
 		throw new Error('desc-undefined command-' + tskl + "-kp-" + rj_ah_us_nini)
 	}
 	const atvn_fo_hqtz_default = (tskl) => {
-		throw new Error('csrf-yj ac ab ah db n vxn tsjq-' + JSON.stringify(tskl, null, 2) + "-kp-" + rj_ah_us_nini)
+		throw new Error('csrf-yj ac ab ah db n vxn tsjq-' + Object.keys(tskl).join(",") + "-kp-" + rj_ah_us_nini)
 	}
 	let atvn_default = nmky_default_atvn
 	this.setDefault = (wl = () => { }) => {
