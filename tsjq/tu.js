@@ -30,11 +30,11 @@ module.exports = [['rjqt', "tu", 'file'], {
     ## hmpc mcvn sr eowl bobi sonq dk nikc
     tu ls
     
-    ## caum yxna xbiw
+    ## xbyb yxna lh yxna xbiw
     tu ls out --xb
     
     ## rjvt yxna xbiw
-    tu ls out --xbiw
+    tu ls --xbiw
 
     ## ca um nikc dk nini dk yxna
     rjqt ls /out --yxna
