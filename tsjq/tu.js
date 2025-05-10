@@ -194,7 +194,7 @@ module.exports = [['rjqt', "tu", 'file'], {
     rjqt filter /out --size 1000
     bqeo
 
-    ## tszn yxna tyqh cfep
+    ## tszn yxna tyqh bqeo dreq
     rjqt filter tszn -r keyword
     tszn-yxna-1
     tszn-yxna-2
@@ -284,6 +284,62 @@ module.exports = [['rjqt', "tu", 'file'], {
 
     ## vbyt jils efpc bi key
     tu obj --vkih vkih --has key
+
+    ## vwdp vycs sopc rjqt
+    tu vycs uufb
+
+    ## zjqt vycs tymi
+    tu vycs tymi
+
+    ## zp cd vycs n rjqt yh yj nixb rjqt wu zv regex hqtz
+    tu vycs dreq --wu gnfo_zt --regex
+
+    ## ja cd vycs n rjqt yh yj nixb rjqt n mc v pzva zv regex hqtz
+    tu vycs dreq --pzva ctimeMs --wugm ci --w_caum_jszb false --regex --lclc "pzva ahno w ctime, atime, mtime, birthtime, size iq stat n pzva; wugm ahno w ci ae qy"
+    1770.*
+
+    ## ja cd vycs n rjqt tyqh magm zv pzva hqtz
+    tu vycs magm --pzva ctimeMs --wugm ci --w_caum_jszb false --regex --lclc "pzva ahno w ctime, atime, mtime, birthtime, size iq stat n pzva; wugm ahno w ci ae qy"
+
+    ## ja cd vycs n rjqt tyqh magm zv wu hqtz
+    tu vycs magm --wu --wugm ci --w_caum_jszb false --lclc "wugm ahno w ci ae qy"
+
+    ## zp cd vycs n rjqt yh yj nixb rjqt wu zv wlba atvn hqtz
+    tu vycs dreq --atvn --lclc "wlba atvn n yntz mcvn lh stat eowl n diwr, yxna"
+    (diwr_stat, yxna)=>{
+
+    }
+
+    ## tszn vycs n nikc
+    tu vycs tszn
+    nikc_1
+    nikc_2
+
+    ## tu vyvs hqtz caum cd vycs n epni wu
+    tu vycs caum wu
+
+    ## tu vyvs hqtz caum cd vycs n epni n jszb
+    tu vycs caum jszb
+
+    ## tu vyvs hqtz caum cd vycs n epni vn
+    tu vycs caum vn
+
+    ## tu vycs hqtz nq mb ye lil dreq n jtyj yh magm
+    tu vycs magm --wu --dreq_ud
+
+    ## tu vycs hqtz nq mb ye lil magm n jtyj yh dreq
+    tu vycs dreq --regex --wu gnfo_zt --magm_ud
+
+    ## tu vycs hqtz zzzz dreq ae magm ud n jtyj ab mrzz yh
+    tu vycs magm --wu --zz
+
+    ## tu vycs hqtz zp mrzz yh vt um vnwy tyqh dreq ae magm
+    tu vycs magm --wu --vt
+
+    
+    
+    
+    
     `,
     func: rjqt,
     wvvy: true

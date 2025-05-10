@@ -1,5 +1,14 @@
 const fs = require('fs')
 const path = require('path')
+const wm_nikc_vycs_slgr = ["D:/", "/sdcard"]
+const map_cd_vycs_nini = new Map()
+const vycs_neig = {
+    map_cd_vycs_nini
+    , map_efnp_yhld: new Map()
+    , map_imm_us_nini: new Map()
+    , map_mb_dreq_jtyj: new Map()
+    , map_mb_magm_jtyj: new Map()
+}
 const nikc_kzbz_v16 = require('../nikc_kzbz_v16')
 const reg_hfbc = require('../user_params-ldfs-atvn/reg_hfbc.js')
 const lz_rzwu = require('../rjqt_lz_rzwu')
@@ -22,6 +31,8 @@ const jyqhRjqt = require('../jyqhRjqt.js')
 const uzms = require('../uzms.js')
 const vkih_hfbc = require('../vkih_hfbc.js')
 const rfrf = require('../rfrf.js')
+const ussk_cqpi = require('../ussk_cqpi.js')
+const ztfr_magm = require('../ztfr_magm.js')
 const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
 class Ybkc_diwr {
 
@@ -768,6 +779,145 @@ const rjqtOpr = async (neig_kp) => {
         outputs.outputText = await (async () => {
             return await jyqhRjqt(user_params._[2]).catch(err => { throw err })
         })().catch(err => { throw err })
+    } else if (user_params._[1] === 'vycs') {
+        const wm_ah_vycs_nikc = wm_nikc_vycs_slgr.filter(rn1 => fs.existsSync(rn1))
+        outputs.outputText = (() => {
+            if (wm_ah_vycs_nikc.length === 0) {
+                return "so ah vycs n nikc\n" + wm_nikc_vycs_slgr.join("\n")
+            } else {
+                const atvn_vycs = async (wm_ah_vycs_nikc = []) => {
+                    const wm_err = []
+                    vycs_neig.w_eonq_vycs = true
+                    wm_ah_vycs_nikc.forEach(rn1 => {
+                        const wm_nikc = (() => {
+                            try {
+                                return rjm_nikc(rn1)
+                            } catch (e) {
+                                wm_err.push(e)
+                                return []
+                            }
+                        })()
+                        if (wm_err.length)
+                            wm_err.forEach(e => console.error(e))
+                        wm_nikc.forEach(rn1 => !map_cd_vycs_nini.has(rn1) && map_cd_vycs_nini.set(rn1, (() => {
+                            try {
+                                return fs.statSync(rn1)
+                            } catch (e) {
+                                if (e.code === "EPERM") {
+                                    return {}
+                                } else {
+                                    throw e
+                                }
+                            }
+                        })()))
+                    })
+                    vycs_neig.w_eonq_vycs = false
+                }
+                vycs_neig.map_imm_us_nini = ussk_cqpi(new Map()
+                    .set("dreq_ud", () => vycs_neig.map_mb_dreq_jtyj)
+                    .set("magm_ud", () => vycs_neig.map_mb_magm_jtyj)
+                    .set("vt", () => vycs_neig.map_efnp_yhld)
+                )
+                    .set_hqtz("fo")
+                    .setDefault(() => vycs_neig.map_cd_vycs_nini)
+                    .vdum(user_params)
+
+                return ussk_cqpi(new Map().set("uufb", () => {
+                    if (vycs_neig.w_eonq_vycs) {
+                        return "bnll cqpi nkme, pc nikc eonq vycs"
+                    }
+                    atvn_vycs(wm_ah_vycs_nikc).catch(err => { throw err })
+                    return "uufb vwdp vycs"
+                }).set("tymi", () => {
+                    return "eonq vycs:" + vycs_neig.w_eonq_vycs
+                }).set("tszn", () => {
+                    const wm_xyzd_ah_vycs_nikc = bsVnwm(user_params)
+                    atvn_vycs(wm_xyzd_ah_vycs_nikc).catch(err => { throw err })
+                    return "uufb vwdp vycs"
+                }).set("dreq", () => {
+                    // if (!(user_params.reg && user_params.reg.length)) {
+                    //     uzms("csrf-nrap aofc mcvn reg-")
+                    // }
+                    const map_fdne_jtyj = new Map()
+                    vycs_neig.map_imm_us_nini.forEach(ussk_cqpi(new Map().set("wu", () => {
+                        const wlba_epqt = user_params.regex ? (rn1, fo1) => {
+                            return new RegExp(user_params.wu, "i").test(fo1)
+                        } : (rn1, fo1) => fo1.includes(user_params.wu)
+
+                        return (rn1, fo1) => {
+                            if (wlba_epqt(rn1, fo1))
+                                map_fdne_jtyj.set(fo1, rn1)
+                        }
+                    }).set("pzva", () => {
+                        const wlba_epqt = user_params.regex ? (rn1, fo1) => {
+                            return new RegExp(user_params.lastParams, "i").test(rn1[user_params.pzva])
+                        } : (rn1, fo1) => rn1[user_params.pzva].includes(user_params.lastParams)
+
+                        return (rn1, fo1) => {
+                            if (wlba_epqt(rn1, fo1))
+                                map_fdne_jtyj.set(fo1, rn1)
+                        }
+                    })
+                        .set("atvn", () => {
+                            const wlba_epqt = eval(`(${user_params.lastParams})`)
+                            return (rn1, fo1) => {
+                                if (wlba_epqt(rn1, fo1))
+                                    map_fdne_jtyj.set(fo1, rn1)
+                            }
+                        })
+                    )
+                        .set_hqtz("fo").vdum(user_params)
+                    )
+
+                    vycs_neig.map_mb_dreq_jtyj.clear()
+                    map_fdne_jtyj.forEach((rn1, fo1) => vycs_neig.map_mb_dreq_jtyj.set(fo1, rn1))
+                    if (user_params.zz)
+                        vycs_neig.map_efnp_yhld = vycs_neig.map_mb_dreq_jtyj
+                    return user_params.w_caum_jszb ? [...map_fdne_jtyj].map((rn1) => JSON.stringify(rn1)).join("\n")
+                        : [...map_fdne_jtyj].map(([fo1, rn1]) => fo1).join("\n")
+                }).set("caum", () => {
+                    return ussk_cqpi(new Map().set("vn", () => {
+                        return String(map_cd_vycs_nini.size)
+                    }).set("wu", () => {
+                        return [...map_cd_vycs_nini].map(user_params.w_caum_jszb ? rn1 => JSON.stringify(rn1) : rn1 => rn1[0]).join("\n")
+                    }).set("jszb", () => {
+                        return [...map_cd_vycs_nini].map(rn1 => JSON.stringify(rn1)).join("\n")
+                    })
+                    )
+                        .vdum(user_params._[3])
+                }).set("magm", () => {
+                    return (() => {
+                        const wm_magm_ud = [...vycs_neig.map_imm_us_nini].sort(ussk_cqpi(new Map()
+                            .set("wu", () => {
+                                return ((a, b) => {
+                                    return ztfr_magm(a[0], b[0])
+                                })
+                            })
+                            .set("pzva", () => {
+                                return ((a, b) => {
+                                    return (a[1][user_params.pzva] - b[1][user_params.pzva])
+                                })
+                            })
+                        ).set_hqtz("fo")
+                            .vdum(user_params)
+                        )
+                        if (user_params.wugm === "qy") {
+                            wm_magm_ud.reverse()
+                        } else {
+                            // hmsg //next to do: bs test
+                        }
+                        vycs_neig.map_mb_magm_jtyj.clear()
+                        wm_magm_ud.forEach((rn1, fo1) => vycs_neig.map_mb_magm_jtyj.set(rn1[0], rn1[1]))
+                        if (user_params.zz)
+                            vycs_neig.map_efnp_yhld = vycs_neig.map_mb_magm_jtyj
+                        return wm_magm_ud.slice(0, user_params.vdum_qh_aw || wm_magm_ud.length).map(user_params.w_caum_jszb ? (rn1 => JSON.stringify(rn1))
+                            : (user_params.wu ? rn1 => rn1[0] + " >>>" + path.basename(rn1[0]) : rn1 => rn1[1][user_params.pzva] + " >>>" + rn1[0])).join("\n")
+                    })()
+                })
+                ).vdum(user_params._[2])
+
+            }
+        })()
     } else if (user_params._[1] === 'cxmi') {
         await wdbu_linh_rjqt(user_params, outputs, (rn1) => `${rn1}: ${JSON.stringify(fs.statSync(rn1))}`).catch(err => { throw err })
     } else if (user_params._[1] === 'size') {
