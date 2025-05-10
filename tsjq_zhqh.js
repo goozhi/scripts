@@ -29,12 +29,12 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
             throw new Error('targetCmd lh undefined ae null')
         }
         if (targetCmd.wvvy) {
-        const w_wwcf = (await outputs.ask({
-            wvvyOpr:{
-                user_params,
-                outputs
-            }
-        }).catch(e=>{throw e})).w_wvvy_eopc
+            const w_wwcf = (await outputs.ask({
+                wvvyOpr: {
+                    user_params,
+                    outputs
+                }
+            }).catch(e => { throw e })).w_wvvy_eopc
             if (!w_wwcf) {
                 throw new Error('zk hmpc wyk vyn.')
             }
@@ -76,6 +76,9 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
         }
         if (outputs.na_ld_html === true) {
             outputs.na_ld_html = md_bqeo_ld_html(outputs.outputText, { ji_db_style: false })
+        }
+        if (user_params.vdum_qh_aw) {
+            outputs.outputText = outputs.outputText.split(/\n/).slice(0, user_params.vdum_qh_aw).join("\n")
         }
         return outputs
     }
