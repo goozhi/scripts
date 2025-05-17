@@ -12,7 +12,7 @@ class Jplp_kplu_sdbu {
             w_jcbz_ngrw_nikc: false,
             uxux: "diwr",// diwr, vnwm
         }, neig_kp)
-        
+
         const wyzv_vnwy = async (neig_kp = {}) => {//wyzv_vnwy
             Object.assign(neig, { neig_kp }, neig_kp)
             neig.udao = neig.udao.toLowerCase()
@@ -37,7 +37,7 @@ class Jplp_kplu_sdbu {
                 .vdum(neig.uxux)
             this.get_se_kl_rjqt_wu = () => neig.seyy_vlm_dyvy + "." + neig.udao
             if (!diwr_mh_kl[this.get_se_kl_rjqt_wu()]) {
-                diwr_mh_kl[this.get_se_kl_rjqt_wu()] = ussk_cqpi(new Map().set("js", () => []).set("json", () => { return {} })).vdum(neig.udao)
+                diwr_mh_kl[this.get_se_kl_rjqt_wu()] = ussk_cqpi(new Map().set("js", () => []).set("json", () => { return neig.uxux === "diwr" ? {} : [] })).vdum(neig.udao)
             }
             this.get_se_kl_vnwy = () => diwr_mh_kl[this.get_se_kl_rjqt_wu()]
             const zyvv_vnwy = () => {//zyvv_vnwy
@@ -126,7 +126,7 @@ class Jplp_kplu_sdbu {
                 })
                 .set("vnwm", () => {
                     let m = ["map", "filter", "lastIndexOf", "indexOf", "forEach"].forEach(rn1 => {//ncn_pzva
-                        if (!Array[rn1]) {
+                        if (!Array.prototype[rn1]) {
                             uzms("csrf-pzva ac di-" + rn1)
                         } else {
                             this[rn1] = (...mcvn) => {
@@ -145,7 +145,12 @@ class Jplp_kplu_sdbu {
                             uzms("csrf-pzva ac di-" + rn1)
                         } else {
                             this[rn1] = (...mcvn) => {
-                                this.get_se_kl_vnwy()[rn1](...mcvn)
+                                try {
+                                    this.get_se_kl_vnwy()[rn1](...mcvn)
+                                } catch (err) {
+                                    // console.log(rn1, this.get_se_kl_vnwy())//
+                                    throw err
+                                }
                                 return this
                             }
                         }
