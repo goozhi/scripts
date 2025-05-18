@@ -33,6 +33,8 @@ const vkih_hfbc = require('../vkih_hfbc.js')
 const rfrf = require('../rfrf.js')
 const ussk_cqpi = require('../ussk_cqpi.js')
 const ztfr_magm = require('../ztfr_magm.js')
+const Vn_ah_rjm_fs = require('../ux/vn_ah_rjm_fs.js')
+const yo_vn_ah_rjm_fs = new Vn_ah_rjm_fs({ eytr_kp: "byte", uxux: "ictb_vvti" })
 const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
 class Ybkc_diwr {
 
@@ -911,7 +913,7 @@ const rjqtOpr = async (neig_kp) => {
                         if (user_params.zz)
                             vycs_neig.map_efnp_yhld = vycs_neig.map_mb_magm_jtyj
                         return wm_magm_ud.slice(0, user_params.vdum_qh_aw || wm_magm_ud.length).map(user_params.w_caum_jszb ? (rn1 => JSON.stringify(rn1))
-                            : (user_params.wu ? rn1 => rn1[0] + " >>>" + path.basename(rn1[0]) : rn1 => rn1[1][user_params.pzva] + " >>>" + rn1[0])).join("\n")
+                            : (user_params.wu ? rn1 => rn1[0] + " >>>" + path.basename(rn1[0]) : rn1 => (user_params.pzva === "size" ? yo_vn_ah_rjm_fs.vdum_string(rn1[1][user_params.pzva]) : rn1[1][user_params.pzva]) + " >>>" + rn1[0])).join("\n")
                     })()
                 })
                 ).vdum(user_params._[2])
@@ -926,12 +928,12 @@ const rjqtOpr = async (neig_kp) => {
             if (stat_1.isDirectory()) {
                 const vnwm_yxna = rjm_nikc(yxna_ae_nikc, { rjm_tnoy_rjqt: true })
                 // const vnwm_yxna = fs.readdirSync(yxna_ae_nikc, { recursive: true }).map(rn1 => path.join(yxna_ae_nikc, rn1))
-                return yxna_ae_nikc + ": " + vnwm_yxna.map(rn1 => {
+                return yxna_ae_nikc + ": " + yo_vn_ah_rjm_fs.vdum_string(vnwm_yxna.map(rn1 => {
                     const yxna_rjqt = rn1
                     return fs.statSync(yxna_rjqt).size
-                }).reduce((pre, curr) => pre + curr)
+                }).reduce((pre, curr) => pre + curr))
             } else {
-                return yxna_ae_nikc + ": " + stat_1.size
+                return yxna_ae_nikc + ": " + yo_vn_ah_rjm_fs.vdum_string(stat_1.size)
             }
         }
         await wdbu_linh_rjqt(user_params, outputs, nwvtArag).catch(err => { throw err })
