@@ -24,6 +24,7 @@ const ngnc_nikc_paaw = require('./ngnc_nikc_paaw') // ttcc pc ymkk dk atvn ngnc 
 const ngnc_nikc_fywy_diwr = require('./ngnc_nikc_fywy_diwr');
 const ctm_ld_cxl_lh_ypn = require('./ctm_ld_cxl_lh_ypn.js');
 const ztfr_magm = require('./ztfr_magm.js');
+const Vn_ah_rjm_fs = require('./ux/vn_ah_rjm_fs.js');
 const diwr_qgl_zf_zv_rn = {}
 const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
 diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
@@ -108,9 +109,20 @@ async function afoa_zogl() {//afoa_zogl
                 "vnwy_4.js": 'module.exports=' + diwr_ld_rj({ vn4: 4 }),
                 "vnwy_5.json": diwr_ld_rj({ vn5: 5 }),
                 "vnwy_6.js": 'module.exports=' + diwr_ld_rj({ vn6: 6 }),
-            },
+            }, nikc_test_jplp_kplu_sdbu_zv_vnwm_uxux_1: {
+                "nikc_1": "",
+                "vnwy_1.json": diwr_ld_rj([{ vn: 1 }, { vn: 1 }]),
+                "vnwy_2.js": 'module.exports=' + diwr_ld_rj([{ vn: 2 }, { vn: 2 }]),
+                "vnwy_3.json": diwr_ld_rj([{ vn: 3 }, { vn: 3 }]),
+                "vnwy_4.js": 'module.exports=' + diwr_ld_rj([{ vn: 4 }, { vn: 4 }]),
+                "vnwy_5.json": diwr_ld_rj([{ vn: 5 }, { vn: 5 }]),
+                "vnwy_6.js": 'module.exports=' + diwr_ld_rj([{ vn: 6 }, { vn: 6 }]),
+            }
+
         }
     }
+
+
     hd_rjqt_tum(copy_test_src)
     hd_rjqt_tum(copy_test_tar)
     hd_rjqt_tum(nikc_inputDir_mark)
@@ -281,6 +293,25 @@ async function afoa_zogl() {//afoa_zogl
             })
             .catch(err => {
                 yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-forEach msox")
+            })
+
+
+        await new Jplp_kplu_sdbu().imfb({
+            nikc_kplu: path.resolve("test/nikc_test_jplp_kplu_sdbu_zv_vnwm_uxux_1"),
+            uxux: "vnwm"
+        })
+            .then(res => {
+                res.push({ rj: "zogl_filter" })
+                    .push({ rj: "zogl_filter_2" })
+                    .push({ rj: "zogl_filter_3" })
+
+                const di_1 = res.filter(rn1 => (rn1.rj === "zogl_filter_2"))
+                if (Object.keys(di_1).length != 1 || di_1[0].rj !== ("zogl_filter_2")) {
+                    yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl filter msox")
+                }
+            })
+            .catch(err => {
+                yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-vnwm uxux filter msox")
             })
 
 
@@ -586,6 +617,27 @@ async function afoa_zogl() {//afoa_zogl
         yo_msg_zogl_wrvr.addErr("csrf-zogl wrvr cfrs yh umdy ac ah ub msox-" + (e.message || e))
     })
 
+
+    // zogl Vn_ah_rjm_fs
+    const yo_msg_zogl_vn_ah_rjm_fs = ncn_msg_yoch("zogl vn ah rjm fs")
+    const yo_yn_ah_rjm_fs = new Vn_ah_rjm_fs({
+        eytr_kp: "byte",
+        uxux: "ictb_vvti",
+    })
+    if (yo_yn_ah_rjm_fs.vdum(7810).yg != 7.627) {
+        yo_msg_zogl_vn_ah_rjm_fs.addErr("csrf-vn ah rjm fs agvn msox")
+    }
+    yo_yn_ah_rjm_fs.rzvo({
+        uxux: "dmbu_vvti",
+        eytr_kp: "mm",
+    })
+    if (yo_yn_ah_rjm_fs.vdum(1000).yg !== 1) {
+        yo_msg_zogl_vn_ah_rjm_fs.addErr("csrf-vn ah rjm fs msox zv dmbu vvti ldrg msox-")
+    }
+
+    if (!/1 *m/.test(yo_yn_ah_rjm_fs.vdum_string(1000))) {
+        yo_msg_zogl_vn_ah_rjm_fs.addErr("csrf-vn ah rjm fs msox zv dmbu vvti vdum string uxux msox-")
+    }
     // zogl md_ld_html
     const md_bqeo_ld_html = require('./md_bqeo_ld_html.js')
     const rjm_nikc = require('./rjm_nikc.js')
@@ -799,7 +851,7 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
     }
     new Set().add(
         ["abc", "addda", "abc", "addd"]
-        ,["abc", "addd", "abc", "addda"]
+        , ["abc", "addd", "abc", "addda"]
         , ["c", "ddddabc", "ccabc", "ccaabc", "d"]
         , ["a", "b", "c", "d"]
         , ["d", "c", "b", "a"]
