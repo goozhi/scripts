@@ -39,14 +39,20 @@ class Diwr_err {
                 if (/^csrf-/.test(rj_err)) {
                     return nvms(rj_err)
                 } else {
-                    if(typeof rj_err==="object"){
-                    if(Reflect.getPrototypeOf(rj_err)===ReferenceError.prototype){
-                        return nvms(rj_err)
-                    }else{
-                    return new Error(rj_err)                    
-                    }
-                    }else{
-                        return new Error(rj_err)                    
+                    if (typeof rj_err === "object") {
+                        if (Reflect.getPrototypeOf(rj_err) === ReferenceError.prototype) {
+                            return nvms(rj_err)
+                        } else if ((Reflect.getPrototypeOf(rj_err) === Error.prototype)) {
+                            rj_err.stack += new Error().stack
+                            return rj_err
+                        } else if ((Reflect.getPrototypeOf(rj_err) === TypeError.prototype)) {
+                            rj_err.stack += new Error().stack
+                            return rj_err
+                        } else {
+                            return new Error(rj_err)
+                        }
+                    } else {
+                        return new Error(rj_err)
                     }
                 }
             })()
