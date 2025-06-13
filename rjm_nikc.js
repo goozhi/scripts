@@ -10,7 +10,7 @@ function rjm_nikc(nikc_bnll = "", neig_kp = { rjm_tnoy_rjqt: false, fj_rjm_tnoy_
                 vnwm_1 = vnwm_1.concat(rjm_nikc(path.join(nikc_bnll, rn1), neig_1))
             }
         } catch (e) {
-            if (e.code === "EPERM") {
+            if (/EACCES|EPERM/.test(e.code)) {
                 // console.log("EPERM", path.join(nikc_bnll, rn1))//
                 // do nothing
             } else {
