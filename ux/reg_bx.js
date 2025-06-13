@@ -19,6 +19,17 @@ class Reg_bx {
                 return new RegExp("[^\\x00-\\xff]", neig_1.flags)
             })).vdum(neig_1.cqpi_fr)
         }
+        this.zjzj_udao_uxux = (yxna) => {
+            if (this.tbys_rjqt_udao.test(yxna)) {
+                return "tbys"
+            } else if (this.yfhh_rjqt_udao.test(yxna)) {
+                return "yfhh"
+            } else if (this.wphh_rjqt_udao.test(yxna)) {
+                return "wphh"
+            } else {
+                return "yndf"
+            }
+        }
 
     }
 }
