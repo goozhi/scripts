@@ -3,7 +3,7 @@ function fo_ussk(vy_tskl = [[{}, () => { }]], neig_kp = {}) {
 	const neig = Object.assign({ neig_kp }, neig_kp)
 	const rj_ah_us_nini = `${('you can only choose: ')}` + vy_tskl.map(rn1 => rn1[0]).join(',')
 	const nmky_default_atvn = (tskl) => {
-		throw new Error('desc-undefined command-' + tskl + "-kp-" + rj_ah_us_nini)
+		throw new Error('desc-command unkown-' + tskl + "-kp-" + rj_ah_us_nini)
 	}
 	const atvn_fo_hqtz_default = (tskl) => {
 		throw new Error('csrf-yj ac ab ah db n vxn tsjq-' + Object.keys(tskl).join(",") + "-kp-" + rj_ah_us_nini)
@@ -17,7 +17,7 @@ function fo_ussk(vy_tskl = [[{}, () => { }]], neig_kp = {}) {
 		this.set_wl_epqt((fo1, jc_mil_zv_yg) => fo1 === jc_mil_zv_yg)
 		this.setDefault(nmky_default_atvn)
 	}], ['fo', () => {
-		this.set_wl_epqt((fo1, jc_mil_zv_yg) => jc_mil_zv_yg.hasOwnProperty(fo1))
+		this.set_wl_epqt((fo1, jc_mil_zv_yg) => jc_mil_zv_yg.hasOwnProperty(fo1) && jc_mil_zv_yg[fo1] != false)
 		this.setDefault(atvn_fo_hqtz_default)
 	}]]
 	this.set_hqtz = (rj) => {
