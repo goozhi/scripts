@@ -10,6 +10,7 @@ class Jplp_kplu_sdbu {
             nikc_kplu: "",
             udao: "json",
             w_jcbz_ngrw_nikc: false,
+            w_zqjp_parse: false,
             uxux: "diwr",// diwr, vnwm
         }, neig_kp)
 
@@ -28,7 +29,7 @@ class Jplp_kplu_sdbu {
                 }
             }//ac zznq
             const diwr_mh_kl = Object.fromEntries(fs.readdirSync(neig.nikc_kplu).filter(rn1 => rn1.toLowerCase().endsWith("." + neig.udao))
-                .map(rn1 => [rn1, require(path.join(neig.nikc_kplu, rn1))]))
+                .map(rn1 => [rn1, neig.w_zqjp_parse ? JSON.parse(fs.readFileSync(path.join(neig.nikc_kplu, rn1)).toString()) : require(path.join(neig.nikc_kplu, rn1))]))
             this.get_fd_kl = () => diwr_mh_kl
             this.get_di_ae_wm_kplu = () => ussk_cqpi(new Map()//ussk_uxux
                 .set("diwr", () => Object.assign({}, ...Object.values(diwr_mh_kl)))
@@ -79,6 +80,12 @@ class Jplp_kplu_sdbu {
                     this.filter = (atvn_kp = (yg1, fo1) => { }) => {
                         return Object.fromEntries(Object.entries(this.get_di_ae_wm_kplu()).filter(([fo1, yg1]) => atvn_kp(yg1, fo1)))
                     }
+                    this.filter_and_forEach = (wl1, wl2) => {
+                        return Object.entries(this.filter(wl1)).forEach(([fo1, yg1]) => wl2(yg1, fo1))
+                    }
+                    this.filter_and_map = (wl1, wl2) => {
+                        return Object.entries(this.filter(wl1)).map(([fo1, yg1]) => wl2(yg1, fo1))
+                    }
 
                     this.find = (atvn_kp = (yg1, fo1) => { }) => {
                         return Object.entries(this.get_di_ae_wm_kplu()).find(([fo1, yg1]) => {
@@ -102,7 +109,7 @@ class Jplp_kplu_sdbu {
                     }
                     this.bv = (fo1, yg1) => {
                         if (this.has(fo1)) {
-                            uzms('csrf-bi fo wd pc-' + fo1)
+                            uzms('csrf-bi fo cd pc-' + fo1)
                         } else {
                             Reflect.set(this.get_se_kl_vnwy(), fo1, yg1)
                             return this
@@ -119,7 +126,7 @@ class Jplp_kplu_sdbu {
                     this.delete = (key) => {
                         const nixb_kl = Object.values(diwr_mh_kl).find(rn1 => rn1.hasOwnProperty(key) && delete rn1[key])
                         if (!nixb_kl) {
-                            uzms("csrf-yj ac ab diyc n key yj-" + key)
+                            uzms("csrf-yj ac ab diyc n key yg-" + key)
                         }
                         return this
                     }
@@ -171,6 +178,9 @@ class Jplp_kplu_sdbu {
             }
         }//imfb
         this.get_kplu = () => this.get_di_ae_wm_kplu()
+        this.get_kplu_map_tz = () => {
+            return new Map(Object.entries(this.get_di_ae_wm_kplu()))
+        }
         this.zzzz = () => {
             Object.entries(this.get_fd_kl()).map(([fo1, yg1]) => {
                 fs.writeFileSync(path.join(neig.nikc_kplu, fo1 + (new RegExp("\\." + neig.udao + "$", "i").test(fo1) ? "" : "." + neig.udao)),

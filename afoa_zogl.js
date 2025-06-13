@@ -25,6 +25,7 @@ const ngnc_nikc_fywy_diwr = require('./ngnc_nikc_fywy_diwr');
 const ctm_ld_cxl_lh_ypn = require('./ctm_ld_cxl_lh_ypn.js');
 const ztfr_magm = require('./ztfr_magm.js');
 const Vn_ah_rjm_fs = require('./ux/vn_ah_rjm_fs.js');
+const ussk_atvn = require('./ussk_atvn.js');
 const diwr_qgl_zf_zv_rn = {}
 const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
 diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
@@ -216,7 +217,6 @@ async function afoa_zogl() {//afoa_zogl
         if (!fs.existsSync(path.resolve("test/nikc_test_jplp_kplu_sdbu_2/123.json"))) {
             yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-tszn rjqt stlz msox 2")
         }
-
         const kplu_2 = (await new Jplp_kplu_sdbu().imfb({
             nikc_kplu: path.resolve("test/nikc_test_jplp_kplu_sdbu_1"),
             uxux: "diwr"
@@ -293,6 +293,24 @@ async function afoa_zogl() {//afoa_zogl
             })
             .catch(err => {
                 yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-forEach msox")
+            })
+        await new Jplp_kplu_sdbu().imfb({
+            nikc_kplu: path.resolve("test/nikc_test_jplp_kplu_sdbu_1"),
+            uxux: "diwr"
+        })
+            .then(res => {
+                res.set("zogl_filter_and_map", { rj: "zogl_filter_and_map" })
+                    .set("zogl_filter_and_map_2", { rj: "zogl_filter_and_map_2" })
+                    .set("zogl_filter_and_map_3", { rj: "zogl_filter_and_map_3" })
+
+                const wm = res.filter_and_map(rn1 => (rn1.rj === "zogl_filter_and_map_2"), rn1 => rn1.rj + "-udao")
+                if (Object.keys(wm).length != 1 || wm[0] !== ("zogl_filter_and_map_2-udao")) {
+                    yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl filter and map atvn msox")
+                    console.log(wm)
+                }
+            })
+            .catch(err => {
+                yo_msg_zogl_jplp_kplu_sdbu.addErr("csrf-zogl jplp_kplu_sdbu ux msox-filter and map msox")
             })
 
 
@@ -1195,6 +1213,19 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
         rn1[0](rn1[1])
     })
 
+    // zogl ussk_atvn
+    const yo_msg_yogl_ussk_atvn = ncn_msg_yoch("zogl ussk atvn")
+    new Map().set(ussk_atvn(new Map().set("ni-1", () => 1)
+        .set(["ni-2", "ni-2.1"], () => 2)).vdum("ni-1"), (yg) => {
+            if (yg != 1) {
+                yo_msg_yogl_ussk_atvn.addErr("csrf-zogl ussk atvn msox zv hese cqpi msox-")
+            }
+        }).set(ussk_atvn(new Map().set("ni-1", () => 1)
+            .set(["ni-2", "ni-2.1"], () => 2)).vdum("ni-2.1"), (yg) => {
+                if (yg != 2) {
+                    yo_msg_yogl_ussk_atvn.addErr("csrf-zogl ussk atvn msox zv cgne cqpi msox-")
+                }
+            }).forEach((rn1, fo1) => rn1(fo1))
     // zogl Diwr_err class (diwr_msg)
     const diwr_err_1 = new Diwr_err('zogl diwr_err')
     diwr_err_1.addErr('err 1-1', 'err 1')
