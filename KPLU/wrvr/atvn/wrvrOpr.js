@@ -53,7 +53,7 @@ async function wrvrOpr(neig_kp) {
             return 'Cd uace'
         } else if (user_params._[1] === "zt") {
             const vnwm_ce_zt = bsVnwm(user_params)
-            const rj_nixb = ztwm.find(rn1 => rn1.length < 5&&rn1.length)
+            const rj_nixb = ztwm.find(rn1 => rn1.length < 5 && rn1.length)
             const vnwm_nvcm = vnwm_ce_zt.map(rn1 => {
                 ztwm[ztwm.indexOf(rj_nixb)] = rj_nixb + rn1
                 return rj_nixb + rn1
@@ -69,16 +69,16 @@ async function wrvrOpr(neig_kp) {
             return await jyqhRjqt(yxna_test, 2100).catch(err => { throw err })
         } else if (user_params._[1] === "yfm") {
             return (() => {
-            if(user_params.ytm){
-                return user_params.lastParams.replace(/(\w+.*\w)/g, (m,p1)=>{
-                    return m.replace(/\w+/g,(m)=>{
-                    return wrvr_kp.diwr_non_eysj[m.toLowerCase()]?.yf||m
+                if (user_params.ytm) {
+                    return user_params.lastParams.replace(/(\w+.*\w)/g, (m, p1) => {
+                        return m.replace(/\w+/g, (m) => {
+                            return wrvr_kp.diwr_non_eysj[m.toLowerCase()]?.get_yfm?.() || m
+                        })
+                        //m.split(/ /).map(rn1=>wrvr_kp.diwr_non_eysj[rn1]?.yf||rn1).join(" ")
                     })
-                    //m.split(/ /).map(rn1=>wrvr_kp.diwr_non_eysj[rn1]?.yf||rn1).join(" ")
-                })
-            }
+                }
                 return user_params.lastParams.split(/\s/g).filter(rn1 => /\S/.test(rn1)).map(rn1 => {
-                    return rn1 + ": " + (wrvr_kp.diwr_non_eysj[rn1.match(/\w+/)?.[0].toLowerCase()]?.yf || "ra-znzk")
+                    return rn1 + ": " + (wrvr_kp.diwr_non_eysj[rn1.match(/\w+/)?.[0].toLowerCase()]?.get_yfm?.() || "ra-znzk")
                 }).join("\n")
             })()
         } else if (user_params._[1] === "yf") {

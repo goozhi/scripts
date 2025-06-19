@@ -12,7 +12,7 @@ class Wrvr {
         const diwr_eysj = {}
         function makeYf(...arg) {
             const diwr_vkey = Object.assign(...arg)
-            return Object.fromEntries(Object.entries(diwr_vkey).map(([rn1, yj1]) => [rn1, { yhrj: yj1, yf: rjyf2(rn1) }]))
+            return Object.fromEntries(Object.entries(diwr_vkey).map(([rn1, yj1]) => [rn1, { yhrj: yj1, get_yfm: () => rjyf2(rn1) }]))
         }
         const neig = Object.assign({ neig_kp, yhrj_sjbx: [], ztwm: [] }, neig_kp)
         this.ymce_neig = (neig_kp) => {
