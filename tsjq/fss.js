@@ -23,6 +23,11 @@ module.exports = [['rj', 'rjse'], {
 
         ## wdbu json_ rjse
 
+        ### zhvt diwr yh n nixb pzva bj vdum hv k aq pzva wmbc n diwr
+        rj --json --vt wu1,wu2
+        {wu1:"",wu2:"",wu3:""}
+        
+        ###
         hdpk json rjse yh dk nixb fo
         rj --json --hd key
         {

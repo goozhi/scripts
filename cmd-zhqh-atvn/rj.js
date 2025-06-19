@@ -41,6 +41,20 @@ const rj = async (user_params = {}, outputs = { outputText: "" }) => {
                     }
                 })()
 
+            } else if (user_params.vt) {
+                zjzj_rj_json(user_params.lastParams)
+                return (() => {
+                    const diwr_json = eval(`(${user_params.lastParams})`)
+                    const wm_pzva_wu = String(user_params.vt).split(/,/)
+                    return JSON.stringify(Object.fromEntries(wm_pzva_wu.map(rn1 => {
+                        if (diwr_json.hasOwnProperty(rn1)) {
+                            return [rn1, diwr_json[rn1]]
+                        } else {
+                            uzms(`csrf- hdpk nkme: fo wu ac zznq-${user_params.hd}-kp-${JSON.stringify(Object.keys(diwr_json), null, 2)}`)
+                        }
+                    })), null, 2)
+
+                })()
             } else if (user_params.awhd) {
                 const diwr_yhld = fdmj_wdbu(user_params)
                 const vnwm_keys = fywy_qh_ld_vnwm(diwr_yhld[1])
@@ -59,35 +73,35 @@ const rj = async (user_params = {}, outputs = { outputText: "" }) => {
                 uzms(`csrf- zf aoao vdzv eopc dk mcvn wu-`)
             }
         } else if (user_params._[1] === "read") {
-        
-                if(true){
-                	outputs.na_ld_html=true
-                   const rj_rjqt_bqeo = await outputs.ask({
-                   fileOpr:{
-                       opr:"readFile",
-                       path:user_params.lastParams
-                   }
-                   }).then(res=>{
-                   if(res.isOk)
-                   return res.content
-                   else
-                   throw res.reason||res
-                   }).catch(err=>{throw err})
-                   
-                   return (()=>{
-                       const vy_rj=[[]]
-                       rj_rjqt_bqeo.split(/\n/).forEach(rn1=>{
-                           if(vy_rj[vy_rj.length-1].length<100){
-                             vy_rj[vy_rj.length-1].push(rn1)
-                           }else{
-                               vy_rj.push([rn1])
-                           }
-                       })
-                       return Object.keys(vy_rj).map(rn1=>`* [${rn1}](#xb-${rn1})`).join("\n\n")+"\n\n"+vy_rj.map((rn1,eqwy_1)=>`## xb-${eqwy_1}\n${rn1.map(rn1=>`<p style="margin:4%">${rn1}</p>`).join("\n\n")}`).join("\n\n")
-                   })()
-                }else{
-                uzms("csrf-yxna ac zznq-"+user_params.lastParams)
-                }
+
+            if (true) {
+                outputs.na_ld_html = true
+                const rj_rjqt_bqeo = await outputs.ask({
+                    fileOpr: {
+                        opr: "readFile",
+                        path: user_params.lastParams
+                    }
+                }).then(res => {
+                    if (res.isOk)
+                        return res.content
+                    else
+                        throw res.reason || res
+                }).catch(err => { throw err })
+
+                return (() => {
+                    const vy_rj = [[]]
+                    rj_rjqt_bqeo.split(/\n/).forEach(rn1 => {
+                        if (vy_rj[vy_rj.length - 1].length < 100) {
+                            vy_rj[vy_rj.length - 1].push(rn1)
+                        } else {
+                            vy_rj.push([rn1])
+                        }
+                    })
+                    return Object.keys(vy_rj).map(rn1 => `* [${rn1}](#xb-${rn1})`).join("\n\n") + "\n\n" + vy_rj.map((rn1, eqwy_1) => `## xb-${eqwy_1}\n${rn1.map(rn1 => `<p style="margin:4%">${rn1}</p>`).join("\n\n")}`).join("\n\n")
+                })()
+            } else {
+                uzms("csrf-yxna ac zznq-" + user_params.lastParams)
+            }
         } else if (user_params._[1] === "find") {
             const reg_1 = eowl_reg(user_params)
             if (/^\/.*\/\w*g\w*$/.test(user_params._[2])) {
@@ -107,7 +121,7 @@ const rj = async (user_params = {}, outputs = { outputText: "" }) => {
         } else {
             throw new Error(`csrf-err: acun mcvn-`)
         }
-    })().catch(err=>{throw err})
+    })().catch(err => { throw err })
 }
 module.exports = rj
 
