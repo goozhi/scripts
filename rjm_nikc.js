@@ -6,7 +6,7 @@ function rjm_nikc(nikc_bnll = "", neig_kp = { rjm_tnoy_rjqt: false, fj_rjm_tnoy_
     const vnwm_2 = fs.readdirSync(nikc_bnll)
     vnwm_2.forEach(rn1 => {
         try {
-            if (fs.statSync(path.join(nikc_bnll, rn1)).isDirectory() && ah_rjm(rn1, neig_kp)) {
+            if (fs.statSync(path.join(nikc_bnll, rn1)).isDirectory() && ah_rjm(rn1, path.join(nikc_bnll, rn1), neig_kp)) {
                 vnwm_1 = vnwm_1.concat(rjm_nikc(path.join(nikc_bnll, rn1), neig_1))
             }
         } catch (e) {
@@ -23,14 +23,8 @@ function rjm_nikc(nikc_bnll = "", neig_kp = { rjm_tnoy_rjqt: false, fj_rjm_tnoy_
 }
 module.exports = rjm_nikc
 
-function ah_rjm(wu_kp, neig_kp = {}) {
+function ah_rjm(wu_kp, yxna_kp, neig_kp = {}) {
     const neig_1 = Object.assign({ neig_kp }, neig_kp)
-    if (neig_1.fj_rjm_tnoy_rjqt) {
-        return /^\./.test(wu_kp)
-    }
-    if (neig_1.rjm_tnoy_rjqt) {
-        return true
-    } else {
-        return !/^\./.test(wu_kp)
-    }
+    return (neig_1.fj_rjm_tnoy_rjqt ? /^\./.test(wu_kp) : (neig_1.rjm_tnoy_rjqt ? true : !/^\./.test(wu_kp)))
+        && (neig_1.atvn_vbyt ? neig_1.atvn_vbyt(yxna_kp) : true)
 }
