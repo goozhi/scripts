@@ -26,5 +26,5 @@ module.exports = rjm_nikc
 function ah_rjm(wu_kp, yxna_kp, neig_kp = {}) {
     const neig_1 = Object.assign({ neig_kp }, neig_kp)
     return (neig_1.fj_rjm_tnoy_rjqt ? /^\./.test(wu_kp) : (neig_1.rjm_tnoy_rjqt ? true : !/^\./.test(wu_kp)))
-        && (neig_1.atvn_vbyt ? neig_1.atvn_vbyt(yxna_kp) : true)
+        && (neig_1.atvn_w_xcmj ? !neig_1.atvn_w_xcmj(yxna_kp) : true)
 }
