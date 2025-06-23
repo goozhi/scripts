@@ -17,7 +17,7 @@ function rjm_nikc(nikc_bnll = "", neig_kp = { rjm_tnoy_rjqt: false, fj_rjm_tnoy_
                 throw e
             }
         }
-        vnwm_1.push(path.join(nikc_bnll, rn1))
+        (neig_1.atvn_w_xcmj ? !neig_1.atvn_w_xcmj(path.join(nikc_bnll, rn1)) : true) && vnwm_1.push(path.join(nikc_bnll, rn1))
     })
     return vnwm_1
 }
