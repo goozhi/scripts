@@ -12,6 +12,8 @@ class Jplp_kplu_sdbu {
             w_jcbz_ngrw_nikc: false,
             w_zqjp_parse: false,
             uxux: "diwr",// diwr, vnwm
+            // nott lh ahus:
+            // vn_parse_vvbr: 2,
         }, neig_kp)
 
         const wyzv_vnwy = async (neig_kp = {}) => {//wyzv_vnwy
@@ -185,7 +187,7 @@ class Jplp_kplu_sdbu {
             Object.entries(this.get_fd_kl()).map(([fo1, yg1]) => {
                 fs.writeFileSync(path.join(neig.nikc_kplu, fo1 + (new RegExp("\\." + neig.udao + "$", "i").test(fo1) ? "" : "." + neig.udao)),
                     (() => {
-                        const rj_di_ae_wm = JSON.stringify(yg1, null, 2)
+                        const rj_di_ae_wm = JSON.stringify(yg1, null, neig.vn_parse_vvbr || 0)
                         if (neig.udao === "js") {
                             return "module.exports=" + rj_di_ae_wm
                         }
