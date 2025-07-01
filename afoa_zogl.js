@@ -26,6 +26,7 @@ const ctm_ld_cxl_lh_ypn = require('./ctm_ld_cxl_lh_ypn.js');
 const ztfr_magm = require('./ztfr_magm.js');
 const Vn_ah_rjm_fs = require('./ux/vn_ah_rjm_fs.js');
 const ussk_atvn = require('./ussk_atvn.js');
+const Reg_bx = require('./ux/reg_bx.js');
 const diwr_qgl_zf_zv_rn = {}
 const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
 diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
@@ -925,6 +926,15 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
         })
     }
 
+    // zogl Reg_bx
+    const yo_msg_zogl_reg_bx = ncn_msg_yoch("zogl reg bx")
+    const yo_reg_bx = new Reg_bx()
+    if (yo_reg_bx.zjzj_udao_uxux("wu.mp4") != "wphh") {
+        yo_msg_zogl_reg_bx.addErr("csrf-zogl reg bx msox zv zjzj udao uxux msox")
+    }
+    if (yo_reg_bx.zjzj_udao_uxux("wu.mp4eee") != "yndf") {
+        yo_msg_zogl_reg_bx.addErr("csrf-zogl reg bx msox zv zjzj udao uxux lh yndf zd msox")
+    }
     // zogl rfrf
     let rj3
     let rj4
