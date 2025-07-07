@@ -55,6 +55,7 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
         await targetCmd.func(user_params, outputs, Object.assign(neig, {
             mapC
         })).catch(err => { throw err })
+        neig_kp.afoa_jtyj = outputs.outputText
         if (user_params.write.length > 0) {
             outputs.ask({
                 fileOpr: {
