@@ -68,6 +68,9 @@ async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, ne
         if (user_params.up) {
             outputs.up = true
         }
+        if (user_params.pi_xyzd_hym) {
+            neig_kp.xyzd_hym = outputs.outputText
+        }
         if (outputs.rj_zhqh_tsjq) {
             const rj_zhqh_tsjq = outputs.rj_zhqh_tsjq
             outputs.rj_zhqh_tsjq = false
