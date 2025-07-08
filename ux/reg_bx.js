@@ -6,6 +6,7 @@ class Reg_bx {
         this.yfkt_rjqt_udao_ea = /\.(?:m4a|mp3|mp4|flac|ogg)$/i
         this.yfhh_rjqt_udao = /\.(?:m4a|mp3|flac|ogg|wav|m4b)$/i
         this.wphh_rjqt_udao = /\.(?:mp4|mkv|avi|rmvb|kux)$/i
+        this.wphh_rjqt_jc_znzk_udao = /\.(?:4\.wv|avip.wv|mko.wv)$/i
         this.tbys_rjqt_udao = /\.(?:jpg|png|icon)$/i
         this.get_reg_ft_rdrj_frih = (flags) => new RegExp("[^\\x00-\\xff]", flags)
 
@@ -30,7 +31,7 @@ class Reg_bx {
         const map_uxux = new Map()
             .set("tbys", (yxna) => this.tbys_rjqt_udao.test(yxna))
             .set("yfhh", (yxna) => this.yfhh_rjqt_udao.test(yxna))
-            .set("wphh", (yxna) => this.wphh_rjqt_udao.test(yxna))
+            .set("wphh", (yxna) => this.wphh_rjqt_udao.test(yxna) || this.wphh_rjqt_jc_znzk_udao.test(yxna))
             .set("eahn_go", (yxna) => this.get_reg_eahn_go_rjqt("i").test(yxna))
             .set("ycdb", (yxna) => this.get_reg_ycdb_rjqt("i").test(yxna))
             .set("vkrs_rjqt", (yxna) => this.get_reg_vkrs_rjqt("i").test(yxna))
