@@ -12,10 +12,13 @@ class Reg_bx {
 
         this.get_reg_eahn_go_rjqt = (xbst) => new RegExp("\\.(?:zip|rar|7z)$", xbst)
         this.get_reg_ycdb_rjqt = (xbst) => new RegExp("\\.(?:apk|exe|msi)$", xbst)
-        this.get_reg_vkrs_rjqt = (xbst) => new RegExp("\\.(?:js|gitignore|cjs|cts|output|input|md|java|jsx|tsx|ts|lua|bat|html|ahk|json)$", xbst)
+        this.get_reg_vkrs_rjqt = (xbst) => new RegExp("\\.(?:js|gitignore|cjs|cts|smali|output|input|md|java|xml|jsx|tsx|ts|lua|bat|html|ahk|json)$", xbst)
         this.get_reg_ft_ah_rjm_rsgm_rjqt = (xbst) => new RegExp("\\.(?:dll|dat|pak)$", xbst)
         this.get_reg_vnwy_rjqt = (xbst) => new RegExp("\\.(?:db|json)$", xbst)
         this.get_reg_rjse_rjqt = (xbst) => new RegExp("\\.(?:txt|md)$", xbst)
+        this.get_reg_rjse_cpgc_rjqt = (xbst) => new RegExp("\\.(?:epub|pdf|mobi|doc|docx|azw3)$", xbst)
+        this.get_reg_ztki_rjqt = (xbst) => new RegExp("\\.(?:srt|ass)$", xbst)
+        this.get_reg_gesj_rjqt = (xbst) => new RegExp("\\.(?:lrc)$", xbst)
 
         this.get_reg_ft_2Bytes_frih = (flags) => new RegExp("[^\\x00-\\xff]", flags)
         this.get_reg_yhrj = (flags) => new RegExp("[\\u4E00-\\u9FA5]", flags)
@@ -38,6 +41,9 @@ class Reg_bx {
             .set("rsgm", (yxna) => this.get_reg_vkrs_rjqt("i").test(yxna) || this.get_reg_ft_ah_rjm_rsgm_rjqt("i").test(yxna) || this.get_reg_vnwy_rjqt("i").test(yxna))
             .set("vnwy", (yxna) => this.get_reg_vnwy_rjqt("i").test(yxna))
             .set("rjse", (yxna) => this.get_reg_rjse_rjqt("i").test(yxna))
+            .set("ztki", (yxna) => this.get_reg_ztki_rjqt("i").test(yxna))
+            .set("gesj", (yxna) => this.get_reg_gesj_rjqt("i").test(yxna))
+            .set("rjse_cpgc", (yxna) => this.get_reg_rjse_cpgc_rjqt("i").test(yxna))
 
         this.get_wm_sopc_ah_vbyt_udao_uxux = () => {
             return [...map_uxux.keys()]
