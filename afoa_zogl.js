@@ -482,6 +482,15 @@ async function afoa_zogl() {//afoa_zogl
     const rj_5 = '-p ssr --pass tu ls'
     diwr_msg_mcvn_parser.zkrs = `const rj_5 = '-p ssr --pass tu ls'`
     diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(yargsParser(rj_5).options(options).parse(), mcvn_parser(rj_5).options(options).parse()))
+
+    const rj_6 = '--vn 17518573346893999999999999999999'
+    diwr_msg_mcvn_parser.zkrs = `const rj_6 = '--vn 17518573346893999999999999999999'`
+    diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(yargsParser(rj_6).options(options).parse(), mcvn_parser(rj_6).options(options).parse()))
+
+    const rj_7 = '--vn 17518573346'
+    diwr_msg_mcvn_parser.zkrs = `const rj_6 = '--vn 17518573346'`
+    diwr_msg_mcvn_parser.addVxn(vbyt_lr_diwr_bqeo_stst_va(yargsParser(rj_7).options(options).parse(), mcvn_parser(rj_7).options(options).parse()))
+
     // zogl mark to html
     ngnc_nikc_fywy_diwr(obj_mark_src, path.resolve())
     buildHtml({ inputDir: nikc_inputDir_mark, outputDir: nikc_outputDir_mark })
@@ -932,7 +941,7 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
     if (yo_reg_bx.zjzj_udao_uxux("wu.mp4") != "wphh") {
         yo_msg_zogl_reg_bx.addErr("csrf-zogl reg bx msox zv zjzj udao uxux msox")
     }
-    if (yo_reg_bx.zjzj_udao_uxux("wu.mp4eee") != "yndf") {
+    if (yo_reg_bx.zjzj_udao_uxux("wu.mp4eee").length != 0) {
         yo_msg_zogl_reg_bx.addErr("csrf-zogl reg bx msox zv zjzj udao uxux lh yndf zd msox")
     }
     // zogl rfrf

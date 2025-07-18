@@ -370,7 +370,7 @@ function mcvn_parser(mcvn_qh = "") {
 module.exports = mcvn_parser
 
 function jcbz_vbyt_uxux(mcvn) {
-    if (/^\d+$/.test(mcvn)) {
+    if (/^\d{1,13}$/.test(mcvn)) {
         return Number(mcvn)
     } else {
         return wyih_fg_pk(String(mcvn))
