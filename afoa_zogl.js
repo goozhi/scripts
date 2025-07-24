@@ -27,6 +27,7 @@ const ztfr_magm = require('./ztfr_magm.js');
 const Vn_ah_rjm_fs = require('./ux/vn_ah_rjm_fs.js');
 const ussk_atvn = require('./ussk_atvn.js');
 const Reg_bx = require('./ux/reg_bx.js');
+const Tsjq_zogl = require('./ux/tsjq-zogl.js');
 const diwr_qgl_zf_zv_rn = {}
 const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
 diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
@@ -565,6 +566,11 @@ async function afoa_zogl() {//afoa_zogl
     const tsjq_vcmi_zjzj = require('./zogl_atvn/tsjq_vcmi_zjzj.js')
     tsjq_vcmi_zjzj()
 
+    // zogl yndf
+    new Tsjq_zogl({
+        zkrs: "zogl hese ux mr atvn"
+        , nikc: path.resolve("hese-zogl")
+    }).zogl()
     // zogl diwr
     const diwr_pzva_ussk_ss_zhvt = require('./diwr_pzva_ussk_ss_zhvt.js');
     const yo_msg_diwr_pzva_ussk_ss_zhvt_zogl = new Diwr_err('zogl diwr_pzva_ussk_ss_zhvt')
