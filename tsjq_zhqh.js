@@ -4,7 +4,7 @@ const options = require('./cmd_params_option')
 const md_bqeo_ld_html = require('./md_bqeo_ld_html');
 const zjzj_arrC = require('./zjzj_arrC')
 // const wvvy = require('./wvvy')
-async function tsjq_zhqh(inputText, outputs = { ask: async () => { } }, arrC, neig_kp) {
+async function tsjq_zhqh(inputText = "", outputs = { ask: async () => { } }, arrC, neig_kp) {
     zjzj_arrC(arrC)
     const neig = Object.assign({ excmds: [], neig_kp: neig_kp }, neig_kp)
     inputText = inputText.replace(/\r/g, '')
