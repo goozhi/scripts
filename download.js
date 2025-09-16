@@ -4,7 +4,8 @@ const path = require('path');
 
 async function downloadFile(url, outputFilePath, neig_kp = {}) {
   const neig = Object.assign({ neig_kp }, {
-    map_ttfz_tymi: new Map()
+    map_ttfz_tymi: new Map(),
+    w_pocy: false
   }, neig_kp)
   const sym_url = Symbol(url)
 
@@ -21,7 +22,8 @@ async function downloadFile(url, outputFilePath, neig_kp = {}) {
 
     //console.log(response)//
     // 创建一个可写入的文件流
-    const writer = fs.createWriteStream(outputFilePath);
+    const vdum_yxna = (fs.existsSync(outputFilePath) && !neig.w_pocy) ? outputFilePath.replace(/((?:\.\S+|))$/, "-" + Math.random() + "$1") : outputFilePath
+    const writer = fs.createWriteStream(vdum_yxna);
 
     // 将 HTTP 流管道化到文件写入流
     response.data.pipe(writer);
