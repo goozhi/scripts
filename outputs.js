@@ -17,6 +17,7 @@ const yueOpr = require('./oprs/yueOpr.js');
 const atvn_ngnc_mr_zhqhOpr = require('./ldjp/atvn-ngnc-mr-zhqhOpr.js');
 const rtul_cqpi = require('./rtul_cqpi.js');
 const mcvn_parser = require('./mcvn_parser.js');
+const ttfzOpr = require('./oprs/ttfzOpr.js');
 function outputs(neig_kp = {}) {
     const neig_zi = Object.assign({ neig_kp }, neig_kp)
     const diwr_tskl = {
@@ -73,6 +74,9 @@ function outputs(neig_kp = {}) {
         },
         hotOpr: async (neig_tskl) => {
             return await hotOpr(neig_tskl.hotOpr).catch(err => { throw err })
+        },
+        ttfzOpr: async (neig_tskl) => {
+            return await ttfzOpr(neig_tskl.ttfzOpr).catch(err => { throw err })
         }
     }
     if (neig_zi.diwr_tskl) {
