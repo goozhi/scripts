@@ -28,6 +28,7 @@ const Vn_ah_rjm_fs = require('./ux/vn_ah_rjm_fs.js');
 const ussk_atvn = require('./ussk_atvn.js');
 const Reg_bx = require('./ux/reg_bx.js');
 const Tsjq_zogl = require('./ux/tsjq-zogl.js');
+const Cxl_ypn = require('./ux/cxl_ypn.js');
 const diwr_qgl_zf_zv_rn = {}
 const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
 diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
@@ -989,6 +990,47 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
     if (!/ \[x\] /.test(rj4)) {
         console.error(`csrf-rfrf msox 7`)
     }
+    // cxl ypn ux zogl zv ctm ld cxl lh ypn zogl
+    const yo_msg_cxl_ypn = ncn_msg_yoch("cxl ypn zogl")
+    const yo_cxl_ypn = new Cxl_ypn()
+    const wrm__xb_11 = { lb: 3, xb: 11 }
+    new Map()
+        .set(yo_cxl_ypn.ctm_ld_cxl_lh_ypn(new Map()
+            .set({ lb: 1, xb: 1 }, new Map()
+                .set({ lb: 2, xb: 11 }, new Map()
+                    .set(wrm__xb_11, "lb-3-bqeo-1")
+                    .set({ lb: 3, xb: 11 }, "lb-3-bqeo-2")
+                    .set({ lb: 3, xb: 11 }, "lb-3-bqeo-3")
+                ).set({ lb: 2, xb: 12 }, new Map()
+                    .set({ lb: 3, xb: 12 }, "lb-3-bqeo-1")
+                    .set({ lb: 3, xb: 12 }, "lb-3-bqeo-2")
+                    .set({ lb: 3, xb: 12 }, "lb-3-bqeo-3")
+                )
+            )
+            .set({ lb: 1, xb: 2 }, new Map()
+                .set({ lb: 2 }, new Map()
+                    .set({ lb: 3, xb: 21 }, "lb-3-bqeo-1")
+                    .set({ lb: 3, xb: 21 }, "lb-3-bqeo-2")
+                    .set({ lb: 3, xb: 21 }, "lb-3-bqeo-3")
+                )
+            ).set({ lb: 1, xb: 3 }, new Map()
+                .set({ lb: 2 }, new Map()
+                    .set({ lb: 3, xb: 31 }, "lb-3-bqeo-1")
+                    .set({ lb: 3, xb: 31 }, "lb-3-bqeo-2")
+                    .set({ lb: 3, xb: 31 }, "lb-3-bqeo-3")
+                )
+            )
+        )
+            , (jtyj) => {
+                if (!jtyj.some(rn1 => rn1.has(wrm__xb_11))) {
+                    yo_msg_cxl_ypn.addErr("csrf-cxl ypn ux ctm ld cxl lh ypn msox zv fo dank-")
+                }
+                if (jtyj.length !== 8) {
+                    yo_msg_cxl_ypn.addErr("csrf-cxl ypn ux ctm ld cxl lh ypn msox zv lb vn msox-")
+                }
+            })
+        .forEach((yg, fo) => yg(fo))
+
 
     // ctm ld cxl lh ypn zogl
     const yo_msg_ctm_ld_cxl_lh_ypn = ncn_msg_yoch("ctm ld cxl lh ypn zogl")
