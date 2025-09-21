@@ -1,3 +1,4 @@
+const Zdti = require("../../scripts/ux/zdti")
 class Cxl_ypn {
     constructor(neig_kp = {}) {
         const map_ctm_wfdb = new Map()
@@ -39,7 +40,7 @@ class Cxl_ypn {
                 ctm_rn_cqpi(val
                     , wfqq_lil_vn
                     , () => this.ctm_vt_rn(val, wfqq_lil_vn)
-                    , neig.ctm_atvn_so_cxl_zhqh(key, val)
+                    , () => neig.ctm_atvn_so_cxl_zhqh(key, val)
                 )
             })
             return map_ctm_wfdb
