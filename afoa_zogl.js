@@ -563,6 +563,18 @@ async function afoa_zogl() {//afoa_zogl
     //zogl arrC
     const arrC = require('./arrC')
     zjzj_arrC(arrC)
+
+    // zogl tsjq vkrs fkno
+    const yo_msg_zjzj_tsjq_vkrs = ncn_msg_yoch("zjzj tsjq vkrs fkno")
+    const nikc_tsjq = path.resolve("./tsjq")
+    const wm_tsjq_rjqt = fs.readdirSync(nikc_tsjq)
+    wm_tsjq_rjqt.forEach(rn1 => {
+        const bqeo = fs.readFileSync(path.join(nikc_tsjq, rn1)).toString()
+        if (/(?:^|\n)\s*const fs = require\("fs"\)/.test(bqeo)) {
+            yo_msg_zjzj_tsjq_vkrs.addErr("csrf-giww tsjq aoao fc db outputs lq yody, ifyj zf fc db fs_ iq hquj n hk-" + path.join(nikc_tsjq, rn1))
+        }
+    })
+
     // zogl commd dk opr tsjq.
     const tsjq_vcmi_zjzj = require('./zogl_atvn/tsjq_vcmi_zjzj.js')
     tsjq_vcmi_zjzj()
