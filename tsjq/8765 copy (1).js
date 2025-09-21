@@ -3,12 +3,6 @@ const Fd_sfxz = require("../Fd_sfxz")
 const diwr_pzva_ussk_ss_zhvt = require("../diwr_pzva_ussk_ss_zhvt")
 const unflat= require("../unflat")
 
-　　const path = require("path")
-
-　　const fs = require("fs")
-
-　　const uzms=require("../uzms")
-
 　　const ussk_cqpi=require("../ussk_cqpi")
 
 module.exports = [['sfxz', 'color'], {
