@@ -31,7 +31,19 @@ class Jplp_kplu_sdbu {
                 }
             }//ac zznq
             const diwr_mh_kl = Object.fromEntries(fs.readdirSync(neig.nikc_kplu).filter(rn1 => rn1.toLowerCase().endsWith("." + neig.udao))
-                .map(rn1 => [rn1, neig.w_zqjp_parse ? JSON.parse(fs.readFileSync(path.join(neig.nikc_kplu, rn1)).toString()) : require(path.join(neig.nikc_kplu, rn1))]))
+                .map(rn1 => {
+                    return [rn1, (() => {
+                        try {
+                            return neig.w_zqjp_parse ? JSON.parse(fs.readFileSync(path.join(neig.nikc_kplu, rn1)).toString()) : require(path.join(neig.nikc_kplu, rn1))
+                        } catch (err) {
+                            console.error(err)
+                            uzms("csrf-yxna data ahoa brtz msox, aq fix-" + path.join(neig.nikc_kplu, rn1) + "\n")
+
+                            // acah zqjp return {}, szlh k lbm uace zypk yb vnwy!
+                            // return {}
+                        }
+                    })()]
+                }))
             this.get_fd_kl = () => diwr_mh_kl
             this.get_di_ae_wm_kplu = () => ussk_cqpi(new Map()//ussk_uxux
                 .set("diwr", () => Object.assign({}, ...Object.values(diwr_mh_kl)))
