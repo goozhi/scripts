@@ -23,16 +23,22 @@ class Cxl_ypn {
                 atvn_so_cxl_zhqh()
             }
         }
-        this.ctm_ld_cxl_lh_ypn = (ctm_kp = new Map(), neig_kp = {}, map_wm_mb = [], wfqq_lil_vn = 0) => {
-            map_wm_mb.push(new Map())
-            const bnll_eqwy = map_wm_mb.length - 1
-            ctm_kp.forEach((val, key) => ctm_rn_cqpi(val
-                , wfqq_lil_vn
-                , () => {
-                    map_wm_mb[bnll_eqwy].set(key, [...val.keys()])
-                    this.ctm_ld_cxl_lh_ypn(val, neig_kp, map_wm_mb, wfqq_lil_vn)
-                }
-                , () => map_wm_mb[bnll_eqwy].set(key, val)))
+        this.ctm_ld_cxl_lh_ypn = (ctm_kp = new Map(), neig_kp = { bnll_eqwy: 0 }, map_wm_mb = [new Map()], wfqq_lil_vn = 0) => {
+            const bnll_eqwy = neig_kp.bnll_eqwy
+            ctm_kp.forEach((val, key) => {
+                neig_kp.bnll_eqwy = bnll_eqwy
+                ctm_rn_cqpi(val
+                    , wfqq_lil_vn
+                    , () => {
+                        neig_kp.bnll_eqwy++
+                        if (!map_wm_mb[neig_kp.bnll_eqwy]) {
+                            map_wm_mb[neig_kp.bnll_eqwy] = (new Map())
+                        }
+                        map_wm_mb[bnll_eqwy].set(key, [...val.keys()])
+                        this.ctm_ld_cxl_lh_ypn(val, neig_kp, map_wm_mb, wfqq_lil_vn)
+                    }
+                    , () => map_wm_mb[bnll_eqwy].set(key, val))
+            })
             return map_wm_mb
         }
         this.ctm_vt_rn = (ctm_kp = new Map(), wfqq_lil_vn = 0) => {
