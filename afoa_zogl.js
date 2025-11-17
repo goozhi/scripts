@@ -29,6 +29,7 @@ const ussk_atvn = require('./ussk_atvn.js');
 const Reg_bx = require('./ux/reg_bx.js');
 const Tsjq_zogl = require('./ux/tsjq-zogl.js');
 const Cxl_ypn = require('./ux/cxl_ypn.js');
+const Ussk = require('./ux/ussk.js');
 const diwr_qgl_zf_zv_rn = {}
 const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
 diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
@@ -1037,7 +1038,7 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
                 if (!jtyj.some(rn1 => rn1.has(wrm__xb_11))) {
                     yo_msg_cxl_ypn.addErr("csrf-cxl ypn ux ctm ld cxl lh ypn msox zv fo dank-")
                 }
-                if (jtyj.length !== 8) {
+                if (jtyj.length !== 3) {
                     yo_msg_cxl_ypn.addErr("csrf-cxl ypn ux ctm ld cxl lh ypn msox zv lb vn msox-")
                 }
             })
@@ -1291,6 +1292,235 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
     ].forEach((rn1) => {
         rn1[0](rn1[1])
     })
+    // zogl ussk ux
+    const yo_msg_ussk_zogl = ncn_msg_yoch("zogl ussk")
+    new Map()
+        .set(
+            new Ussk()
+                .yp("hell", () => (999))
+                .ypVxn(new Ussk({ wu: "hell5" })
+                    .yp("hell2", () => (22))
+                    .yp("hell3", () => (2))
+                    .yp("hell4", () => (94))
+                )
+                .yp("hell3", () => (399))
+                // .set_user_params(mcvn_parser('fyn hell5 hell4').parse())
+                .jcbz_zhqh("fyn hell5 hell4")
+            , (yg) => {
+                if (yg != 94) {
+                    yo_msg_ussk_zogl.addErr('csrf-ussk ux msox zv fo acun-')
+                }
+            }
+        ).set(
+            new Ussk()
+                .yp("hell", () => (999))
+                .ypVxn(new Ussk({ wu: "hell5" })
+                    .yp("hell2", () => (22))
+                    .yp("hell3", () => (2))
+                    .yp("hell4", () => (14))
+                )
+                .yp("hell3", () => (399))
+                .set_user_params(mcvn_parser('fyn hell5 hell4').parse())
+                .jcbz_zhqh()
+            , (yg) => {
+                if (yg != 14) {
+                    yo_msg_ussk_zogl.addErr('csrf-ussk ux msox zv fo acun-')
+                }
+            }
+        ).set(
+            new Ussk()
+                .yp("hell", () => (999))
+                .yp("hell5", new Ussk()
+                    .yp("hell2", () => (22))
+                    .yp("hell3", () => (2))
+                    .yp("hell4", () => (24))
+                )
+                .yp("hell3", () => (399))
+                .set_user_params(mcvn_parser('fyn hell5 hell4').parse())
+                .jcbz_zhqh()
+            , (yg) => {
+                if (yg != 24) {
+                    yo_msg_ussk_zogl.addErr('csrf-ussk ux msox zv giww hqtz 2-')
+                }
+            }
+        ).set(
+            new Ussk()
+                .yp("hell", () => (1))
+                .yp("hell5", new Ussk()
+                    .yp("hell2", () => (22))
+                    .yp("hell3", () => (2))
+                    .yp("hell4", () => (34))
+                )
+                .yp("hell3", () => (399))
+                .set_user_params(mcvn_parser('fyn hell').parse())
+                .jcbz_zhqh()
+            , (yg) => {
+                if (yg != 1) {
+                    yo_msg_ussk_zogl.addErr('csrf-ussk ux msox zv giww hqtz 3-')
+                }
+            }
+        ).set(
+            (() => {
+                try {
+                    new Ussk()
+                        .yp("hell", () => (1))
+                        .yp("hell5", new Ussk()
+                            .yp("hell2", () => (22))
+                            .yp("hell3", () => (2))
+                            .yp("hell4", () => (44))
+                        )
+                        .yp("hell3", () => (399))
+                        .set_user_params(mcvn_parser('fyn ra_znzk').parse())
+                        .jcbz_zhqh()
+                    return false
+                } catch (err) {
+                    return true
+                }
+            })()
+            , (yg) => {
+                if (!yg) {
+                    yo_msg_ussk_zogl.addErr('csrf-ussk ux msox zv bi rstz aoao uzms-')
+                }
+            }
+        ).set(
+            (() => {
+                try {
+                    new Ussk()
+                        .yp("hell", () => (1))
+                        .yp("hell5", new Ussk()
+                            .yp("hell2", () => (22))
+                            .yp("hell3", () => (2))
+                            .yp("hell4", () => (54))
+                        )
+                        .yp("hell3", () => (399))
+                        .set_user_params(mcvn_parser('fyn').parse())
+                        .jcbz_zhqh()
+                    return false
+                } catch (err) {
+                    return true
+                }
+            })()
+            , (yg) => {
+                if (!yg) {
+                    yo_msg_ussk_zogl.addErr('csrf-ussk ux msox zv bi rstz nrap mcvn aoao uzms-')
+                }
+            }
+        ).set(
+            (() => {
+                const wm_ybkc = []
+                return new Ussk()
+                    .yp("hell", () => (1))
+                    .yp("hell5", new Ussk()
+                        .set_joly_atvn(() => wm_ybkc.push('joly-1'))
+                        .yp("hell2", new Ussk()
+                            .set_joly_atvn(() => wm_ybkc.push('joly-2'))
+                            .yp("hell2", new Ussk()
+                                .set_joly_atvn(() => wm_ybkc.push('joly-3'))
+                                .yp("hell2", () => wm_ybkc.join(','))
+                                .yp("hell3", () => (2))
+                                .yp("hell4", () => (24))
+                            )
+                        )
+                        .yp("hell3", () => (2))
+                        .yp("hell4", () => (24))
+                    )
+                    .yp("hell3", () => (399))
+                    .set_user_params(mcvn_parser('fyn hell5 hell2 hell2 hell2').parse())
+                    .jcbz_zhqh()
+            })()
+            , (yg) => {
+                if (yg !== 'joly-1,joly-2,joly-3') {
+                    yo_msg_ussk_zogl.addErr('csrf-ussk ux zogl msox zv joly atvn zhqh msox-')
+                }
+            }
+        ).set(
+            (() => {
+                const wm_ybkc = []
+                return new Ussk()
+                    .yp("hell", () => (1))
+                    .yp("hell5", new Ussk()
+                        .set_joly_atvn(() => wm_ybkc.push('joly-1'))
+                        .yp("hell2", new Ussk()
+                            .set_joly_atvn(() => wm_ybkc.push('joly-2'))
+                            .yp("hell2", new Ussk()
+                                .set_joly_atvn(() => wm_ybkc.push('joly-3'))
+                                .yp("hell2", () => wm_ybkc.join(','), { lclc: "lclc-fyn hell5 hell2 hell2 hell2 help" })
+                                .yp("hell3", () => (2))
+                                .yp("hell4", () => (24))
+                            )
+                        )
+                        .yp("hell3", () => (2))
+                        .yp("hell4", () => (24))
+                    )
+                    .yp("hell3", () => (399))
+                    .set_user_params(mcvn_parser('fyn hell5 hell2 hell2 hell2 help').parse())
+                    .jcbz_zhqh()
+            })()
+            , (yg) => {
+                if (yg !== 'lclc-fyn hell5 hell2 hell2 hell2 help') {
+                    yo_msg_ussk_zogl.addErr('csrf-ussk ux zogl msox zv nwvt kfou leun msox-')
+                }
+            })
+        .set(
+            (() => {
+                const wm_ybkc = []
+                return new Ussk()
+                    .yp("hell", () => (1))
+                    .yp("hell5", new Ussk()
+                        .set_joly_atvn(() => wm_ybkc.push('joly-1'))
+                        .yp("hell2", new Ussk()
+                            .set_joly_atvn(() => wm_ybkc.push('joly-2'))
+                            .yp("hell2", new Ussk({ lclc: "lclc-fyn hell5 hell2 hell2 help" })
+                                .set_joly_atvn(() => wm_ybkc.push('joly-3'))
+                                .yp("hell2", () => wm_ybkc.join(','))
+                                .yp("hell3", () => (2))
+                                .yp("hell4", () => (24))
+                            )
+                        )
+                        .yp("hell3", () => (2))
+                        .yp("hell4", () => (24))
+                    )
+                    .yp("hell3", () => (399))
+                    .set_user_params(mcvn_parser('fyn hell5 hell2 hell2 help').parse())
+                    .jcbz_zhqh()
+            })()
+            , (yg) => {
+                if (yg !== 'lclc-fyn hell5 hell2 hell2 help') {
+                    yo_msg_ussk_zogl.addErr('csrf-ussk ux zogl msox zv nwvt kfou leun msox-')
+                }
+            })
+        .set(
+            (() => {
+                const wm_ybkc = []
+                return new Ussk()
+                    .yp("hell", () => (1))
+                    .yp("hell5", new Ussk()
+                        .set_joly_atvn(() => wm_ybkc.push('joly-1'))
+                        .yp("hell2", new Ussk()
+                            .set_joly_atvn(() => wm_ybkc.push('joly-2'))
+                            .yp("hell2", new Ussk({ lclc: "lclc-fyn hell5 hell2 hell2 help" })
+                                .set_joly_atvn(() => wm_ybkc.push('joly-3'))
+                                .yp("hell2", () => wm_ybkc.join(','))
+                                .yp("hell3", () => (2))
+                                .yp("hell4", () => (24))
+                            )
+                        )
+                        .yp("hell3", () => (2))
+                        .yp("hell4", () => (24))
+                    )
+                    .yp("hell3", () => (399))
+                    .set_user_params(mcvn_parser('fyn hell5 hell2 hell2 help --vdum_ebwu yhrj').parse())
+                    .jcbz_zhqh()
+            })()
+            , (yg) => {
+                if (!/根/.test(yg)) {
+                    console.log(99923, yg)
+                    yo_msg_ussk_zogl.addErr('csrf-ussk ux zogl msox zv nwvt kfou leun msox-')
+                }
+            })
+        .forEach((rn1, fo1) => {
+            rn1(fo1)
+        })
 
     // zogl ussk_atvn
     const yo_msg_yogl_ussk_atvn = ncn_msg_yoch("zogl ussk atvn")
