@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const rjqtOpr = require("../oprs/rjqtOpr.js")
+const rjqtOpr = require("../oprs/rjqtOpr-ce.js")
 const hd_rjqt_tum = require("../hd_rjqt_tum")
 const ngnc_nikc_fywy_diwr = require('../ngnc_nikc_fywy_diwr')
 const zjzj_outputText = require('../zjzj_outputText.js')
@@ -38,7 +38,7 @@ ngnc_nikc_fywy_diwr(diwr_test_nikc, path.resolve())
 module.exports = async () => {
     let outputs_1 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'cxmi']
+            _: ['tu', 'cxmi', 'non']
             , lastParams: [path.join(nikc_tu_cxmi_test, 'test_1/readme.md'), path.join(nikc_tu_cxmi_test, 'test_2/readme.md')].join('\n')
         },
         outputs: {}
@@ -49,7 +49,7 @@ module.exports = async () => {
 
     let outputs_2 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'cxmi']
+            _: ['tu', 'cxmi', 'non']
             , lastParams: path.join(nikc_tu_cxmi_test)
         },
         outputs: {}

@@ -8,7 +8,7 @@ const wvvyOpr = require('./oprs/wvvyOpr.js');
 const getMyIp = require('./getMyIp');
 const getOkId = require('./getOkId');
 const tzfsOpr = require('./oprs/tzfsOpr.js')
-const rjqtOpr = require('./oprs/rjqtOpr.js');
+const rjqtOpr = require('./oprs/rjqtOpr-ce.js');
 const bgiwOpr = require('./oprs/bgiwOpr.js');
 const wrvrOpr = require('./KPLU/wrvr/atvn/wrvrOpr');
 const getHtmlOpr = require('./oprs/getHtmlOpr.js');
@@ -34,7 +34,7 @@ function outputs(neig_kp = {}) {
         wrvrOpr: async (neig_tskl) => {
             return await wrvrOpr(neig_tskl.wrvrOpr).catch(err => { throw err })
         },
-        dataOpr: async( neig_tskl)=>{
+        dataOpr: async (neig_tskl) => {
             return await dataOpr(neig_tskl.dataOpr).catch(err => { throw err })
         },
         wvvyOpr: async (neig_tskl) => {

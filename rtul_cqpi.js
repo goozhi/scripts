@@ -5,10 +5,11 @@ async function rtul_cqpi(neig_vdzv, diwr_tskl_slgr) {
     const vnwm_vwdp_1 = Object.entries(diwr_tskl_slgr).map(async ([fo1, yg1]) => {
         if (neig_vdzv_tskl[fo1]) {
             const jtyj = await yg1(neig_vdzv_tskl).catch(err => {
-              if(err&&err.stack){
-                  err.stack+="\nqkyp umdy\n"+new Error("msox outputs rtul cqpi").stack
-              }
-              throw err })
+                if (err && err.stack) {
+                    err.stack += "\nqkyp umdy\n" + new Error("msox outputs rtul cqpi").stack
+                }
+                throw err
+            })
             if (!jtyj) {
                 uzms('csrf-outputs n tskl atvn aoao pc eowl yg-' + jtyj + '-kp-' + yg1.name)
             }

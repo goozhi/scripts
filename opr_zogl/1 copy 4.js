@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const rjqtOpr = require("../oprs/rjqtOpr.js")
+const rjqtOpr = require("../oprs/rjqtOpr-ce.js")
 const hd_rjqt_tum = require("../hd_rjqt_tum")
 const ngnc_nikc_fywy_diwr = require('../ngnc_nikc_fywy_diwr')
 const zjzj_outputText = require('../zjzj_outputText.js')
@@ -73,8 +73,8 @@ ngnc_nikc_fywy_diwr(diwr_test_nikc, path.resolve())
 module.exports = async () => {
     let outputs_1 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'rename', path.join(nikc_tu_rename_test, '/test_1'), path.join(nikc_tu_rename_test, '/test_1_1')]
-            , lastParams: ''
+            _: ['tu', 'rename', 'ey', path.join(nikc_tu_rename_test, '/test_1')]
+            , lastParams: path.join(nikc_tu_rename_test, '/test_1_1')
         },
         outputs: {}
     }).catch(err => { throw err })
@@ -83,8 +83,8 @@ module.exports = async () => {
     }
     let outputs_2 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'renamefiles', path.join(nikc_tu_rename_test, 'test_2/'), '{ll}-{0002}{ud}']
-            , lastParams: ``
+            _: ['tu', 'rename', 'mh', 'non', path.join(nikc_tu_rename_test, 'test_2/')]
+            , lastParams: '{ll}-{0002}{ud}'
         },
         outputs: {}
     }).catch(err => { throw err })
@@ -96,7 +96,7 @@ module.exports = async () => {
     }
     let outputs_3 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'renamefiles', path.join(nikc_tu_rename_test, 'test_3/')]
+            _: ['tu', 'rename', 'mh', 'non', path.join(nikc_tu_rename_test, 'test_3/')]
             , lastParams: ``
             , reg: ['\\.md', '.test']
         },
@@ -108,8 +108,10 @@ module.exports = async () => {
     let outputs_4 = await rjqtOpr(
         {
             user_params: {
-                _: ['tu', 'renamefiles', path.join(nikc_tu_rename_test, 'test_4'), "{ll}-{ud}"],
+                _: ['tu', 'rename', 'mh', 'tszn'],
                 filter: "\\.md"
+                , nikc: path.join(nikc_tu_rename_test, 'test_4')
+                , wu: "{ll}-{ud}"
                 , reg: ["\\.md", ".test"]
             },
             outputs: {}
@@ -120,43 +122,45 @@ module.exports = async () => {
     } else {
         console.error(`csrf-err: tu rename rjqt reg bj filter hqtz um ms.`)
     }
-    let outputs_5 = await rjqtOpr(
-        {
-            user_params: {
-                _: ['tu', 'renamefiles', "{ll}-{ud}"],
-                tszn: ""
-                , lastParams: `${path.join(nikc_tu_rename_test, 'test_5/test1.md')}\n${path.join(nikc_tu_rename_test, 'test_5/test2.md')}\n${path.join(nikc_tu_rename_test, 'test_5/test3.md')}`
-                , reg: ["\\.md", ".test"]
-            },
-            outputs: {}
-        }
-    )
-    if (fs.existsSync(path.join(nikc_tu_rename_test, 'test_5/test.txt'))
-        && fs.existsSync(path.join(nikc_tu_rename_test, 'test_5/test3-.test'))) {
-    } else {
-        console.error(`csrf-err: tu rename rjqt reg bj tszn hqtz um ms.`)
-    }
-    let outputs_6 = await rjqtOpr(
-        {
-            user_params: {
-                _: ['tu', 'renamefiles', path.join(nikc_tu_rename_test, 'test_6/'), "{ll}-{ud}"]
-                , lastParams: `test1.md\ntest2.md\ntest3.md`
-                , reg: ["\\.md", ".test"]
-            },
-            outputs: {}
-        }
-    )
-    if (fs.existsSync(path.join(nikc_tu_rename_test, 'test_6/test.txt'))
-        && fs.existsSync(path.join(nikc_tu_rename_test, 'test_6/test3-.test'))) {
-    } else {
-        console.error(`csrf-err: tu rename rjqt reg bj tszn rjqt wu hqtz um ms.`)
-    }
+    // let outputs_5 = await rjqtOpr(
+    //     {
+    //         user_params: {
+    //             _: ['tu', 'rename', 'mh', "{ll}-{ud}"],
+    //             tszn: ""
+    //             , lastParams: `${path.join(nikc_tu_rename_test, 'test_5/test1.md')}\n${path.join(nikc_tu_rename_test, 'test_5/test2.md')}\n${path.join(nikc_tu_rename_test, 'test_5/test3.md')}`
+    //             , reg: ["\\.md", ".test"]
+    //         },
+    //         outputs: {}
+    //     }
+    // )
+    // if (fs.existsSync(path.join(nikc_tu_rename_test, 'test_5/test.txt'))
+    //     && fs.existsSync(path.join(nikc_tu_rename_test, 'test_5/test3-.test'))) {
+    // } else {
+    //     console.error(`csrf-err: tu rename rjqt reg bj tszn hqtz um ms.`)
+    // }
+    // let outputs_6 = await rjqtOpr(
+    //     {
+    //         user_params: {
+    //             _: ['tu', 'rename', 'mh', path.join(nikc_tu_rename_test, 'test_6/'), "{ll}-{ud}"]
+    //             , lastParams: `test1.md\ntest2.md\ntest3.md`
+    //             , reg: ["\\.md", ".test"]
+    //         },
+    //         outputs: {}
+    //     }
+    // )
+    // if (fs.existsSync(path.join(nikc_tu_rename_test, 'test_6/test.txt'))
+    //     && fs.existsSync(path.join(nikc_tu_rename_test, 'test_6/test3-.test'))) {
+    // } else {
+    //     console.error(`csrf-err: tu rename rjqt reg bj tszn rjqt wu hqtz um ms.`)
+    // }
     let outputs_7 = await rjqtOpr(
         {
             user_params: {
-                _: ['tu', 'renamefiles', path.join(nikc_tu_rename_test, 'test_7/'), "{ll}-{ud}"]
+                _: ['tu', 'rename', 'mh', 'tszn']
                 , lastParams: `test1.md\ntest2.md\ntest3.md`
+                , nikc: path.join(nikc_tu_rename_test, 'test_7/')
                 , trri: true
+                , wu: "{ll}-yhti-{ud}"
                 , reg: ["\\.md", ".test"]
             },
             outputs: {}
@@ -167,15 +171,16 @@ module.exports = async () => {
     } else {
         console.error(`csrf-err: tu renamefiles trri hqtz zv rjqt reg bj tszn rjqt wu hqtz um ms.`)
     }
-    if (!/-\.test/.test(outputs_7.outputText)) {
+    if (!/-yhti-\.test/.test(outputs_7.outputText)) {
         console.error(`csrf-err: tu renamefiles n riri hqtz pc ms-${outputs_7.outputText}`)
     }
     let outputs_8 = await rjqtOpr(
         {
             user_params: {
-                _: ['tu', 'rename', path.join(nikc_tu_rename_test, 'test_8/test3.md'), "{ll}-{ud}"]
+                _: ['tu', 'rename', 'ey', path.join(nikc_tu_rename_test, 'test_8/test3.md')]
                 , trri: true
                 , reg: ["\\.md", ".test"]
+                , lastParams: "{ll}-{ud}"
             },
             outputs: {}
         }
@@ -193,9 +198,9 @@ module.exports = async () => {
     zjzj_outputText(outputs_2, { zkrs: "rename-outputs_2" })
     zjzj_outputText(outputs_3, { zkrs: "rename-outputs_3" })
     zjzj_outputText(outputs_4, { zkrs: "rename-outputs_4" })
-    zjzj_outputText(outputs_5, { zkrs: "rename-outputs_5" })
-    zjzj_outputText(outputs_6, { zkrs: "rename-outputs_6" })
-    zjzj_outputText(outputs_7, { zkrs: "rename-outputs_7" })
+    // zjzj_outputText(outputs_5, { zkrs: "rename-outputs_5" })
+    // zjzj_outputText(outputs_6, { zkrs: "rename-outputs_6" })
+    // zjzj_outputText(outputs_7, { zkrs: "rename-outputs_7" })
     zjzj_outputText(outputs_8, { zkrs: "rename-outputs_8" })
 
 }

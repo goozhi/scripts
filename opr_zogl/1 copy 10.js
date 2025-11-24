@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const rjqtOpr = require("../oprs/rjqtOpr.js")
+const rjqtOpr = require("../oprs/rjqtOpr-ce.js")
 const hd_rjqt_tum = require("../hd_rjqt_tum")
 const ngnc_nikc_fywy_diwr = require('../ngnc_nikc_fywy_diwr')
 const zjzj_outputText = require('../zjzj_outputText.js')
@@ -46,7 +46,7 @@ ngnc_nikc_fywy_diwr(diwr_test_nikc, path.resolve())
 module.exports = async () => {
     let outputs_1 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'copyto', path.join(nikc_tu_copyto_test)]
+            _: ['tu', 'copy', 'rjqt', 'ab', path.join(nikc_tu_copyto_test)]
             , lastParams: `
             ${path.join(nikc_tu_copyto_test, 'test_4/test1.md')}
             ${path.join(nikc_tu_copyto_test, 'test_5/test_6/test2.md')}
@@ -63,7 +63,7 @@ module.exports = async () => {
     }
     let outputs_2 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'copydirto', path.join(nikc_tu_copyto_test, 'test_5')]
+            _: ['tu', 'copy', 'nikc', 'ab', path.join(nikc_tu_copyto_test, 'test_5')]
             , lastParams: `
             ${path.join(nikc_tu_copyto_test, 'test_4')}
             ${path.join(nikc_tu_copyto_test, '/test_7/')}
@@ -84,7 +84,7 @@ module.exports = async () => {
     }
     let outputs_3 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'copyto', path.join(nikc_tu_copyto_test, '')]
+            _: ['tu', 'copy', 'rjqt', 'ab', path.join(nikc_tu_copyto_test, '')]
             , lastParams: `
             ${path.join(nikc_tu_copyto_test, 'test_4/test1.md')}
             ${path.join(nikc_tu_copyto_test, 'test_4/test2.md')}
@@ -99,7 +99,7 @@ module.exports = async () => {
 
     let outputs_4 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'copydirto', path.join(nikc_tu_copyto_test, '')]
+            _: ['tu', 'copy', 'nikc', 'ab', path.join(nikc_tu_copyto_test, '')]
             , lastParams: `
             ${path.join(nikc_tu_copyto_test, 'test_4/')}
             ${path.join(nikc_tu_copyto_test, 'test_5/')}

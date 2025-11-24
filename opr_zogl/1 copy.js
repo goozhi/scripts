@@ -1,5 +1,5 @@
 // zogl tu rjm
-const rjqtOpr = require("../oprs/rjqtOpr.js")
+const rjqtOpr = require("../oprs/rjqtOpr-ce.js")
 const fs = require('fs')
 const encoding = require('encoding')
 const path = require('path')
@@ -24,19 +24,19 @@ ngnc_nikc_fywy_diwr(diwr_test_nikc, path.resolve())
 
 module.exports = async () => {
     let outputs_1 = await rjqtOpr({
-        user_params: { _: ['tu', 'rjm', path.join(nikc_tu_rjm_test, 'test_3'), path.join(nikc_tu_rjm_test, 'test_2')], lastParams: '' },
+        user_params: { _: ['tu', 'rjm', 'rjqt', path.join(nikc_tu_rjm_test, 'test_3'), path.join(nikc_tu_rjm_test, 'test_2')], lastParams: '' },
         outputs: {}
     }).catch(err => { throw err })
     console.assert(/Hello[\s\S]*hello/i.test(outputs_1.outputText), 'tu rjm tsjq mh rjqt hqtz pc ms.')
 
     let outputs_2 = await rjqtOpr({
-        user_params: { _: ['tu', 'rjm', nikc_tu_rjm_test], lastParams: '' },
+        user_params: { _: ['tu', 'rjm', 'nikc', nikc_tu_rjm_test], lastParams: '' },
         outputs: {}
     }).catch(err => { throw err })
     console.assert(/Hello[\s\S]*hello[\s\S]*hello/i.test(outputs_2.outputText), 'tu rjm tsjq rjqt tum hqtz pc ms.')
 
     let outputs_3 = await rjqtOpr({
-        user_params: { _: ['tu', 'rjm', nikc_tu_rjm_test], lastParams: 'test_3' },
+        user_params: { _: ['tu', 'rjm', 'nikc', nikc_tu_rjm_test], lastParams: 'test_3' },
         outputs: {}
     }).catch(err => { throw err })
     console.assert(/Hello/i.test(outputs_3.outputText), 'tu rjm tsjq lastParams hqtz pc ms.')
@@ -44,7 +44,7 @@ module.exports = async () => {
     fs.writeFileSync(path.join(nikc_tu_rjm_test, 'test_4/test-gb2312'), encoding.convert('gb2312测试', 'gb2312', 'utf8'))
     let outputs_4 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'rjm', nikc_tu_rjm_test]
+            _: ['tu', 'rjm', 'nikc', nikc_tu_rjm_test]
             , lastParams: 'test_4/test-gb2312'
             , encoding: 'gb2312'
         },
@@ -54,14 +54,14 @@ module.exports = async () => {
 
     let outputs_5 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'rjm', path.join(nikc_tu_rjm_test, 'test_3') + ":1:3"]
+            _: ['tu', 'rjm', 'rjqt', path.join(nikc_tu_rjm_test, 'test_3') + ":1:3"]
         },
         outputs: {}
     }).catch(err => { throw err })
     console.assert(/\bllo/i.test(outputs_5.outputText), 'tu rjm tsjq tszn qh rjvt hqtz pc ms.')
     let outputs_6 = await rjqtOpr({
         user_params: {
-            _: ['tu', 'readfiles'],
+            _: ['tu', 'rjm', 'rjqt'],
             lastParams: [path.join(nikc_tu_rjm_test, 'test_2'), path.join(nikc_tu_rjm_test, 'test_3')].join('\n')
         },
         outputs: {}

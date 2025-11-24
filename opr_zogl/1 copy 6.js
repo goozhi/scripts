@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const rjqtOpr = require("../oprs/rjqtOpr.js")
+const rjqtOpr = require("../oprs/rjqtOpr-ce.js")
 const hd_rjqt_tum = require("../hd_rjqt_tum")
 const ngnc_nikc_fywy_diwr = require('../ngnc_nikc_fywy_diwr')
 const zjzj_outputText = require('../zjzj_outputText.js')
