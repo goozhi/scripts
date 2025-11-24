@@ -191,7 +191,7 @@ class Ussk {
         // }
 
         function lclc_trl_wdbu(rj_lclc_kp = "") {
-            return rj_lclc_kp.replace(/^\s*dyvy--/igm, "```").replace(/^\s*--dyvy/igm, "```")
+            return rj_lclc_kp.replace(/^\s*(dyvy--|---|;;;)(?=[\w\-]+|)\s*$/igm, "```").replace(/^\s*(--dyvy|---\+|;;;)\s*$/igm, "```")
         }
         this.get_lclc = (neig_kp = { vdum_ebwu: "wrvr" }) => {
             return new Jplp_rjwc().rzvo(Object.assign({ bqeo: lclc_trl_wdbu(neig.lclc), wu: neig.wu }, neig)).get_bqeo(neig_kp)
