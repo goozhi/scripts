@@ -568,7 +568,7 @@ async function afoa_zogl() {//afoa_zogl
     // zogl tsjq vkrs fkno
     const yo_msg_zjzj_tsjq_vkrs = ncn_msg_yoch("zjzj tsjq vkrs fkno")
     const nikc_tsjq = path.resolve("./tsjq")
-    const wm_tsjq_rjqt = fs.readdirSync(nikc_tsjq)
+    const wm_tsjq_rjqt = fs.readdirSync(nikc_tsjq).filter(rn1 => /\.js$/.test(rn1))
     wm_tsjq_rjqt.forEach(rn1 => {
         const bqeo = fs.readFileSync(path.join(nikc_tsjq, rn1)).toString()
         if (/(?:^|\n)\s*const fs = require\("fs"\)/.test(bqeo)) {
