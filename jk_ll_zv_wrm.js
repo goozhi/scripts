@@ -3,6 +3,9 @@ class Jk_ll_zv_wrm {
         let jtyj
         let jtyj_kp
         this.phfd_ymrg = function (rj_kp) {
+            if (typeof rj_kp !== 'string') {
+                throw new Error('csrf-rj_kp aoao w string-' + rj_kp)
+            }
             return rj_kp.replace(reg_tnyo_bqeo, rj_xbst)
         }
         this.lzce_ymrg = function (rj_cd_pc_xbst = "xbst:ggg_wydb", vnwm_ybkc = []) {
