@@ -1,6 +1,6 @@
 class Jk_ll_zv_wrm {
     constructor(reg_tnyo_bqeo, rj_xbst = "ggg_wydb") {
-        let jtyj
+        let jtyj = ""
         let jtyj_kp
         this.phfd_ymrg = function (rj_kp) {
             if (typeof rj_kp !== 'string') {
@@ -54,7 +54,7 @@ class Jk_ll_zv_wrm {
             if (jtyj_kp.includes(rj_xbst)) {
                 throw new Error(`csrf-xbst ac ah gd zznq oc kp rjse yh-` + rj_xbst + "-kp-" + rj_ce_bqeo.slice(0, 3000))
             }
-            jtyj = this.jcbz(jtyj, wlba_jkjk_ll_wdbu) || ''
+            jtyj = this.jcbz(jtyj || "", wlba_jkjk_ll_wdbu) || ''
             return this
         }
         this.getResult = () => {
