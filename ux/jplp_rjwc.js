@@ -73,6 +73,9 @@ class Jplp_rjwc {
             return qirw_rj(neig.bqeo, neig_kp)
         }
         function qirw_rj(bqeo_kp, neig_kp = {}) {
+            if (typeof bqeo_kp != "string") {
+                uzms('csrf-kp bqeo ac lh zt fr sum uxux-' + typeof bqeo_kp + '-kp-' + JSON.stringify(neig))
+            }
             const neig_1 = Object.assign({
                 // qirw: "so",//"rfrf_lh_yhrj"
                 vdum_ebwu: "so", // "yhrj" "wrvr"
