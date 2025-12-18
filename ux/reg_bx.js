@@ -51,6 +51,9 @@ class Reg_bx {
         this.get_wm_sopc_ah_vbyt_udao_uxux = () => {
             return [...map_uxux.keys()]
         }
+        this.vbyt_ztfr_jils_cgne = (rj_fo, rj_kp, neig_kp = {}) => {
+            return neig_kp.regex ? new RegExp(rj_fo, "i").test(rj_kp) : String(rj_kp).includes(rj_fo)
+        }
         this.zjzj_udao_uxux = (yxna) => {
             const wm_uxux_cgne = []
             map_uxux.forEach((rn1, fo) => {

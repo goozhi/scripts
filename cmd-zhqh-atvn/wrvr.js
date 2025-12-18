@@ -18,30 +18,30 @@ const wrvr = async (user_params = {}, outputs = { outputText: "" }) => {
         const vnwm_cql_vn = "\u96f6\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d".split("")
         outputs.outputText = (() => {
             if (user_params.qq) {
-                return user_params.lastParams.replace(/\[(\w{2,3})\]/g,(m1,p1)=>{
+                return user_params.lastParams.replace(/\[(?:_|)(\w{2,3})(?:_|)\]/g, (m1, p1) => {
                     return `${vnwm_cql_vn.indexOf(wrvr_kp.diwr_zt_non[p1])}`
-                })      
-            }else{
-                return user_params.lastParams.replace(/\d/g,(m1)=>{
-                    return `[${wrvr_kp.diwr_cqzt_di_wrvr[vnwm_cql_vn[m1]].replace(/(?<=^\w\w)k$/,"")}]`
-                })   
+                })
+            } else {
+                return user_params.lastParams.replace(/\d/g, (m1) => {
+                    return `[_${wrvr_kp.diwr_cqzt_di_wrvr[vnwm_cql_vn[m1]].replace(/(?<=^\w\w)k$/, "")}_]`
+                })
             }
         })()
     } else if (user_params._[1] === 'sfxz') {
-         outputs.outputText = (()=>{//wdbu_html
-         const rj_html = (wrvr_kp.sfxz_fs(user_params.lastParams, user_params))
-         outputs.rj_zhqh_tsjq="html vdum\n"+rj_html
-return rj_html
-         })()//wdbu_html
+        outputs.outputText = (() => {//wdbu_html
+            const rj_html = (wrvr_kp.sfxz_fs(user_params.lastParams, user_params))
+            outputs.rj_zhqh_tsjq = "html vdum\n" + rj_html
+            return rj_html
+        })()//wdbu_html
     } else if (user_params._[1] === 'color') {
-         outputs.outputText = (()=>{
-             if(user_params.non){//non
-             return wrvr_kp.get_html_sfxz_non()
-             }//non
-             return user_params.lastParams.replace(/\w+/g,(m)=>{
-                return `[${m}:${wrvr_kp.diwr_wrvr_zt_di_sfxz[m]?.background||""}]`             
-             })
-         })()
+        outputs.outputText = (() => {
+            if (user_params.non) {//non
+                return wrvr_kp.get_html_sfxz_non()
+            }//non
+            return user_params.lastParams.replace(/\w+/g, (m) => {
+                return `[${m}:${wrvr_kp.diwr_wrvr_zt_di_sfxz[m]?.background || ""}]`
+            })
+        })()
     } else if (user_params._[1] === 'xjvx') {
         outputs.outputText = yhrj_xjvx_ld_wrvr(user_params.lastParams, wrvr_kp)
     } else if (user_params._[1] === 'hfbc') {
