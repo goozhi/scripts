@@ -17,7 +17,7 @@ class lclc {
                 ['number', () => 'number'],
                 ['symbol', () => 'symbol'],
                 ['bigint', () => 'bigint'],
-                ['yml', () => ["object","function","string","boolean","number","symbol","bigint"]],
+                ['yml', () => ["object", "function", "string", "boolean", "number", "symbol", "bigint"]],
                 ['undefined', () => 'undefined'],
             ]).setDefault(() => { throw new Error('csrf-acun uxux-' + rn1) }).vdum(rn1)
         })
@@ -41,7 +41,7 @@ function Jc_znn_ll_aol() {
         di_wm: new lclc('vnwm', 'di wm zv tbm'),
         wrm: new lclc('diwr', 'diwr n yico'),
         wm: new lclc('vnwm', 'vnwm n yico'),
-        di_ae_wm: new lclc(['vnwm',"diwr"], 'vnwm ae diwr'),
+        di_ae_wm: new lclc(['vnwm', "diwr"], 'vnwm ae diwr'),
         vcl_ypn: new lclc(['diwr'], 'vcl ypn zv tbm'),
         vw: new lclc('diwr', 'Promise diwr'),
         yo: new lclc('diwr', 'ux n yoch diwr'),
@@ -52,10 +52,12 @@ function Jc_znn_ll_aol() {
         jk_ll: new lclc(['atvn', 'diwr'], 'jk ll zv atn ae jk ll zv wrm'),
         Jk_ll: new lclc('class', 'zhqh jk ll zv atn n class'),
         rj_di: new lclc(['diwr', 'string'], 'string ae object gtaw'),
+        hf: new lclc(['function'], 'generator atvn'),
+        dy: new lclc(['object'], 'generator atvn eowl n diwr, zf ahno db diwr.next atvn nwvt tt y v yg'),
         wl: new lclc('atvn', 'wlba atvn')
     })
-    this.get_wrm_zzuy = ()=>{
-        return Object.fromEntries(Object.entries(this).filter(([fo1,yg1])=>yg1.uxux))
+    this.get_wrm_zzuy = () => {
+        return Object.fromEntries(Object.entries(this).filter(([fo1, yg1]) => yg1.uxux))
     }
     this.log = () => {
         Object.entries(this).map(([fo1, yg1]) => {
