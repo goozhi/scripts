@@ -26,6 +26,8 @@ const hd_rjqt_tum = require('../hd_rjqt_tum.js')
 const wdbu_linh_rjqt = require('../user_params-ldfs-atvn/wdbu_linh_rjqt.js')
 module.exports = new Ussk({
     wu: "cxmi",
+    kncp_acun_vxn_tsjq: true
+    ,
     lclc: `## paaw nwvt nikc ae rjqt dk cxmi zzuy
 `
 }).set_joly_atvn(async (bnll_eqwy, wm_lsud, user_params, neig_kp) => {

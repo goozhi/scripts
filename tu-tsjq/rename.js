@@ -47,7 +47,8 @@ module.exports = new Ussk({
     rjqt rename ey /out/ -r a b
     {ll}-new{ud}
 --dyvy
-`})
+`, kncp_acun_vxn_tsjq: true
+})
     .yp("mh", new Ussk()
         .yp("non", (bnll, wm_lsud, user_params, neig_kp) => {
             const { outputs } = neig_kp
@@ -87,6 +88,7 @@ module.exports = new Ussk({
             })()
 
         }, {
+            kncp_acun_vxn_tsjq: true,
             lclc: `## paaw rename, mcnv m_t
     rjqt rename mh non /out/
     {ll}{2}{ud}

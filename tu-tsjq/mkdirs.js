@@ -4,6 +4,7 @@ const fs = require("fs")
 const path = require("path")
 module.exports = new Ussk({
     wu: "mkdirs",
+    kncp_acun_vxn_tsjq: true,
     lclc: `## mkdirs
     zqjp wfqq ncn nikc
     dyvy--

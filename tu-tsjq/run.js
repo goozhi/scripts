@@ -22,7 +22,8 @@ module.exports = new Ussk({
     lclc: `## jyqh js_ rjqt
     dyvy--
     tu run yxna
---dyvy`
+--dyvy`,
+    kncp_acun_vxn_tsjq: true
 }).set_joly_atvn(async (bnll_eqwy, wm_lsud, user_params, neig_kp) => {
     const { outputs } = neig_kp
     if (user_params.lastParams) {

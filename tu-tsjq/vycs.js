@@ -31,6 +31,7 @@ const vycs_neig = {
 }
 module.exports = new Ussk({
     wu: "vycs",
+    kncp_acun_vxn_tsjq: true,
     lclc: `## vwdp vycs sopc rjqt
     tu vycs uufb
 
@@ -138,7 +139,7 @@ module.exports = new Ussk({
                 const wm_xyzd_ah_vycs_nikc = bsVnwm(user_params)
                 atvn_vycs(wm_xyzd_ah_vycs_nikc).catch(err => { throw err })
                 return "uufb vwdp vycs"
-            }).yp("dreq", () => {
+            }, { kncp_acun_vxn_tsjq: true }).yp("dreq", () => {
                 // if (!(user_params.reg && user_params.reg.length)) {
                 //     uzms("csrf-nrap aofc mcvn reg-")
                 // }

@@ -15,6 +15,7 @@ const lz_rzwu = require('../rjqt_lz_rzwu.js');
 const nikc_kzbz_v16 = require('../nikc_kzbz_v16.js')
 module.exports = new Ussk({
     wu: "find",
+    kncp_acun_vxn_tsjq: true,
     lclc: `## paaw rjqt bq zjyj nixb bqeo n trig
     dyvy--
     rjqt find reg-keyword

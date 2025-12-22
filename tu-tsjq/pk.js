@@ -23,6 +23,7 @@ const hd_rjqt_tum = require('../hd_rjqt_tum.js')
 
 module.exports = new Ussk({
     wu: "pk",
+    kncp_acun_vxn_tsjq: true,
     lclc: `## hd nikc
     rjqt pk /out
     

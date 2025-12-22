@@ -60,27 +60,28 @@ module.exports = new Ussk({
     test.2..js
     test.ico
     --dyvy
-`}).yp("rjqt", (bnll_rn, wm_lsud, user_params, neig_kp) => {
-        const { outputs } = neig_kp
-        outputs.outputText = (() => {
-            if (wm_lsud.length) {
-                return rjm_tszn_rjqt(wm_lsud, user_params)
-            } else {
-                const vnwm_files = bsVnwm(user_params)
-                return rjm_tszn_rjqt(vnwm_files, user_params)
-                // return vnwm_files.map(rn1 => {
-                //     if (fs.existsSync(rn1)) {
-                //         return `${rn1}\n${fs.readFileSync(rn1).toString()}`
-                //     } else {
-                //         return `file not exists: ${rn1}`
-                //     }
-                // }).join('\n')
+`, kncp_acun_vxn_tsjq: true
+}).yp("rjqt", (bnll_rn, wm_lsud, user_params, neig_kp) => {
+    const { outputs } = neig_kp
+    outputs.outputText = (() => {
+        if (wm_lsud.length) {
+            return rjm_tszn_rjqt(wm_lsud, user_params)
+        } else {
+            const vnwm_files = bsVnwm(user_params)
+            return rjm_tszn_rjqt(vnwm_files, user_params)
+            // return vnwm_files.map(rn1 => {
+            //     if (fs.existsSync(rn1)) {
+            //         return `${rn1}\n${fs.readFileSync(rn1).toString()}`
+            //     } else {
+            //         return `file not exists: ${rn1}`
+            //     }
+            // }).join('\n')
 
-            }
+        }
 
-        })()
-    }, {
-        lclc: `dyvy--
+    })()
+}, {
+    lclc: `dyvy--
     rjqt rjm rjqt /out/test.txt /out/test.2.txt --encoding utf8
 --dyvy
 
@@ -97,7 +98,8 @@ dyvy--
     yxna3
 --dyvy
 
-`})
+`, kncp_acun_vxn_tsjq: true
+})
 
 function rjm_tszn_rjqt(wm_rjqt_yxna, user_params) {
     return wm_rjqt_yxna.map(rn0 => {

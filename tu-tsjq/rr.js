@@ -9,6 +9,7 @@ const checkjs = require("../checkjs");
 module.exports = new Ussk(
     {
         wu: "rr",
+        kncp_acun_vxn_tsjq: true,
         lclc: `## rjqt rr cqpi
     dyvy--
     rjqt rr /test/test.txt    --lclc Rjqt rr cqpi lbm hfbc \`.bak\` rjqt. Ahno db \`--pczn\` mcvn mhxt.

@@ -12,6 +12,7 @@ const filter_reg_hfbc = require('../user_params-ldfs-atvn/filter_reg_hfbc.js');
 const lz_rzwu = require('../rjqt_lz_rzwu.js');
 module.exports = new Ussk({
     wu: "cfep",
+    kncp_acun_vxn_tsjq: true,
     lclc: `## cfep rjqt wu 
     dyvy--
     rjqt cfep /out -r bqeo --wfqq

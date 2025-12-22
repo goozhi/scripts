@@ -12,6 +12,7 @@ const lz_rzwu = require('../rjqt_lz_rzwu.js');
 const bsVnwm = require('../user_params-ldfs-atvn/bsVnwm.js');
 module.exports = new Ussk({
     wu: "filter",
+    kncp_acun_vxn_tsjq: true,
     lclc: `## cfep frgr rjqt bqeo n rjqt
     
     ## zjyj rjqt bqeo:

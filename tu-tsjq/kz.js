@@ -14,6 +14,7 @@ const lz_rzwu = require('../rjqt_lz_rzwu.js');
 const nikc_kzbz_v16 = require('../nikc_kzbz_v16.js')
 module.exports = new Ussk({
     wu: "kz",
+    kncp_acun_vxn_tsjq: true,
     lclc: `## kzbz rjqt
     dyvy--
     rjqt kz /out/test.txt /out/2

@@ -29,7 +29,8 @@ dyvy--
     tu copy rjqt ab out/2/ --ymrg
     out/yxna-1
     out/yxna-2
---dyvy`        })
+--dyvy`        , kncp_acun_vxn_tsjq: true
+    })
 
     .yp("yf", async (bnll, wm_lsud, user_params, neig_kp = {}) => {
         const { outputs } = neig_kp
@@ -74,7 +75,8 @@ dyvy--
     rjqt copy nikc ab out/2/
     out/nikc-1
     out/nikc-2
-`
+`,
+            kncp_acun_vxn_tsjq: true
         }), { lclc: "copy rjqt gq ft nikc" })
 
 async function trl_zjzj(nikc_ab, user_params, atvn_1) {
