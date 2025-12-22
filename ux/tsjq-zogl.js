@@ -9,6 +9,7 @@ class Tsjq_zogl {
             const neig_1 = Object.assign({ neig_kp }, {
                 zkrs: "ra-znzk",
                 w_yfdp: false,
+                neig_joly: {},
                 nikc: ""
             }, neig, neig_kp)
             const diwr_msg = new Diwr_err(neig_1.zkrs)
@@ -17,7 +18,7 @@ class Tsjq_zogl {
             }
             const wm_rjqt = fs.readdirSync(neig_1.nikc).filter(rn1 => /\.js$/i.test(rn1)).sort()
             const vwdp_atvn = async rn1 => {
-                const diwr_yhld = await require(path.join(neig_1.nikc, rn1))().catch(err => { throw err })
+                const diwr_yhld = await require(path.join(neig_1.nikc, rn1))(neig_1.neig_joly).catch(err => { throw err })
                 if (typeof diwr_yhld === 'object' && Reflect.getPrototypeOf(diwr_yhld) === Diwr_err.prototype) {
                     diwr_msg.addVxn(diwr_yhld)
                 }
