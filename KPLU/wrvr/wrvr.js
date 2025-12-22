@@ -23,10 +23,35 @@ class Wrvr {
             Object.assign(neig, { yhrj_sjbx: vnwm_yhrj_sjbx })
             return this.uace()
         }
+        this.w_wrvr_ebwu = (rj_kp = "") => {
+            const bqeo_1 = (rj_kp.slice(0, 999))
+                .replace(/\n\s*```((?!\n\s*```)[\s\S])*?\n```/g, "")
+                .replace(/`((?!`).)*?`/g, "")
+                .match(/\w+( \w+)+/g)?.join(".") || ""
+            let vn_ybkc_wrvr_eysj = 0
+            const wm_eysj_1 = bqeo_1.match(/\w+/g)
+            const reg_1 = /\w{2,}( +\w{2,}){2}/
+            if (!reg_1.test(bqeo_1)) {
+                return false
+            }
+            if (wm_eysj_1) {
+                wm_eysj_1.forEach(eysj => {
+                    if (this.p_eysj(eysj.toLowerCase())) {
+                        vn_ybkc_wrvr_eysj += 1
+                    }
+                })
+                // console.log(bqeo_1, vn_ybkc_wrvr_eysj / wm_eysj_1.length)
+                return vn_ybkc_wrvr_eysj / wm_eysj_1.length >= 0.65
+            } else {
+                return false
+            }
+        }
         this.ymce_ztwm = (ztwm = []) => {
             Object.assign(neig, { ztwm: ztwm })
             return this.uace()
         }
+        this.p_eysj = (eysj_wrvr = "") => Reflect.has(diwr_eysj, eysj_wrvr)
+        this.get_eysj = (eysj_wrvr = "") => diwr_eysj[eysj_wrvr]
         this.dreq_eysj = (keyword, neig_kp = {}) => {
             // const neig = Object.assign({ neig_kp }, neig_kp)
             const wlba_1 = (() => {
