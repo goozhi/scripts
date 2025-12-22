@@ -621,50 +621,6 @@ async function afoa_zogl() {//afoa_zogl
     await zogl_fd_sfxz().catch(e => {
         yo_msg_zogl_fd_sfxz.addErr("csrf-umdy yizi msox, zogl fd_sfxz zd-" + e.message || e)
     })
-    // zogl wrvr ux bq n atvn
-    const yo_msg_zogl_wrvr = ncn_msg_yoch("zogl wrvr")
-    const wrvrJplp = require("./KPLU/wrvr")
-    const zogl_wrvr = async () => {//zogl_wrvr
-        yo_msg_zogl_wrvr.zkrs += "(sfxz_fs)"
-        new Map()
-            .set(wrvrJplp.sfxz_fs("zf w wjdk mf."),
-                (rj_1) => {
-                    if (!/<span[\s\S]*<span[\s\S]*<span[\s\S]*<span/.test(rj_1)) {
-                        yo_msg_zogl_wrvr.addErr("csrf-sfxz_fs msox 1-")
-                    }
-
-                })
-            .set(wrvrJplp.sfxz_fs("<ul></ul><h1>zf w wjdk mf</h1>", { uxux: "html" })
-                , (rj_1) => {
-                    if (!/<\/ul>/.test(rj_1)) {
-                        yo_msg_zogl_wrvr.addErr("csrf-sfxz_fs msox 2-")
-                    }
-
-                })
-            .set(wrvrJplp.sfxz_fs(`
-<ul>
-<li><a href="/vtn/jttb_1">xbiw-jttb</a></li>
-<li><a href="/vtn/jttb_3">zdti-jttb</a></li>
-<li><a href="/vtn/jttb_5">rdeb-jttb</a></li>
-<li><a href="/vtn/jttb_7">fdux-jttb</a></li>
-<li><a href="/vtn/jttb_9">hiyb-jttb</a></li>
-</ul>`, { uxux: "html" })
-                , (rj_1) => {
-                    if (/xbiw-jttb/.test(rj_1)) {
-                        yo_msg_zogl_wrvr.addErr("csrf-sfxz_fs msox 3-")
-                    }
-
-                })
-
-            .forEach((rn1, fo1) => {
-                rn1(fo1)
-            })
-
-    }//zogl_wrvr
-    await zogl_wrvr().catch(e => {
-        yo_msg_zogl_wrvr.addErr("csrf-zogl wrvr cfrs yh umdy ac ah ub msox-" + (e.message || e))
-    })
-
 
     // zogl Vn_ah_rjm_fs
     const yo_msg_zogl_vn_ah_rjm_fs = ncn_msg_yoch("zogl vn ah rjm fs")
