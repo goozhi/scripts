@@ -14,7 +14,7 @@ class Jplp_rjwc {
             wu: "ra-znzk"
             , w_ocxt_rfrf: false
             , w_oh_oam: false
-            , ebwu: "wrvr"
+            , ebwu: "wrvr" //"yhrj" "so"
             // , afoa: "rfrf_wrvr"
             , bqeo: "ra-znzk"
             , uxux: "md" //"txt html"

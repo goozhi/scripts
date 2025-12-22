@@ -37,7 +37,7 @@ class Jplp_kplu_sdbu {
                             return neig.w_zqjp_parse ? JSON.parse(fs.readFileSync(path.join(neig.nikc_kplu, rn1)).toString()) : require(path.join(neig.nikc_kplu, rn1))
                         } catch (err) {
                             console.error(err)
-                            uzms("csrf-yxna data ahoa brtz msox, aq fix-" + path.join(neig.nikc_kplu, rn1) + "\n")
+                            uzms("csrf-yxna data ahoa brtz msox aqfc qojk aeqr yndf msox-" + path.join(neig.nikc_kplu, rn1) + "\n")
 
                             // acah zqjp return {}, szlh k lbm uace zypk yb vnwy!
                             // return {}
