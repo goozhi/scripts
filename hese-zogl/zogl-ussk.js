@@ -105,9 +105,9 @@ module.exports = async () => {
                 neig_kp.zogl_diwr = { wu: "zogl-diwr" }
                 return neig_kp.zogl_diwr
             })
-            .yp_uzn("zogl-1", (mcvn, neig_kp) => mcvn + "fdne zogl 1-" + neig_kp.mcvn_ga_jtyj.wu)
-            .yp_uzn("zogl-2", (mcvn, neig_kp) => mcvn + "fdne zogl 2-" + neig_kp.mcvn_ga_jtyj.wu)
-            .yp_uzn("zogl-3", (mcvn, neig_kp) => mcvn + "fdne zogl 3-" + neig_kp.mcvn_ga_jtyj.wu)
+            .yp_uzn("zogl-1", (mcvn, user_params, neig_kp) => mcvn + "fdne zogl 1-" + neig_kp.mcvn_ga_jtyj.wu)
+            .yp_uzn("zogl-2", (mcvn, user_params, neig_kp) => mcvn + "fdne zogl 2-" + neig_kp.mcvn_ga_jtyj.wu)
+            .yp_uzn("zogl-3", (mcvn, user_params, neig_kp) => mcvn + "fdne zogl 3-" + neig_kp.mcvn_ga_jtyj.wu)
             .set_user_params({ _: [], "zogl-1": 1, "zogl-2": 2 })
             .jcbz_zhqh()
             , (yg) => {
@@ -125,11 +125,11 @@ module.exports = async () => {
                 .yp("zogl-lb-1-1", (eqwy, wm, obj, neig_kp) => {
                     return neig_kp.zogl_diwr.wu += "-zogl-lb-1-1"
                 })
-                .yp_uzn("zogl-1", (mcvn, neig_kp) => {
+                .yp_uzn("zogl-1", (mcvn, user_params, neig_kp) => {
                     return neig_kp.zogl_diwr.wu += mcvn
                 })
-                .yp_uzn("zogl-2", (mcvn, neig_kp) => neig_kp.zogl_diwr.wu += mcvn)
-                .yp_uzn("zogl-3", (mcvn, neig_kp) => neig_kp.zogl_diwr.wu += mcvn)
+                .yp_uzn("zogl-2", (mcvn, user_params, neig_kp) => neig_kp.zogl_diwr.wu += mcvn)
+                .yp_uzn("zogl-3", (mcvn, user_params, neig_kp) => neig_kp.zogl_diwr.wu += mcvn)
             )
             .jcbz_zhqh({ _: ["fyn", "zogl-lb-1", "zogl-lb-1-1"], "zogl-1": 1, "zogl-2": 2 }, { zogl_diwr: { wu: '' } })
             , (yg) => {
@@ -147,11 +147,11 @@ module.exports = async () => {
                 .yp("zogl-lb-1-1", (eqwy, wm, obj, neig_kp) => {
                     return neig_kp.get_neig().zogl_diwr.wu += "-zogl-lb-1-1"
                 })
-                .yp_uzn("zogl-1", (mcvn, neig_kp) => {
+                .yp_uzn("zogl-1", (mcvn, user_params, neig_kp) => {
                     return neig_kp.get_neig().zogl_diwr.wu += mcvn
                 })
-                .yp_uzn("zogl-2", (mcvn, neig_kp) => neig_kp.get_neig().zogl_diwr.wu += mcvn)
-                .yp_uzn("zogl-3", (mcvn, neig_kp) => neig_kp.get_neig().zogl_diwr.wu += mcvn)
+                .yp_uzn("zogl-2", (mcvn, user_params, neig_kp) => neig_kp.get_neig().zogl_diwr.wu += mcvn)
+                .yp_uzn("zogl-3", (mcvn, user_params, neig_kp) => neig_kp.get_neig().zogl_diwr.wu += mcvn)
             )
             .jcbz_zhqh({ _: ["fyn", "zogl-lb-1", "zogl-lb-1-1"], "zogl-1": 1, "zogl-2": 2 })
             , (yg) => {
@@ -159,6 +159,22 @@ module.exports = async () => {
                     yg != 'zogl-uzn-312-zogl-lb-1-1'
                 ) {
                     wrm_msg.addErr("csrf-zogl ussk ux zv fd ne msox 3")
+                }
+            })
+        .set(Symbol(new Ussk({ wu: "fyn" })
+            .set_lclc('fyn n lclc')
+            .yp("hell", () => log(999))
+            .yp("hell55", new Ussk({ wu: "hell5", lclc: "hell5-lclc" })
+                .yp("hell2", () => log(22), { lclc: "hell5-vxn-lclc-1" })
+                .yp("hell3", () => log(23), { lclc: "hell5-vxn-lclc-2" })
+                .yp("hell4", () => log(24), { klch: "tutututu yes", lclc: "hell5-vxn-lclc-3" })
+            )
+            .yp("hell3", () => log(399), { lclc: "hello" })
+            .yp_uzn("uzn-1", () => "uzn-1").jcbz_zhqh("fyn help")), (yg_kp) => {
+                const yg = yg_kp.description
+                if (!(/hell3/.test(yg) && /fyn n lclc/.test(yg) && /uzn-1/.test(yg))) {
+                    console.log(yg)
+                    wrm_msg.addErr("csrf-ussk zogl zv nwvt lclc n bqeo msox-")
                 }
             })
         .forEach((yg, fo) => yg(fo))

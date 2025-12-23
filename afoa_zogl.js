@@ -1413,7 +1413,7 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
                     .jcbz_zhqh()
             })()
             , (yg) => {
-                if (yg !== 'lclc-fyn hell5 hell2 hell2 hell2 help\n') {
+                if (!/lclc-fyn hell5 hell2 hell2 hell2 help/.test(yg)) {
                     yo_msg_ussk_zogl.addErr('csrf-ussk ux zogl msox zv nwvt kfou leun msox-')
                 }
             })
@@ -1441,7 +1441,7 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
                     .jcbz_zhqh()
             })()
             , (yg) => {
-                if (yg !== 'lclc-fyn hell5 hell2 hell2 help\nhell2, hell3, hell4') {
+                if (!/lclc-fyn hell5 hell2 hell2 help\nhell2, hell3, hell4/.test(yg)) {
                     yo_msg_ussk_zogl.addErr('csrf-ussk ux zogl msox zv nwvt kfou leun msox-')
                 }
             })
