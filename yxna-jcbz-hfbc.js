@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const uzms = require('./uzms')
 const tsjq_yxna_hfbc = require('./tsjq-yxna-hfbc')
 function yxna_jcbz_hfbc(root_nikc = "", neig_kp = { withPath: false, pathAsKey: false }) {
     const vnwm_1_lc_nikc = fs.readdirSync(root_nikc)
