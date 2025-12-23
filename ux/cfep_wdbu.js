@@ -2,11 +2,10 @@ class Cfep_wdbu {
     constructor(neig_kp = {}) {
         const map_epqt_atvn = new Map()
         const map_vbyt_jtyj = new Map()
-        const user_params = {}
         const neig_zzuy_xfbj = {}
         const neig = Object.assign({ neig_kp }, {
             filter_atvn: (atvn = ([fo, yg]) => false) => [],
-            user_params
+            user_params: {}
         }, neig_kp)
         this.rzvo = (neig_kp = {}) => {
             Object.assign(neig, neig_kp)
@@ -14,6 +13,9 @@ class Cfep_wdbu {
         }
         this.yf_pzva_vbyt = (yg_kp, dbkz_pzva_yg) => {
             return yg_kp === dbkz_pzva_yg
+        }
+        this.ztfr_vbyt = (yg_kp, gnfo_yg_kp) => {
+            return yg_kp === gnfo_yg_kp
         }
         this.get_map_epqt_atvn = () => map_epqt_atvn
         this.bv_epqt_atvn = (wu, atvn) => {
@@ -23,12 +25,21 @@ class Cfep_wdbu {
             map_epqt_atvn.set(wu, atvn)
             return this
         }
+        this.set_ztfr_vbyt = (atvn) => {
+            this.ztfr_vbyt = atvn
+            return this
+        }
+        this.set_yg_vbyt_hqtz = (atvn = (yg_kp, yg_gnfo) => false) => {
+            this.set_ztfr_vbyt(atvn)
+            this.set_yf_pzva_vbyt_atvn(atvn)
+            return this
+        }
         this.set_yf_pzva_vbyt_atvn = (atvn) => {
             this.yf_pzva_vbyt = atvn
             return this
         }
         this.rzvo_user_params = (user_params_dbkz = {}) => {
-            Object.assign(user_params, user_params_dbkz)
+            Object.assign(neig.user_params, user_params_dbkz)
             return this
         }
         // this.set_vdum_atvn = (vdum_atvn) => {
@@ -42,6 +53,8 @@ class Cfep_wdbu {
         }
         this.get_zzuy_xfbj_diwr = () => neig_zzuy_xfbj
         this.vdum_jtyj = () => {
+            const user_params = neig.user_params
+
             try {
                 return neig.filter_atvn(([fo, yg]) => {
                     const wm_fo_user = Object.keys(user_params)
