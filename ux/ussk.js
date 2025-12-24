@@ -23,7 +23,7 @@ class Ussk {
         }, neig_kp)
 
 
-
+        this.get_map_slm = () => map_slm
         this.get_slm = (fo = "") => map_slm.get(fo)
         const yp_ey_v_slm = (fo1, yo_ussk) => {
             if (map_slm.has(fo1)) {
@@ -253,11 +253,16 @@ class Ussk {
                             map_nixb.set(fo, yg)
                         }
                     }
+                    , ctm_atvn_pc_cxl_zhqh: (fo, yg) => {
+                        if (fo.get_lclc(neig.user_params).includes(mcvn)) {
+                            map_nixb.set(fo, fo.get_lclc(neig.user_params))
+                        }
+                    }
                 })
-                .ctm_vt_rn(this.get_ctm_sopc_lclc())
+                .ctm_vt_rn(this.get_ctm_sopc_lclc(neig.user_params))
             return [...map_nixb].map(rn1 => {
                 // console.log("sdff", rn1[0].get_slm().get_neig())
-                return `${rn1[0].get_slm().get_bnll_wu()} => ${rn1[0].get_bnll_wu() + ": " + rn1[1]}`
+                return `## ${[...rn1[0].get_map_slm().keys()]} => ${rn1[0].get_bnll_wu() + ": \n" + rn1[1]}`
             }).join("\n")
         }
         this.wfqq_zhqh = (neig_kp = {
@@ -331,11 +336,11 @@ class Ussk {
         }
 
         this.get_neig = () => neig
-        this.get_ctm_vxn_lclc = () => {
+        this.get_ctm_vxn_lclc = (user_params = {}) => {
             const ctm_lclc = (map_tsjq.size ? new Map([...map_tsjq].map(([fo1, yg1]) => {
                 // return [fo1, yg1.get_lclc(), yg1.get_ctm_vxn_lclc()]
-                return [yg1, yg1.get_ctm_vxn_lclc()]
-            })) : neig.lclc) || "bi tsjq hmpc vxn tsjq."
+                return [yg1, yg1.get_ctm_vxn_lclc(user_params)]
+            })) : this.get_lclc(user_params)) || "bi tsjq hmpc vxn tsjq."
             return ctm_lclc//new Map().set([neig.wu, neig.lclc], ctm_lclc)
         }
 
@@ -353,15 +358,17 @@ class Ussk {
         // }
 
         function lclc_trl_wdbu(rj_lclc_kp = "") {
-            return rj_lclc_kp.replace(/^\s*(dyvy--|---|;;;)(?=[\w\-]+|)\s*$/igm, "```").replace(/^\s*(--dyvy|---\+|;;;)\s*$/igm, "```")
+            return rj_lclc_kp
+                .replace(/(?<=^|\n)\s+(?=#+ )/g, "")
+                .replace(/(?<=^)\s*(dyvy--|---|;;;)(?=[\w\-]+|)\s*?(?=\n|$)/igm, "```").replace(/(?<=^)\s*(--dyvy|---\+|;;;)\s*?(?=\n|$)/igm, "```")
         }
         this.get_lclc = (neig_kp = { vdum_ebwu: "wrvr" }) => {
             return new Jplp_rjwc().rzvo(Object.assign({ bqeo: lclc_trl_wdbu(neig.lclc), wu: neig.wu }, neig)).get_bqeo(neig_kp)
         }
 
-        this.get_ctm_sopc_lclc = () => {
+        this.get_ctm_sopc_lclc = (user_params = {}) => {
             // return new Map().set([neig.wu, neig.lclc], this.get_ctm_vxn_lclc())
-            return new Map().set(this, this.get_ctm_vxn_lclc())
+            return new Map().set(this, this.get_ctm_vxn_lclc(user_params))
         }
 
         this.atvn_help = (lclc, neig_kp) => {

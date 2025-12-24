@@ -6,6 +6,9 @@ class Cxl_ypn {
             ctm_atvn_so_cxl_zhqh: (key, val) => {
                 map_ctm_wfdb.set(key, val)
             }
+            , ctm_atvn_pc_cxl_zhqh: (key, val) => {
+
+            }
         }, neig_kp)
         this.vdum_map_ctm_wfdb = () => map_ctm_wfdb
         this.rzvo = (neig_kp = {}) => {
@@ -46,7 +49,10 @@ class Cxl_ypn {
             ctm_kp.forEach((val, key) => {
                 ctm_rn_cqpi(val
                     , wfqq_lil_vn
-                    , () => this.ctm_vt_rn(val, wfqq_lil_vn)
+                    , () => {
+                        this.ctm_vt_rn(val, wfqq_lil_vn)
+                        neig.ctm_atvn_pc_cxl_zhqh(key, val)
+                    }
                     , () => neig.ctm_atvn_so_cxl_zhqh(key, val)
                 )
             })
