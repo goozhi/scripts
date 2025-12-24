@@ -1,5 +1,6 @@
 const mcvn_parser = require("../mcvn_parser")
 const uzms = require("../uzms")
+const vbyt_yfux = require("../vbyt_yfux")
 const zjzj_yf_uxux = require("../zjzj_yf_uxux")
 const Cxl_ypn = require("./cxl_ypn")
 const Jplp_rjwc = require("./jplp_rjwc")
@@ -123,9 +124,6 @@ class Ussk {
                 map_tsjq.set(wu, vxn.set_slm(this))
             }
         }
-        const vbyt_yf_ux = (atvn, ybux) => {
-            return typeof atvn === "object" && atvn != null && Reflect.getPrototypeOf(atvn) === ybux.__proto__
-        }
         this.yp = (wu, atvn = (bnll_eqwy, wm_lsud, user_params) => { }, neig_kp = {}) => {
             if (typeof atvn === "function") {
                 const vxn1 = new Ussk(Object.assign(
@@ -134,7 +132,7 @@ class Ussk {
                         , atvn_joly_zhqh: atvn
                     }, neig_kp))
                 yp_vxn(wu, vxn1)
-            } else if (vbyt_yf_ux(atvn, this)) {
+            } else if (vbyt_yfux(atvn, this)) {
                 yp_vxn(wu, atvn.rzvo(neig_kp))
             } else {
                 console.error(atvn)
