@@ -61,5 +61,6 @@ module.exports = new Ussk({
         return jtyj
     })
     .set_atvn_eowl_cqpi((jtyj, neig_kp) => {
-        return neig_kp.get_neig().yo_rj_qi.vdum_jtyj()
+        const { yo_rj_qi } = neig_kp.get_neig()
+        return yo_rj_qi.vdum_jtyj()
     })

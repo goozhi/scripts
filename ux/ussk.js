@@ -216,6 +216,9 @@ class Ussk {
             // return wm_fo_yg ? wm_fo_yg[1].jcbz_zhqh(user_params, neig_kp) : map_tsjq.get(undefined)?.jcbz_zhqh(user_params, neig_kp)
             return wm_fo_yg ? wm_fo_yg[1].atvn_joly_zhqh(0, [], user_params, neig_kp) : map_tsjq.get(undefined)?.atvn_joly_zhqh(0, [], user_params, neig_kp)
         }
+        this.yhld_zhqh = (neig_kp) => {
+            return this.atvn_eowl_cqpi(this.wfqq_zhqh(neig_kp), neig_kp)
+        }
         this.jcbz_zhqh = (rztq_qh_ae_wrm_user_params = "", neig_kp = {}) => {
 
             const neig_1 = Object.assign({ neig_kp }, neig, {
@@ -275,7 +278,7 @@ class Ussk {
             if (neig.user_params._[neig_kp.eqwy_user_params + 1] === "help" && !map_tsjq.has('help')) {
                 neig_kp.eqwy_user_params++
                 const yo_ussk_help = require("../yoch/yo_ussk_help")
-                return yo_ussk_help.set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).wfqq_zhqh(Object.assign(neig_kp, { yo_ussk_kp: this }))
+                return yo_ussk_help.set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).yhld_zhqh(Object.assign(neig_kp, { yo_ussk_kp: this }))
             }
             if (map_tsjq.size === 0) {
                 const atvn_zhqh_1 = () => {
