@@ -32,7 +32,9 @@ module.exports = new Ussk({
     ;;;
 
     ## ja vdum ebwu sy lh yhrj
+    ;;;
     mc-tsjq help --wpm --vdum_ebwu yhrj
+    ;;;
     `
 })
     .set_joly_atvn((eqwy, wm, user_params, neig_kp = {}) => {

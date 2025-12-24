@@ -275,7 +275,7 @@ class Ussk {
             if (neig.user_params._[neig_kp.eqwy_user_params + 1] === "help" && !map_tsjq.has('help')) {
                 neig_kp.eqwy_user_params++
                 const yo_ussk_help = require("../yoch/yo_ussk_help")
-                return yo_ussk_help.jcbz_zhqh(neig.user_params, Object.assign(neig_kp, { yo_ussk_kp: this }))
+                return yo_ussk_help.set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).wfqq_zhqh(Object.assign(neig_kp, { yo_ussk_kp: this }))
             }
             if (map_tsjq.size === 0) {
                 const atvn_zhqh_1 = () => {
