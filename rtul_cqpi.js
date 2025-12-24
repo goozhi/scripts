@@ -1,4 +1,5 @@
 const uzms = require("./uzms")
+const yo_msox_wdbu_gzbu = require("./yoch/yo_msox_wdbu_gzbu")
 
 async function rtul_cqpi(neig_vdzv, diwr_tskl_slgr) {
     const neig_vdzv_tskl = Object.assign({}, neig_vdzv)
@@ -27,7 +28,10 @@ async function rtul_cqpi(neig_vdzv, diwr_tskl_slgr) {
         } else {
             return vnwm_pcyc[0]
         }
-    }).catch(err => { throw err })
+    }).catch(err => {
+        yo_msox_wdbu_gzbu.yp_err(err)
+        throw err
+    })
 
 }
 

@@ -19,6 +19,7 @@ const rtul_cqpi = require('./rtul_cqpi.js');
 const mcvn_parser = require('./mcvn_parser.js');
 const ttfzOpr = require('./oprs/ttfzOpr.js');
 const dataOpr = require('./oprs/dataOpr.js');
+const yo_msox_wdbu_gzbu = require('./yoch/yo_msox_wdbu_gzbu.js');
 function outputs(neig_kp = {}) {
     const neig_zi = Object.assign({ neig_kp }, neig_kp)
     const diwr_tskl = {
@@ -92,6 +93,10 @@ function outputs(neig_kp = {}) {
         ,
         ask: async (neig_vdzv = {}) => {
             return await rtul_cqpi(neig_vdzv, diwr_tskl).catch(err => { throw err })
+        },
+        msox_wdbu: (err) => {
+            yo_msox_wdbu_gzbu.yp_err(err)
+            throw err
         }
     }
 }

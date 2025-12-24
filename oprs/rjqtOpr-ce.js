@@ -24,6 +24,7 @@ const Ussk = require('../ux/ussk.js')
 const yxna_diwr_xb = path.resolve("out/diwr_xb.json")
 const wm_yoch_ussk = require("../tu-tsjq.slgr.js")
 const { log } = require('console')
+const yo_msox_wdbu_gzbu = require('../yoch/yo_msox_wdbu_gzbu.js')
 const diwr_xb = (() => {
     try {
         return require(yxna_diwr_xb)
@@ -39,12 +40,24 @@ const rjqtOpr = async (neig_kp) => {
     yxna_ymrg_wdbu(user_params)
 
     // uufb 1
-    const jtyj_ae_vwdp_jtyj = new Ussk({ wu: "tu", lclc: "rjqt gzbu tsjq." })
-        // .set_user_params(user_params)
-        // .set_outputs(outputs)
-        .ypVxn(...wm_yoch_ussk)
-        .set_vwdp_msox_wdbu((err) => { console.error(err) })
-        .jcbz_zhqh(user_params, { outputs, atvn_help: ((lclc) => outputs.outputText = lclc) })
+    const jtyj_ae_vwdp_jtyj = (() => {
+        try {
+            return new Ussk({ wu: "tu", lclc: "rjqt gzbu tsjq." })
+                // .set_user_params(user_params)
+                // .set_outputs(outputs)
+                .ypVxn(...wm_yoch_ussk)
+                .set_vwdp_msox_wdbu((err) => { console.error(err) })
+                .jcbz_zhqh(user_params, { outputs, atvn_help: ((lclc) => outputs.outputText = lclc) })
+        } catch (e) {
+            yo_msox_wdbu_gzbu.yp_err(e)
+            if (outputs.msox_wdbu) {
+                outputs.msox_wdbu?.(e)
+            }
+            else {
+                throw e
+            }
+        }
+    })()
     // uufb
     // if (user_params._[1] === 'rr') {
     // } else if (user_params._[1] === 'obj') {
