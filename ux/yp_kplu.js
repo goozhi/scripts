@@ -3,20 +3,22 @@ const uzms = require("../uzms")
 const path = require('path')
 const vbyt_yfux = require("../vbyt_yfux")
 const zjzj_yf_uxux = require("../zjzj_yf_uxux")
-const nikc_msox_bx_log = path.resolve('out', 'msox-bx')
+const nikc_yp_kplu_log = path.resolve('out', 'yp-kplu')
 const Cxl_ypn = require("./cxl_ypn")
 const yo_rjqt_cqpi_gzbu = require("../yoch/yo_rjqt_cqpi_gzbu")
 const yo_bvzd_kivo_gzbu = require("../yoch/yo_bvzd_kivo_gzbu")
 const Bvzd_kivo_bx = require("./bvzd-kivo-bx")
 const vkih_hfbc = require("../vkih_hfbc")
 const nvms = require("../nvms")
-class Msox_bx {
+const Jplp_kplu_sdbu = require("./jplp_kplu_sdbu")
+class Yp_kplu {
     constructor(neig_kp) {
         const map_vxn = new Map()
         const map_slm = new Map()
         const neig = Object.assign({ neig_kp }, {
             w_rrzv_rjqt: false,
             log_rjqt_udao: ".txt",
+            yo_kplu: new Jplp_kplu_sdbu(),
             rrzv_yntz: "txt"
         }, neig_kp)
         if (!neig.yoch_dyih) {
@@ -88,22 +90,17 @@ class Msox_bx {
         }) => {
             // const fs = require('fs')
             // vnwm_rrzv.push({ yxna, bqeo, w_cd_rrzv: false })
-            // if (/gzbu/.test(this.get_bnll_wu())) {
-            //     console.log('bqeo', bqeo)
-            // }
-
             yo_bvzd_kivo_gzbu.jcbz_yp(yxna, { wu: yxna }).get_vxn(yxna).set_trl_kivo_zdog(Date.now() + neig_kp.trl_rrzv_zdog || 1000).uufb(() => {
                 yo_rjqt_cqpi_gzbu.writeFile(yxna, bqeo).catch(e => { throw e })
             })
         }
         this.ncn_nikc = () => {
             const ncn_nikc = require("../ngnc_nikc_paaw")
-            ncn_nikc(nikc_msox_bx_log)
+            ncn_nikc(nikc_yp_kplu_log)
             return this
         }
-        this.get_nmky_log_yxna = () => path.join(nikc_msox_bx_log, 'msox-bx-log-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
-        this.get_nmky_err_yxna = () => path.join(nikc_msox_bx_log, 'msox-bx-err-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
-        this.get_nmky_err_bnll_lb_yxna = () => path.join(nikc_msox_bx_log, 'msox-bx-err-bnll-lb-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
+        this.get_nmky_log_yxna = () => path.join(nikc_yp_kplu_log, 'yp-kplu-log-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
+        this.get_nmky_err_yxna = () => path.join(nikc_yp_kplu_log, 'yp-kplu-err-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
         this.non_rrzv_log = (neig_kp = {}) => {
             const neig_1 = Object.assign({ neig_kp }, {
                 trl_rrzv_zdog: 500
@@ -124,7 +121,6 @@ class Msox_bx {
             this.bv_rr_zv_vnwy(yxna, bqeo, neig_1)
         }
         this.non_rrzv_err = (neig_kp = {}) => {
-
             const neig_1 = Object.assign({ neig_kp }, {
                 trl_rrzv_zdog: 500
             }, neig_kp)
@@ -138,8 +134,8 @@ class Msox_bx {
                 ctm_atvn_pc_cxl_zhqh: zhvt_err,
                 ctm_atvn_so_cxl_zhqh: zhvt_err
             }).ctm_vt_rn(this.get_ctm_sopc_yfux())
-            const bqeo = JSON.stringify([...map_zhvt_err].map(([fo, rn1]) => {
-                return [...rn1].map(rn3 => err_bqeo_vdum(rn3))
+            const bqeo = JSON.stringify([...map_zhvt_err].map(rn1 => {
+                return [...rn1].map(rn3 => rn3.message)
             }), null, 2)
             this.bv_rr_zv_vnwy(yxna, bqeo, neig_1)
             return this
@@ -178,7 +174,7 @@ class Msox_bx {
                             return ([...this.get_set_err()].map(rn1 => err_bqeo_vdum(rn1)).join("\n\n"))
                         })).vdum(neig.rrzv_yntz)
                 })()
-                const yxna = this.get_nmky_err_bnll_lb_yxna()
+                const yxna = this.get_nmky_err_yxna()
                 this.bv_rr_zv_vnwy(yxna, bqeo)
             }
         }
@@ -227,9 +223,40 @@ class Msox_bx {
         this.get_ctm_sopc_yfux = () => {
             return new Map().set(this, this.get_ctm_vxn())
         }
+        this.get_yo_kplu = () => neig.yo_kplu// || new Jplp_kplu_sdbu()
+        this.jcbz_yp = (yoch_dyih_ae_yfux, neig_kp = {}) => {
+            if (typeof yoch_dyih_ae_yfux === "string") {
+                if (map_vxn.has(yoch_dyih_ae_yfux)) {
+                    return this
+                }
+                const vxn1 = new Yp_kplu(Object.assign(
+                    {
+                        yoch_dyih: yoch_dyih_ae_yfux
+                    }, neig_kp))
+                yp_ey_vxn(yoch_dyih_ae_yfux, vxn1)
+            } else if (vbyt_yfux(yoch_dyih_ae_yfux, this)) {
+                if (map_vxn.has(yoch_dyih_ae_yfux.get_yoch_dyih())) {
+                    return this
+                }
+
+                yp_ey_vxn(yoch_dyih_ae_yfux, yoch_dyih_ae_yfux.rzvo(neig_kp))
+            } else {
+                uzms("csrf-bi mcvn aoao w ztfr sum ae neig jplp ux n yoch-" + typeof yoch_dyih_ae_yfux)
+            }
+            return this
+
+        }
+        this.zjzj_zznq = (...args) => {
+            const fs = require('fs')
+            args.forEach(rn1 => {
+                if (!fs.existsSync(rn1)) {
+                    uzms("csrf-yxna ac zznq-" + rn1)
+                }
+            })
+        }
         this.yp = (yoch_dyih_ae_yfux, neig_kp = {}) => {
             if (typeof yoch_dyih_ae_yfux === "string") {
-                const vxn1 = new Msox_bx(Object.assign(
+                const vxn1 = new Yp_kplu(Object.assign(
                     {
                         yoch_dyih: yoch_dyih_ae_yfux
                     }, neig_kp))
@@ -291,8 +318,8 @@ class Msox_bx {
             return this
         }
         this.yp_vxn = (...args) => {
-            args.forEach(yo_msox_bx => {
-                yp_ey_vxn(yo_msox_bx.get_yoch_dyih(), yo_msox_bx)
+            args.forEach(yo_yp_kplu => {
+                yp_ey_vxn(yo_yp_kplu.get_yoch_dyih(), yo_yp_kplu)
             })
             return this
         }
@@ -307,4 +334,4 @@ class Msox_bx {
         }
     }
 }
-module.exports = Msox_bx
+module.exports = Yp_kplu

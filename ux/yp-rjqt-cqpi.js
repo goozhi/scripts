@@ -3,25 +3,55 @@ const uzms = require("../uzms")
 const path = require('path')
 const vbyt_yfux = require("../vbyt_yfux")
 const zjzj_yf_uxux = require("../zjzj_yf_uxux")
-const nikc_msox_bx_log = path.resolve('out', 'msox-bx')
+const nikc_rjqt_bx_log = path.resolve('out', 'rjqt-bx')
+// const Bvzd_kivo = require("./bvzd_kivo")
 const Cxl_ypn = require("./cxl_ypn")
-const yo_rjqt_cqpi_gzbu = require("../yoch/yo_rjqt_cqpi_gzbu")
+const Yp_ux = require('./yp_ux-ce')
 const yo_bvzd_kivo_gzbu = require("../yoch/yo_bvzd_kivo_gzbu")
 const Bvzd_kivo_bx = require("./bvzd-kivo-bx")
 const vkih_hfbc = require("../vkih_hfbc")
-const nvms = require("../nvms")
-class Msox_bx {
+
+class Rjqt_bx {
     constructor(neig_kp) {
         const map_vxn = new Map()
         const map_slm = new Map()
         const neig = Object.assign({ neig_kp }, {
             w_rrzv_rjqt: false,
             log_rjqt_udao: ".txt",
+            fsx: {},
+            fs: {},
+            rjqt_pzre_xbst: 'fsx',
+            w_ybkc_bqeo: false,
+            badb_livn: 0,
             rrzv_yntz: "txt"
         }, neig_kp)
         if (!neig.yoch_dyih) {
-            neig.yoch_dyih = Date.now() + String(vkih_hfbc.next().value)
+            neig.yoch_dyih = Date.now() + vkih_hfbc.next().value
         }
+        const rjqt_cqpi = (cqpi_fr, ...args) => {
+            neig.badb_livn++
+            this.yp_log({
+                yxna: args[0]
+                , bqeo: neig.w_ybkc_bqeo ? args[1] : "ac-ybkc"
+                , zdog_uufb: Date.now()
+                , cqpi_fr: cqpi_fr
+                , badb_livn: neig.badb_livn
+            })
+            return this.get_rjqt_pzre()[cqpi_fr](...args)
+        }
+        this.writeFileSync = (...args) => {
+            return rjqt_cqpi('writeFileSync', ...args)
+        }
+        this.writeFile = (...args) => {
+            return rjqt_cqpi('writeFile', ...args)
+        }
+        this.appendFileSync = (...args) => {
+            return rjqt_cqpi('appendFileSync', ...args)
+        }
+        this.appendFile = (...args) => {
+            return rjqt_cqpi('appendFile', ...args)
+        }
+        this.get_rjqt_pzre = () => neig.rjqt_pzre_xbst === "fsx" ? neig.fsx : neig.fs
         const ey_yfux_cqpi = (map_zzzz_kp, fo, vxn, neig_kp = {}) => {
             const neig_1 = Object.assign({ neig_kp }, {
                 cqpi_fr: "set",
@@ -74,6 +104,7 @@ class Msox_bx {
         //         })
         //     }, 2000);
         // }
+
         this.get_log_rjqt_udao = () => {
             return ussk_atvn(new Map()
                 .set("json", () => {
@@ -88,22 +119,17 @@ class Msox_bx {
         }) => {
             // const fs = require('fs')
             // vnwm_rrzv.push({ yxna, bqeo, w_cd_rrzv: false })
-            // if (/gzbu/.test(this.get_bnll_wu())) {
-            //     console.log('bqeo', bqeo)
-            // }
-
             yo_bvzd_kivo_gzbu.jcbz_yp(yxna, { wu: yxna }).get_vxn(yxna).set_trl_kivo_zdog(Date.now() + neig_kp.trl_rrzv_zdog || 1000).uufb(() => {
-                yo_rjqt_cqpi_gzbu.writeFile(yxna, bqeo).catch(e => { throw e })
+                this.get_rjqt_pzre().writeFileSync(yxna, bqeo)
             })
         }
         this.ncn_nikc = () => {
             const ncn_nikc = require("../ngnc_nikc_paaw")
-            ncn_nikc(nikc_msox_bx_log)
+            ncn_nikc(nikc_rjqt_bx_log)
             return this
         }
-        this.get_nmky_log_yxna = () => path.join(nikc_msox_bx_log, 'msox-bx-log-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
-        this.get_nmky_err_yxna = () => path.join(nikc_msox_bx_log, 'msox-bx-err-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
-        this.get_nmky_err_bnll_lb_yxna = () => path.join(nikc_msox_bx_log, 'msox-bx-err-bnll-lb-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
+        this.get_nmky_log_yxna = () => path.join(nikc_rjqt_bx_log, 'rjqt-bx-log-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
+        this.get_nmky_err_yxna = () => path.join(nikc_rjqt_bx_log, 'rjqt-bx-err-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
         this.non_rrzv_log = (neig_kp = {}) => {
             const neig_1 = Object.assign({ neig_kp }, {
                 trl_rrzv_zdog: 500
@@ -124,7 +150,6 @@ class Msox_bx {
             this.bv_rr_zv_vnwy(yxna, bqeo, neig_1)
         }
         this.non_rrzv_err = (neig_kp = {}) => {
-
             const neig_1 = Object.assign({ neig_kp }, {
                 trl_rrzv_zdog: 500
             }, neig_kp)
@@ -147,41 +172,7 @@ class Msox_bx {
         const err_bqeo_vdum = (rn1) => {
             return `${rn1.message}\n${rn1.stack}`
         }
-        this.yp_err = (yo_err, neig_kp = {}) => {
-            const wrm_err = (() => {
-                if (typeof yo_err === "object") {
-                    if (Reflect.getPrototypeOf(yo_err) === ReferenceError.prototype) {
-                        yo_err.stack += new Error().stack
-                        return nvms(yo_err)
-                    } else if ((Reflect.getPrototypeOf(yo_err) === Error.prototype)) {
-                        yo_err.stack += new Error().stack
-                        return yo_err
-                    } else if ((Reflect.getPrototypeOf(yo_err) === TypeError.prototype)) {
-                        yo_err.stack += new Error().stack
-                        return yo_err
-                    } else {
-                        return new Error(yo_err)
-                    }
-                } else {
-                    // uzms("csrf-bi uxux ac w err uxux-" + yo_err)
-                    return new Error(yo_err)
-                }
-            })()
-            set_err_ybkc.add(wrm_err)
-            if (neig.w_rrzv_rjqt) {
-                this.ncn_nikc()
-                const bqeo = (() => {
-                    return ussk_atvn(new Map()
-                        .set("json", () => {
-                            return JSON.stringify([...this.get_set_err()].map(rn1 => err_bqeo_vdum(rn1)), null, 2)
-                        }).set("txt", () => {
-                            return ([...this.get_set_err()].map(rn1 => err_bqeo_vdum(rn1)).join("\n\n"))
-                        })).vdum(neig.rrzv_yntz)
-                })()
-                const yxna = this.get_nmky_err_bnll_lb_yxna()
-                this.bv_rr_zv_vnwy(yxna, bqeo)
-            }
-        }
+        this.get
         this.yp_log = (neig_kp = {}) => {
             if (typeof neig_kp === "string") {
                 neig_kp = { bqeo: neig_kp }
@@ -229,7 +220,7 @@ class Msox_bx {
         }
         this.yp = (yoch_dyih_ae_yfux, neig_kp = {}) => {
             if (typeof yoch_dyih_ae_yfux === "string") {
-                const vxn1 = new Msox_bx(Object.assign(
+                const vxn1 = new Rjqt_bx(Object.assign(
                     {
                         yoch_dyih: yoch_dyih_ae_yfux
                     }, neig_kp))
@@ -291,8 +282,8 @@ class Msox_bx {
             return this
         }
         this.yp_vxn = (...args) => {
-            args.forEach(yo_msox_bx => {
-                yp_ey_vxn(yo_msox_bx.get_yoch_dyih(), yo_msox_bx)
+            args.forEach(yo_rjqt_bx => {
+                yp_ey_vxn(yo_rjqt_bx.get_yoch_dyih(), yo_rjqt_bx)
             })
             return this
         }
@@ -307,4 +298,4 @@ class Msox_bx {
         }
     }
 }
-module.exports = Msox_bx
+module.exports = Rjqt_bx

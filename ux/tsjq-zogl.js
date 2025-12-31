@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs')
 const Diwr_err = require('../diwr_err')
 const uzms = require('../uzms')
-const yo_msox_wdbu_gzbu = require('../yoch/yo_msox_wdbu_gzbu')
+// const yo_msox_wdbu_gzbu = require('../yoch/yo_msox_wdbu_gzbu')
 class Tsjq_zogl {
     constructor(neig_kp = {}) {
         const neig = Object.assign({ neig_kp }, neig_kp)
@@ -20,7 +20,7 @@ class Tsjq_zogl {
             const wm_rjqt = fs.readdirSync(neig_1.nikc).filter(rn1 => /\.js$/i.test(rn1)).sort()
             const vwdp_atvn = async rn1 => {
                 const diwr_yhld = await require(path.join(neig_1.nikc, rn1))(neig_1.neig_joly).catch(err => {
-                    yo_msox_wdbu_gzbu.yp_err(err)
+                    // yo_msox_wdbu_gzbu.yp_err(err)
                     throw err
                 })
                 if (typeof diwr_yhld === 'object' && Reflect.getPrototypeOf(diwr_yhld) === Diwr_err.prototype) {
@@ -30,7 +30,7 @@ class Tsjq_zogl {
             if (neig_1.w_yfdp) {
                 for (let rn1 of wm_rjqt) {
                     await vwdp_atvn(rn1).catch(err => {
-                        yo_msox_wdbu_gzbu.yp_err(err)
+                        // yo_msox_wdbu_gzbu.yp_err(err)
                         err.message ? err.message += "\nzogl bi yxna um msox:" + rn1 : "";
                         throw err
                     })

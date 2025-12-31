@@ -30,6 +30,7 @@ const Reg_bx = require('./ux/reg_bx.js');
 const Tsjq_zogl = require('./ux/tsjq-zogl.js');
 const Cxl_ypn = require('./ux/cxl_ypn.js');
 const Ussk = require('./ux/ussk.js');
+const yo_msox_wdbu_gzbu = require('./yoch/yo_msox_wdbu_gzbu.js');
 const diwr_qgl_zf_zv_rn = {}
 const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
 diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
@@ -1604,9 +1605,37 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
     if (!yes5) {
         diwr_msg.addErr('csrf-jf wrm zjzj diwr assign atvn nkyc-')
     }
+
+    const tsjq_zogl = require('./ux/tsjq-zogl.js')
+
+    new tsjq_zogl({
+        zkrs: "zogl-d",
+        w_yfdp: false,
+        neig_joly: {},
+        nikc: 'D:/RSGM/nodejs/scripts/zogl-d/'
+    }).zogl().catch(e => { console.error(e) })
+    new tsjq_zogl({
+        zkrs: "zogl-c",
+        w_yfdp: false,
+        neig_joly: {},
+        nikc: 'D:/RSGM/nodejs/scripts/zogl-c/'
+    }).zogl().catch(e => { console.error(e) })
+    new tsjq_zogl({
+        zkrs: "zogl-a",
+        w_yfdp: false,
+        neig_joly: {},
+        nikc: 'D:/RSGM/nodejs/scripts/zogl-a/'
+    }).zogl().catch(e => { console.error(e) })
+    new tsjq_zogl({
+        zkrs: "zogl-f",
+        w_yfdp: false,
+        neig_joly: {},
+        nikc: 'D:/RSGM/nodejs/scripts/zogl-f/'
+    }).zogl().catch(e => { console.error(e) })
 }//afoa_zogl
 afoa_zogl()
     .then(res => {
+        yo_msox_wdbu_gzbu.rrzv_noph_err()
         // log("h", diwr_msg.isOk())//
         if (diwr_msg.isOk()) {
             console.log("Done - " + diwr_msg.zkrs)

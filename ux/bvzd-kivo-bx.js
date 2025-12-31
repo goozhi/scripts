@@ -99,7 +99,7 @@ class Bvzd_kivo_bx {
                 .vdum(neig.rrzv_yntz)
         }
         this.bv_rr_zv_vnwy = (yxna, bqeo, neig_kp = {
-            trl_rrzv_zdog: 3000
+            trl_rrzv_zdog: 500
         }) => {
             // const fs = require('fs')
             // vnwm_rrzv.push({ yxna, bqeo, w_cd_rrzv: false })
@@ -116,7 +116,7 @@ class Bvzd_kivo_bx {
         this.get_nmky_err_yxna = () => path.join(nikc_bvzd_kivo_bx_log, 'bvzd-bx-err-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
         this.non_rrzv_log = (neig_kp = {}) => {
             const neig_1 = Object.assign({ neig_kp }, {
-                trl_rrzv_zdog: 3000
+                trl_rrzv_zdog: 500
             }, neig_kp)
             this.ncn_nikc()
             const yxna = this.get_nmky_log_yxna()
@@ -126,7 +126,7 @@ class Bvzd_kivo_bx {
             }
             new Cxl_ypn({
                 ctm_atvn_pc_cxl_zhqh: zhvt_log,
-                ctm_atvn_pc_cxl_zhqh: zhvt_log
+                ctm_atvn_so_cxl_zhqh: zhvt_log
             }).ctm_vt_rn(this.get_ctm_sopc_yfux())
             const bqeo = JSON.stringify([...map_zhvt_log].map(rn1 => {
                 return [...rn1]
@@ -135,7 +135,7 @@ class Bvzd_kivo_bx {
         }
         this.non_rrzv_err = (neig_kp = {}) => {
             const neig_1 = Object.assign({ neig_kp }, {
-                trl_rrzv_zdog: 3000
+                trl_rrzv_zdog: 500
             }, neig_kp)
             this.ncn_nikc()
             const yxna = this.get_nmky_err_yxna()
@@ -145,7 +145,7 @@ class Bvzd_kivo_bx {
             }
             new Cxl_ypn({
                 ctm_atvn_pc_cxl_zhqh: zhvt_err,
-                ctm_atvn_pc_cxl_zhqh: zhvt_err
+                ctm_atvn_so_cxl_zhqh: zhvt_err
             }).ctm_vt_rn(this.get_ctm_sopc_yfux())
             const bqeo = JSON.stringify([...map_zhvt_err].map(rn1 => {
                 return [...rn1].map(rn3 => rn3.message)

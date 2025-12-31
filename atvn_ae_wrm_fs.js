@@ -1,3 +1,5 @@
+const uzms = require("./uzms")
+
 function atvn_ae_wrm_fs(rj_atvn) {
     try {
         return eval(`(${rj_atvn})`)

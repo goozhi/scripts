@@ -185,7 +185,7 @@ class Jplp_kplu_sdbu {
         let allright
         this.imfb = async (neig_kp = {}) => {//imfb
             if (!allright) {
-                allright = wyzv_vnwy(neig_kp)
+                allright = wyzv_vnwy(neig_kp).catch(err => { throw err })
                 return allright
             } else {
                 return this

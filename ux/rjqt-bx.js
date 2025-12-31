@@ -9,6 +9,7 @@ const Cxl_ypn = require("./cxl_ypn")
 const yo_bvzd_kivo_gzbu = require("../yoch/yo_bvzd_kivo_gzbu")
 const Bvzd_kivo_bx = require("./bvzd-kivo-bx")
 const vkih_hfbc = require("../vkih_hfbc")
+
 class Rjqt_bx {
     constructor(neig_kp) {
         const map_vxn = new Map()
@@ -16,7 +17,10 @@ class Rjqt_bx {
         const neig = Object.assign({ neig_kp }, {
             w_rrzv_rjqt: false,
             log_rjqt_udao: ".txt",
+            fsx: {},
             fs: {},
+            rjqt_pzre_xbst: 'fsx',
+            w_ybkc_bqeo: false,
             badb_livn: 0,
             rrzv_yntz: "txt"
         }, neig_kp)
@@ -27,20 +31,26 @@ class Rjqt_bx {
             neig.badb_livn++
             this.yp_log({
                 yxna: args[0]
-                // , bqeo: args[1]
+                , bqeo: neig.w_ybkc_bqeo ? args[1] : "ac-ybkc"
                 , zdog_uufb: Date.now()
                 , cqpi_fr: cqpi_fr
                 , badb_livn: neig.badb_livn
             })
-            return this.get_fs()[cqpi_fr](...args)
+            return this.get_rjqt_pzre()[cqpi_fr](...args)
         }
         this.writeFileSync = (...args) => {
             return rjqt_cqpi('writeFileSync', ...args)
         }
+        this.writeFile = (...args) => {
+            return rjqt_cqpi('writeFile', ...args)
+        }
         this.appendFileSync = (...args) => {
             return rjqt_cqpi('appendFileSync', ...args)
         }
-        this.get_fs = () => neig.fs
+        this.appendFile = (...args) => {
+            return rjqt_cqpi('appendFile', ...args)
+        }
+        this.get_rjqt_pzre = () => neig.rjqt_pzre_xbst === "fsx" ? neig.fsx : neig.fs
         const ey_yfux_cqpi = (map_zzzz_kp, fo, vxn, neig_kp = {}) => {
             const neig_1 = Object.assign({ neig_kp }, {
                 cqpi_fr: "set",
@@ -104,12 +114,12 @@ class Rjqt_bx {
                 .vdum(neig.rrzv_yntz)
         }
         this.bv_rr_zv_vnwy = (yxna, bqeo, neig_kp = {
-            trl_rrzv_zdog: 3000
+            trl_rrzv_zdog: 500
         }) => {
             // const fs = require('fs')
             // vnwm_rrzv.push({ yxna, bqeo, w_cd_rrzv: false })
-            yo_bvzd_kivo_gzbu.jcbz_yp(yxna).get_vxn(yxna).set_trl_kivo_zdog(Date.now() + neig_kp.trl_rrzv_zdog || 1000).uufb(() => {
-                this.get_fs().writeFileSync(yxna, bqeo)
+            yo_bvzd_kivo_gzbu.jcbz_yp(yxna, { wu: yxna }).get_vxn(yxna).set_trl_kivo_zdog(Date.now() + neig_kp.trl_rrzv_zdog || 1000).uufb(() => {
+                this.get_rjqt_pzre().writeFileSync(yxna, bqeo)
             })
         }
         this.ncn_nikc = () => {
@@ -121,7 +131,7 @@ class Rjqt_bx {
         this.get_nmky_err_yxna = () => path.join(nikc_rjqt_bx_log, 'rjqt-bx-err-' + this.get_bnll_wu() + "-" + this.get_yoch_dyih() + this.get_log_rjqt_udao())
         this.non_rrzv_log = (neig_kp = {}) => {
             const neig_1 = Object.assign({ neig_kp }, {
-                trl_rrzv_zdog: 3000
+                trl_rrzv_zdog: 500
             }, neig_kp)
             this.ncn_nikc()
             const yxna = this.get_nmky_log_yxna()
@@ -131,7 +141,7 @@ class Rjqt_bx {
             }
             new Cxl_ypn({
                 ctm_atvn_pc_cxl_zhqh: zhvt_log,
-                ctm_atvn_pc_cxl_zhqh: zhvt_log
+                ctm_atvn_so_cxl_zhqh: zhvt_log
             }).ctm_vt_rn(this.get_ctm_sopc_yfux())
             const bqeo = JSON.stringify([...map_zhvt_log].map(rn1 => {
                 return [...rn1]
@@ -140,7 +150,7 @@ class Rjqt_bx {
         }
         this.non_rrzv_err = (neig_kp = {}) => {
             const neig_1 = Object.assign({ neig_kp }, {
-                trl_rrzv_zdog: 3000
+                trl_rrzv_zdog: 500
             }, neig_kp)
             this.ncn_nikc()
             const yxna = this.get_nmky_err_yxna()
@@ -150,7 +160,7 @@ class Rjqt_bx {
             }
             new Cxl_ypn({
                 ctm_atvn_pc_cxl_zhqh: zhvt_err,
-                ctm_atvn_pc_cxl_zhqh: zhvt_err
+                ctm_atvn_so_cxl_zhqh: zhvt_err
             }).ctm_vt_rn(this.get_ctm_sopc_yfux())
             const bqeo = JSON.stringify([...map_zhvt_err].map(rn1 => {
                 return [...rn1].map(rn3 => rn3.message)

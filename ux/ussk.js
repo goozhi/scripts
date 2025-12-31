@@ -1,9 +1,20 @@
 const mcvn_parser = require("../mcvn_parser")
 const uzms = require("../uzms")
 const vbyt_yfux = require("../vbyt_yfux")
+const yo_msox_wdbu_gzbu = require("../yoch/yo_msox_wdbu_gzbu")
+// const yo_neig_jplp_gzbu = require("../yoch/yo_neig_jplp_gzbu")
+const Yp_log_rr = require("../ux-f/yp_log_rr")
+const yo_log_rr = new Yp_log_rr({ "wu": "ussk ux wfdb" })
 const zjzj_yf_uxux = require("../zjzj_yf_uxux")
 const Cxl_ypn = require("./cxl_ypn")
 const Jplp_rjwc = require("./jplp_rjwc")
+// const Msox_bx = require("./yp-msox")
+const Msox_bx = require("../ux-f/yp_err_rr")
+// const yo_msox_bx = new Msox_bx({ wu: "ussk ux msox wdbu", w_rrzv_rjqt: true, rrzv_yntz: 'txt' })
+const yo_msox_bx = new Msox_bx({ wu: "ussk ux msox wdbu", rrzv_yntz: 'txt' })
+yo_msox_wdbu_gzbu.yp_vxn(yo_msox_bx)
+// const Neig_jplp = require("./neig-jplp")
+const vkih_hfbc_ar = require("../vkih_hfbc_ar")
 let jyqh_dyvy = 0
 class Ussk {
     constructor(neig_kp = {}) {
@@ -22,8 +33,11 @@ class Ussk {
             ebwu: "wrvr",
             lclc: `Bi tsjq wu hmpc unpc rslc.`
         }, neig_kp)
-
-
+        // const yo_neig_jplp = yo_neig_jplp_gzbu.get_vxn("zzuy-xfbj") || new Neig_jplp(Object.assign({}, neig, {
+        //     wu: "ussk ux xyzd db wu",
+        //     w_rrzv_rjqt: false,
+        //     rrzv_yntz: "json"
+        // }))
         this.get_map_slm = () => map_slm
         this.get_slm = (fo = "") => map_slm.get(fo)
         const yp_ey_v_slm = (fo1, yo_ussk) => {
@@ -68,6 +82,9 @@ class Ussk {
         this.set_lclc = (lclc) => {
             neig.lclc = lclc
             return this
+        }
+        this.atvn_eowl_cqpi_yhld = (jtyj, neig_kp) => {
+            return this.atvn_eowl_cqpi(jtyj, neig_kp)
         }
         this.atvn_eowl_cqpi = (jtyj, neig_kp) => jtyj
         this.set_atvn_eowl_cqpi = (atvn = (jtyj, neig_kp) => { }) => {
@@ -142,9 +159,16 @@ class Ussk {
         }
 
         this.atvn_joly_zhqh = (...mcvn) => {
-            const jtyj = neig.atvn_joly_zhqh(...mcvn)
+            const jtyj = (() => {
+                try {
+                    return neig.atvn_joly_zhqh(...mcvn)
+                } catch (e) {
+                    throw e
+                }
+            })()
             // dy rr catch, k vh mb ye lb n om ahno ac db jd rr catch atvn
             jtyj?.catch?.(err => {
+                yo_msox_bx.yp_err(err)
                 this.atvn_vwdp_msox_wdbu(err)
             })
             return jtyj
@@ -214,9 +238,14 @@ class Ussk {
             // return wm_fo_yg ? wm_fo_yg[1].jcbz_zhqh(user_params, neig_kp) : map_tsjq.get(undefined)?.jcbz_zhqh(user_params, neig_kp)
             return wm_fo_yg ? wm_fo_yg[1].atvn_joly_zhqh(0, [], user_params, neig_kp) : map_tsjq.get(undefined)?.atvn_joly_zhqh(0, [], user_params, neig_kp)
         }
-        this.yhld_zhqh = (neig_kp) => {
-            return this.atvn_eowl_cqpi(this.wfqq_zhqh(neig_kp), neig_kp)
+        this.pilh_vxn_yhld_zhqh = (neig_kp) => {
+            return this.atvn_eowl_cqpi_yhld(this.wfqq_zhqh(neig_kp), neig_kp)
         }
+        this.pilh_slm_yhld_zhqh = (vxn, neig_kp) => {
+            // return this.atvn_eowl_cqpi_yhld(vxn.set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).pilh_vxn_yhld_zhqh(neig_kp))
+            return (vxn.set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).pilh_vxn_yhld_zhqh(neig_kp))
+        }
+
         this.jcbz_zhqh = (rztq_qh_ae_wrm_user_params = "", neig_kp = {}) => {
 
             const neig_1 = Object.assign({ neig_kp }, neig, {
@@ -226,6 +255,9 @@ class Ussk {
                 Object.assign(neig_1, neig_dbkz)
                 return neig_1
             }
+            const dyih_jyqh = Date.now() + "" + vkih_hfbc_ar.next().value
+            neig_1.get_jyqh_dyih_kp = () => dyih_jyqh
+            neig_1.dyih_jyqh = dyih_jyqh
             neig_1.get_neig = () => neig_1
             if (rztq_qh_ae_wrm_user_params) {
                 if (typeof rztq_qh_ae_wrm_user_params === "object" && rztq_qh_ae_wrm_user_params._) {
@@ -243,7 +275,86 @@ class Ussk {
             //         throw err
             //     }
             // })()
-            return this.atvn_eowl_cqpi(this.wfqq_zhqh(neig_1), neig_1)
+            try {
+                yo_log_rr.yp_log({ bqeo: "zhqh da ye v wfqq cqpi", user_params: neig.user_params })
+                const jtyj_3 = this.wfqq_zhqh(neig_1)
+                if (dyih_jyqh != neig_1.dyih_jyqh) {
+                    uzms("csrf-ussk ux jyqh dyih ac ye vh-" + neig_1.dyih_jyqh + "-kp-" + dyih_jyqh)
+                }
+                yo_log_rr.yp_log({ bqeo: "zhqh " + this.get_bnll_wu() + " n atvn eowl", user_params: neig.user_params, atvn_eowl_cqpi: this.atvn_eowl_cqpi })
+                // console.log(323, yo_msox_bx.get_set_err())
+                return this.atvn_eowl_cqpi_yhld(jtyj_3, neig_1)
+            } catch (err) {
+                yo_msox_bx.yp_err(err)
+                throw err
+            }
+        }
+        this.get_xbyb = () => neig.xbyb || ""
+        this.set_xbyb = (xbyb) => neig.xbyb = xbyb
+        this.get_ctm_sopc_wu = () => new Map().set(this.get_bnll_wu(), this.get_ctm_vxn_wu())
+        this.get_ctm_vxn_wu = () => {
+            const ctm_jyqh_ybkc = map_tsjq.size ? new Map([...map_tsjq].map(([fo1, yg1]) => {
+                // return [fo1, yg1.get_lclc(), yg1.get_ctm_vxn_lclc()]
+                return [fo1, yg1.get_ctm_vxn_wu()]
+            })) : this.get_bnll_wu()
+            return ctm_jyqh_ybkc//new Map().set([neig.wu, neig.lclc], ctm_lclc)
+        }
+        this.get_map_jyqh_ybkc = () => map_jyqh_ybkc
+        this.get_ctm_vxn_xbyb_zbhm = () => {
+            const ctm_jyqh_ybkc = map_tsjq.size ? new Map([...map_tsjq].map(([fo1, yg1]) => {
+                // return [fo1, yg1.get_lclc(), yg1.get_ctm_vxn_lclc()]
+                return [fo1, yg1.get_ctm_vxn_xbyb_zbhm()]
+            })) : this.get_xbyb()
+            return ctm_jyqh_ybkc//new Map().set([neig.wu, neig.lclc], ctm_lclc)
+        }
+
+        this.get_jyqh_ybkc_db_dyih = (dyih) => map_jyqh_ybkc.get(dyih)
+        this.get_jyqh_ybkc_db_user_params = (user_params) => [...map_jyqh_ybkc.values()].find(rn1 => user_params === rn1.user_params)
+        this.get_sopc_jyqh_ybkc_db_user_params = (user_params) => {
+            const map_ybkc = new Map()
+            const zhqh = (fo, yg) => {
+                if (fo.get_jyqh_ybkc_db_user_params(user_params)) {
+                    map_ybkc.set(fo, fo.get_jyqh_ybkc_db_user_params(user_params))
+                } else {
+                    //do nothing
+                }
+            }
+            new Cxl_ypn({
+                ctm_atvn_so_cxl_zhqh: (key, val) => {
+                    zhqh(key, val)
+                },
+                ctm_atvn_pc_cxl_zhqh: (key, val) => {
+                    zhqh(key, val)
+                }
+            }).ctm_vt_rn(this.get_ctm_sopc_jyqh_ybkc())
+            return map_ybkc
+        }
+        this.get_sopc_jyqh_ybkc_db_dyih = (dyih) => {
+            const map_ybkc = new Map()
+            const zhqh = (fo, yg) => {
+                if (fo.get_jyqh_ybkc_db_dyih(dyih)) {
+                    map_ybkc.set(fo, fo.get_jyqh_ybkc_db_dyih(dyih))
+                } else {
+                    //do nothing
+                }
+            }
+            new Cxl_ypn({
+                ctm_atvn_so_cxl_zhqh: (key, val) => {
+                    zhqh(key, val)
+                },
+                ctm_atvn_pc_cxl_zhqh: (key, val) => {
+                    zhqh(key, val)
+                }
+            }).ctm_vt_rn(this.get_ctm_sopc_jyqh_ybkc())
+            return map_ybkc
+        }
+        this.get_ctm_sopc_jyqh_ybkc = () => new Map().set(this, this.get_ctm_vxn_jyqh_ybkc())
+        this.get_ctm_vxn_jyqh_ybkc = () => {
+            const ctm_jyqh_ybkc = map_tsjq.size ? new Map([...map_tsjq].map(([fo1, yg1]) => {
+                // return [fo1, yg1.get_lclc(), yg1.get_ctm_vxn_lclc()]
+                return [yg1, yg1.get_ctm_vxn_jyqh_ybkc()]
+            })) : this.get_map_jyqh_ybkc()
+            return ctm_jyqh_ybkc//new Map().set([neig.wu, neig.lclc], ctm_lclc)
         }
         this.dreq_help = (mcvn) => {
             const map_nixb = new Map()
@@ -270,52 +381,94 @@ class Ussk {
             eqwy_user_params: 0,
             wm_atvn_joly_zhqh: []
         }) => {
+            let tt_ye_ysl_yhld = neig.user_params._[neig_kp.eqwy_user_params + 1]
+            let bnll_ysl_yhld = neig.user_params._[neig_kp.eqwy_user_params]
+            yo_log_rr.yp_log({ bqeo: "bnll ysl w :" + bnll_ysl_yhld + "; tt ye ysl w :" + tt_ye_ysl_yhld, user_params: neig.user_params })
+            if (neig_kp.tt_ye_ysl) {
+                if (neig.user_params._[neig_kp.eqwy_user_params] != neig_kp.tt_ye_ysl) {
+                    uzms("csrf-eqwy ss rnsf ac frgr-" + neig_kp.eqwy_user_params + '-kp-' + neig_kp.tt_ye_ysl)
+                } else {
+                    if (tt_ye_ysl_yhld) {
+                        neig_kp.tt_ye_ysl = tt_ye_ysl_yhld
+                    }
+                }
+            }
             if (!neig.user_params._) {
                 uzms("csrf-user_params ra imfb fs-" + JSON.stringify(neig.user_params))
             }
             if (neig.user_params._[neig_kp.eqwy_user_params + 1] === "help" && !map_tsjq.has('help')) {
                 neig_kp.eqwy_user_params++
+                neig_kp.wm_atvn_joly_zhqh.push({ yo_ussk: this, bnll_wu: neig.wu, bnll_fo: neig.user_params._[neig_kp.eqwy_user_params - 1], bnll_eqwy: neig_kp.eqwy_user_params - 1, wm_lsud: neig.user_params._.slice(neig_kp.eqwy_user_params), neig_2: Object.assign({}, neig_kp), bnll_rn: this, atvn: this.atvn_joly_zhqh })
                 const yo_ussk_help = require("../yoch/yo_ussk_help")
-                return yo_ussk_help.set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).yhld_zhqh(Object.assign(neig_kp, { yo_ussk_kp: this }))
+                return yo_ussk_help.set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).pilh_vxn_yhld_zhqh(Object.assign(neig_kp, { yo_ussk_kp: this }))
             }
             if (map_tsjq.size === 0) {
                 const atvn_zhqh_1 = () => {
-                    const mb_lb_eowl_yg = neig_kp.wm_atvn_joly_zhqh.reduce((mb_lb_eowl_yg, rn_bnll) => {
-                        neig.mb_lb_eowl_yg = mb_lb_eowl_yg;
-                        map_jyqh_ybkc.set(jyqh_dyvy, { bnll_eqwy: neig_kp.eqwy_user_params, user_params: neig.user_params, bnll_rn: rn_bnll, neig_2: Object.assign({}, neig_kp) })
-                        return rn_bnll.bnll_rn.us_uzn(Object.assign(rn_bnll.neig_2, { mcvn_ga_jtyj: rn_bnll.atvn(rn_bnll.bnll_eqwy, rn_bnll.wm_lsud, neig.user_params, Object.assign({}, neig, rn_bnll.neig_2)) }))
-                    }, '')
-                    neig.mb_lb_eowl_yg = mb_lb_eowl_yg
+                    const wm_jtyj = neig_kp.wm_atvn_joly_zhqh.map((rn_bnll) => {
+                        const bnll_jtyj = rn_bnll.bnll_rn.us_uzn(Object.assign(rn_bnll.neig_2, { mcvn_ga_jtyj: rn_bnll.atvn(rn_bnll.bnll_eqwy, rn_bnll.wm_lsud, neig.user_params, Object.assign({}, neig, rn_bnll.neig_2)) }))
+                        neig.bnll_jtyj = bnll_jtyj
+                        yo_log_rr.yp_log({ rj_atvn: rn_bnll.atvn.toString(), bqeo: 'ussk ux zhqh bnll joly atvn', bnll_wu: rn_bnll.bnll_wu, bnll_jtyj: bnll_jtyj })
+                        return bnll_jtyj
+                    })
+                    yo_log_rr.yp_log({ rj_atvn: this.atvn_joly_zhqh.toString(), bqeo: 'ussk ux pabm zhqh okud joly atvn' })
                     const jtyj_se = this.atvn_joly_zhqh(neig_kp.eqwy_user_params, neig.user_params._.slice(neig_kp.eqwy_user_params + 1), neig.user_params, Object.assign({}, neig, neig_kp))
+                    yo_log_rr.yp_log({ rj_atvn: this.atvn_joly_zhqh.toString(), bqeo: 'ussk ux zhqh okud joly atvn', se_jtyj: jtyj_se })
                     neig_kp.mcvn_ga_jtyj = jtyj_se
                     neig.mcvn_ga_jtyj = jtyj_se
                     const jtyj_2 = this.us_uzn(neig_kp)
+                    if (!neig_kp.dyih_jyqh) {
+                        uzms("csrf-jyqh dyih lh vv-" + neig_kp.dyih_jyqh)
+                    }
+                    map_jyqh_ybkc.set(neig_kp.dyih_jyqh, { bnll_jtyj: jtyj_2, bnll_eqwy: neig_kp.eqwy_user_params, user_params: neig.user_params, neig_2: Object.assign({}, neig_kp) })
                     jyqh_dyvy++
                     return jtyj_2
                 }
                 const fo_yhld = neig.user_params._[neig_kp.eqwy_user_params + 1]
+                if (neig.user_params.xbyb) {
+                    this.set_xbyb(neig.user_params.xbyb)
+                }
+
                 if (fo_yhld !== undefined) {
                     if (this.get_neig().ah_yf_ysl_yj) {
                         if (neig_kp.slm?.get_vxn(fo_yhld)) {
                             neig_kp.eqwy_user_params++
                             neig_kp.wm_atvn_joly_zhqh.push({ yo_ussk: this, bnll_wu: neig.wu, bnll_fo: neig.user_params._[neig_kp.eqwy_user_params - 1], bnll_eqwy: neig_kp.eqwy_user_params - 1, wm_lsud: neig.user_params._.slice(neig_kp.eqwy_user_params), neig_2: Object.assign({}, neig_kp), bnll_rn: this, atvn: this.atvn_joly_zhqh })
-                            return neig_kp.slm?.get_vxn(fo_yhld).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).wfqq_zhqh(neig_kp)
+                            return this.pilh_slm_yhld_zhqh(neig_kp.slm.get_vxn(fo_yhld), Object.assign(neig_kp, { yo_ussk_kp: this }))
                         } else if (this.get_neig().kncp_acun_vxn_tsjq) {
+                            if (neig.user_params.xbyb) {
+                                this.set_xbyb(neig.user_params.xbyb)
+                            }
+
+
                             return atvn_zhqh_1()
                         } else {
                             uzms("csrf-yf lb tsjq hmpc k v tsjq wu-" + fo_yhld + "-kp-" + neig.user_params._.join(" "))
                             // uzms("csrf-ss " + this.get_bnll_wu() + " yf lb tsjq hmpc k v tsjq wu-" + fo_yhld + "-kp-" + neig.user_params._.join(" "))
                         }
                     } else if (this.get_neig().kncp_acun_vxn_tsjq) {
+                        if (neig.user_params.xbyb) {
+                            this.set_xbyb(neig.user_params.xbyb)
+                        }
+
+
                         return atvn_zhqh_1()
                     } else {
                         uzms("csrf-bi tsjq hmpc vxn tsjq-" + this.get_bnll_wu() + "-kp-" + neig.user_params._.join(" "))
                     }
                 } else {
+                    if (neig.user_params.xbyb) {
+                        this.set_xbyb(neig.user_params.xbyb)
+                    }
+
+
                     return atvn_zhqh_1()
                 }
 
             } else {
+                if (neig.user_params.xbyb) {
+                    this.set_xbyb(neig.user_params.xbyb)
+                }
+
                 neig_kp.eqwy_user_params++
                 const fo_yhld = neig.user_params._[neig_kp.eqwy_user_params]
                 // push se atvn_joly_zhqh gq ac w tt y atvn, ay vxn
@@ -325,13 +478,16 @@ class Ussk {
                 } else if (!map_tsjq.has(fo_yhld)) {
                     if (this.get_neig().ah_yf_ysl_yj) {
                         if (neig_kp.slm?.get_vxn(fo_yhld)) {
-                            return neig_kp.slm?.get_vxn(fo_yhld).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).wfqq_zhqh(neig_kp)
+                            return neig_kp.slm?.get_vxn(fo_yhld).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).pilh_vxn_yhld_zhqh(neig_kp)
                         }
                     }
                     uzms("csrf-bi yg ac zznq oc cd stlz n wu yh aecp zf aqfc jyqh ymce rsgm ymce ye tt ce ypzv n tsjq-" + fo_yhld)
                 } else {
                     neig_kp.slm = this
-                    return map_tsjq.get(fo_yhld).set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).wfqq_zhqh(neig_kp)
+                    const vxn = (map_tsjq.get(fo_yhld)
+                        .set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu)
+                        .set_user_params(neig.user_params))
+                    return vxn.pilh_vxn_yhld_zhqh(neig_kp)
                 }
             }
         }
