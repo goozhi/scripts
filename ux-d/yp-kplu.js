@@ -1,7 +1,7 @@
 const uzms = require("../uzms")
 const path = require('path')
 const vkih_hfbc = require("../vkih_hfbc")
-const Jplp_kplu_sdbu = require("./jplp_kplu_sdbu")
+const Jplp_kplu_sdbu = require("../ux/jplp_kplu_sdbu")
 const Yp_ux_kp = require("../ux-kp/yp_ux_kp")
 class Yp_kplu extends Yp_ux_kp {
     constructor(neig_kp, neig_nomr) {
@@ -15,8 +15,6 @@ class Yp_kplu extends Yp_ux_kp {
         if (!neig.yoch_dyih) {
             neig.yoch_dyih = Date.now() + String(vkih_hfbc.next().value)
         }
-        const set_jyqh_log = new Set()
-        const set_err_ybkc = new Set()
         // const vnwm_rrzv = []
         // const wrm_rrzv_ybkc = {}
         // if (neig.w_rrzv_rjqt) {
