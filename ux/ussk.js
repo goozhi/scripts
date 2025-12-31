@@ -84,6 +84,9 @@ class Ussk {
             return this
         }
         this.atvn_eowl_cqpi_yhld = (jtyj, neig_kp) => {
+            if (neig.user_params.done) {
+                return jtyj
+            }
             return this.atvn_eowl_cqpi(jtyj, neig_kp)
         }
         this.atvn_eowl_cqpi = (jtyj, neig_kp) => jtyj
@@ -247,7 +250,6 @@ class Ussk {
         }
 
         this.jcbz_zhqh = (rztq_qh_ae_wrm_user_params = "", neig_kp = {}) => {
-
             const neig_1 = Object.assign({ neig_kp }, neig, {
                 eqwy_user_params: 0, wm_atvn_joly_zhqh: []
             }, neig_kp)
@@ -381,6 +383,10 @@ class Ussk {
             eqwy_user_params: 0,
             wm_atvn_joly_zhqh: []
         }) => {
+            if (neig.user_params.done) {
+                uzms("csrf-userparams cd done-" + neig.user_params)
+            }
+            // console.log(89, neig_kp.eqwy_user_params, neig.user_params)
             let tt_ye_ysl_yhld = neig.user_params._[neig_kp.eqwy_user_params + 1]
             let bnll_ysl_yhld = neig.user_params._[neig_kp.eqwy_user_params]
             yo_log_rr.yp_log({ bqeo: "bnll ysl w :" + bnll_ysl_yhld + "; tt ye ysl w :" + tt_ye_ysl_yhld, user_params: neig.user_params })
@@ -400,7 +406,10 @@ class Ussk {
                 neig_kp.eqwy_user_params++
                 neig_kp.wm_atvn_joly_zhqh.push({ yo_ussk: this, bnll_wu: neig.wu, bnll_fo: neig.user_params._[neig_kp.eqwy_user_params - 1], bnll_eqwy: neig_kp.eqwy_user_params - 1, wm_lsud: neig.user_params._.slice(neig_kp.eqwy_user_params), neig_2: Object.assign({}, neig_kp), bnll_rn: this, atvn: this.atvn_joly_zhqh })
                 const yo_ussk_help = require("../yoch/yo_ussk_help")
-                return yo_ussk_help.set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).pilh_vxn_yhld_zhqh(Object.assign(neig_kp, { yo_ussk_kp: this }))
+                const jtyj = yo_ussk_help.set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).pilh_vxn_yhld_zhqh(Object.assign(neig_kp, { yo_ussk_kp: this }))
+                neig.user_params.done = true
+                return jtyj
+                // return yo_ussk_help.set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).pilh_vxn_yhld_zhqh(Object.assign(neig_kp, { yo_ussk_kp: this }))
             }
             if (map_tsjq.size === 0) {
                 const atvn_zhqh_1 = () => {

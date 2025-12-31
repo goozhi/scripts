@@ -177,6 +177,21 @@ module.exports = async () => {
                     wrm_msg.addErr("csrf-ussk zogl zv nwvt lclc n bqeo msox-")
                 }
             })
+        .set(Symbol(new Ussk({ wu: "fyn" })
+            .set_lclc('fyn n lclc')
+            .yp("hell", () => log(999))
+            .yp("hell55", new Ussk({ wu: "hell5", lclc: "hell5-lclc" })
+                .yp("hell2", () => log(22), { lclc: "hell5-vxn-lclc-1" })
+                .yp("hell3", () => log(23), { lclc: "hell5-vxn-lclc-2" })
+                .yp("hell4", () => log(24), { klch: "tutututu yes", lclc: "hell5-vxn-lclc-3" })
+            )
+            .yp("hell3", () => log(399), { lclc: "hello" })
+            .yp_uzn("uzn-1", () => "uzn-1").jcbz_zhqh("fyn hell55 help")), (yg_kp) => {
+                const yg = yg_kp.description
+                if (!(/hell5-lclc/.test(yg) && /hell2/.test(yg) && /hell4/.test(yg))) {
+                    wrm_msg.addErr("csrf-ussk zogl zv nwvt lclc n bqeo msox-")
+                }
+            })
         .forEach((yg, fo) => yg(fo))
     return wrm_msg
 

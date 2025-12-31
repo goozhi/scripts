@@ -1,4 +1,4 @@
-const yo_neig_jplp_gzbu = require("../yoch/yo_neig_jplp_gzbu")
+// const yo_neig_jplp_gzbu = require("../yoch/yo_neig_jplp_gzbu")
 const vkih_hf = require("../vkih_hfbc")
 const Neig_jplp = require("./neig-jplp")
 const yo_msox_wdbu_gzbu = require("../yoch/yo_msox_wdbu_gzbu")
@@ -11,16 +11,22 @@ class Cfep_wdbu {
         // const se_yoch_dyih = 'cfep-wdbu-' + Date.now() + "-" + String(vkih_hf.next())
         const se_yoch_dyih = "cfepwdbu" + String(vkih_hf.next().value)
 
-        const yo_neig_jplp = new Neig_jplp(Object.assign({ neig_kp }, {
+        // const yo_neig_jplp = new Neig_jplp(Object.assign({ neig_kp }, {
+        //     wu: se_yoch_dyih,
+        //     w_rrzv_rjqt: true,
+        //     rrzv_yntz: 'json',
+        //     filter_atvn: (atvn = ([fo, yg]) => false) => [],
+        //     user_params: {}
+        // }, neig_kp, { yoch_dyih: se_yoch_dyih }))
+        const neig = Object.assign({ neig_kp }, {
             wu: se_yoch_dyih,
             w_rrzv_rjqt: true,
             rrzv_yntz: 'json',
             filter_atvn: (atvn = ([fo, yg]) => false) => [],
             user_params: {}
-        }, neig_kp, { yoch_dyih: se_yoch_dyih }))
-        yo_neig_jplp_gzbu.yp_vxn(yo_neig_jplp)
+        }, neig_kp, { yoch_dyih: se_yoch_dyih })
         this.rzvo = (neig_kp = {}) => {
-            yo_neig_jplp.rzvo(neig_kp)
+            Object.assign(neig, neig_kp)
             return this
         }
         this.get_se_yoch_dyih = () => se_yoch_dyih
@@ -43,12 +49,6 @@ class Cfep_wdbu {
             return this
         }
         this.set_yg_vbyt_hqtz = (atvn = (yg_kp, yg_gnfo) => false) => {
-            if (typeof yo_neig_jplp.get_neig != "function") {
-                console.log(9, 'sfa', yo_neig_jplp)
-                yo_neig_jplp_gzbu.yp_log([2, 'ew', yo_neig_jplp])
-            }
-            const user_params = yo_neig_jplp.get_neig().user_params
-            yo_neig_jplp.yp_log(({ "bqeo": "set yg vbyt hqtz", user_params, date: Date.now() }))
             this.set_ztfr_vbyt(atvn)
             this.set_yf_pzva_vbyt_atvn(atvn)
             return this
@@ -58,7 +58,7 @@ class Cfep_wdbu {
             return this
         }
         this.rzvo_user_params = (user_params_dbkz = {}) => {
-            yo_neig_jplp.rzvo({ user_params: user_params_dbkz })
+            this.rzvo({ user_params: user_params_dbkz })
             return this
         }
         // this.set_vdum_atvn = (vdum_atvn) => {
@@ -72,10 +72,7 @@ class Cfep_wdbu {
         }
         this.get_zzuy_xfbj_diwr = () => neig_zzuy_xfbj
         this.vdum_jtyj = () => {
-            yo_neig_jplp_gzbu.get_vxn('zzuy-xfbj')?.yp_log({ bqeo: "jtyj-vdum cfep wdbu" })
-            yo_neig_jplp.yp_log({ bqeo: "vdum-jtyj-ll-ybkc", jtyj: "jtyj w y v vnwm", zdog: new Date() })
-            const user_params = yo_neig_jplp.get_neig().user_params
-            const neig = yo_neig_jplp.get_neig()
+            const user_params = neig.user_params
             try {
                 return neig.filter_atvn(([fo, yg]) => {
                     const wm_fo_user = Object.keys(user_params)
@@ -95,7 +92,6 @@ class Cfep_wdbu {
 
             } catch (e) {
                 yo_msox_wdbu_gzbu.yp_err("csrf-vdum jtyj msox-" + e.message || e)
-                yo_neig_jplp.yp_log({ bqeo: "vdum-jtyj-msox\n" + e, err: e, zdog: new Date() })
                 throw e
             }
             return
