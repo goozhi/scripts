@@ -7,10 +7,7 @@ class Yp_kplu extends Yp_ux_kp {
     constructor(neig_kp, neig_nomr) {
         super(neig_kp, neig_nomr)
         const neig = Object.assign(this.get_neig(), { neig_kp }, {
-            w_rrzv_rjqt: false,
-            log_rjqt_udao: ".txt",
             yo_kplu: new Jplp_kplu_sdbu(),
-            rrzv_yntz: "txt"
         }, neig_kp)
         if (!neig.yoch_dyih) {
             neig.yoch_dyih = Date.now() + String(vkih_hfbc.next().value)

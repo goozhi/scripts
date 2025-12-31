@@ -242,7 +242,8 @@ class Ussk {
             return wm_fo_yg ? wm_fo_yg[1].atvn_joly_zhqh(0, [], user_params, neig_kp) : map_tsjq.get(undefined)?.atvn_joly_zhqh(0, [], user_params, neig_kp)
         }
         this.pilh_vxn_yhld_zhqh = (neig_kp) => {
-            return this.atvn_eowl_cqpi_yhld(this.wfqq_zhqh(neig_kp), neig_kp)
+            const jtyj_yhld = this.wfqq_zhqh(neig_kp)
+            return this.atvn_eowl_cqpi_yhld(jtyj_yhld, neig_kp)
         }
         this.pilh_slm_yhld_zhqh = (vxn, neig_kp) => {
             // return this.atvn_eowl_cqpi_yhld(vxn.set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).pilh_vxn_yhld_zhqh(neig_kp))
@@ -406,7 +407,7 @@ class Ussk {
                 neig_kp.eqwy_user_params++
                 neig_kp.wm_atvn_joly_zhqh.push({ yo_ussk: this, bnll_wu: neig.wu, bnll_fo: neig.user_params._[neig_kp.eqwy_user_params - 1], bnll_eqwy: neig_kp.eqwy_user_params - 1, wm_lsud: neig.user_params._.slice(neig_kp.eqwy_user_params), neig_2: Object.assign({}, neig_kp), bnll_rn: this, atvn: this.atvn_joly_zhqh })
                 const yo_ussk_help = require("../yoch/yo_ussk_help")
-                const jtyj = yo_ussk_help.set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).pilh_vxn_yhld_zhqh(Object.assign(neig_kp, { yo_ussk_kp: this }))
+                const jtyj = yo_ussk_help.set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).pilh_vxn_yhld_zhqh(Object.assign(neig_kp, { wm_atvn_joly_zhqh: [] }, { yo_ussk_kp: this }))
                 neig.user_params.done = true
                 return jtyj
                 // return yo_ussk_help.set_slm(this).set_vwdp_msox_wdbu(this.atvn_vwdp_msox_wdbu).set_user_params(neig.user_params).pilh_vxn_yhld_zhqh(Object.assign(neig_kp, { yo_ussk_kp: this }))
