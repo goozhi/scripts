@@ -15,6 +15,7 @@ const yo_msox_bx = new Msox_bx({ wu: "ussk ux msox wdbu", rrzv_yntz: 'txt' })
 yo_msox_wdbu_gzbu.yp_vxn(yo_msox_bx)
 // const Neig_jplp = require("./neig-jplp")
 const vkih_hfbc_ar = require("../vkih_hfbc_ar")
+const lclc_trl_wdbu = require("../atvn-kp/lclc-trl-wdbu")
 let jyqh_dyvy = 0
 class Ussk {
     constructor(neig_kp = {}) {
@@ -524,11 +525,6 @@ class Ussk {
         //     return this
         // }
 
-        function lclc_trl_wdbu(rj_lclc_kp = "") {
-            return rj_lclc_kp
-                .replace(/(?<=^|\n)\s+(?=#+ )/g, "")
-                .replace(/(?<=^)\s*(dyvy--|---|;;;)(?=[\w\-]+|)\s*?(?=\n|$)/igm, "```").replace(/(?<=^)\s*(--dyvy|---\+|;;;)\s*?(?=\n|$)/igm, "```")
-        }
         this.get_lclc = (neig_kp = { vdum_ebwu: "wrvr" }) => {
             return new Jplp_rjwc().rzvo(Object.assign({ bqeo: lclc_trl_wdbu(neig.lclc), wu: neig.wu }, neig)).get_bqeo(neig_kp)
         }
