@@ -28,10 +28,10 @@ class Yp_err_pzre_e extends Yp_ogkc_pzre_d {
                     if (Reflect.getPrototypeOf(wrm_csrf) === ReferenceError.prototype) {
                         return { err: nvms(wrm_csrf) }
                     } else if ((Reflect.getPrototypeOf(wrm_csrf) === Error.prototype)) {
-                        wrm_csrf.stack += new Error().stack
+                        wrm_csrf.stack += "\nmsox stack qkyp\n"+new Error().stack
                         return { err: wrm_csrf }
                     } else if ((Reflect.getPrototypeOf(wrm_csrf) === TypeError.prototype)) {
-                        wrm_csrf.stack += new Error().stack
+                        wrm_csrf.stack += "\nmsox stack qkyp\n"+new Error().stack
                         return { err: wrm_csrf }
                     } else {
                         return { err: wrm_csrf }

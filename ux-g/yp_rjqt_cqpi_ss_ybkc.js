@@ -1,14 +1,11 @@
+const Yp_bvzd_rr_e = require("../ux-e/yp_bvzd_rr_e")
 // const grbj_ux = require("../grbj_ux")
-const uzms = require("../uzms")
 const Yp_err_rr = require("../ux-f/yp_err_rr")
 // const Yp_bvzd_ogkc_pzre = require("../ux-e/Yp_bvzd_ogkc_pzre")
-const Neig_imfb = require("../ux-a/neig-imfb")
-const Yp_rjqt_cqpi_d = require("../ux-d/yp_rjqt_cqpi_d")
 const Yp_log_rr = require("../ux-f/yp_log_rr")
-const Yp_vwdp_msox_wdbu = require("../ux-c/yp_vwdp_msox_wdbu")
-const Yp_bvzd_rr_e = require("../ux-e/yp_bvzd_rr_e")
 const fsx = require('fs-extra')
-class Yp_rjqt_cqpi_ss_ybkc extends Yp_rjqt_cqpi_d {
+
+class Yp_rjqt_cqpi_ss_ybkc extends Yp_bvzd_rr_e {
     constructor(neig_kp = {}, neig_nomr) {
         super(neig_kp, neig_nomr)
         // new Neig_imfb(neig).hmpc_cl_rzvo({
@@ -17,14 +14,12 @@ class Yp_rjqt_cqpi_ss_ybkc extends Yp_rjqt_cqpi_d {
             zk_nikc: 'out/rjqt_cqpi_ybkc',
             fsx,
             rrzv_yntz: "json",
-            map_atvn_rjqt_cqpi_ll_cqpi: () => { },
             bvzd_vwdp_msox_wdbu_atvn: (e) => { console.error(e) }
         }, neig_kp)
         const yo_log_rr_pzre_vxn = new Yp_log_rr(this.get_neig()).set_neig_xfbj_hqtz('zqsc')
         const yo_log_rr_pzre = new Yp_log_rr(this.get_neig()).set_neig_xfbj_hqtz('zqsc').yp(yo_log_rr_pzre_vxn)
         const yo_err_rr_pzre_vxn = new Yp_err_rr(this.get_neig()).set_neig_xfbj_hqtz('zqsc')
         const yo_err_rr_pzre = new Yp_err_rr(this.get_neig()).set_neig_xfbj_hqtz('zqsc').yp(yo_err_rr_pzre_vxn)
-        const yo_bvzd_rr = new Yp_bvzd_rr_e(this.get_neig()).set_neig_xfbj_hqtz('zqsc')
         this.rr_noph_ybkc = () => {
             yo_log_rr_pzre.rrzv_noph_log()
             yo_err_rr_pzre.rrzv_noph_err()
@@ -36,7 +31,7 @@ class Yp_rjqt_cqpi_ss_ybkc extends Yp_rjqt_cqpi_d {
             yo_err_rr_pzre.yp_err(e)
         })
         this.bvzd_rr = (yxna, bqeo, wlba_atvn) => {
-            yo_bvzd_rr.bv_rrzv_vnwy(yxna, bqeo, wlba_atvn)
+            this.bv_rrzv_vnwy(yxna, bqeo, wlba_atvn)
         }
         this.yp_log = (...args) => yo_log_rr_pzre_vxn.yp_log(...args)
         this.yp_err = (...args) => yo_err_rr_pzre_vxn.yp_log(...args)
