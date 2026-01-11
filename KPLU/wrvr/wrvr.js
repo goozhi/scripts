@@ -5,6 +5,7 @@ const ussk_cqpi = require("../../ussk_cqpi")
 const Fd_sfxz = require("../../Fd_sfxz")
 const yo_fd_sfxz = new Fd_sfxz()
 const yhrj_ld_wrvr = require('./atvn/yhrj_ld_wrvr')
+const map_ey_ztka = require("./ey_ztka")
 const yo_hfbc_rjyf_mcvn = require('./atvn/yo_hfbc_rjyf_mcvn')
 yo_hfbc_rjyf_mcvn.hfbc_rjyf_mcvn()
 class Wrvr {
@@ -26,6 +27,7 @@ class Wrvr {
         this.w_wrvr_ebwu = (rj_kp = "") => {
             const bqeo_1 = (rj_kp.slice(0, 999))
                 .replace(/\n\s*```((?!\n\s*```)[\s\S])*?\n```/g, "")
+                .replace(/\.\w+/g, "")
                 .replace(/`((?!`).)*?`/g, "")
                 .match(/\w+( \w+)+/g)?.join(".") || ""
             let vn_ybkc_wrvr_eysj = 0
@@ -50,7 +52,7 @@ class Wrvr {
             Object.assign(neig, { ztwm: ztwm })
             return this.uace()
         }
-        this.p_eysj = (eysj_wrvr = "") => Reflect.has(diwr_eysj, eysj_wrvr)
+        this.p_eysj = (eysj_wrvr = "") => Reflect.has(diwr_eysj, eysj_wrvr) || map_ey_ztka.has(eysj_wrvr)
         this.get_eysj = (eysj_wrvr = "") => diwr_eysj[eysj_wrvr]
         this.dreq_eysj = (keyword, neig_kp = {}) => {
             // const neig = Object.assign({ neig_kp }, neig_kp)
