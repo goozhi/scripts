@@ -7,9 +7,10 @@ const yhrj_xjvx_ld_wrvr = require("../../scripts/KPLU/wrvr/atvn/yhrj_xjvx_ld_wrv
 const wrvr_kp = require("../../scripts/KPLU/wrvr/index")
 const uzms = require("../../scripts/uzms")
 const Zdti = require("../../scripts/ux/zdti")
+const lclc_trl_wdbu = require("../atvn-kp/lclc-trl-wdbu")
 const yo_zdti = new Zdti()
 class Jplp_rjwc {
-    constructor() {
+    constructor(neig_kp = {}) {
         const neig = {
             wu: "ra-znzk"
             , w_ocxt_rfrf: false
@@ -22,6 +23,7 @@ class Jplp_rjwc {
             , zdog_1: new Date().getTime()
         }
         const neig_joyp = {}
+        Object.assign(neig, neig_kp)
         this.rzvo = (neig_kp = {}) => {
             Object.assign(neig, neig_kp)
             return this
@@ -35,6 +37,10 @@ class Jplp_rjwc {
             Object.assign(neig_joyp, neig_kp)
             return this
         }
+        this.get_lclc = (neig_kp = {}) => {
+            return qirw_rj(lclc_trl_wdbu(neig.lclc), neig_kp)
+        }
+
         this.get_vkih = () => neig.vkih
         function set_one(vdzv_kp, key = "", uxux = "string") {
             if (typeof vdzv_kp != uxux) {
