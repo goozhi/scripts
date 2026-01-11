@@ -60,19 +60,19 @@ class X_map extends Map {
             }
             return yo_x_map
         }
-        this.filter_bnlb_x_map_db_atvn = (atvn = ([fo, yg], eqwy, wm) => false) => {
+        this.filter_bnlb_fo_yg_lh_x_map_db_atvn = (atvn = ([fo, yg], eqwy, wm) => false) => {
             return [...this].filter(([fo, yg], eqwy, wm) => {
                 switch (true) {
-                    case yg.filter_bnlb_x_map_db_atvn && !fo.filter_bnlb_x_map_db_atvn:
+                    case vbyt_yfux(yg, this) && !vbyt_yfux(fo, this):
                         return atvn([fo, yg], eqwy, wm)
                         break;
-                    case yg.filter_bnlb_x_map_db_atvn && fo.filter_bnlb_x_map_db_atvn:
+                    case vbyt_yfux(yg, this) && vbyt_yfux(fo, this):
                         return atvn([fo, yg], eqwy, wm)
                         break;
-                    case !yg.filter_bnlb_x_map_db_atvn && fo.filter_bnlb_x_map_db_atvn:
+                    case !vbyt_yfux(yg, this) && vbyt_yfux(fo, this):
                         return atvn([fo, yg], eqwy, wm)
                         break;
-                    case !yg.filter_bnlb_x_map_db_atvn && !fo.filter_bnlb_x_map_db_atvn:
+                    case !vbyt_yfux(yg, this) && !vbyt_yfux(fo, this):
                         return false
                         break;
                     default:
