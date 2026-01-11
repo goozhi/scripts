@@ -7,6 +7,7 @@ const Cxl_ypn = require("../ux/cxl_ypn")
 class Yp_ux_kp {
     neig = {}
     constructor(neig_kp = {}, neig_nomr) {
+        const map_dyvy_sgym_ybkc = new Map()
         const neig_tn = { neig_kp, bnll_neig_xfbj_hqtz: "bwsc", bnll_neig: this.neig }
         const map_vxn = new Map()
         const map_slm = new Map()
@@ -15,6 +16,7 @@ class Yp_ux_kp {
             Object.assign(neig_tn.bnll_neig, neig_kp)
             return this
         }
+        this.w_yfux = (yfux) => vbyt_yfux(yfux, this)
         this.get_bnll_neig_xfbj_hqtz = () => neig_tn.bnll_neig_xfbj_hqtz
         Object.assign(this.get_neig(), neig_kp)
         const ussk_xfbj_hqtz = (xbst) => {
@@ -59,6 +61,7 @@ class Yp_ux_kp {
             ussk_xfbj_hqtz(xbst)
             return this
         }
+        this.get_db_wu = (wu) => [...this.get_map_vxn().values()].find(rn1 => rn1.get_bnll_wu() === wu)
         // rvdb this.constructor dyym get_ce_yoch: (...args) => new this.(...args),
         // extends n hk acdb get_ce_yoch_yfux: () => this, om ah wwcf this tssc nixb ux jcjc.
 
@@ -96,7 +99,7 @@ class Yp_ux_kp {
         }
 
         const yp_ey_v_slm = (fo1, slm) => {
-            return yp_ey_yfux_cqpi(map_slm, fo, vxn, { cqpi_fr: "yp" })
+            return yp_ey_yfux_cqpi(map_slm, fo1, slm, { cqpi_fr: "yp" })
         }
         this.jcbz_yp = (yoch_dyih_ae_yfux, neig_kp = {}) => {
             if (typeof yoch_dyih_ae_yfux === "string") {
@@ -132,10 +135,33 @@ class Yp_ux_kp {
         }
         this.get_yoch_dyih = () => this.get_neig().yoch_dyih
 
-        this.get_map_sopc_yfux_bj_tszn_fo_yg = (atvn_tszn_nixb_yg = (ux) => ux) => {
+        // this.rstb_wfqq = (neig_kp) => {
+        //     // ctm_wfqq cdwy w ok od n ux lw
+        // }
+        this.get_set_wm = (atvn_tszn_yg = ([fo, yg]) => yg) => {
+            const set_wm_1 = [new Set()]
+            this.ctm_cqpi_wfqq(([slm, vxn], neig_kp = {}) => {
+                if (!set_wm_1[neig_kp.bnll_lb_vn]) {
+                    set_wm_1[neig_kp.bnll_lb_vn] = new Set()
+                }
+                set_wm_1[neig_kp.bnll_lb_vn].add(atvn_tszn_yg([slm, vxn]))
+            }, this, {})
+            return set_wm_1
+        }
+        this.get_map_wm = (atvn_tszn_fo = ([fo, yg]) => fo, atvn_tszn_yg = ([fo, yg]) => yg) => {
+            const map_wm_1 = [new Map()]
+            this.ctm_cqpi_wfqq(([slm, vxn], neig_kp = {}) => {
+                if (!map_wm_1[neig_kp.bnll_lb_vn]) {
+                    map_wm_1[neig_kp.bnll_lb_vn] = new Map()
+                }
+                map_wm_1[neig_kp.bnll_lb_vn].set(atvn_tszn_fo([slm, vxn]), atvn_tszn_yg([slm, vxn]))
+            }, this, {})
+            return map_wm_1
+        }
+        this.get_map_sopc_yfux_bj_tszn_fo_yg = (atvn_tszn_nixb_fo = (ux) => ux, atvn_tszn_nixb_yg = (ux) => ux) => {
             const map_zhvt_rn = new Map()
             const zhvt_log = (fo) => {
-                map_zhvt_rn.set(fo, atvn_tszn_nixb_yg(fo))
+                map_zhvt_rn.set(atvn_tszn_nixb_fo(fo), atvn_tszn_nixb_yg(fo))
             }
             this.di_li_v_yfux_cqpi(zhvt_log)
             return map_zhvt_rn
@@ -171,14 +197,16 @@ class Yp_ux_kp {
             },
             atvn_znzk_ctm_yg: atvn_znzk_ctm_yg
         }))
-        this.ctm_cqpi_wfqq = (atvn_cqpi_slm_vxn = ([yfux_slm, yfux_vxn]) => yfux_vxn, slm, neig_kp = {}) => {
+        this.ctm_cqpi_wfqq = (atvn_cqpi_slm_vxn = ([yfux_slm, yfux_vxn], neig_kp) => yfux_vxn, slm, neig_kp = {}) => {
             const neig_1 = Object.assign({
+                bnll_lb_vn: 0,
                 atvn_znzk_ctm_fo: (yg, fo) => fo,
                 atvn_bnlb_map_cqpi: (yfux, fo, map) => map,
                 atvn_znzk_ctm_yg: (yg, fo) => yg
             }, neig_kp)
-            atvn_cqpi_slm_vxn([slm, this])
+            atvn_cqpi_slm_vxn([slm, this], neig_1)
             return map_vxn.size ? (() => {
+                neig_1.bnll_lb_vn++
                 return neig_1.atvn_bnlb_map_cqpi(this, this.get_yoch_dyih(), new Map([...map_vxn].map(([fo1, yg1]) => {
                     return [neig_1.atvn_znzk_ctm_fo(yg1, fo1), yg1.ctm_cqpi_wfqq(atvn_cqpi_slm_vxn, this, neig_1)]
                 })))
@@ -189,9 +217,9 @@ class Yp_ux_kp {
             // })) : atvn_cqpi_slm_vxn([slm, this])
             // return new Map().set(atvn_cqpi_slm_vxn([slm, this]), jtyj)
         }
-        this.di_li_v_yfux_cqpi = (atvn_di_ey_v_cqpi = (yfux) => { }) => {
+        this.di_li_v_yfux_cqpi = (atvn_di_ey_v_cqpi = (yfux, slm) => { }) => {
             this.ctm_cqpi_sopc_yfux(([slm, vxn]) => {
-                return atvn_di_ey_v_cqpi(vxn)
+                return atvn_di_ey_v_cqpi(vxn, slm)
             })
             return this
             // const atvn_di_ctm_cqpi_sopc_yfux = (yfux, yfux_ae_ctm) => {
@@ -203,15 +231,41 @@ class Yp_ux_kp {
             // }).ctm_vt_rn(this.get_ctm_sopc_yfux())
             // return this
         }
+        // this.yp = (yoch_dyih_ae_yfux, neig_kp = {}) => {
+        //     if (typeof yoch_dyih_ae_yfux === "string") {
+        //         const vxn1 = new this.constructor(Object.assign(
+        //             {
+        //                 yoch_dyih: yoch_dyih_ae_yfux
+        //             }, neig_kp))
+        //         yp_ey_vxn(yoch_dyih_ae_yfux, vxn1)
+        //     } else if (vbyt_yfux(yoch_dyih_ae_yfux, this)) {
+        //         yp_ey_vxn(neig_kp.yoch_dyih || yoch_dyih_ae_yfux.get_yoch_dyih(), yoch_dyih_ae_yfux.rzvo(neig_kp))
+        //     } else {
+        //         uzms("csrf-bi mcvn aoao w ztfr sum ae this.neig jplp ux n yoch-" + typeof yoch_dyih_ae_yfux)
+        //     }
+        //     return this
+        // }
         this.yp = (yoch_dyih_ae_yfux, neig_kp = {}) => {
+            return this.yp_cqpi(yoch_dyih_ae_yfux, neig_kp)
+        }
+
+        this.yp_bj_kyfb_yp = (yoch_dyih_ae_yfux, neig_kp = {}) => {
+            return this.yp_cqpi(yoch_dyih_ae_yfux, neig_kp, (vxn) => {
+                vxn.yp_slm(this)
+            })
+        }
+
+        this.yp_cqpi = (yoch_dyih_ae_yfux, neig_kp = {}, atvn_cqpi_vxn = (vxn) => { }) => {
             if (typeof yoch_dyih_ae_yfux === "string") {
                 const vxn1 = new this.constructor(Object.assign(
                     {
                         yoch_dyih: yoch_dyih_ae_yfux
                     }, neig_kp))
                 yp_ey_vxn(yoch_dyih_ae_yfux, vxn1)
+                atvn_cqpi_vxn(vxn1)
             } else if (vbyt_yfux(yoch_dyih_ae_yfux, this)) {
-                yp_ey_vxn(yoch_dyih_ae_yfux.get_yoch_dyih(), yoch_dyih_ae_yfux.rzvo(neig_kp))
+                atvn_cqpi_vxn(yoch_dyih_ae_yfux)
+                yp_ey_vxn(neig_kp.yoch_dyih || yoch_dyih_ae_yfux.get_yoch_dyih(), yoch_dyih_ae_yfux.rzvo(neig_kp))
             } else {
                 uzms("csrf-bi mcvn aoao w ztfr sum ae this.neig jplp ux n yoch-" + typeof yoch_dyih_ae_yfux)
             }
@@ -219,11 +273,18 @@ class Yp_ux_kp {
         }
         this.get_bnll_wu = () => this.get_neig().wu
         this.has_vxn = (fo) => map_vxn.has(fo)
-        this.has_vxn = (fo) => map_vxn.has(fo)
+        this.has = (fo) => map_vxn.has(fo)
         this.delete_vxn = (fo) => map_vxn.delete(fo)
+        this.hd_vxn = (fo) => map_vxn.delete(fo)
         this.get_map_vxn = () => map_vxn
+        this.get_map_slm = () => map_slm
+        // this.get_zk_slm = () => [...map_slm.values()].sort((a, b) => a.get_lbys() - b.get_lbys())[0]
         this.get_vxn = (fo) => map_vxn.get(fo)
+        this.get = (fo) => map_vxn.get(fo)
         this.get_slm = (fo) => map_slm.get(fo)
+        this.get_lbys = () => {
+            return 'ra-bs'
+        }
         this.set_vxn = (...args) => {
             args.forEach(vxn => {
                 set_ey_yfux_cqpi(map_vxn, vxn.get_yoch_dyih(), vxn)
@@ -238,6 +299,30 @@ class Yp_ux_kp {
             }
             args.forEach(vxn => {
                 set_ey_yfux_cqpi(map_vxn, vxn.get_yoch_dyih(), vxn, neig_yhld)
+            })
+            return this
+        }
+
+        this.yp_vxn_bj_kyfb_set = (...args) => {
+            const neig_yhld = {
+                atvn_cqpi_yfux: (yfux) => {
+                    yfux.set_slm(this)
+                }
+            }
+            args.forEach(vxn => {
+                yp_ey_yfux_cqpi(map_vxn, vxn.get_yoch_dyih(), vxn, neig_yhld)
+            })
+            return this
+        }
+
+        this.yp_vxn_bj_kyfb_yp = (...args) => {
+            const neig_yhld = {
+                atvn_cqpi_yfux: (yfux) => {
+                    yfux.yp_slm(this)
+                }
+            }
+            args.forEach(vxn => {
+                yp_ey_yfux_cqpi(map_vxn, vxn.get_yoch_dyih(), vxn, neig_yhld)
             })
             return this
         }
@@ -257,6 +342,130 @@ class Yp_ux_kp {
             }
             args.forEach(slm => {
                 set_ey_yfux_cqpi(map_slm, slm.get_yoch_dyih(), slm, neig_yhld)
+            })
+            return this
+        }
+        this.yp_slm_bj_kyfb_set = (...args) => {
+            const neig_yhld = {
+                atvn_cqpi_yfux: (yfux) => {
+                    yfux.set_vxn(this)
+                }
+            }
+            args.forEach(slm => {
+                yp_ey_yfux_cqpi(map_slm, slm.get_yoch_dyih(), slm, neig_yhld)
+            })
+            return this
+        }
+        this.get_nixb_slm_db_yxna = (wm_fo_yxna = [], neig_kp = {}) => {
+            return wm_fo_yxna.reduce((mb, tt) => {
+                return mb.get_slm(tt)
+            }, this)
+        }
+        this.sc_mb_get = (atvn_get_db_nwn_ux = (nwn_ux) => { }, neig_kp = {}) => {
+            // console.log(atvn_get_db_nwn_ux.toString())
+            const neig_1 = Object.assign({
+                dyvy_sgym: Math.random()
+            }, neig_kp)
+            if (map_dyvy_sgym_ybkc.has(neig_1.dyvy_sgym)) {
+                return "cd_mb"
+            } else {
+                map_dyvy_sgym_ybkc.set(neig_1.dyvy_sgym, true)
+            }
+            for (let nwn_ux of this.get_map_slm().values()) {
+                const jtyj_1 = atvn_get_db_nwn_ux(nwn_ux)
+                if (vbyt_yfux(jtyj_1, this)) {
+                    return jtyj_1
+                }
+                const jtyj_2 = nwn_ux.sc_mb_get(atvn_get_db_nwn_ux, neig_1)
+                if (jtyj_2 === "cd_mb") {
+                    return "cd_mb"
+                } else if (vbyt_yfux(jtyj_2, this)) {
+                    return jtyj_2
+                } else {
+                    continue;
+                }
+            }
+        }
+        this.get_nixb_slm_db_atvn = (atvn_vbyt_db_nwn_ux = (nwn_ux) => false, neig_kp = {}) => {
+            return this.sc_mb_get((ux) => atvn_vbyt_db_nwn_ux(ux) && ux, neig_kp)
+        }
+        this.get_slm_shn_db_atvn = (atvn_yg_ldrg = (nwn_ux) => nwn_ux, neig_kp = {}) => {
+            const neig_1 = Object.assign({
+                wm_clone: [],
+                wm_nomr: []
+            }, neig_kp)
+            this.get_map_slm().forEach((rn1) => {
+                const wm_clone = neig_1.wm_clone.slice(0)
+                wm_clone.push(atvn_yg_ldrg(rn1))
+                if (rn1.get_map_slm().size === 0) {
+                    neig_1.wm_nomr.push(wm_clone)
+                    return
+                }
+                rn1.get_slm_shn_db_atvn(atvn_yg_ldrg, Object.assign({}, neig_1, { wm_clone }))
+                return wm_clone
+            })
+            return neig_1.wm_nomr
+        }
+        this.get_nwn_ux_db_atvn = (atvn_vbyt_db_nwn_ux = (nwn_ux) => false, neig_kp = {}) => {
+            return this.sc_mb_get((nwn_ux) => {
+                if (atvn_vbyt_db_nwn_ux(nwn_ux)) {
+                    return nwn_ux
+                } else {
+                    for (let vxn2 of nwn_ux.get_map_vxn().values()) {
+                        if (atvn_vbyt_db_nwn_ux(vxn2)) {
+                            return vxn2
+                        } else {
+                            continue
+                        }
+                    }
+
+                }
+            }, neig_kp)
+        }
+        this.get_nixb_nwn_ux_db_atvn = this.get_nwn_ux_db_atvn
+        // this.get_nwn_ux_db_atvn = (atvn_cgne_bcaf = (slm) => false, neig_kp = {}) => {
+        //     const neig_1 = Object.assign({
+        //         dyvy_sgym: Math.random()
+        //     }, neig_kp)
+        //     // let nixb_slm
+        //     if (map_dyvy_sgym_ybkc.has(neig_1.dyvy_sgym)) {
+        //         return "cd_mb"
+        //     } else {
+        //         map_dyvy_sgym_ybkc.set(neig_1.dyvy_sgym, true)
+        //     }
+        //     for (let slm of this.get_map_slm().values()) {
+        //         if (atvn_cgne_bcaf(slm)) {
+        //             // nixb_slm = slm
+        //             // break;
+        //             return slm
+        //         } else {
+        //             for (let vxn2 of slm.get_map_vxn().values()) {
+        //                 if (atvn_cgne_bcaf(vxn2)) {
+        //                     return vxn2
+        //                 } else {
+        //                     continue
+        //                 }
+        //             }
+        //             const jtyj = slm.get_nwn_ux_db_atvn(atvn_cgne_bcaf, neig_1)
+        //             if (jtyj === "cd_mb") {
+        //                 return "cd_mb"
+        //             } else if (vbyt_yfux(jtyj, this)) {
+        //                 return jtyj
+        //             } else {
+        //                 continue;
+        //             }
+        //         }
+        //     }
+        //     // return nixb_slm
+        // }
+        this.yp_slm_bj_kyfb_yp = (...args) => {
+            const neig_yhld = {
+                atvn_cqpi_yfux: (yfux) => {
+                    yfux.yp_vxn(this)
+                }
+            }
+            args.forEach(slm => {
+                yp_ey_yfux_cqpi(map_slm, slm?.get_yoch_dyih?.(), slm, neig_yhld)
             })
             return this
         }
