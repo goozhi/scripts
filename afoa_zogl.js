@@ -1609,6 +1609,18 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
     const tsjq_zogl = require('./ux/tsjq-zogl.js')
 
     new tsjq_zogl({
+        zkrs: "zogl-kp",
+        w_yfdp: false,
+        neig_joly: {},
+        nikc: 'D:/RSGM/nodejs/scripts/zogl-kp/'
+    }).zogl().catch(e => { console.error(e) })
+    new tsjq_zogl({
+        zkrs: "zogl-b",
+        w_yfdp: false,
+        neig_joly: {},
+        nikc: 'D:/RSGM/nodejs/scripts/zogl-b/'
+    }).zogl().catch(e => { console.error(e) })
+    new tsjq_zogl({
         zkrs: "zogl-d",
         w_yfdp: false,
         neig_joly: {},
