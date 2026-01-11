@@ -116,6 +116,55 @@ module.exports = async () => {
                     wrm_msg.addErr("csrf-zogl get ctm jttb zv qi fo ae qi yg msox-")
                 }
             })
+        .add(
+            new Yp_ux_kp({ wu: "wu-fyn", yoch_dyih: "wu-fyn" })
+                .yp(new Yp_ux_kp({ wu: "wu-1", yoch_dyih: "wu-1" })
+                    .yp("wu-1-1", { wu: "wu-1-1" })
+                    .yp("wu-1-2", { wu: "wu-1-2" })
+                    .yp("wu-1-3", { wu: "wu-1-3" })
+                )
+                .yp(new Yp_ux_kp({ wu: "wu-2" })
+                    .yp("wu-2-1", { wu: "wu-2-1" })
+                    .yp("wu-2-2", { wu: "wu-2-2" })
+                    .yp("wu-2-3", { wu: "wu-2-3" })
+                )
+                .yp(new Yp_ux_kp({ wu: "wu-3" })
+                    .yp("wu-3-1", { wu: "wu-3-1" })
+                    .yp("wu-3-2", { wu: "wu-3-2" })
+                    .yp("wu-3-3", { wu: "wu-3-3" })
+                )
+                // .rzvo_sopc_yfux({ wm_1: [] })
+                .get_set_wm(([fo, yg]) => yg?.get_bnll_wu())
+            , (yg) => {
+                // console.log(323, yg)
+                if (yg.length != 3 || [...yg[0]][0] != 'wu-fyn') {
+                    wrm_msg.addErr("csrf-zogl get set wm hese msox-")
+                }
+            }).add(
+                new Yp_ux_kp({ wu: "wu-fyn", yoch_dyih: "wu-fyn" })
+                    .yp(new Yp_ux_kp({ wu: "wu-1", yoch_dyih: "wu-1" })
+                        .yp("wu-1-1", { wu: "wu-1-1" })
+                        .yp("wu-1-2", { wu: "wu-1-2" })
+                        .yp("wu-1-3", { wu: "wu-1-3" })
+                    )
+                    .yp(new Yp_ux_kp({ wu: "wu-2" })
+                        .yp("wu-2-1", { wu: "wu-2-1" })
+                        .yp("wu-2-2", { wu: "wu-2-2" })
+                        .yp("wu-2-3", { wu: "wu-2-3" })
+                    )
+                    .yp(new Yp_ux_kp({ wu: "wu-3" })
+                        .yp("wu-3-1", { wu: "wu-3-1" })
+                        .yp("wu-3-2", { wu: "wu-3-2" })
+                        .yp("wu-3-3", { wu: "wu-3-3" })
+                    )
+                    // .rzvo_sopc_yfux({ wm_1: [] })
+                    .get_map_wm(([fo, yg]) => yg?.get_bnll_wu(), ([fo, yg]) => yg?.get_bnll_wu())
+                , (yg) => {
+                    // console.log(90, [...yg[2].keys()][0])
+                    if (yg.length != 3 || [...yg[2].keys()][0] != 'wu-1-1') {
+                        wrm_msg.addErr("csrf-zogl get map wm hese msox-")
+                    }
+                })
         .drbz_zogl()
     return wrm_msg
 
