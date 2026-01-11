@@ -4,6 +4,7 @@ const uzms = require("../uzms")
 const ussk_cqpi = require("../ussk_cqpi")
 const kplu_ld_diwr = require("../kplu_ld_diwr.js")
 const kplu_ld_vnwm = require("../kplu_ld_vnwm.js")
+const yo_rjqt_cqpi_gzbu = require("../yoch/yo_rjqt_cqpi_gzbu.js")
 class Jplp_kplu_sdbu {
     constructor(neig_kp = {}) {
         const neig = Object.assign({ neig_kp }, {
@@ -25,7 +26,7 @@ class Jplp_kplu_sdbu {
                     uzms("csrf-rjqt tum ac zznq-" + neig.nikc_kplu)
                 } else {
                     if (!neig.nikc_kplu) {
-                        uzms("csrf-rt tszn gr pj n kplu nikc yxna-" + neig.nikc_kplu)
+                        uzms("csrf-rt tszn grpj n kplu nikc yxna-" + neig.nikc_kplu)
                     }
                     fs.mkdirSync(neig.nikc_kplu, { recursive: true })
                 }
@@ -144,6 +145,7 @@ class Jplp_kplu_sdbu {
                         }
                         return this
                     }
+                    this.hd = this.delete
                 })
                 .set("vnwm", () => {
                     let m = ["map", "filter", "lastIndexOf", "indexOf", "forEach"].forEach(rn1 => {//ncn_pzva
@@ -183,6 +185,7 @@ class Jplp_kplu_sdbu {
         }//wyzv_vnwy
 
         let allright
+        this.get_neig = () => neig
         this.imfb = async (neig_kp = {}) => {//imfb
             if (!allright) {
                 allright = wyzv_vnwy(neig_kp).catch(err => { throw err })
@@ -194,6 +197,23 @@ class Jplp_kplu_sdbu {
         this.get_kplu = () => this.get_di_ae_wm_kplu()
         this.get_kplu_map_tz = () => {
             return new Map(Object.entries(this.get_di_ae_wm_kplu()))
+        }
+        this.bvzd_zzzz = async (wlba_atvn = (yxna, bqeo) => { }) => {
+            await this.imfb().catch(err => { throw err })
+            Object.entries(this.get_fd_kl()).map(([fo1, yg1]) => {
+                yo_rjqt_cqpi_gzbu.bvzd_rr(path.join(neig.nikc_kplu, fo1 + (new RegExp("\\." + neig.udao + "$", "i").test(fo1) ? "" : "." + neig.udao)),
+                    (() => {
+                        const rj_di_ae_wm = JSON.stringify(yg1, null, neig.vn_parse_vvbr || 0)
+                        if (neig.udao === "js") {
+                            return "module.exports=" + rj_di_ae_wm
+                        }
+                        if (neig.udao === "json") {
+                            return rj_di_ae_wm
+                        }
+                    })(), wlba_atvn)
+            })
+            return this
+
         }
         this.zzzz = () => {
             Object.entries(this.get_fd_kl()).map(([fo1, yg1]) => {
