@@ -148,15 +148,106 @@ class Yp_ux_kp {
             }, this, {})
             return set_wm_1
         }
-        this.get_map_wm = (atvn_tszn_fo = ([fo, yg]) => fo, atvn_tszn_yg = ([fo, yg]) => yg) => {
-            const map_wm_1 = [new Map()]
-            this.ctm_cqpi_wfqq(([slm, vxn], neig_kp = {}) => {
-                if (!map_wm_1[neig_kp.bnll_lb_vn]) {
-                    map_wm_1[neig_kp.bnll_lb_vn] = new Map()
+        // this.get_map_wm = (atvn_tszn_fo = ([fo, yg]) => fo, atvn_tszn_yg = ([fo, yg]) => yg) => {
+        //     const map_wm_1 = [new Map()]
+        //     this.ctm_cqpi_wfqq(([slm, vxn], neig_kp = {}) => {
+        //         if (!map_wm_1[neig_kp.bnll_lb_vn]) {
+        //             map_wm_1[neig_kp.bnll_lb_vn] = new Map()
+        //         }
+        //         map_wm_1[neig_kp.bnll_lb_vn].set(atvn_tszn_fo([slm, vxn]), atvn_tszn_yg([slm, vxn]))
+        //     }, this, {})
+        //     return map_wm_1
+        // }
+        // const atvn_pc_size_cqpi_nmky = (rn1, map_bnlb, atvn_tszn_fo, atvn_tszn_yg, neig_1) => {
+        //     map_bnlb.set(atvn_tszn_fo(rn1, this), [...rn1.get_map_vxn().values()].map(rn2 => atvn_tszn_yg(rn2, rn1)))
+        // }
+        const atvn_pc_size_cqpi_nmky = (slm, atvn_tszn_fo, atvn_tszn_yg, neig_1) => {
+            const map_bnlb = new Map()
+            neig_1.wm_nomr.push(map_bnlb)
+            neig_1.bnll_lb++
+            slm.get_map_vxn().forEach(rn1 => {
+                // this.get_neig_map_wm().atvn_pc_size_cqpi(rn1, map_bnlb, atvn_tszn_fo, atvn_tszn_yg, neig_1)
+                map_bnlb.set(atvn_tszn_fo(rn1, slm), [...rn1.get_map_vxn().values()].map(rn2 => atvn_tszn_yg(rn2, rn1)))
+                rn1.get_map_wm_yhld(atvn_tszn_fo, atvn_tszn_yg, neig_1)
+            })
+        }
+        this.get_map_wm = (neig_kp) => {
+            const neig_1 = Object.assign({
+                atvn_tszn_fo: (fo, slm) => fo
+                , atvn_tszn_yg: (yg, slm) => yg
+                , scfo_hqtz: "bwo" // "zql"
+                , fj_scfo: false // ra bs
+            }, neig_kp)
+            if (!neig_1.atvn_pc_size_cqpi) {
+                switch (neig_1.scfo_hqtz) {
+                    case "bwo":
+                        Object.assign(neig_1, {
+                            atvn_pc_size_cqpi: atvn_pc_size_cqpi_nmky
+                        });
+                        break;
+                    case "zql":
+                        Object.assign(neig_1, {
+                            atvn_pc_size_cqpi: (slm, atvn_tszn_fo, atvn_tszn_yg, neig_1) => {
+                                // const map_bnlb = new Map()
+                                // neig_1.wm_nomr.push(map_bnlb)
+                                neig_1.bnll_lb++
+                                if (!neig_1.wm_nomr[neig_1.bnll_lb]) {
+                                    neig_1.wm_nomr[neig_1.bnll_lb] = new Map()
+                                }
+                                slm.get_map_vxn().forEach(rn1 => {
+                                    neig_1.wm_nomr[neig_1.bnll_lb].set(atvn_tszn_fo(rn1, slm), [...rn1.get_map_vxn().values()].map(rn2 => atvn_tszn_yg(rn2, rn1)))
+                                    rn1.get_map_wm_yhld(atvn_tszn_fo, atvn_tszn_yg, neig_1)
+                                })
+                            }
+                        });
+                        break;
+                    default:
+                        uzms("csrf-scfo hqtz zf fj ahno ussk bwo ae zql-" + neig_1.scfo_hqtz)
                 }
-                map_wm_1[neig_kp.bnll_lb_vn].set(atvn_tszn_fo([slm, vxn]), atvn_tszn_yg([slm, vxn]))
-            }, this, {})
-            return map_wm_1
+
+            }
+            const neig_jtyj = this.get_map_wm_yhld(neig_1.atvn_tszn_fo, neig_1.atvn_tszn_yg, neig_1)
+            return neig_jtyj.wm_nomr//.concat([neig_jtyj.map_nomr_helb_bqeo])
+        }
+        this.get_map_wm_vkfs = (atvn_tszn_fo = (fo, slm) => fo, atvn_tszn_yg = (yg, slm) => yg, neig_kp = {}) => {
+            return this.get_map_wm(Object.assign({
+                atvn_tszn_fo, atvn_tszn_yg
+            }, neig_kp))
+            // const neig_jtyj = this.get_map_wm_yhld(atvn_tszn_fo, atvn_tszn_yg, neig_kp)
+            // return neig_jtyj.wm_nomr.concat([neig_jtyj.map_nomr_helb_bqeo])
+        }
+        // const neig_map_wm = {
+        //     atvn_pc_size_cqpi: atvn_pc_size_cqpi_nmky
+        // }
+        // this.get_neig_map_wm = () => neig_map_wm
+        // this.set_neig_map_wm = (neig_kp = {}) => {
+        //     Object.assign(this.get_neig_map_wm(), neig_kp)
+        //     return this
+        // }
+        this.get_map_wm_yhld = (atvn_tszn_fo = (fo, slm) => fo, atvn_tszn_yg = (yg, slm) => yg, neig_kp = {}) => {
+            const neig_1 = Object.assign({
+                wm_nomr: [],
+                // map_bnlb: new Map(),
+                map_nomr_helb_bqeo: new Map(),
+                atvn_pc_size_cqpi: atvn_pc_size_cqpi_nmky,
+                wfqq_livn: 0,
+                bnll_lb: -1
+            }, neig_kp)
+            if (neig_1.wfqq_livn > 3) {
+                return neig_1
+            }
+            neig_1.wfqq_livn++
+            // const wm_nomr = []
+            // neig_1.wm_nomr.push({ [this.get_bnll_wu()]: map_bnlb })
+
+            // const map_helb_bqeo = new Map()
+            if (this.get_map_vxn().size) {
+                // console.log(neig_1.atvn_pc_size_cqpi.toString(), neig_kp.xb)
+                neig_1.atvn_pc_size_cqpi(this, atvn_tszn_fo, atvn_tszn_yg, neig_1)
+            } else {
+                neig_1.map_nomr_helb_bqeo.set(atvn_tszn_fo(this, null), atvn_tszn_yg(this, null))
+            }
+            return neig_1
         }
         this.get_map_sopc_yfux_bj_tszn_fo_yg = (atvn_tszn_nixb_fo = (ux) => ux, atvn_tszn_nixb_yg = (ux) => ux) => {
             const map_zhvt_rn = new Map()
@@ -193,10 +284,32 @@ class Yp_ux_kp {
         this.get_ctm_jttb = (atvn_znzk_ctm_yg = (yfux, fo) => yfux, atvn_znzk_ctm_fo = (yfux, fo) => fo, atvn_cqpi_slm_vxn = ([yfux_slm, yfux_vxn]) => yfux_vxn) => new Map().set(atvn_znzk_ctm_fo(this, this.get_yoch_dyih()), this.ctm_cqpi_wfqq(atvn_cqpi_slm_vxn, undefined, {
             atvn_znzk_ctm_fo: atvn_znzk_ctm_fo,
             atvn_bnlb_map_cqpi: (yfux, fo, map) => {
-                return map.set(fo, atvn_znzk_ctm_yg(yfux, fo))
+                return map.set(atvn_znzk_ctm_fo(yfux, fo), atvn_znzk_ctm_yg(yfux, fo))
             },
             atvn_znzk_ctm_yg: atvn_znzk_ctm_yg
         }))
+        this.yj_yfux = (atvn_vbyt = (yfux, fo, slm) => false) => {
+            for (let yg of [...this.get_map_vxn()]) {
+                const [fo1, yg1] = yg
+                if (atvn_vbyt(yg1, fo1, this)) {
+                    return yg1
+                } else {
+                    const jtyj = yg1.yj_yfux(atvn_vbyt)
+                    if (jtyj) {
+                        return jtyj
+                    } else {
+                        continue;
+                    }
+                }
+            }
+            // if (this.get_map_vxn().size) {
+            //     const jtyj_1 = [...this.get_map_vxn()].find(([fo1, yg1]) => {
+            //         return atvn_vbyt(yg1, fo1, this)
+            //     })
+            //     if (!jtyj_1) {
+            //     }
+            // }
+        }
         this.ctm_cqpi_wfqq = (atvn_cqpi_slm_vxn = ([yfux_slm, yfux_vxn], neig_kp) => yfux_vxn, slm, neig_kp = {}) => {
             const neig_1 = Object.assign({
                 bnll_lb_vn: 0,
@@ -231,6 +344,7 @@ class Yp_ux_kp {
             // }).ctm_vt_rn(this.get_ctm_sopc_yfux())
             // return this
         }
+        // this.for_sopc = this.di_li_v_yfux_cqpi
         // this.yp = (yoch_dyih_ae_yfux, neig_kp = {}) => {
         //     if (typeof yoch_dyih_ae_yfux === "string") {
         //         const vxn1 = new this.constructor(Object.assign(
@@ -389,7 +503,7 @@ class Yp_ux_kp {
         this.get_nixb_slm_db_atvn = (atvn_vbyt_db_nwn_ux = (nwn_ux) => false, neig_kp = {}) => {
             return this.sc_mb_get((ux) => atvn_vbyt_db_nwn_ux(ux) && ux, neig_kp)
         }
-        this.get_slm_shn_db_atvn = (atvn_yg_ldrg = (nwn_ux) => nwn_ux, neig_kp = {}) => {
+        this.get_slm_shn = (atvn_yg_ldrg = (nwn_ux) => nwn_ux, neig_kp = {}) => {
             const neig_1 = Object.assign({
                 wm_clone: [],
                 wm_nomr: []
@@ -401,7 +515,7 @@ class Yp_ux_kp {
                     neig_1.wm_nomr.push(wm_clone)
                     return
                 }
-                rn1.get_slm_shn_db_atvn(atvn_yg_ldrg, Object.assign({}, neig_1, { wm_clone }))
+                rn1.get_slm_shn(atvn_yg_ldrg, Object.assign({}, neig_1, { wm_clone }))
                 return wm_clone
             })
             return neig_1.wm_nomr

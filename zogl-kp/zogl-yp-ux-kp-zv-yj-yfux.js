@@ -2,7 +2,7 @@ const Diwr_err = require("../diwr_err")
 const Cxl_ypn = require("../ux/cxl_ypn")
 const Yp_ux_kp = require("../ux-kp/yp_ux_kp")
 const Zogl_hese = require("../ux-c/zogl-hese-c")
-const wrm_msg = new Diwr_err("zogl-ux-yp-ux-kp-zv-sc-mb-get")
+const wrm_msg = new Diwr_err("zogl-ux-yp-ux-kp-zv-yj-yfux")
 module.exports = async () => {
     new Zogl_hese()
         .add((new Yp_ux_kp({ wu: "wu-fyn" })
@@ -39,10 +39,11 @@ module.exports = async () => {
             )
 
         ), (yg) => {
-            // console.log(32, yg.get("wu-1").get("wu-1-1").get_map_vxn())
-            const nixb = yg.get("wu-1").get("wu-1-1").get("wu-1-1-1").get("wu-1-1-1-1").get_slm_shn((ux) => ux.get_bnll_wu())
-            if (!/"wu-1-1-1","wu-1-1-1-slm-2-1-1","wu-1-1-1-slm-2-1","wu-1-1-1-slm-2"/.test(JSON.stringify(nixb)) || !/\["wu-1-1-1","wu-1-1","wu-1","wu-fyn"\]/.test(JSON.stringify(nixb))) {
-                wrm_msg.addErr("csrf-zogl yp ux kp zv nwvt slm shn hese msox-")
+            // const nixb = yg.get("wu-1").get("wu-1-1").get("wu-1-1-1").get("wu-1-1-1-1").get_slm_shn((ux) => ux.get_bnll_wu())
+            const nixb = yg.yj_yfux((yfux, fo, slm) => yfux.get_bnll_wu() === "wu-1-1-1-1")
+            // console.log(32, nixb)
+            if (!yg.w_yfux(nixb)) {
+                wrm_msg.addErr("csrf-zogl yp ux kp zv yj yfux hese msox-")
             }
         })
 
