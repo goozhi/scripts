@@ -16,14 +16,23 @@ module.exports = new Rjwc_neig({
     }
 }).yp("zzuy-bwzq-ux", {
     wu: "zzuy-bwzq-ux",
-    wm_fo_ext: ["wm_slm", "w_xbiw", "dyih", "dh"]
+    wm_fo_ext: ["wm_slm", "wm_lil_slm", "wm_vxn", "wm_lil_vxn", "w_xbiw", "dyih_slm", "dhs", "dyih", "dh", "slm"]
     , neig_zhvt: {
-        ymwu: { dh: "dyih" }
+        ymwu: { dhs: "dyih_slm", slm: "dyih_slm", dh: "dyih" }
     }
     , atvn_trl_wdbu: (user_params) => { }
     , atvn_ud_wdbu: (neig_dbkz) => {
         if (neig_dbkz.wm_slm) {
             neig_dbkz.wm_slm = String(neig_dbkz.wm_slm).split(/,/).map(rn1 => rn1.trim())
+        }
+        if (neig_dbkz.wm_vxn) {
+            neig_dbkz.wm_vxn = String(neig_dbkz.wm_vxn).split(/,/).map(rn1 => rn1.trim())
+        }
+        if (neig_dbkz.wm_lil_slm) {
+            neig_dbkz.wm_lil_slm = String(neig_dbkz.wm_lil_slm).split(/,/).map(rn1 => rn1.trim())
+        }
+        if (neig_dbkz.wm_lil_vxn) {
+            neig_dbkz.wm_lil_vxn = String(neig_dbkz.wm_lil_vxn).split(/,/).map(rn1 => rn1.trim())
         }
     }
 })

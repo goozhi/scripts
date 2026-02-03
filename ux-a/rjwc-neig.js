@@ -6,8 +6,9 @@ module.exports = class extends Yp_ux_kp {
     constructor(neig_kp, neig_norm) {
         super(neig_kp, neig_norm)
         Object.assign(this.get_neig(), {
-            wm_fo_nmky: ["wu", "ebwu", "zdog_1", "vkih", "w_ocxt_rfrf", "w_oh_oam", "bqeo", "wm_xbiw", "x", "xbiw"],
+            wm_fo_nmky: ["wu", "lclc", "ebwu", "zdog_1", "vkih", "w_ocxt_rfrf", "w_oh_oam", "bqeo", "wm_xbiw", "x", "xbiw"],
             wm_fo_ext: ["wydb_vkih", "wm_wydb", "yo", "vkih_yodm", "jttb"]
+            , wrm_mcvn_uxux_zjzj: { "wu": ["string"], zdog_1: ["string", "number", "object"] }
             , neig_zhvt: {
                 atvn_ldrg_yg: (yg) => yg
                 , ymwu: { x: "wm_xbiw", xbiw: "wm_xbiw", "yo": "vkih_yodm" }
@@ -25,6 +26,20 @@ module.exports = class extends Yp_ux_kp {
         }, neig_kp)
         this.atvn_trl_wdbu = (user_params) => {
             return this.get_neig().atvn_trl_wdbu?.(user_params)
+        }
+        this.mcvn_uxux_zjzj = (dbkz_neig = {}) => {
+            for (let fo1 in this.get_neig().wrm_mcvn_uxux_zjzj) {
+                if (Reflect.has(dbkz_neig, fo1)) {
+                    if (!Array.isArray(this.get_neig().wrm_mcvn_uxux_zjzj[fo1])) {
+                        console.log(this.get_neig().wrm_mcvn_uxux_zjzj[fo1])
+                        uzms("csrf-mcvn uxux mcvn aoao w v vnwm-" + typeof this.get_neig().wrm_mcvn_uxux_zjzj[fo1])
+                    }
+                    if (!this.get_neig().wrm_mcvn_uxux_zjzj[fo1].includes(typeof dbkz_neig[fo1])) {
+                        uzms("csrf-" + fo1 + " mcvn uxux pc ms, fjoa ussk " + this.get_neig().wrm_mcvn_uxux_zjzj[fo1].keys().join(",") + "-kp-" + typeof dbkz_neig[fo1])
+                    }
+                }
+            }
+            return this
         }
         this.atvn_ud_wdbu = (neig_dbkz) => {
             return this.get_neig().atvn_ud_wdbu?.(neig_dbkz)

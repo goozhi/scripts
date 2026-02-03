@@ -16,9 +16,9 @@ class Yp_rjqt_cqpi_ss_ybkc extends Yp_bvzd_rr_e {
             rrzv_yntz: "json",
             bvzd_vwdp_msox_wdbu_atvn: (e) => { console.error(e) }
         }, neig_kp)
-        const yo_log_rr_pzre_vxn = new Yp_log_rr(this.get_neig()).set_neig_xfbj_hqtz('zqsc')
+        const yo_log_rr_pzre_vxn = new Yp_log_rr(Object.assign({}, this.get_neig(), { yoch_dyih: "log-rr-vxn" }))
         const yo_log_rr_pzre = new Yp_log_rr(this.get_neig()).set_neig_xfbj_hqtz('zqsc').yp(yo_log_rr_pzre_vxn)
-        const yo_err_rr_pzre_vxn = new Yp_err_rr(this.get_neig()).set_neig_xfbj_hqtz('zqsc')
+        const yo_err_rr_pzre_vxn = new Yp_err_rr(Object.assign({}, this.get_neig(), { yoch_dyih: "err-rr-vxn" }))
         const yo_err_rr_pzre = new Yp_err_rr(this.get_neig()).set_neig_xfbj_hqtz('zqsc').yp(yo_err_rr_pzre_vxn)
         this.rr_noph_ybkc = () => {
             yo_log_rr_pzre.rrzv_noph_log()

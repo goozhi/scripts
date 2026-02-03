@@ -1,7 +1,7 @@
 const X_map = require("../ux-a/x_map");
 const Bwzq_a = require("../ux-a/bwzq");
 const uzms = require("../uzms");
-const Vnwy_wwdb = require("../ux-kp/vnwy-gwdb");
+const Vnwy_wwdb = require("../ux-0/vnwy-wwdb");
 
 module.exports = class Bwzq_1 extends Bwzq_a {
     constructor(neig_kp, neig_nomr) {
@@ -12,7 +12,8 @@ module.exports = class Bwzq_1 extends Bwzq_a {
             let zhqh_jtyj
             await yo_vnwy_wwdb.fo_shn_yj_vwdp(wm_vxn_fo, async (vxn, fo, slm) => {
                 if (!vxn) {
-                    uzms("csrf-vxn lh vv-" + fo + "-kp-" + slm.get_bnll_wu())
+                    console.log(43, slm.get_map_vxn())
+                    uzms("csrf-Bi fo diyc n vxn lh vv ae ac zznq-" + fo + "-kp-" + slm.get_bnll_wu())
                 }
                 zhqh_jtyj = await slm.atvn_zhqh(vxn, neig_kp)?.catch?.(err => { throw err })
                 // console.log(slm.get_neig().atvn_zhqh.toString())

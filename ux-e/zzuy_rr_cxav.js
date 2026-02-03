@@ -1,7 +1,8 @@
 const X_map = require("../ux-a/x_map");
-const Zzuy = require("../ux-d/zzuy-rr");
+const Zzuy = require("../ux-e/zzuy_rr_1_cxav.js");
 const Jplp_kplu_sdbu = require("../ux/jplp_kplu_sdbu");
 const uzms = require("../uzms");
+const vkih_hfbc_ar = require("../vkih_hfbc_ar");
 
 module.exports = class extends Zzuy {
     constructor(neig_kp, neig_nomr) {
@@ -11,43 +12,75 @@ module.exports = class extends Zzuy {
         Object.assign(this.get_neig(), {
             w_jcbz_ngrw_nikc: true,
         }, neig_kp)
-        this.zp_seyy_wyzv_bnlb_ce_vnwy = async () => {
-            return this.imfb_bnlb_ae_zp_seyy_wyzv_ce_vnwy({ w_wyzv_ce: true })
+        this.get_vxn_nmky_nikc = (yoch_vkih_vxn) => path.join(this.get_neig().nikc_ph, "nikc_" + yoch_vkih_vxn)
+        this.get_vxn_nmky_ph_nikc = this.get_vxn_nmky_nikc
+        this.vdum_nikc_kplu = () => {
+            return this.get_neig().nikc_zzzz_vnwy || this.fywy_ph_nikc_ngnc_nikc("nikc_zzzz_vnwy")
         }
-        this.zzzz_sopc = () => {
-            const wdbu_msox = (err) => { throw err }
-            this.di_li_v_yfux_cqpi(async (yfux) => {
-                await yfux.allright()?.catch?.(err => wdbu_msox(err))
-                yfux.bvzd_zzzz()
-            })
-            return this
-        }
-        this.w_bnlb_cd_imfb = () => !!this.get_neig().w_bnlb_cd_imfb
-        this.imfb_bnlb_vnwy = async () => {
-            return this.imfb_bnlb_ae_zp_seyy_wyzv_ce_vnwy({
-                w_imfb: true
-                , atvn_wlba: () => this.get_neig().w_bnlb_cd_imfb = true
-            })
-        }
-        this.wyzv_bnlb_ce_seyy_vnwy = async () => {
-            return this.imfb_bnlb_ae_zp_seyy_wyzv_ce_vnwy({
-                w_wyzv_ce: true
-                // , atvn_wlba: () => this.get_neig().w_bnlb_cd_imfb = true
-            })
-        }
-        this.imfb_bnlb_ae_zp_seyy_wyzv_ce_vnwy = async (neig_kp) => {
-            return this.imfb_ae_zp_seyy_wyzv_ce_vnwy(Object.assign({
-                neig_vxn: {
-                    // nikc_ph: this.get_vxn_nmky_nikc(),
-                    atvn_get_nikc_ph: (vkih) => this.get_vxn_nmky_nikc(vkih)
+        // this.allright = ()=>{
+        //     return this.allright_yhld(this.imfbssss)
+        // }
+        this.rzvo_imfb_neig({
+            nikc_kplu: this.vdum_nikc_kplu(),
+            wdbu_wm_slm: (wm_slm) => {
+                if (!Array.isArray(wm_slm)) {
+                    uzms("csrf-slm sl mcvn aoao w vnwm-")
                 }
-            }, neig_kp)).catch(e => { throw e })
-        }
+                wm_slm.forEach(rn1 => {
+                    const slm_yfux_1 = (() => {
+                        if (map_nomr_ybkc_yody.has(rn1)) {
+                            return map_nomr_ybkc_yody.get(rn1)
+                        } else {
+                            const wrm_yhld = this.get_yo_kplu_gzbu().get(rn1)
+                            if (!wrm_yhld) {
+                                const jtyj = ((yoch_dyih_slm) => {
+                                    const vbyt_1 = (yfux) => {
+                                        return yfux.get_yoch_dyih() === yoch_dyih_slm
+                                    }
+                                    const wm_slm_shn = this.get_slm_shn()
+                                    if (wm_slm_shn.length) {
+                                        return wm_slm_shn[wm_slm_shn.length - 1].find(rn2 => {
+                                            return rn2.yj_yfux(vbyt_1)
+                                        })
+                                    } else {
+                                        return this.yj_yfux(vbyt_1)
+                                    }
 
-        this.fo_shn_yj_zzuy_vwdp = async (wm_fo_imfs = [], vxn_wlba_atvn = async (vxn) => { }, atvn_fo_ldrg = (fo, slm_yfux) => fo) => {
-            return await this.get_yo_vnwy_wwdb().fo_shn_yj_vwdp(wm_fo_imfs, vxn_wlba_atvn, atvn_fo_ldrg).catch(err => { throw err })
-        }
+                                    // const slm1 = (() => {
+                                    // sc mb nwvt nixb slm
+                                    // })()
+                                    // if (slm1?.yp) {
+                                    //     return slm1
+                                    //     // yoch_fs_bj_yp_vnwy(yg2, fo2, slm1, neig_1)
+                                    // } else {
+                                    //     return undefined
+                                    //     // console.log(vkih_hfbc_ar.next().value, 82, this.get_wu())
+                                    //     // uzms("csrf-sopj fywy dgl vkih yj ab slm zzuy-" + yoch_dyih_slm)
+                                    // }
+                                }
+                                )(rn1)
+                                if (!jtyj) {
+                                    console.error(nvms("csrf-sopj fywy dgl vkih yj ab slm zzuy-" + rn1))
+                                } else {
+                                    return jtyj
+                                }
+                            } else {
+                                return this.yoch_fs_ey_vnwy(wrm_yhld, rn1, (yfux_1) => {
+                                    map_nomr_ybkc_yody.set(rn1, yfux_1)
+                                }, neig_1)
+                            }
 
+
+                        }
+
+                    })()
+                    if (slm_yfux_1)
+                        this.yoch_fs_bj_yp_vnwy(yg2, fo2, slm_yfux_1, neig_1)
+                })
+
+            }
+
+        })
 
     }
 }

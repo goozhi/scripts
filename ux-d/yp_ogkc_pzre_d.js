@@ -1,11 +1,11 @@
 // const grbj_ux = require("../grbj_ux")
 const uzms = require("../uzms")
-const Yp_ux_kp = require("../ux-kp/yp_ux_kp")
+const { Yp_ux_wwdb } = require("../ux-kp/yp_ux_a")
 const ussk_fo = require("../ussk-fo")
 const Neig = require("../ux-a/neig-imfb")
 
 
-class Yp_ogkc_pzre_d extends Yp_ux_kp {
+class Yp_ogkc_pzre_d extends Yp_ux_wwdb {
     constructor(neig_kp = {}, neig_nomr) {
         super(neig_kp, neig_nomr)
         const map_log_mrzz = new Map()

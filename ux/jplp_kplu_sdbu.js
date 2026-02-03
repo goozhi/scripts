@@ -5,6 +5,7 @@ const ussk_cqpi = require("../ussk_cqpi")
 const kplu_ld_diwr = require("../kplu_ld_diwr.js")
 const kplu_ld_vnwm = require("../kplu_ld_vnwm.js")
 const yo_rjqt_cqpi_gzbu = require("../yoch/yo_rjqt_cqpi_gzbu.js")
+const nvms = require("../nvms.js")
 class Jplp_kplu_sdbu {
     constructor(neig_kp = {}) {
         const neig = Object.assign({ neig_kp }, {
@@ -38,8 +39,12 @@ class Jplp_kplu_sdbu {
                             return neig.w_zqjp_parse ? JSON.parse(fs.readFileSync(path.join(neig.nikc_kplu, rn1)).toString()) : require(path.join(neig.nikc_kplu, rn1))
                         } catch (err) {
                             console.error(err)
-                            uzms("csrf-yxna data ahoa brtz msox aqfc qojk aeqr yndf msox-" + path.join(neig.nikc_kplu, rn1) + "\n")
-
+                            if (fs.readFileSync(path.join(neig.nikc_kplu, rn1)).toString() != "")
+                                uzms("csrf-yxna data ahoa brtz msox aqfc qojk aeqr yndf msox-" + path.join(neig.nikc_kplu, rn1) + "\n")
+                            else {
+                                console.error(nvms("csrf-bi yxna n bqeo lh vv-" + path.join(neig.nikc_kplu, rn1)))
+                                return {}
+                            }
                             // acah zqjp return {}, szlh k lbm uace zypk yb vnwy!
                             // return {}
                         }

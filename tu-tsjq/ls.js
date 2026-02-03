@@ -27,22 +27,26 @@ const wdbu_linh_rjqt = require('../user_params-ldfs-atvn/wdbu_linh_rjqt.js')
 module.exports = new Ussk({
     wu: "ls",
     lclc: `## ca um nikc dk nini wu
-    rjqt ls /out
+    rjqt ls 
+    /out
 
     ## hmpc mcvn sr eowl bobi sonq dk nikc
     tu ls
     
     ## xbyb yxna lh yxna xbiw
-    tu ls out --xb
+    tu ls --xb
+    out
     
     ## rjvt yxna xbiw
     tu ls --xbiw
 
     ## ca um nikc dk nini dk yxna
-    rjqt ls /out --yxna
+    rjqt ls  --yxna
+    /out
 
     ## ca um nikc dk nini dk yxna, wfqq
-    rjqt ls /out --yxna --wfqq
+    rjqt ls  --yxna --wfqq
+    /out
 
 
 `
@@ -54,7 +58,7 @@ module.exports = new Ussk({
             outputs.ji_caju = true
             return Object.entries(diwr_xb).map(rn1 => "-n " + path.basename(rn1[0]) + " " + rn1[0]).join("\n")
         } else if (user_params.hasOwnProperty("hd")) {
-            const yxna_xbiw = wm_lsud[0]
+            const yxna_xbiw = user_params.lastParams
             if (diwr_xb[yxna_xbiw]) {
                 delete diwr_xb[yxna_xbiw]
                 fs.writeFileSync(yxna_diwr_xb, JSON.stringify(diwr_xb, null, 2))
@@ -63,9 +67,9 @@ module.exports = new Ussk({
                 return "xbiw ac zznq - " + yxna_xbiw
             }
         } else if (user_params.hasOwnProperty("yxna")) {
-            return fs.readdirSync(wm_lsud[0], { recursive: user_params.wfqq }).map(rn1 => path.join(wm_lsud[0], rn1)).join('\n')
+            return fs.readdirSync(user_params.lastParams, { recursive: user_params.wfqq }).map(rn1 => path.join(user_params.lastParams, rn1)).join('\n')
         } else if (user_params.hasOwnProperty("xb")) {
-            const yxna_xb = wm_lsud[0]
+            const yxna_xb = user_params.lastParams
             if (fs.existsSync(yxna_xb)) {
                 diwr_xb[yxna_xb] = path.basename(yxna_xb)
                 fs.writeFileSync(yxna_diwr_xb, JSON.stringify(diwr_xb, null, 2))
@@ -75,8 +79,8 @@ module.exports = new Ussk({
             }
         }
 
-        if (wm_lsud[0]) {
-            if (fs.existsSync(wm_lsud[0])) {
+        if (user_params.lastParams) {
+            if (fs.existsSync(user_params.lastParams)) {
                 outputs.diwr_nikc_nini = {}
                 outputs.ji_caju = true
                 return ((neig_kp) => {
@@ -85,10 +89,10 @@ module.exports = new Ussk({
                         return Object.assign(fs.statSync(path), { rjqt_wu: rjqt_wu })
                     }
                     const vnwm_rjqt = (() => {
-                        return user_params.wfqq ? rjm_nikc(wm_lsud[0], { rjm_tnoy_rjqt: true, fj_rjm_tnoy_rjqt: false })
-                            .map(rn1 => wlba_1(rn1, path.relative(wm_lsud[0], rn1)))
-                            : fs.readdirSync(wm_lsud[0], { recursive: user_params.wfqq })
-                                .map(rn1 => wlba_1(path.join(wm_lsud[0], rn1), rn1))
+                        return user_params.wfqq ? rjm_nikc(user_params.lastParams, { rjm_tnoy_rjqt: true, fj_rjm_tnoy_rjqt: false })
+                            .map(rn1 => wlba_1(rn1, path.relative(user_params.lastParams, rn1)))
+                            : fs.readdirSync(user_params.lastParams, { recursive: user_params.wfqq })
+                                .map(rn1 => wlba_1(path.join(user_params.lastParams, rn1), rn1))
                     })()
                         .map(rn1 => {
                             return Object.assign(rn1, { ji_rjqt: rn1.isFile() })
@@ -107,7 +111,7 @@ module.exports = new Ussk({
                     }
                 })(user_params)
             } else {
-                throw new Error(`The path is not exits-${wm_lsud[0]}`)
+                throw new Error(`The path is not exits-${user_params.lastParams}`)
             }
         } else {
             return path.resolve()

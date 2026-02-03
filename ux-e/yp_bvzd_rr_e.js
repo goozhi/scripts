@@ -39,7 +39,7 @@ class Yp_bvzd_rr_e extends Yp_rjqt_cqpi_d {
                     if (jtyj.catch && jtyj.then) {
                         jtyj.then(res => {
                             if (typeof wlba_atvn != "function") {
-                                console.log(32, bqeo)
+                                console.log(321, bqeo)
                                 uzms("csrf-wlba atvn aoao w function-" + typeof wlba_atvn + "-kp-" + yxna)
                             }
                             wlba_atvn(yxna, bqeo)

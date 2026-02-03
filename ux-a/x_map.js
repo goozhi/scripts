@@ -90,14 +90,14 @@ class X_map extends Map {
             // }
             return [...this].map(([fo, yg], eqwy, wm) => {
                 switch (true) {
-                    case Boolean(fo.filter_sopc && yg.filter_sopc):
+                    case Boolean(vbyt_yfux(fo, this) && vbyt_yfux(yg, this)):
                         return [fo.filter_sopc(atvn), yg.filter_sopc(atvn)]
-                    case Boolean(fo.filter_sopc && !yg.filter_sopc):
+                    case Boolean(vbyt_yfux(fo, this) && !vbyt_yfux(yg, this)):
                         const wm_2 = fo.filter_sopc(atvn)
                         return [fo.filter_sopc(atvn), wm_2.length ? yg : false]
-                    case Boolean(!fo.filter_sopc && !yg.filter_sopc):
+                    case Boolean(!vbyt_yfux(fo, this) && !vbyt_yfux(yg, this)):
                         return atvn([fo, yg], eqwy, wm) && [fo, yg] || [false, false]
-                    case Boolean(!fo.filter_sopc && yg.filter_sopc):
+                    case Boolean(!vbyt_yfux(fo, this) && vbyt_yfux(yg, this)):
                         const wm_1 = yg.filter_sopc(atvn)
                         return [(wm_1.length ? fo : false), wm_1]
                     default:

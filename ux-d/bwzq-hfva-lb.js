@@ -15,7 +15,7 @@ class Bwzq extends Bwzq_1 {
         const yo_jplp_rjwc = new Jplp_rjwc(this.get_neig())
         this.get_wu = (neig_kp) => yo_jplp_rjwc.get_wu(neig_kp)
         this.get_lclc = (neig_kp) => {
-            return yo_jplp_rjwc.get_lclc(neig_kp.user_params) || "Bi tsjq hmpc rslc."+`\n${[...this.get_map_vxn().keys()]}`
+            return yo_jplp_rjwc.rzvo(this.get_neig()).get_lclc(neig_kp.user_params) || "Bi tsjq hmpc rslc." + `\n${[...this.get_map_vxn().keys()]}`
         }
         // this.get_lclc = () => {
         //     // return new Jplp_rjwc(this.get_neig()).get_lclc()

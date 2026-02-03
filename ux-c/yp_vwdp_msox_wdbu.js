@@ -1,8 +1,8 @@
 const Neig_imfb = require("../ux-a/neig-imfb")
-const Yp_ux_kp = require("../ux-kp/yp_ux_kp")
+const { Yp_ux_wwdb } = require("../ux-kp/yp_ux_a")
 
 
-class Yp_vwdp_msox_wdbu extends Yp_ux_kp {
+class Yp_vwdp_msox_wdbu extends Yp_ux_wwdb {
     constructor(neig_kp = {}) {
         super(neig_kp)
         Object.assign(this.get_neig(), { neig_kp }, {

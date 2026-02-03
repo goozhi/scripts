@@ -233,8 +233,9 @@ class Yp_ux_kp {
                 wfqq_livn: 0,
                 bnll_lb: -1
             }, neig_kp)
-            if (neig_1.wfqq_livn > 3) {
-                return neig_1
+            if (neig_1.wfqq_livn > 500) {
+                // return neig_1
+                uzms("csrf-wfqq cf mh msox-")
             }
             neig_1.wfqq_livn++
             // const wm_nomr = []
