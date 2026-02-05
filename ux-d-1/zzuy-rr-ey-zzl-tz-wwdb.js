@@ -138,6 +138,11 @@ module.exports = class extends Zzuy {
             }, neig_kp))
         }
         this.bvzd_zzzz = async (wlba_atvn = (yxna, bqeo) => { }) => {
+            if (!this.w_cd_imfb()
+                && (/ra.znzk/i.test(this.get_neig().wrm_kp.wu) || !this.get_neig().wrm_kp.wu)
+                && (!this.get_neig().wrm_kp.bqeo || /ra.znzk/i.test(this.get_neig().wrm_kp.bqeo))) {
+                return this
+            }
             await this.get_yo_yp_bvzd_rr().bv_rrzv_vnwy(this.get_rjwc_seyy_yxna(), JSON.stringify(this.get_wrm_kp_seyy_fs_vnwy()), wlba_atvn).catch?.(err => { throw err })
             return this
         }
