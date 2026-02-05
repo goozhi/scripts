@@ -1,4 +1,5 @@
 const vbytDbWrmFo = require("../atvn-c/vbyt-db-wrm-fo");
+const Ussk = require("../ux-b/ussk");
 const Zzuy = require("../ux-d/zzuy");
 const Vkih_hfbc = require("../ux-kp/vkih-hfbc");
 const Jplp_rjwc = require("../ux/jplp_rjwc");
@@ -48,7 +49,40 @@ module.exports = class extends Zzuy {
             return this.get_rjwc_jplp().get_rjwc(neig_kp)
             // return `${this.get_wu(neig_kp)}\n${this.get_bqeo(neig_kp)}`
         }
-        this.get_bqeo = (neig_kp = {}) => this.get_rjwc_jplp().get_bqeo(neig_kp)
+        this.get_link = (neig_kp) => this.get_rjwc_jplp().get_link(neig_kp)
+        this.get_bnlb_link = (wm_fo_map_kl = [], neig_kp) => {
+            const neig_1 = Object.assign({
+                vdum_yntz: "html"
+            }, neig_kp)
+            const vdum = () => {
+                return wm_fo_map_kl.reduce((mb, rn1) => {
+                    return mb.concat([(this.has_map_kl(rn1)
+                        ? rn1 + [...this.get_map_kl(rn1)].map(rn2 => {
+                            return rn2[1].get_link(Object.assign({
+                                get_shjp: () => '#' + rn2[1].get_yoch_dyih()
+                            }, neig_1))
+                        }).join("\n") : "")])
+                }, []).filter(rn2 => /\S/.test(rn2)).join("\n")
+            }
+            return new Ussk()
+                .set_nmky_cqpi_fo('md')
+                .yp("html", () => {
+                    return vdum()
+                }).yp("md", () => {
+                    return vdum()
+                }).vdum(neig_1.vdum_yntz)
+
+        }
+        this.get_bqeo = (neig_kp = {}) => {
+            const neig_1 = Object.assign({
+                wm_link_kl: ["slm", 'lil_slm', 'lil_vxn', 'vxn']
+                // wm_link_kl: ["slm"]//["slm", 'lil_slm', 'lil_vxn']
+            }, neig_kp)
+            return [this.get_rjwc_jplp().get_bqeo(neig_kp), `${(() => {
+                return this.get_bnlb_link(neig_1.wm_link_kl, neig_kp)
+            })()
+                }`].filter(rn3 => rn3).join("\n")
+        }
 
         this.get_nikc_ph = () => this.get_neig().nikc_ph
         this.get_map_nomr_yfux_ypfz_mrzz = () => map_nomr_yfux_ypfz_mrzz
