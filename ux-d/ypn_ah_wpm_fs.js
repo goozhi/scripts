@@ -24,18 +24,20 @@ module.exports = class extends Ux {
         }
         this.get_map_wm_kp = () => this.get_neig().map_wm_kp
         this.vdum = function ypn_ah_wpm_fs(neig_kp = {}) {
-            const neig_1 = Object.assign(this.get_neig(), neig_kp, { vdum_yntz: "html" })
+            const neig_1 = Object.assign({
+                get_link: (rn3, neig_1) => `<a href="#${neig_1.atvn_get_vkih(rn3)}">${rn3.get_wu(neig_1)}</a>`
+            }, this.get_neig(), neig_kp, { vdum_yntz: "html" })
             return this.get_map_wm_kp().map(rn1 => {
                 return [...rn1].map(([fo1, yg1]) => {
                     if (!Array.isArray(yg1)) {
                         uzms("csrf-map wm brtz pcox-")
                     }
                     return `
-<div id="${neig_1.atvn_get_vkih(fo1)}">${neig_1.atvn_get_dyih(fo1)}</div>
+<p id="${neig_1.atvn_get_dyih(fo1)}" style="font-size:13px">${neig_1.atvn_get_dyih(fo1)}</p>
 ${fo1.get_wu(neig_1).replace(/<p>(.*)<\/p>/, "<h2" + " id=" + neig_1.atvn_get_vkih(fo1) + ">$1</h2>")}
 ${fo1.get_bqeo(neig_1)}
-${yg1.map(rn3 => `<li><a href="#${neig_1.atvn_get_vkih(rn3)}">${rn3.get_wu(neig_1)}</a></li>`).join("\n")}
-            `
+<ul>${yg1.map(rn3 => "<li>" + neig_1.get_link(rn3, neig_1) + "</li>").join("\n")}</ul>
+<hr>`
                 }).join("\n\n")
             }).join("\n")
         }
