@@ -8,6 +8,7 @@ const wrvr_kp = require("../../scripts/KPLU/wrvr/index")
 const uzms = require("../../scripts/uzms")
 const Zdti = require("../../scripts/ux/zdti")
 const lclc_trl_wdbu = require("../atvn-kp/lclc-trl-wdbu")
+const Ussk = require("../ux-b/ussk")
 const yo_zdti = new Zdti()
 class Jplp_rjwc {
     constructor(neig_kp = {}) {
@@ -74,6 +75,27 @@ class Jplp_rjwc {
         this.w_pc_wu = () => neig.wu ? this : false
         this.get_wu = (neig_kp = {}) => {
             return qirw_rj(neig.wu, neig_kp)
+        }
+        this.get_link = (neig_kp) => {
+            const neig_1 = Object.assign({
+                // link_yntz: "vkih", // "shjp"
+                vdum_yntz: "html",
+                // get_vkih: () => this.get_vkih()
+                get_shjp: () => "#" + this.get_vkih()
+            }, neig_kp)
+            if (neig.w_oh_oam) {
+                if (neig_1.tn_vyn != "tnoh") {
+                    return ""
+                }
+            }
+            return new Ussk()
+                .yp("md", () => {
+                    return `[${this.get_wu(neig_1)}](${neig_1.get_shjp()})`
+                })
+                .set_nmky_cqpi_fo('html')
+                .yp("html", () => {
+                    return `<a href="${neig_1.get_shjp()}">${this.get_wu(neig_1).trim()}</a>`
+                }).vdum(neig_1.vdum_yntz)
         }
         this.get_bqeo = (neig_kp = {}) => {
             return qirw_rj(neig.bqeo, neig_kp)
