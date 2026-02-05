@@ -1,6 +1,6 @@
 const diwr_pzva_ussk_ss_zhvt = require("./diwr_pzva_ussk_ss_zhvt")
 const uzms = require("./uzms")
-const reg_wyih_mcvn = /"((?:(?!").)+)"|'((?:(?!').)+)'|`((?:(?!').)+)`/
+const reg_wyih_mcvn = /^(?:"((?:(?!").)+)"|'((?:(?!').)+)'|`((?:(?!`).)+)`)$/
 class Xfbj_vnwy {
     constructor(vnwy_1) {
         let vnwy_bnll = vnwy_1
@@ -248,7 +248,7 @@ function mcvn_parser(mcvn_qh = "") {
         return this
     }
     this.parse = () => {
-        const reg_mcvn_ni = /"(?:(?!").)+"|'(?:(?!').)+'|`(?:(?!').)+`|[\S]+/g
+        const reg_mcvn_ni = /"(?:(?!").)+"|'(?:(?!').)+'|`(?:(?!`).)+`|[\S]+/g
         const vnwm_mcvn_ni = this.mcvn_qh.match(reg_mcvn_ni) || []
         const vnwm_cd_db_ybkc = []
         vnwm_mcvn_ni.reduce((diwr_mb_yg_nvcm, rn1, eqwy) => {
