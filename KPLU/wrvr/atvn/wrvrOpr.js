@@ -25,7 +25,7 @@ async function wrvrOpr(neig_kp) {
     const neig = Object.assign({ neig_kp }, neig_kp)
     const { user_params, outputs } = neig
     outputs.outputText = await (async () => {
-        if (neig.user_params._[1] === "bv") {
+        if (neig.user_params._[1] === "sj") {
             if (neig.user_params.lastParams) {
                 const diwr_err_1 = new Diwr_err('bv ce eysj nvcm')
                 function bv_eysj(ce_eysj) {
