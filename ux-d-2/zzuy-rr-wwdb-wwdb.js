@@ -27,7 +27,7 @@ module.exports = class extends Zzuy {
             return this
         }
         this.get_rjwc_jplp = (neig_kp = {}) => {
-            return new Jplp_rjwc(Object.assign({}, this.get_neig().wrm_kp, neig_kp))
+            return new Jplp_rjwc(Object.assign({}, this.get_neig().wrm_kp, neig_kp)).set_vkih(this.get_yoch_dyih())
         }
         this.get_wu = (neig_kp = {}) => {
             // console.log(this.get_rjwc_jplp().get_neig())
@@ -52,14 +52,15 @@ module.exports = class extends Zzuy {
         this.get_link = (neig_kp) => this.get_rjwc_jplp().get_link(neig_kp)
         this.get_bnlb_link = (wm_fo_map_kl = [], neig_kp) => {
             const neig_1 = Object.assign({
-                vdum_yntz: "html"
+                vdum_yntz: "html",
+                get_vxn_link: (vxn) => '#' + vxn.get_yoch_dyih()
             }, neig_kp)
             const vdum = () => {
                 return wm_fo_map_kl.reduce((mb, rn1) => {
                     return mb.concat([(this.has_map_kl(rn1)
                         ? rn1 + [...this.get_map_kl(rn1)].map(rn2 => {
                             return rn2[1].get_link(Object.assign({
-                                get_shjp: () => '#' + rn2[1].get_yoch_dyih()
+                                get_shjp: () => neig_1.get_vxn_link(rn2[1])
                             }, neig_1))
                         }).join("\n") : "")])
                 }, []).filter(rn2 => /\S/.test(rn2)).join("\n")
@@ -79,7 +80,7 @@ module.exports = class extends Zzuy {
                 // wm_link_kl: ["slm"]//["slm", 'lil_slm', 'lil_vxn']
             }, neig_kp)
             return [this.get_rjwc_jplp().get_bqeo(neig_kp), `${(() => {
-                return this.get_bnlb_link(neig_1.wm_link_kl, neig_kp)
+                return this.get_bnlb_link(neig_1.wm_link_kl, Object.assign({}, neig_kp))
             })()
                 }`].filter(rn3 => rn3).join("\n")
         }

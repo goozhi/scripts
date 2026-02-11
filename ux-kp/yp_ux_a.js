@@ -458,6 +458,7 @@ class Yp_ux_a extends Yp_ux {
             return this
         }
 
+        this.yp_yfux_0 = this.yp_yfux
         this.rzvo_sopc_yfux_0 = (fo_map_kl, neig_kp = {}) => {
             this.di_li_v_yfux_cqpi_0(fo_map_kl, (ux) => ux.rzvo(neig_kp))
             return this
