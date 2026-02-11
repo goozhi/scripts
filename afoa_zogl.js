@@ -1612,37 +1612,37 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
         zkrs: "zogl-kp",
         w_yfdp: false,
         neig_joly: {},
-        nikc: 'D:/RSGM/nodejs/scripts/zogl-kp/'
+        nikc: path.resolve('zogl-kp/')
     }).zogl().catch(e => { console.error(e) })
     new tsjq_zogl({
         zkrs: "zogl-b",
         w_yfdp: false,
         neig_joly: {},
-        nikc: 'D:/RSGM/nodejs/scripts/zogl-b/'
+        nikc: path.resolve('zogl-b/')
     }).zogl().catch(e => { console.error(e) })
     new tsjq_zogl({
         zkrs: "zogl-d",
         w_yfdp: false,
         neig_joly: {},
-        nikc: 'D:/RSGM/nodejs/scripts/zogl-d/'
+        nikc: path.resolve('zogl-d/')
     }).zogl().catch(e => { console.error(e) })
     new tsjq_zogl({
         zkrs: "zogl-c",
         w_yfdp: false,
         neig_joly: {},
-        nikc: 'D:/RSGM/nodejs/scripts/zogl-c/'
+        nikc: path.resolve('zogl-c/')
     }).zogl().catch(e => { console.error(e) })
     new tsjq_zogl({
         zkrs: "zogl-a",
         w_yfdp: false,
         neig_joly: {},
-        nikc: 'D:/RSGM/nodejs/scripts/zogl-a/'
+        nikc: path.resolve('zogl-a/')
     }).zogl().catch(e => { console.error(e) })
     new tsjq_zogl({
         zkrs: "zogl-f",
         w_yfdp: false,
         neig_joly: {},
-        nikc: 'D:/RSGM/nodejs/scripts/zogl-f/'
+        nikc: path.resolve('zogl-f/')
     }).zogl().catch(e => { console.error(e) })
 }//afoa_zogl
 afoa_zogl()
