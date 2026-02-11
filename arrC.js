@@ -257,7 +257,7 @@ const arrC = [
             wrvr hfbc 3
 
             ## bv ce eysj
-            wrvr bv
+            wrvr sj
             \u56fd\u5bb6
             \u56fd\u5bb6
             \u56fd\u5bb6
