@@ -16,7 +16,7 @@ module.exports = class extends Zzuy {
             return this
         }
         this.get_yo_kplu_gzbu = () => this.get_neig().yo_kplu_zzuy
-        this.set_neig_yp_rjwc({
+        this.set_neig_yp_rjwc_cqpi({
             atvn_trl_jyqh: () => {
                 if (!this.get_yo_kplu_gzbu().bv) {
                     uzms("csrf-se ux hmpc yoch kplu gzbu sopj bv ae yoch kplu ra imfb fs-")

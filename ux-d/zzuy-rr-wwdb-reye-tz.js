@@ -1,4 +1,4 @@
-const Zzuy = require("../ux-d-1/zzuy-rr-ey-zzl-tz-wwdb");
+const Zzuy = require("../ux-d-1--1/zzuy-rr-ey-zzl-reye-tz");
 const uzms = require("../uzms");
 module.exports = class extends Zzuy {
     constructor(neig_kp, neig_nomr) {

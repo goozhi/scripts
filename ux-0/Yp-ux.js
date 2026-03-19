@@ -29,6 +29,22 @@ class Yp_ux extends ux {
         this.get_map_kl = (fo_map_kl) => {
             return yo_vnwy_wwdb_zv_zzzz_kp_zzl_non_map_kl.aoao_zznq_fo(fo_map_kl).wlba('get', fo_map_kl)
         }
+        this.get_map_sopc_wum_wwdw = () => {
+            const map_1 = new Map()
+            this.get_yo_zzzz_kp_zzl_non_vnwy_wwdw().forEach?.((rn1, fo1) => {
+                if (rn1.tusc === "wum")
+                    map_1.set(fo1, rn1)
+            })
+            return map_1
+        }
+        this.get_map_sopc_zfm_wwdw = () => {
+            const map_1 = new Map()
+            this.get_yo_zzzz_kp_zzl_non_vnwy_wwdw().forEach?.((rn1, fo1) => {
+                if (rn1.tusc === "zfm")
+                    map_1.set(fo1, rn1)
+            })
+            return map_1
+        }
         this.has_map_kl = (fo_map_kl) => {
             return yo_vnwy_wwdb_zv_zzzz_kp_zzl_non_map_kl.cqpi('has', fo_map_kl)
         }

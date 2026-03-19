@@ -81,7 +81,8 @@ class Jplp_rjwc {
                 // link_yntz: "vkih", // "shjp"
                 vdum_yntz: "html",
                 // get_vkih: () => this.get_vkih()
-                get_shjp: (yo_jplp_rjwc) => "#" + this.get_vkih()
+                get_shjp: (yo_jplp_rjwc) => "#" + this.get_vkih(),
+                get_shjp_wu: (yo_jplp_rjwc, neig_kp) => yo_jplp_rjwc.get_wu(neig_kp)
             }, neig_kp)
             if (neig.w_oh_oam) {
                 if (neig_1.tn_vyn != "tnoh") {
@@ -94,7 +95,7 @@ class Jplp_rjwc {
                 })
                 .set_nmky_cqpi_fo('html')
                 .yp("html", () => {
-                    return `<a href="${neig_1.get_shjp(this)}">${this.get_wu(neig_1).trim()}</a>`
+                    return `<a href="${neig_1.get_shjp(this)}">${neig_1.get_shjp_wu(this, neig_1)}</a>`
                 }).vdum(neig_1.vdum_yntz)
         }
         this.get_bqeo = (neig_kp = {}) => {

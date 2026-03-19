@@ -53,6 +53,7 @@ module.exports = class extends Zzuy {
         this.get_bnlb_link = (wm_fo_map_kl = [], neig_kp) => {
             const neig_1 = Object.assign({
                 vdum_yntz: "html",
+                get_vxn_link_wu: (vxn, neig_rjwc_jplp) => vxn.get_wu(neig_rjwc_jplp),
                 get_vxn_link: (vxn) => '#' + vxn.get_yoch_dyih()
             }, neig_kp)
             const vdum = () => {
@@ -60,7 +61,8 @@ module.exports = class extends Zzuy {
                     return mb.concat([(this.has_map_kl(rn1)
                         ? rn1 + [...this.get_map_kl(rn1)].map(rn2 => {
                             return rn2[1].get_link(Object.assign({
-                                get_shjp: () => neig_1.get_vxn_link(rn2[1])
+                                get_shjp: () => neig_1.get_vxn_link(rn2[1]),
+                                get_shjp_wu: (yo_rjwc_jplp, neig_kp) => neig_1.get_vxn_link_wu(rn2[1], neig_kp)
                             }, neig_1))
                         }).join("\n") : "")])
                 }, []).filter(rn2 => /\S/.test(rn2)).join("\n")
@@ -76,10 +78,11 @@ module.exports = class extends Zzuy {
         }
         this.get_bqeo = (neig_kp = {}) => {
             const neig_1 = Object.assign({
+                spzi_bqeo: '',
                 wm_link_kl: ["slm", 'lil_slm', 'lil_vxn', 'vxn']
                 // wm_link_kl: ["slm"]//["slm", 'lil_slm', 'lil_vxn']
             }, neig_kp)
-            return [this.get_rjwc_jplp().get_bqeo(neig_kp), `${(() => {
+            return [this.get_rjwc_jplp().get_bqeo(neig_kp) + neig_1.spzi_bqeo, `${(() => {
                 return this.get_bnlb_link(neig_1.wm_link_kl, Object.assign({}, neig_kp))
             })()
                 }`].filter(rn3 => rn3).join("\n")

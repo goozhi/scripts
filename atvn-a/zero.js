@@ -31,7 +31,7 @@ module.exports = () => {
             .yp_bj_kyfb_yp_0("zzuy-rr-cxl-tz-ussk-va-ncqh-yfux-wum", "yhld",
                 new Zzuy_rr_cxl_tz_ussk({
                     wu: "zzuy-rr-cxl-tz-ussk-zv-updz",
-                    nikc_ph: path.resolve("D:/RSGM/nodejs/zzzz/kplu/zzuy-bwzq-ey-zzl-tz"),
+                    nikc_ph: path.resolve("../zzzz/kplu/zzuy-bwzq-ey-zzl-tz"),
                     w_xbiw: true
                 }, neig_nomr).lckc_map_kl("yhld", new Map())
             )
@@ -41,7 +41,7 @@ module.exports = () => {
                     wu: "zzuy-rr-updz",
                     yoch_dyih: "zzuy-rr-updz",
                     vbyt_yfux_hqtz: "kp",
-                    nikc_ph: path.resolve("D:/RSGM/nodejs/zzzz/kplu/zzuy-bwzq-ey-zzl-tz"),
+                    nikc_ph: path.resolve("../zzzz/kplu/zzuy-bwzq-ey-zzl-tz"),
                     w_xbiw: true
                 }, neig_nomr)
                     .lckc_map_kl("yhld", new Map())
@@ -51,7 +51,7 @@ module.exports = () => {
                             {
                                 wu: "zzuy-rr-mfva-updz",
                                 yoch_dyih: "zzuy-rr-mfva-updz",
-                                nikc_ph: path.resolve("D:/RSGM/nodejs/zzzz/kplu/zzuy-bwzq-ey-zzl-tz")
+                                nikc_ph: path.resolve("../zzzz/kplu/zzuy-bwzq-ey-zzl-tz")
                             }
                             , neig_nomr).lckc_map_kl("yhld", new Map())
                     )
