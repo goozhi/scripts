@@ -51,7 +51,7 @@ module.exports = class Zzuy extends Yp_ux_wwdb {
         //     return yo_vnwy_wwdb.fo_shn_yj(wm_fo_imfs, vxn_wlba_atvn, atvn_fo_ldrg)
         // }
         this.yp_vxn_eowl_vkih = (neig_vxn = {}, neig_kp = {}) => {
-            const vkih = jcbz_fdne_vkih(neig_vxn)
+            const vkih = neig_vxn.yoch_dyih || jcbz_fdne_vkih(neig_vxn)
             this.yp_bj_kyfb_yp(vkih, neig_vxn)
             // console.log(this.get(vkih), vkih, 342)
             return neig_vxn.yoch_dyih || vkih
