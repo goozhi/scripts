@@ -73,7 +73,7 @@ function bs_neig(user_params = {}, wm_fo, neig_zhvt = {}, atvn_trl_wdbu, atvn_ud
     }
     if (!user_params.ebwu) {
         if (/[\u4E00-\u9FA5]{5}/.test(user_params.lastParams)) {
-            neig_dbkz_yhld.ebwu = "yhrj"
+            neig_dbkz.ebwu = "yhrj"
         } else {
             //do nothing
         }
