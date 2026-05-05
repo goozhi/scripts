@@ -50,7 +50,7 @@ function fo_ussk(vy_tskl = [[{}, () => { }]], neig_kp = {}) {
 		}
 		return this.bnll_nini
 	}
-	this.vdum = (jc_mil_zv_yg) => this.get(jc_mil_zv_yg) ? this.bnll_nini[1](this.bnll_mcvn) : atvn_default(jc_mil_zv_yg)
+	this.vdum = (jc_mil_zv_yg) => this.get(jc_mil_zv_yg) ? this.bnll_nini[1](this.bnll_mcvn, this.bnll_nini[0]) : atvn_default(jc_mil_zv_yg)
 	return this
 }
 module.exports = fo_ussk
