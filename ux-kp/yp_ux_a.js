@@ -289,24 +289,33 @@ class Yp_ux_a extends Yp_ux {
             })
         }
 
-        this.yp_cqpi_0 = (fo_map_kl, yoch_dyih_ae_yfux, neig_kp = {}, atvn_cqpi_vxn = (vxn) => { }) => {
-            if (typeof yoch_dyih_ae_yfux === "string") {
-                const vxn1 = new this.constructor(Object.assign(
-                    {
-                        yoch_dyih: yoch_dyih_ae_yfux
-                    }, neig_kp), neig_nomr)
-                yp_ey_yfux(fo_map_kl, yoch_dyih_ae_yfux, vxn1)
-                atvn_cqpi_vxn(vxn1)
-            } else if (this.w_yfux(yoch_dyih_ae_yfux, this)) {
-                if (this === yoch_dyih_ae_yfux) {
-                    uzms("csrf-acoa yp jcjc-")
+        this.yp_cqpi_0 = (fo_map_kl, yoch_dyih_ae_yfux_ae_wm, neig_kp = {}, atvn_cqpi_vxn = (vxn) => { }) => {
+            const yoch_dyih_ae_yfux = yoch_dyih_ae_yfux_ae_wm
+            const ey_v_cqpi = (yoch_dyih_ae_yfux) => {
+                if (typeof yoch_dyih_ae_yfux === "string") {
+                    const vxn1 = new this.constructor(Object.assign(
+                        {
+                            yoch_dyih: yoch_dyih_ae_yfux
+                        }, neig_kp), neig_nomr)
+                    yp_ey_yfux(fo_map_kl, yoch_dyih_ae_yfux, vxn1)
+                    atvn_cqpi_vxn(vxn1)
+                } else if (this.w_yfux(yoch_dyih_ae_yfux, this)) {
+                    if (this === yoch_dyih_ae_yfux) {
+                        uzms("csrf-acoa yp jcjc-")
+                    }
+                    yp_ey_yfux(fo_map_kl, neig_kp.yoch_dyih || yoch_dyih_ae_yfux.get_yoch_dyih(), yoch_dyih_ae_yfux.rzvo(neig_kp))
+                    atvn_cqpi_vxn(yoch_dyih_ae_yfux)
+                } else {
+                    console.log(yoch_dyih_ae_yfux)
+                    uzms("csrf-bi mcvn aoao w ztfr sum ae yfux ae yf kp n yoch-" + typeof yoch_dyih_ae_yfux)
                 }
-                yp_ey_yfux(fo_map_kl, neig_kp.yoch_dyih || yoch_dyih_ae_yfux.get_yoch_dyih(), yoch_dyih_ae_yfux.rzvo(neig_kp))
-                atvn_cqpi_vxn(yoch_dyih_ae_yfux)
-            } else {
-                console.log(yoch_dyih_ae_yfux)
-                uzms("csrf-bi mcvn aoao w ztfr sum ae yfux ae yf kp n yoch-" + typeof yoch_dyih_ae_yfux)
             }
+            if (Array.isArray(yoch_dyih_ae_yfux)) {
+                yoch_dyih_ae_yfux.forEach(rn1 => ey_v_cqpi(rn1))
+            } else {
+                ey_v_cqpi(yoch_dyih_ae_yfux)
+            }
+
             return this
         }
         this.get_bnll_wu = () => this.get_neig().wu
