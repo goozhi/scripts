@@ -31,6 +31,8 @@ const Tsjq_zogl = require('./ux/tsjq-zogl.js');
 const Cxl_ypn = require('./ux/cxl_ypn.js');
 const Ussk = require('./ux/ussk.js');
 const yo_msox_wdbu_gzbu = require('./yoch/yo_msox_wdbu_gzbu.js');
+const shn_ncn = require('./atvn-a/shn_ncn.js');
+const Yp_ux_a = require('./ux-kp/yp_ux_a.js');
 const diwr_qgl_zf_zv_rn = {}
 const diwr_yhld_2 = { diwr_qgl_zf_zv_rn }
 diwr_qgl_zf_zv_rn.diwr_yhld_2 = diwr_yhld_2
@@ -1479,6 +1481,12 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
             rn1(fo1)
         })
 
+    // zogl shn ncn atvn
+    const yo_msg_zogl_shn_ncn = ncn_msg_yoch("zogl shn ncn atvn")
+    const yo_yp = shn_ncn(new Yp_ux_a({ "wu": "yp1" }), "test_wum", new Yp_ux_a({ wu: "yp2", yoch_dyih: "test1" }), { w_jcbz_ncn_kl: true })
+    if (!yo_yp.get_0("test_wum", "test1")) {
+        yo_msg_zogl_shn_ncn.addErr("csrf-zogl shn ncn atvn msox-")
+    }
     // zogl ussk_atvn
     const yo_msg_yogl_ussk_atvn = ncn_msg_yoch("zogl ussk atvn")
     new Map().set(ussk_atvn(new Map().set("ni-1", () => 1)
@@ -1619,6 +1627,12 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
         w_yfdp: false,
         neig_joly: {},
         nikc: path.resolve('zogl-b/')
+    }).zogl().catch(e => { console.error(e) })
+    new tsjq_zogl({
+        zkrs: "zogl-d-1",
+        w_yfdp: false,
+        neig_joly: {},
+        nikc: path.resolve('zogl-d-1/')
     }).zogl().catch(e => { console.error(e) })
     new tsjq_zogl({
         zkrs: "zogl-d",
