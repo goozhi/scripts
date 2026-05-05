@@ -48,9 +48,13 @@ class Yp_ux extends ux {
         this.has_map_kl = (fo_map_kl) => {
             return yo_vnwy_wwdb_zv_zzzz_kp_zzl_non_map_kl.cqpi('has', fo_map_kl)
         }
-        this.lckc_map_kl = (fo_kp, yg_kp = new Map()) => {
+        this.lckc_map_kl = (fo_kp, yg_kp = new Map(), neig_kp = {}) => {
+            const neig_1 = Object.assign({ tusc: "wum" }, neig_kp)
             if (!(yg_kp instanceof Map)) {
                 uzms("csrf-bi yg uxux ac grpj-" + typeof yg_kp)
+            }
+            if (!yg_kp.tusc) {
+                yg_kp.tusc = neig_1.tusc
             }
             this.get_yo_zzzz_kp_zzl_non_vnwy_wwdw().yp(fo_kp, yg_kp)
             return this
