@@ -8,6 +8,41 @@ const yhrj_ld_wrvr = require('./atvn/yhrj_ld_wrvr')
 const map_ey_ztka = require("./ey_ztka")
 const yo_hfbc_rjyf_mcvn = require('./atvn/yo_hfbc_rjyf_mcvn')
 yo_hfbc_rjyf_mcvn.hfbc_rjyf_mcvn()
+const diwr_wwdb_ztka_di_sfxz = {
+    'f': { color: "black", background: 'ffcc00' },
+    'e': { color: "white", background: 'ff7700' },
+    'g': { color: "black", background: 'ffcc00' },
+    'b': { color: "white", background: 'ff7700' },
+    'a': { color: "white", background: 'cc0000' },
+    'c': { color: "white", background: 'ff7700' },
+    'h': { color: "black", background: 'ffcc00' },
+    'd': { color: "white", background: 'ff7700' },
+    k: { color: "black", background: "ffcc00" },
+    j: { color: "black", background: "ffcc00" },
+    m: { color: "black", background: "ffcc00" },
+    l: { color: "black", background: "ffcc00" },
+    w: { color: "white", background: "0044cc" },
+    v: { color: "white", background: "0044cc" },
+    x: { color: "white", background: "0044cc" },
+    y: { color: "white", background: "0044cc" },
+    o: { color: "white", background: "00aa00" },
+    n: { color: "white", background: "00aa00" },
+    p: { color: "white", background: "00aa00" },
+    q: { color: "white", background: "00aa00" },
+    r: { color: "white", background: "00aa00" },
+    s: { color: "white", background: "00aa00" },
+    t: { color: "white", background: "00aa00" },
+    u: { color: "white", background: "00aa00" },
+    'i': { color: "black", background: 'ffcc00' },
+    z: { color: "white", background: "0044cc" }
+}
+// for (rn1 in diwr_wwdb_ztka_di_sfxz) {
+//     if (yo_fd_sfxz.w_sf(diwr_wwdb_ztka_di_sfxz[rn1].background)) {
+//         diwr_wwdb_ztka_di_sfxz[rn1].color = "ffffff"
+//     } else {
+//         diwr_wwdb_ztka_di_sfxz[rn1].color = "000000"
+//     }
+// }
 class Wrvr {
     constructor(neig_kp = {}) {
         const diwr_eysj = {}
@@ -136,18 +171,18 @@ ${ld_sfxz(rj_kp, neig)}
                         .set("txt", () => {//txt_hqtz
                             return `${//wdbu_rj_kp
                                 rj_kp.replace(/.+/g, (m1) => {
-                                    return `${eowl_pre(m1, "pre")}`
+                                    return `${eowl_pre_2(m1, "pre")}`
                                 })
                                 }`//wdbu_rj_kp
                         })//txt_hqtz
                         .set("html", () => {//html_hqtz
                             return rj_kp.replace(/(>)([^<>]+)(<)/g, (m1, p1, p2, p3) => {//replace_all
-                                return `${p1}${eowl_pre(p2, "code")}${p3}`
+                                return `${p1}${eowl_pre_2(p2, "code")}${p3}`
                             })//replace_all
                         })//html_hqtz
                         .set("md", () => {//md_hqtz
                             return md_ld_html(rj_kp).replace(/(>)([^<>]+)(<)/g, (m1, p1, p2, p3) => {//replace_all
-                                return `${p1}${eowl_pre(p2, "code")}${p3}`
+                                return `${p1}${eowl_pre_2(p2, "code")}${p3}`
                             })//replace_all
                         })//md_hqtz
                     )
@@ -173,6 +208,25 @@ ${ld_sfxz(rj_kp, neig)}
                     })//eysj_cgne
                         }</${rnsf_xbst}>`.replace(new RegExp(`((?:</span>.*?){${neig.ea}})( <span)`, "g"), "$1\n$2")
                 }//eowl_pre
+                function eowl_pre_2(rj_kp, rnsf_xbst = "pre") {//eowl_pre_2
+                    return `<${rnsf_xbst} class="wrvr_rn_pre">${rj_kp.replace(/\w+/g, (m1) => {//eysj_cgne
+                        const hpmi_1 = m1.length
+                        if (diwr_non_eysj[m1.toLowerCase()]) {//w_wrvr
+                            return m1.replace(/\w/g, (m2) => {
+                                const lr_zt = m2.toLowerCase()
+                                if (!neig.w_ac_ncn_style) {
+                                    return `<span class="wrvr_${lr_zt}">${lr_zt}</span>`
+                                }
+                                return `<span style="color:${diwr_wwdb_ztka_di_sfxz[lr_zt].color};background:#${diwr_wwdb_ztka_di_sfxz[lr_zt].background}">${lr_zt}</span>`
+                            })
+                        }//w_wrvr
+                        else {
+                            return m1
+                        }
+
+                    })//eysj_cgne
+                        }</${rnsf_xbst}>`.replace(new RegExp(`((?:</span>.*?){${neig.ea}})( <span)`, "g"), "$1\n$2")
+                }//eowl_pre_2
             }//this.sfxz_fs
             this.get_zt_style = (neig_kp = {}) => {//this.get_zt_style
                 return `<style>
