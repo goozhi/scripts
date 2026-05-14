@@ -4,11 +4,11 @@ module.exports = class extends Zzuy {
     constructor(neig_kp, neig_nomr) {
         const ngnc_nikc_paaw = require("../ngnc_nikc_paaw");
         const path = require("path")
-
-        super(neig_kp, neig_nomr)
-        if (!neig_nomr.get_ybdz) {
+        if (!neig_nomr?.get_ybdz) {
             uzms('csrf-nrap updz nwvt atvn-')
         }
+
+        super(neig_kp, neig_nomr)
         this.get_ybdz = () => neig_nomr.get_ybdz()
         Object.assign(this.get_neig(), {
             nikc_ph: "",
