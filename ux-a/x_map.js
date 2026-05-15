@@ -19,7 +19,7 @@ class X_map extends Map {
         }
 
         this.rzvo = (neig_kp) => {
-            neig = Object.assign(neig, neig_kp)
+            Object.assign(neig, neig_kp)
             return this
         }
         // const map_vxn = new Map()
@@ -27,6 +27,7 @@ class X_map extends Map {
             // return new this.constructor(this.form_1(wm_mh_vy))
             return this.form_1(wm_mh_vy, neig_kp)
         }
+        this.get_neig = () => neig
         this.form_1 = (wm_mh_vy,
             neig_kp = {
                 strictMode: false
