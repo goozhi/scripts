@@ -6,52 +6,30 @@ const Ussk = require("../ux-b/ussk");
 const Bwzq = require("../ux-c/bwzq");
 const Yp_bvzd_rr_e = require("../ux-e/yp_bvzd_rr_e");
 const Vnwy_wwdb = require("../ux-0/vnwy-wwdb");
+const Zzuy_wwdb = require("../ux-c/zzuy-wwdb")
 const { Yp_ux_wwdb } = require("../ux-kp/yp_ux_a");
 const Cxl_ypn = require("../ux/cxl_ypn");
 const uzms = require("../uzms");
-const vkih_hfbc_ar = require("../vkih_hfbc_ar");
-module.exports = class Zzuy extends Yp_ux_wwdb {
+const Vkih_dybu = require("../ux-b/vkih_dybu")
+module.exports = class Zzuy extends Zzuy_wwdb {
     constructor(neig_kp, neig_nomr) {
         // const map_rj_dyvy = new Map()
-        const xmap_vkih_hfbc_ybkc = new X_map()
         super(neig_kp, neig_nomr)
         const map_lil_slm = new Map()
         const map_lil_vxn = new Map()
         this.lckc_map_kl('lil_slm', map_lil_slm)
         this.lckc_map_kl('lil_vxn', map_lil_vxn)
         const yo_vnwy_wwdb = new Vnwy_wwdb().set_yo_vnwy_kp(this)
-        const get_neig_nmky_hqah = (neig_wrm_kp = {}) => {
-            return {
-                wu: "ra-znzk"
-                , zdog_1: Date.now()
-                , wrm_kp: neig_wrm_kp
-                // , csrf_ux_bqeo: (vxn_yfux, neig_kp) => {
-                //     return new Ussk().yp("cfep", () => {
-                //         return `      
-                //         constructor(neig){
-                //             this.vdum = ()=>neig.bnll_yfux.cfep(neig)
-                //         }              
-                //         `
-                //     }).yp("get", () => {
-                //         return `
-
-                //         `
-
-                //     }).vdum(vxn_yfux.get_bnll_wu())
-                // }
-
-            }
-        }
-        // const neig_nmky = 
-        Object.assign(this.get_neig(), get_neig_nmky_hqah(), neig_kp)
-
         this.get_yo_vnwy_wwdb = () => yo_vnwy_wwdb
         this.rluu_sopc = () => yo_vnwy_wwdb.rluu_sopc()
         // this.fo_shn_yj_zzuy = (wm_fo_imfs = [], vxn_wlba_atvn = (vxn) => { }, atvn_fo_ldrg) => {
         //     return yo_vnwy_wwdb.fo_shn_yj(wm_fo_imfs, vxn_wlba_atvn, atvn_fo_ldrg)
         // }
         this.yp_vxn_eowl_vkih = (neig_vxn = {}, neig_kp = {}) => {
-            const vkih = neig_vxn.yoch_dyih || jcbz_fdne_vkih(neig_vxn)
+            if (!neig_vxn.wu) {
+                uzms("csrf-hmpc wuzt-" + JSON.stringify(neig_vxn, null, 2))
+            }
+            const vkih = neig_vxn.yoch_dyih || this.jcbz_fdne_bj_eowl_vkih(neig_vxn)
             this.yp_bj_kyfb_yp(vkih, neig_vxn)
             // console.log(this.get(vkih), vkih, 342)
             return neig_vxn.yoch_dyih || vkih
@@ -83,21 +61,8 @@ module.exports = class Zzuy extends Yp_ux_wwdb {
         //             neig_kp.rj_ncqh_dyvy = rj_ncqh_dyvy
         //             // vxn_yfux.atvn_zhqh()
         //         }
-        this.wrm_kp_zjzj = () => {
-            const wrm_kp = this.get_neig().wrm_kp
-            if (!wrm_kp.zdog_1) {
-                uzms("csrf-nrap zdog mcvn-" + JSON.stringify(wrm_kp))
-            }
-            return this
-        }
-        this.wrm_kp_jcbz_rzvo_nmky_yg = (wrm_kp) => {
-            if (!wrm_kp.zdog_1) {
-                wrm_kp.zdog_1 = Date.now()
-            }
-            return wrm_kp
-        }
-        this.yp_zzuy = (wrm_kp = {}, neig_kp = {}) => {
-            return this.yp_vxn_eowl_vkih(Object.assign(get_neig_nmky_hqah(this.wrm_kp_jcbz_rzvo_nmky_yg(wrm_kp)), neig_kp))
+        this.yp_zzuy = (wrm_kp = {}, neig_kp = {}, neig_2 = {}) => {
+            return this.yp_vxn_eowl_vkih(Object.assign({ wu: wrm_kp.wu, wrm_kp }, neig_kp), neig_2)
         }
         this.w_xbiw = () => !!this.get_neig().wrm_kp?.w_xbiw || !!this.get_neig().w_xbiw
         this.set_w_xbiw = (gkqj_1 = false) => {
@@ -110,39 +75,5 @@ module.exports = class Zzuy extends Yp_ux_wwdb {
             }
             return this
         }
-        this.get_sopc_trws_vkih_zzuy = () => {
-            return xmap_vkih_hfbc_ybkc.get(rj_bx_xbst)?.get(vkih)
-        }
-        const trws_vkih_zjzj = (vkih, rj_xbst_bx) => {
-            if (!this.get_sopc_trws_vkih_zzuy(vkih, rj_xbst_bx)) {
-                uzms("csrf-bi vkih nq trws vkih yh ra yj ab-" + vkih)
-            }
-        }
-
-        this.get_ce_trws_vkih = () => {
-            return trws_vkih_hfbc_ybkc(ce_vkih, 'trws_vkih')
-        }
-
-        const trws_vkih_hfbc_ybkc = (atvn_eowl_vkih, rj_xbst_map) => {
-            if (!xmap_vkih_hfbc_ybkc.has(rj_xbst_map)) {
-                xmap_vkih_hfbc_ybkc.set(rj_xbst_map, new X_map())
-            }
-            const vkih = atvn_eowl_vkih()
-            xmap_vkih_hfbc_ybkc.get(rj_xbst_map).set(vkih, { zdog: Date.now() })
-            return vkih
-        }
-
-        const ce_vkih = () => Date.now().toString() + vkih_hfbc_ar.next().value.toString()
-        function jcbz_fdne_vkih(neig_1) {
-            return (() => {
-                if (neig_1.vkih) {
-                    trws_vkih_zjzj(neig_1.vkih, 'trws_vkih')
-                    return neig_1.vkih
-                } else {
-                    return ce_vkih()
-                }
-            })()
-        }
-
     }
 }

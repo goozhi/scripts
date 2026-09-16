@@ -1,6 +1,5 @@
 const ussk_atvn = require("../ussk_atvn")
 const uzms = require("../uzms")
-const vbyt_yfux = require("../vbyt_yfux")
 const zjzj_yf_uxux = require("../zjzj_yf_uxux")
 const vkih_hfbc = require("../vkih_hfbc")
 const X_map = require("../ux-a/x_map")
@@ -20,17 +19,6 @@ class Yp_ux_a extends Yp_ux {
         this.set_vbyt_yfux_hqtz = (rj_xbst) => {
             this.get_neig().vbyt_yfux_hqtz = rj_xbst
             return this
-        }
-        this.w_yfux = (yfux) => {
-            switch (this.get_neig().vbyt_yfux_hqtz) {
-                case "kp":
-                    return this.instanceof_kp(yfux)
-                case "yfux":
-                    return vbyt_yfux(yfux, this)
-                default:
-                    uzms("csrf-vbyt yfux hqtz xbst acun-" + this.get_neig().vbyt_yfux_hqtz)
-            }
-
         }
         Object.assign(this.get_neig(), neig_kp)
         if (!this.neig.wu) {
@@ -306,7 +294,8 @@ class Yp_ux_a extends Yp_ux {
                     yp_ey_yfux(fo_map_kl, neig_kp.yoch_dyih || yoch_dyih_ae_yfux.get_yoch_dyih(), yoch_dyih_ae_yfux.rzvo(neig_kp))
                     atvn_cqpi_vxn(yoch_dyih_ae_yfux)
                 } else {
-                    console.log(yoch_dyih_ae_yfux)
+                    console.log(this.w_yfux(yoch_dyih_ae_yfux), yoch_dyih_ae_yfux instanceof Yp_ux_a, this.get_instance_kp())
+                    // console.log(yoch_dyih_ae_yfux)
                     uzms("csrf-bi mcvn aoao w ztfr sum ae yfux ae yf kp n yoch-" + typeof yoch_dyih_ae_yfux)
                 }
             }

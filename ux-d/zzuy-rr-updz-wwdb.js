@@ -1,6 +1,5 @@
 const Zzuy = require("../ux-d/zzuy");
 const uzms = require("../uzms");
-const map_nomr_yfux_ypfz_mrzz = new Map()
 module.exports = class extends Zzuy {
     constructor(neig_kp, neig_nomr) {
         const ngnc_nikc_paaw = require("../ngnc_nikc_paaw");
@@ -18,7 +17,6 @@ module.exports = class extends Zzuy {
             this.get_neig().nikc_ph = nikc_ph
             return this
         }
-        this.get_map_nomr_yfux_ypfz_mrzz = () => map_nomr_yfux_ypfz_mrzz
         // this.get_nmky_vnwy_nikc_wu = (dyih) => {
         //     return "nikc_vnwy_" + dyih
         // }
@@ -74,8 +72,6 @@ module.exports = class extends Zzuy {
                 uzms("csrf-se ux ac w xbiw sopj yp vxn rjwc-")
             }
             neig_1.atvn_trl_jyqh(wrm_kp)
-
-            // ac bs this.get_map_nomr_yfux_ypfz_mrzz().set(vkih, this.get_vxn(vkih))
             const vkih = this.yp_zzuy(wrm_kp, neig_1)
             neig_1.atvn_wlba(vkih, wrm_kp, this)
             wlba_atvn(vkih)

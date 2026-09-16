@@ -1635,6 +1635,12 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
         nikc: path.resolve('zogl-d-1/')
     }).zogl().catch(e => { console.error(e) })
     new tsjq_zogl({
+        zkrs: "zogl-d-1-zogl-zzuy-map-rr",
+        w_yfdp: true,
+        neig_joly: {},
+        nikc: path.resolve('zogl-d-1/zogl-zzuy-map-rr/')
+    }).zogl().catch(e => { console.error(e) })
+    new tsjq_zogl({
         zkrs: "zogl-d",
         w_yfdp: false,
         neig_joly: {},
@@ -1657,6 +1663,12 @@ ss[dfaf](D:\\dffs\\dsf/jjs)`
         w_yfdp: false,
         neig_joly: {},
         nikc: path.resolve('zogl-f/')
+    }).zogl().catch(e => { console.error(e) })
+    new tsjq_zogl({
+        zkrs: "zogl-a-1",
+        w_yfdp: false,
+        neig_joly: {},
+        nikc: path.resolve('zogl-a-1/')
     }).zogl().catch(e => { console.error(e) })
 }//afoa_zogl
 afoa_zogl()

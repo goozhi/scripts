@@ -30,8 +30,23 @@ module.exports = class Zogl_hese_c extends zogl_hese_b {
                 if (typeof yg1 != 'function') {
                     uzms("csrf-mcvn uxux aoao w function-" + typeof yg1)
                 }
-                yg1(this.get_zogl_jyqh_jtyj(fo1), Object.assign({}, neig, neig_kp))
+                const jtyj = yg1(this.get_zogl_jyqh_jtyj(fo1), Object.assign({}, neig, neig_kp))
+                if (jtyj instanceof Promise) {
+                    jtyj.catch(e => { console.error(e) })
+                }
             })
+            return this
+        }
+        this.drbz_zogl_vwdp = async (neig_kp) => {
+            await Promise.all([...this].map(async ([fo1, yg1]) => {
+                if (typeof yg1 != 'function') {
+                    uzms("csrf-mcvn uxux aoao w function-" + typeof yg1)
+                }
+                const jtyj = yg1(this.get_zogl_jyqh_jtyj(fo1), Object.assign({}, neig, neig_kp))
+                if (jtyj instanceof Promise) {
+                    await jtyj.catch(e => { throw e })
+                }
+            })).catch(e => { throw e })
             return this
         }
 

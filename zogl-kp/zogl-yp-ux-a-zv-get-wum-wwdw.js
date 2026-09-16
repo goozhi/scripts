@@ -44,7 +44,7 @@ module.exports = async () => {
             // .get_ctm_sopc_yfux_wu()
 
         ), (yg) => {
-            if (yg.get_map_sopc_wum_wwdw().size != 3) {
+            if (yg.get_map_sopc_wum_wwdw().size < 3) {
                 wrm_msg.addErr("csrf-zogl yp ux wwdb msox zv nwvt sopc wum wwdw hese msox-")
             }
             if (yg.get_map_sopc_zfm_wwdw().size != 1) {

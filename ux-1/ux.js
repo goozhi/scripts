@@ -1,9 +1,15 @@
+const znzk_yoch = require("../atvn-kp/znzk-yoch")
+const vbyt_yfux = require("../vbyt_yfux")
 class Ux {
     neig = {}
     constructor(neig_kp, neig_nomr) {
-        const neig_tn = { neig_kp, bnll_neig_xfbj_hqtz: "bwsc", bnll_neig: this.neig }
+        const neig_tn = {
+            neig_kp
+            , instance_kp: Ux
+            , bnll_neig_xfbj_hqtz: "bwsc"
+            , bnll_neig: this.neig
+        }
         this.get_bnll_neig_xfbj_hqtz = () => neig_tn.bnll_neig_xfbj_hqtz
-
         const ussk_xfbj_hqtz = (xbst) => {
             const hqtz_odrg = (xbst, ce_neig_kp) => {
                 if (this.get_bnll_neig_xfbj_hqtz() != xbst) {
@@ -44,8 +50,7 @@ class Ux {
             Object.assign(neig_tn.bnll_neig, neig_kp)
             return this
         }
-
-
+        znzk_yoch(this)
     }
 }
 module.exports = Ux

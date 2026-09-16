@@ -61,10 +61,6 @@ class Yp_ux extends ux {
         }
 
         this.get_wwdw = this.get_map_kl
-        this.get_instance_kp = () => this.get_neig().instance_kp
-        this.instanceof_kp = (yoch) => {
-            return yoch instanceof this.get_instance_kp()
-        }
     }
 }
 module.exports = Yp_ux

@@ -2,7 +2,8 @@ const X_map = require("../ux-a/x_map");
 const Zzuy = require("../ux-d-2/zzuy-rr-wwdb-wwdb");
 const uzms = require("../uzms");
 const path = require("path")
-const fs = require("fs")
+const fs = require("fs");
+const ussk_atvn = require("../ussk_atvn");
 const xmap_yp_mrzz = new X_map()
 module.exports = class extends Zzuy {
     constructor(neig_kp, neig_nomr) {
@@ -95,10 +96,73 @@ module.exports = class extends Zzuy {
                         // this.yp_bj_kyfb_yp_0("wm_slm", "wm_vxn", map_1.get(vkih))
                     })
                 }
+                const cqpi_wrm_wum_ae_vw_kl = (neig_kp) => {
+                    const neig_1 = Object.assign({
+                        fo_wrm_wum_ae_vw_kl: "wrm_wum_kl",
+                    }, neig_kp)
+                    Object.entries(this.get_neig().wrm_kp[neig_1.fo_wrm_wum_ae_vw_kl]).forEach(([wu_kl, wm_fo]) => {
+                        if (!this.has_map_kl(wu_kl)) {
+                            const wum_kl = new Map()
+                            wum_kl.tusc = ussk_atvn(map_ussk_tusc).vdum(neig_1.fo_wrm_wum_ae_vw_kl)
+                            this.lckc_map_kl(wu_kl, wum_kl)
+                        }
+                        const map_1 = neig_1.get_mrzz(this)
+                        wm_fo.forEach(vkih => {
+                            if (map_1.has(vkih)) {
+                                this.yp_0(wu_kl, map_1.get(vkih))
+                            } else {
+                                this.yp_0(wu_kl, vkih, {
+                                    wu: "ra-znzk",
+                                    nikc_ph: this.get_nikc_ph()
+                                })
+                                if (neig_1.w_jcbz_yp_mrzz)
+                                    map_1.set(vkih, this.get_0(wu_kl, vkih))
+                            }
+                        })
+                    })
+
+                }
+                if (this.get_neig().wrm_kp.wrm_wum_kl) {
+                    cqpi_wrm_wum_ae_vw_kl({ fo_wrm_wum_ae_vw_kl: "wrm_wum_kl" })
+                }
+                if (this.get_neig().wrm_kp.wrm_zfm_kl) {
+                    cqpi_wrm_wum_ae_vw_kl({ fo_wrm_wum_ae_vw_kl: "wrm_zfm_kl" })
+                }
 
             })
 
         }
+        const map_ussk_tusc = new Map().set('wrm_wum_kl', () => {
+            return "wum"
+        }).set("wrm_zfm_kl", () => "zfm")
+        this.wum_ae_zfm_kyfb = (xbst_wrm_ae_zfm = "wrm_wum_kl", wrm_wum_ae_zfm_kl = { "wm_slm": ['vkih1', 'vkih2'] }, neig_kp = {}) => {
+            const neig_1 = Object.assign({
+                w_jcbz_ncn_kl: false,
+                get_mrzz: null // aq lz rr (se_ux) => {}
+            }, neig_kp)
+            const map_dyih_ae_vkih_tsn_yoch = neig_1.get_mrzz(this)
+            Object.entries(wrm_wum_ae_zfm_kl).forEach(([shn_fo, wm_vkih_ae_dyih]) => {
+                if (!this.has_map_kl(shn_fo)) {
+                    if (neig_1.w_jcbz_ncn_kl) {
+                        const map_ce_kl = new Map()
+                        map_ce_kl.tusc = ussk_atvn(map_ussk_tusc)
+                            .vdum(xbst_wrm_ae_zfm)
+                        this.lckc_map_kl(shn_fo, map_ce_kl)
+                    } else {
+                        uzms("csrf-bi map kl ac zznq-" + shn_fo)
+                    }
+                }
+                wm_vkih_ae_dyih.forEach(rn1 => {
+                    if (!map_dyih_ae_vkih_tsn_yoch.has(rn1)) {
+                        uzms("csrf-bi dyih ae vkih ac zznq-" + rn1)
+                    } else {
+                        this.yp_0(shn_fo, map_dyih_ae_vkih_tsn_yoch.get(rn1))
+                    }
+                })
+            })
+            return this
+        }
+
         this.paaw_kyfb_se_ux = (vy_mcvn = [["wm_slm", ['vxn', 'slm']]], neig_kp = {}) => {
             const neig_1 = Object.assign({
                 atvn_kyfb_qr_wlba: (ux_kyfb_qr) => { }
@@ -152,7 +216,9 @@ module.exports = class extends Zzuy {
                 wm_slm: [...this.get_map_slm().keys()],
                 wm_vxn: [...this.get_map_vxn().keys()],
                 wm_lil_slm: [...this.get_map_kl('lil_slm').keys()],
-                wm_lil_vxn: [...this.get_map_kl('lil_vxn').keys()]
+                wm_lil_vxn: [...this.get_map_kl('lil_vxn').keys()],
+                wrm_wum_kl: Object.fromEntries([...this.get_map_sopc_wum_wwdw()].map(rn1 => [rn1[0], rn1[1].keys()])),
+                wrm_zfm_kl: Object.fromEntries([...this.get_map_sopc_zfm_wwdw()].map(rn1 => [rn1[0], rn1[1].keys()])),
             })
         }
         this.get_nixb_rjwc_seyy_yxna = (vkih) => path.join(this.get_neig().nikc_ph, "rjwc", vkih + ".json")

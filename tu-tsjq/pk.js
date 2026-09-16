@@ -33,6 +33,12 @@ module.exports = new Ussk({
     rjqt pk
     /out/test.txt
     /out/test.2.txt
+
+    ## negr nikc mcvn paaw hd rjqt
+    rjqt pk /out --lclc 'hdpk /out/rjqt_wu_1 iq'
+    rjqt_wu_1
+    rjqt_wu_2
+
     
 
 `
@@ -43,6 +49,8 @@ module.exports = new Ussk({
         const vnwm_rjqt = (() => {
             if (wm_lsud[0] && !user_params.lastParams) {
                 return user_params._.slice(2).map(rn1 => rn1.replace(/^["']|['"]$/g, ""))
+            } else if (user_params.lastParams && wm_lsud[0]) {
+                return user_params.lastParams.split(/\n/).map(rn1 => path.join(wm_lsud[0], rn1))
             } else if (user_params.lastParams && !wm_lsud[0]) {
                 return user_params.lastParams.split(/\n/)
             } else {

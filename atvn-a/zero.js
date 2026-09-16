@@ -8,6 +8,8 @@ const Bwzq = require("../ux-d/bwzq-hfva-lb")
 const path = require("path")
 const Yp_bvzd_rr_e = require("../ux-e/yp_bvzd_rr_e")
 const Yp_err_pzre_e = require("../ux-e/yp_err_pzre_e")
+const Yp_zzuy_rr_vv_rjqt_tz = require("../ux-d-1/zzuy-rr-vv-rjqt-tz-wwdb")
+const Zzuy_shn_tz = require("../ux-d/zzuy-shn-tz")
 const Vkih_hfbc = require("../ux-kp/vkih-hfbc")
 // hvoc bi rjqt ac frgr jyqh zd ypfz ybsr, sono gd ac db bi rjqt mr stgn tbco.
 const gen = new Vkih_hfbc().get_gen()
@@ -19,6 +21,7 @@ module.exports = () => {
         get_ybdz: () => zero
     }
     zero.lckc_map_kl("zzuy-wum", new Map())
+    zero.lckc_map_kl("zzuy-shn-tz-wum", new Map())
     zero.lckc_map_kl("neig-wum", new Map())
     zero.lckc_map_kl("bwzq-wum", new Map())
     zero.lckc_map_kl("bvzd-rr-wum", new Map())
@@ -57,6 +60,26 @@ module.exports = () => {
                     )
             )
     )
+        .yp_bj_kyfb_yp_0("zzuy-shn-tz-wum", "ybdz",
+            new Zzuy_shn_tz({ wu: "zzuy-shn-tz-updz", yoch_dyih: "zzuy-shn-tz-updz" }).lckc_map_kl("ybdz", new Map())
+                .set_vbyt_yfux_hqtz("kp")
+                .lckc_map_kl("zzuy-rr-vv-rjqt-tz-wum", new Map())
+                .yp_bj_kyfb_yp_0("zzuy-rr-vv-rjqt-tz-wum", "yhld",
+                    new Yp_zzuy_rr_vv_rjqt_tz({
+                        wu: "zzuy-rr-vv-rjqt-tz"
+                        , yoch_dyih: "zzuy-rr-vv-rjqt-tz-updz"
+                        , nikc_ph: path.resolve("../zzzz/kplu/zzuy-bwzq-vv-rjqt-tz")
+                        , get_yo_bvzd_rr: () => {
+                            return zero.get_0("bvzd-rr-wum", "updz-bvzd-rr")
+                        }
+                        , get_yo_neig_cqpi: () => {
+                            return zero.get_0("neig-wum", "neig-updz").get_0("neig-wum", "zzuy-rjwc-cqpi").get_0("neig-wum", "zzuy-rr-rjwc-cqpi")
+                        }
+                    }, neig_nomr)
+                        .lckc_map_kl("yhld", new Map())
+
+                )
+        )
         .yp_bj_kyfb_yp_0("bwzq-wum", "ybdz",
             new Bwzq({ wu: "updz-bwzq", yoch_dyih: "updz-bwzq" }).lckc_map_kl("ybdz", new Map())
         )

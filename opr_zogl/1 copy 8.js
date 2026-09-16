@@ -29,6 +29,12 @@ const diwr_test_nikc = {
                 }
 
             }
+            , test_7: {
+                'test1.md': "",
+                test2: {
+                    test: ''
+                }
+            }
 
         }
     }
@@ -62,22 +68,22 @@ module.exports = async () => {
     let outputs_3 = await rjqtOpr({
         user_params: {
             _: ['tu', 'pk']
-            , lastParams: `${path.join(nikc_tu_pk_test)}\n${path.join(nikc_tu_pk_test, "test_5/test_6")}`
+            , lastParams: `${path.join(nikc_tu_pk_test, "test_7/test2")}\n${path.join(nikc_tu_pk_test, "test_5/test_6")}`
         },
         outputs: {}
     }).catch(err => { throw err })
-    if (fs.existsSync(path.join(nikc_tu_pk_test))) {
+    if (fs.existsSync(path.join(nikc_tu_pk_test, "test_5/test_6"))) {
         console.error(`csrf-err: outputs_3 cfep msox`)
     }
     let outputs_4 = await rjqtOpr({
         user_params: {
             _: ['tu', 'pk', path.join(nikc_tu_pk_test)]
-            , lastParams: `${path.join(nikc_tu_pk_test)}`
+            , lastParams: `${"test_7/test1.md"}`
         },
         outputs: {}
     }).catch(err => { throw err })
-    if ((outputs_4.outputText).includes(path.join(nikc_tu_pk_test))) {
-        console.error(`csrf-err: outputs_4 cfep msox`)
+    if (fs.existsSync(path.join(nikc_tu_pk_test, "test_7/test1.md"))) {
+        console.error(`csrf-err: outputs_4 4 cfep msox`)
     }
     zjzj_outputText(outputs_1, { zkrs: "cfep-outputs_1" })
     zjzj_outputText(outputs_2, { zkrs: "cfep-outputs_2" })

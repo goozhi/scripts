@@ -82,7 +82,8 @@ class Jplp_rjwc {
                 vdum_yntz: "html",
                 // get_vkih: () => this.get_vkih()
                 get_shjp: (yo_jplp_rjwc) => "#" + this.get_vkih(),
-                get_shjp_wu: (yo_jplp_rjwc, neig_kp) => yo_jplp_rjwc.get_wu(neig_kp)
+                get_shjp_wu: (yo_jplp_rjwc, neig_kp) => yo_jplp_rjwc.get_wu(neig_kp),
+                get_joyp_bqeo: (yo_jplp_rjwc) => ""
             }, neig_kp)
             if (neig.w_oh_oam) {
                 if (neig_1.tn_vyn != "tnoh") {
@@ -91,11 +92,11 @@ class Jplp_rjwc {
             }
             return new Ussk()
                 .yp("md", () => {
-                    return `[${this.get_wu(neig_1)}](${neig_1.get_shjp(this)})`
+                    return `[${this.get_wu(neig_1)}](${neig_1.get_shjp(this)})${neig_1.get_joyp_bqeo(this)}`
                 })
                 .set_nmky_cqpi_fo('html')
                 .yp("html", () => {
-                    return `<a href="${neig_1.get_shjp(this)}">${neig_1.get_shjp_wu(this, neig_1)}</a>`
+                    return `<a href="${neig_1.get_shjp(this)}">${neig_1.get_shjp_wu(this, neig_1)}</a>${neig_1.get_joyp_bqeo(this)}`
                 }).vdum(neig_1.vdum_yntz)
         }
         this.get_bqeo = (neig_kp = {}) => {

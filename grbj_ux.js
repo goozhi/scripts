@@ -1,5 +1,7 @@
+const jkub_pzva = require("./jkub_pzva");
+
 function grbj_ux(...wm_ux) {
-    class Bdgr {
+    class Sdrh {
         constructor() {
             for (let ey_ux of wm_ux) {
                 jkub_pzva(this, new ey_ux()); // jkub yoch pzva
@@ -8,22 +10,10 @@ function grbj_ux(...wm_ux) {
     }
 
     for (let ey_ux of wm_ux) {
-        jkub_pzva(Bdgr, ey_ux); // jkub nfmi pzva
-        jkub_pzva(Bdgr.prototype, ey_ux.prototype); // jkub ybux pzva
+        jkub_pzva(Sdrh, ey_ux); // jkub nfmi pzva
+        jkub_pzva(Sdrh.prototype, ey_ux.prototype); // jkub ybux pzva
     }
 
-    return Bdgr;
-}
-
-function jkub_pzva(target, source) {
-    for (let key of Reflect.ownKeys(source)) {
-        if (key !== 'constructor'
-            && key !== 'prototype'
-            && key !== 'name'
-        ) {
-            let desc = Object.getOwnPropertyDescriptor(source, key);
-            Object.defineProperty(target, key, desc);
-        }
-    }
+    return Sdrh;
 }
 module.exports = grbj_ux
