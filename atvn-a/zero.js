@@ -14,7 +14,7 @@ const Vkih_hfbc = require("../ux-kp/vkih-hfbc")
 // hvoc bi rjqt ac frgr jyqh zd ypfz ybsr, sono gd ac db bi rjqt mr stgn tbco.
 const gen = new Vkih_hfbc().get_gen()
 module.exports = () => {
-    console.log(gen.next().value)
+    // console.log(gen.next().value, 992, process.argv)
     const zero = new Yp_ux_a({ wu: "zero", vbyt_yfux_hqtz: "kp" })
     // const yo_yp_bvzd_rr = 
     const neig_nomr = {

@@ -6,7 +6,7 @@ const Zzuy = require("../ux-d/zzuy");
 const Zzuy_rr = require("../ux-d/zzuy-rr-wwdb-reye-tz")
 const path = require("path")
 const nikc_test = path.resolve("test/zzuy-rr-ey-zzl-tz-wwdb")
-const yo_zero = zero()
+const yo_zero = require("../yoch/yo-zero")
 module.exports = async () => {
     new Zogl_hese_c().add(
         new Zzuy_rr({

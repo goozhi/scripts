@@ -8,6 +8,7 @@ const Neig_imfb = require("../ux-a/neig-imfb")
 const fsx = require('fs-extra')
 const path = require('path')
 const ngnc_nikc_paaw = require("../ngnc_nikc_paaw")
+const diwr_pzva_ussk_ss_zhvt = require("../diwr_pzva_ussk_ss_zhvt")
 
 class Yp_bvzd_rr_e extends Yp_rjqt_cqpi_d {
     constructor(neig_kp, neig_nomr) {
@@ -20,7 +21,7 @@ class Yp_bvzd_rr_e extends Yp_rjqt_cqpi_d {
             rjqt_cqpi_fr: "writeFile",
             w_yxna_jcbz_ngnc: true
         }, neig_kp)
-        const yo_bvzd_kivo = new Yp_bvzd_kivo_d(this.get_neig()).set_neig_xfbj_hqtz("zqsc")
+        const yo_bvzd_kivo = new Yp_bvzd_kivo_d(diwr_pzva_ussk_ss_zhvt(["vn_trl_kivo_zdog", "wu"], this.get_neig()))
         this.set_rr_ud_zhqh = (atvn) => {
             this.rr_ud_zhqh = atvn
             return this
