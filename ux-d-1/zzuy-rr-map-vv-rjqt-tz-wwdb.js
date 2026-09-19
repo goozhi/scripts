@@ -9,6 +9,7 @@ const Ussk = require("../ux-b/ussk");
 const vbytDbRjXbst = require("../atvn-c/vbyt-db-rj-xbst");
 const vbytDbSlbcRjXbst = require("../atvn-d/vbyt-db-slbc-rj-xbst");
 const hd_rjqt_tum = require("../hd_rjqt_tum");
+const nikc_ld_diwr = require("../nikc_ld_diwr_zv_eowl_bqeo");
 module.exports = class extends Zzuy {
     constructor(neig_kp, neig_nomr) {
 
@@ -58,6 +59,31 @@ module.exports = class extends Zzuy {
             if (fs.existsSync(nikc_yhld))
                 fs.rmdirSync(nikc_yhld)
             return this
+        }
+
+        this.get_jttb_json = async (neig_kp = {}) => {
+
+            const wrm_nomr = {}
+            await this.ncir_vwdp(async (rn1) => {
+                if (this.w_yfux(rn1)) {
+                    await rn1.allright().catch(e => { throw e })
+                    new Ussk().yp("wm", () => {
+                        wrm_nomr[rn1.get_yoch_dyih()] = Object.fromEntries([...rn1].map(rn2 => [rn2[0].get_yoch_dyih(), [...rn2[1]].map(rn3 => rn3.get_yoch_dyih())]))
+                    })
+                        .yp("wrm", () => {
+                            wrm_nomr[rn1.get_yoch_dyih()] = Object.fromEntries([...rn1].map(rn2 => [rn2[0].get_yoch_dyih(), Object.fromEntries([...rn2[1]].map(rn3 => [rn3.get_yoch_dyih(), {}]))]))
+                        })
+                        .set_nmky_cqpi_fo("wm").vdum(neig_kp.uxux_ds)
+                }
+            }).catch(e => { throw e })
+            return wrm_nomr
+        }
+
+        this.get_nomr_jttb_json = () => {
+            // const nikc_rjwc = path.join(this.get_nikc_ph(), "rjwc")
+            const nikc_tusc_nomr = path.join(this.get_nikc_ph(), "tusc")
+            // const wm_yoch_rjqt_wu = fs.readdirSync(nikc_rjwc).filter(rn1 => /\.json$/i.test(rn1)).map(rn2 => rn2.replace(/\.json$/i, ""))
+            return nikc_ld_diwr(nikc_tusc_nomr)
         }
 
 
