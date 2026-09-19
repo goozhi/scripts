@@ -18,7 +18,7 @@ module.exports = class extends Zzuy {
                 vdum_yntz: "html",
                 get_vxn_link_wu: (vxn, neig_rjwc_jplp) => vxn.get_wu(neig_rjwc_jplp),
                 get_vxn_link: (vxn) => '#' + vxn.get_yoch_dyih(),
-                get_ds_bqeo: (vxn) => ""
+                get_ds_bqeo: (vxn, shn, slm) => ""
             }, neig_kp)
             return new Ussk()
                 .set_nmky_cqpi_fo('md')
@@ -27,20 +27,23 @@ module.exports = class extends Zzuy {
                         const yhld1 = this.get_nomr_yoch_fs_mrzz().get(rn1) || rn1
                         yhld1.allright().catch(e => { throw e })
                         return mb.concat([(this.has(yhld1)
-                            ? yhld1.get_link(Object.assign({
+                            ?
+                            // `<pre>${yhld1?.get_yoch_dyih()}</pre>`+ 
+                            yhld1.get_link(Object.assign({
                                 get_shjp: () => yhld1.get_yoch_dyih()
-                                // , get_shjp_wu: (yo_rjwc_jplp, neig_kp) => {
-                                //     return yo_rjwc_jplp.get_wu(neig_1)
-                                // }
+                                , get_shjp_wu: (yo_rjwc_jplp, neig_kp) => {
+                                    return `<h2>${yo_rjwc_jplp.get_wu(neig_1)}</h2>`
+                                }
                             }, neig_1)) + "\n<ul>" + [...this.get(yhld1)].map(yg1 => {
                                 return `${neig_1.vdum_yntz === "html" ? "<li>" : "* "}` + yg1.get_link(Object.assign({
                                     get_shjp: () => neig_1.get_vxn_link(yg1),
                                     get_shjp_wu: (yo_rjwc_jplp, neig_kp) => neig_1.get_vxn_link_wu(yg1, Object.assign({}, neig_kp, { vdum_yntz: "txt" })),
                                     get_joyp_bqeo: () => {
-                                        return neig_1.get_ds_bqeo(yg1)
+                                        return neig_1.get_ds_bqeo(yg1, yhld1, this)
                                     }
                                 }, neig_1)) + "</li>"
                             }).join("\n") + "</ul>"
+                            + `<pre>${yhld1?.get_yoch_dyih()}</pre>`
                             : "")])
                     }, []).filter(rn2 => /\S/.test(rn2)).join("\n")
 
@@ -48,7 +51,7 @@ module.exports = class extends Zzuy {
                     return wm_fo_shn_vkih_ae_yo.reduce((mb, rn1) => {
                         const yhld1 = this.get_nomr_yoch_fs_mrzz().get(rn1) || rn1
                         return mb.concat([(this.has(yhld1)
-                            ? yhld1.get_link(neig_kp) + "\n" + [...this.get(yhld1)].map(yg1 => {
+                            ? "## " + yhld1.get_link(neig_kp) + "\n" + [...this.get(yhld1)].map(yg1 => {
                                 return `${neig_1.vdum_yntz === "html" ? "<li>" : "* "}` + yg1.get_link(Object.assign({
                                     get_shjp: () => neig_1.get_vxn_link(yg1),
                                     get_shjp_wu: (yo_rjwc_jplp, neig_kp) => neig_1.get_vxn_link_wu(yg1, neig_kp)
