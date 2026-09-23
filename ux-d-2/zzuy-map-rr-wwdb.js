@@ -18,7 +18,9 @@ module.exports = class extends Zzuy {
                 vdum_yntz: "html",
                 get_vxn_link_wu: (vxn, neig_rjwc_jplp) => vxn.get_wu(neig_rjwc_jplp),
                 get_vxn_link: (vxn) => '#' + vxn.get_yoch_dyih(),
-                get_ds_bqeo: (vxn, shn, slm) => ""
+                get_ds_bqeo: (vxn, shn, slm) => "",
+                get_shn_ds_bqeo: (shn) => "",
+                get_shn_join_bqeo: () => ""
             }, neig_kp)
             return new Ussk()
                 .set_nmky_cqpi_fo('md')
@@ -43,9 +45,11 @@ module.exports = class extends Zzuy {
                                     }
                                 }, neig_1)) + "</li>"
                             }).join("\n") + "</ul>"
-                            + `<pre>${yhld1?.get_yoch_dyih()}</pre>`
+                            + `${neig_1.get_shn_ds_bqeo(yhld1)}`
+                            // + `<pre>${yhld1?.get_yoch_dyih()}${neig_1.get_shn_ds_bqeo(yhld1)}</pre>`
+                            // + neig_1.get_shn_ds_bqeo(yhld1)
                             : "")])
-                    }, []).filter(rn2 => /\S/.test(rn2)).join("\n")
+                    }, []).filter(rn2 => /\S/.test(rn2)).join(neig_1.get_shn_join_bqeo?.() || "\n")
 
                 }).yp("md", () => {
                     return wm_fo_shn_vkih_ae_yo.reduce((mb, rn1) => {
