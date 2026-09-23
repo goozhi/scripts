@@ -6,7 +6,7 @@ function yhrj_ld_wrvr_diwr(yhrj_eysj, diwr_cqzt_di_wrvr) {
     } else if (yhrj_eysj.length === 0) {
         return ['', {}]
     } else {
-        const key = yhrj_eysj.split('').map(yhrj_1_zt => diwr_cqzt_di_wrvr[yhrj_1_zt].replace(/(\w\w)\w/, '$1'))
+        const key = yhrj_eysj.split('').map(yhrj_1_zt => diwr_cqzt_di_wrvr[yhrj_1_zt]?diwr_cqzt_di_wrvr[yhrj_1_zt].replace(/(\w\w)\w/, '$1'):yhrj_1_zt)
             .join('')
         return [key, { yhrj: yhrj_eysj, get_yfm: () => rjyf(key) }]
     }
