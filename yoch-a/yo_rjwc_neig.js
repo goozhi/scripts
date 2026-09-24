@@ -50,7 +50,7 @@ module.exports = new Rjwc_neig({
     }
 }).yp("zzuy-bwzq-shn-ux", {
     wu: "zzuy-bwzq-shn-ux",
-    wm_fo_ext: ["wrm_wum_kl", "wrm_zfm_kl", "w_xbiw", "dyih", "dh", "w_yxuu", "kp", "yoch-dyih", "yoch_dyih"]
+    wm_fo_ext: ["zdog_qoqi", "zdog_1", "wrm_wum_kl", "wrm_zfm_kl", "w_xbiw", "dyih", "dh", "w_yxuu", "kp", "yoch-dyih", "yoch_dyih"]
     , wrm_mcvn_uxux_zjzj: { w_yxuu: ["boolean"] }
     , neig_zhvt: {
         ymwu: { dh: "dyih", "yoch-dyih": "yoch_dyih" }
