@@ -7,6 +7,21 @@ const readLogData = readData()
 const share = async (user_params = { lastParams, add: "" }, outputs = { outputText: "" }) => {
     readLogData.next({ outputs, share_arr })
     if (user_params._[1] === 'add') {
+        if (user_params.izlp) {
+            await outputs.ask(
+                {
+                    axiosOpr: {
+                        user_params,
+                        outputs,
+                        url: user_params.izlp + "/afoa",
+                        method: "POST",
+                        json: {
+                            vdzv: `share add ${user_params._[2]}\n${user_params.lastParams}`
+                        }
+                    }
+                }
+            ).catch(e => { throw e })
+        }
         await outputs.ask({
             fileOpr: {
                 opr: 'appendIfExist',
@@ -16,7 +31,7 @@ const share = async (user_params = { lastParams, add: "" }, outputs = { outputTe
             }
         }).catch(err => { throw err })
         share_arr.push({ theme: user_params._[2], content: user_params.lastParams })
-        outputs.outputText = `${user_params.lastParams} added successfully`
+        outputs.outputText = `${user_params._[2]} added successfully`
         return
     }
     else if (user_params._[1] === 'ls') {

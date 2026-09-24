@@ -5,6 +5,7 @@ const fileOpr = require('./oprs/fileOpr.js');
 const sqlOpr = require('./oprs/sqlOpr.js');
 const exymOpr = require('./oprs/exymOpr.js');
 const wvvyOpr = require('./oprs/wvvyOpr.js');
+const axiosOpr = require('./oprs/axiosOpr.js');
 const getMyIp = require('./getMyIp');
 const getOkId = require('./getOkId');
 const tzfsOpr = require('./oprs/tzfsOpr.js')
@@ -52,6 +53,9 @@ function outputs(neig_kp = {}) {
         },
         exymOpr: async (neig_tskl) => {
             return await exymOpr(neig_tskl.exymOpr).catch(err => { throw err })
+        },
+        axiosOpr: async (neig_tskl) => {
+            return await axiosOpr(neig_tskl.axiosOpr).catch(err => { throw err })
         },
         getMyIp: async (neig_tskl) => {
             return await getMyIp().catch(err => { throw err })

@@ -15,7 +15,7 @@ const map_nomr_yoch_fs_mrzz = new Map()
 const map_ymym_ybkc = new Map()
 const map_qgbz_zkrs = new Map()
 const vkih_ce_hfbc = () => {
-    return "s" + Date.now() + vkih_hfbc_ar.next().value
+    return "s" + Date.now().toString(16) + vkih_hfbc_ar.next().value
 }
 const hfbc_ymym_vkih = () => {
     return "y" + Date.now() + vkih_hfbc_ar.next().value

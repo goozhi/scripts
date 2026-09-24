@@ -67,6 +67,9 @@ const arrC = [
 
                 or:
                 share find keyword
+
+                ## voud bqeo ab tszn izlp
+                share add zkrs --izlp na-ye-izlp
                 `,
         func: share
     }], [['gethtml'], {
