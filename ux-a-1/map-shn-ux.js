@@ -100,6 +100,7 @@ class Shn_ux extends Map_ux {
             , shn: null
             , updz: null
             , shn_kxux_atvn: () => { }
+            , atvn_di_shn_cqpi: async (shn1, slm) => { }
             , atvn_ncir_epqt: (rn1, neig_1) => true
         })
         this.ncir_vwdp = async (atvn_kp = async (rn_ymdo, neig_kp) => { }, neig_kp = {}) => {
@@ -114,6 +115,7 @@ class Shn_ux extends Map_ux {
             }
 
             const wm_vwdp_1 = [...this].map(async ([fo_shn_ux, set1]) => {
+                await neig_1.atvn_di_shn_cqpi(fo_shn_ux, this).catch(e => { throw e })
                 const wm_vwdp_2 = [...set1].map(async rn1 => {
                     const neig_rn = Object.assign({}, neig_1, {
                         shn: fo_shn_ux,
