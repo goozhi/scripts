@@ -50,24 +50,20 @@ module.exports = new Rjwc_neig({
     }
 }).yp("zzuy-bwzq-shn-ux", {
     wu: "zzuy-bwzq-shn-ux",
-    wm_fo_ext: ["wrm_wum_kl", "wrm_zfm_kl", "w_xbiw", "dyih", "kp", "yoch-dyih", "yoch_dyih"]
+    wm_fo_ext: ["wrm_wum_kl", "wrm_zfm_kl", "w_xbiw", "dyih", "dh", "w_yxuu", "kp", "yoch-dyih", "yoch_dyih"]
+    , wrm_mcvn_uxux_zjzj: { w_yxuu: ["boolean"] }
     , neig_zhvt: {
         ymwu: { dh: "dyih", "yoch-dyih": "yoch_dyih" }
     }
     , atvn_trl_wdbu: (user_params) => {
-        ussk_atvn(new Map().set(["wrm_wum_kl", "wrm_zfm_kl"], (bnll_mcvn, bnll_fo) => {
-            if (!/\{.*\[.*\]/.test(bnll_mcvn)) {
-                uzms("csrf-mcvn brtz msox, aoao ji '{shn_fo:[vkih]}' n vy vym vnwm uxux-" + bnll_mcvn + "-kp-" + bnll_fo)
-            } else {
-                user_params[bnll_fo] = (() => {
-                    return atvn_ae_wrm_fs(bnll_mcvn)
-                })()
-            }
-        }))
+        // qigt mcvn uxux rvdb ud wdbu ayah
     }
     , atvn_ud_wdbu: (neig_dbkz) => {
         if (neig_dbkz.kp) {
             neig_dbkz.kp = String(neig_dbkz.kp).split(/,/).map(rn1 => rn1.trim())
+        }
+        if (neig_dbkz.w_yxuu) {
+            neig_dbkz.w_yxuu = Boolean(neig_dbkz.w_yxuu)
         }
     }
 })
