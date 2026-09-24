@@ -1,3 +1,5 @@
+const Zdti = require("../ux/zdti")
+const yo_zdti = new Zdti()
 const X_map = require("../ux-a/x_map");
 const Zzuy = require("../ux-d-2/zzuy-map-rr-wwdb");
 const uzms = require("../uzms");
@@ -195,5 +197,43 @@ module.exports = class extends Zzuy {
             }
             return map_jtyj
         }
+        this.get_rjwc_2 = (neig_kp = {}) => {
+            const get_shn_ds_bqeo = (shn1) => (shn1) => ``
+            const get_ds_bqeo = () => ``
+            const spzi_bqeo = `piqr: ${this.get_neig().wrm_kp?.piqr || "so"} ctime:${yo_zdti.vdum_sum(this.get_neig().wrm_kp?.zdog_1)} mtime:${yo_zdti.vdum_sum(this.get_neig().wrm_kp?.zdog_qoqi || this.get_neig().wrm_kp?.zdog_1)}`
+            const neig_1 = Object.assign({
+                get_ds_bqeo,
+                get_shn_ds_bqeo,
+                // get_vxn_link: () => "",
+                wm_fo_shn_vkih_ae_yo: [...this.keys()],
+                get_vxn_link_wu: (vxn, neig_kp) => vxn.get_wu(Object.assign({}, neig_wwdb, { vdum_yntz: "txt" }))
+                , spzi_bqeo
+            }, neig_kp)
+            return new Ussk()
+                .yp("html", () => {
+                    return `${this.get_link(Object.assign({}, neig_1, { vdum_yntz: "txt" }))}
+${this.get_bqeo(Object.assign({
+                        get_shn_join_bqeo: () => "\n<hr>",
+                    }, neig_1))}`
+                }).yp("md", () => {
+                    return `${this.get_link(neig_1)}
+${this.get_bqeo(Object.assign({
+                        get_shn_join_bqeo: () => "\n",
+                    }, neig_1))}`
+
+                }).vdum(neig_kp.vdum_yntz)
+        }
+        // this.get_md = async (neig_kp = {}) => {
+        //     const neig_1 = Object.assign({
+
+        //     }, neig_kp)
+        //     return `${this.get_wu(Object.assign({}, neig_1, { vdum_yntz: "txt" }))}
+        //     ${this.get_bqeo(Object.assign({},neig_1))}
+        //     `
+        // }
+        // this.get_html = async () => {
+
+        // }
+
     }
 }
