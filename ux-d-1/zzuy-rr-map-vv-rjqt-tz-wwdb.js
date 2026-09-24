@@ -35,7 +35,7 @@ module.exports = class extends Zzuy {
                     const nikc_yhld = path.join(this.get_nikc_se_tusc(), shn1.get_yoch_dyih())
                     if (fs.existsSync(nikc_yhld))
                         hd_rjqt_tum(nikc_yhld)
-                    nixb_1.zzzz()
+                    nixb_1.zzzz_jttb()
                 }
             }, neig_kp))
         }
@@ -105,6 +105,12 @@ module.exports = class extends Zzuy {
         }
 
         this.zzzz = this.bvzd_zzzz
+
+        this.zzzz_jttb = () => {
+            const wm_yxna_jttb = this.get_wm_yxna_shn_hidz()
+            // wm_yxna_jttb.forEach(rn1 => fs.writeFileSync(rn1, ""))
+            wm_yxna_jttb.forEach(rn1 => fs.mkdirSync(rn1, { recursive: true }))
+        }
 
         // this.fo_shn_brtz_fs_bj_yj_nixb_zzuy = async (user_params = { _: [] }) => {
         //     return this.fo_shn_yj_zzuy_vwdp((user_params._), async (vxn) => {
