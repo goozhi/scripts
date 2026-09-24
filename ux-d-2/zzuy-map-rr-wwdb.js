@@ -137,5 +137,54 @@ module.exports = class extends Zzuy {
                 }
             }).catch(e => { throw e })
         }
+        this.ncir_cfep_jc_znzk_atvn_vwdp = async (user_params = {}) => {
+            const neig_1 = Object.assign({
+                wm_yxna_kp: [this]
+                , atvn_vbyt: (rn1, user_params) => true
+            }, user_params)
+
+            const set_ypn_wm_1 = []
+            // const wm_yxna_kp = [this]
+            const map_yoch_tsn_neig = new Map()
+            const set_cgne_shn = new Set()
+            await this.ncir_vwdp(async (rn1, neig_kp) => {
+                const bnll_lb = neig_kp.vn_bnll_lb
+                neig_kp.shn_kxux_atvn = () => {
+                    if (!neig_kp.w_shn_kxux) {
+                        neig_kp.w_shn_kxux = true
+                        if (!set_ypn_wm_1[bnll_lb]) {
+                            set_ypn_wm_1[bnll_lb] = new Set()
+                        }
+                        set_ypn_wm_1[bnll_lb].add(rn1)
+                    }
+                }
+
+                await rn1.allright().catch(e => { throw e })
+                // neig_kp.yxna_kp = neig_kp.yxna_kp + "/" + neig_1.atvn_get_yxna_xbst(rn1)
+                neig_kp.wm_yxna_kp = [...neig_kp.wm_yxna_kp, rn1]
+                // rn1.wm_yxna_kp = neig_kp.wm_yxna_kp
+                map_yoch_tsn_neig.set(rn1, neig_kp)
+                // console.log(vbyt_cgne(rn1, user_params))
+                if (vbyt_cgne(rn1, user_params) && neig_1.atvn_vbyt(rn1, user_params)) {
+                    if (!set_ypn_wm_1[bnll_lb]) {
+                        set_ypn_wm_1[bnll_lb] = new Set()
+                    }
+                    set_ypn_wm_1[bnll_lb].add(rn1)
+                    set_cgne_shn.add(neig_kp.wm_yxna_kp)
+                    neig_kp.w_shn_kxux = true
+                }
+            }, neig_1).catch(e => { throw e })
+            // return set_ypn_wm_1
+            return { set_cgne_shn, map_yoch_tsn_neig, set_ypn_wm_1 }
+            function vbyt_cgne(rn1, user_params = {}) {
+                if (user_params.wu)
+                    return vbytDbWrmFo(user_params, { nmky_fo: "goef" }).vbyt(rn1.get_wu(user_params), user_params.wu)
+                if (user_params.bqeo)
+                    return vbytDbWrmFo(user_params, { nmky_fo: "goef" }).vbyt(rn1.get_bqeo(user_params), user_params.bqeo)
+                return true
+            }
+
+        }
+
     }
 }
