@@ -84,6 +84,7 @@ class Shn_ux extends Map_ux {
         this.ncn_db_nmky_pzva = (neig_kp) => {
             const neig_nmky = diwr_pzva_ussk_ss_zhvt(["nikc_ph", "shn_uxux_dyih"
                 , "get_yo_bvzd_rr"
+                , "nikc_jttb_zzzz"
                 , 'get_yo_neig_cqpi'], this.get_neig())
             return new this.constructor(Object.assign({},
                 neig_nmky

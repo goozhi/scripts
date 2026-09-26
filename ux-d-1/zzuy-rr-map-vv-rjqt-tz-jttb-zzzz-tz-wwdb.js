@@ -10,7 +10,7 @@ const Ussk = require("../ux-b/ussk");
 const vbytDbRjXbst = require("../atvn-c/vbyt-db-rj-xbst");
 const vbytDbSlbcRjXbst = require("../atvn-d/vbyt-db-slbc-rj-xbst");
 const hd_rjqt_tum = require("../hd_rjqt_tum");
-const nikc_ld_diwr = require("../nikc_ld_diwr_zv_eowl_bqeo");
+const nikc_ld_diwr = require("../nikc_ld_diwr_zv_jc_znzk_epqt_ss_eowl_bqeo");
 const ngnc_nikc_fywy_diwr = require("../ngnc_nikc_fywy_diwr");
 const path = require("path")
 module.exports = class extends Zzuy {
@@ -18,6 +18,8 @@ module.exports = class extends Zzuy {
 
         super(neig_kp, neig_nomr)
         if (!neig_kp.nikc_jttb_zzzz) {
+            if (!neig_kp.w_rvdb_nmky_nikc_jttb_zzzz)
+                uzms("csrf-jttb zzzz nikc ra tszn-" + JSON.stringify(neig_kp, null, 2))
             this.get_neig().nikc_jttb_zzzz = path.join(__dirname, "../../jttb-zzzz/zzuy-rr-map-jttb-zzzz-tz")
         }
         if (!fs.existsSync(this.get_neig().nikc_jttb_zzzz)) {

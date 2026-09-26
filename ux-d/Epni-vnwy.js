@@ -1,4 +1,4 @@
-const nikc_ld_diwr = require("../../scripts/nikc_ld_diwr_zv_eowl_bqeo");
+const nikc_ld_diwr = require("../../scripts/nikc_ld_diwr_zv_jc_znzk_epqt_ss_eowl_bqeo");
 const Shn_ux = require("../../scripts/ux-a-1/map-shn-ux");
 const Ussk = require("../../scripts/ux-b/ussk");
 const fsp = require("fs").promises

@@ -104,6 +104,7 @@ module.exports = () => {
                         wu: "ybkc updz 2"
                         , shn_uxux_dyih: "zzuy_rr_vv_rjqt_map_tz"
                         , yoch_dyih: "ybkc-updz-2"
+                        , w_rvdb_nmky_nikc_jttb_zzzz: true
                         , nikc_ph: path.resolve("../zzzz/kplu/zzuy-bwzq-vv-rjqt-tz")
                         , get_yo_bvzd_rr: () => {
                             return yo_yp_bvzd_zzzz

@@ -11,7 +11,7 @@ const Ussk = require("../ux-b/ussk");
 const vbytDbRjXbst = require("../atvn-c/vbyt-db-rj-xbst");
 const vbytDbSlbcRjXbst = require("../atvn-d/vbyt-db-slbc-rj-xbst");
 const hd_rjqt_tum = require("../hd_rjqt_tum");
-const nikc_ld_diwr = require("../nikc_ld_diwr_zv_eowl_bqeo");
+const nikc_ld_diwr = require("../nikc_ld_diwr_zv_jc_znzk_epqt_ss_eowl_bqeo");
 const ngnc_nikc_fywy_diwr = require("../ngnc_nikc_fywy_diwr");
 module.exports = class extends Zzuy {
     constructor(neig_kp, neig_nomr) {

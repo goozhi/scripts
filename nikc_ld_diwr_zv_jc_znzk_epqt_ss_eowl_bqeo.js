@@ -6,7 +6,7 @@ function nikc_ld_diwr(folderPath, neig_kp = {}) {
     const neig = Object.assign({
         atvn_xcwp: (file, yo_reg_bx, stats) => false,
         atvn_eowl_bqeo: (filePath, yo_reg_bx) => ""
-    })
+    }, neig_kp)
     const folderObj = {};
     const files = fs.readdirSync(folderPath);
     files.forEach(file => {
