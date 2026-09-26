@@ -5,6 +5,7 @@ const Zzuy_rr_cxl_tz_ussk = require("../ux-d/zzuy-rr-cxl-tz-ussk-va-ncqh-yfux")
 const Zzuy_rr_mfva = require("../ux-f/zzuy_rr_reye_tz_mfva_lb")
 const Bwzq = require("../ux-d/bwzq-hfva-lb")
 const path = require("path")
+const Epni_vnwy = require("../ux-d/Epni-vnwy")
 const Yp_bvzd_rr_e = require("../ux-e/yp_bvzd_rr_e")
 const Yp_err_pzre_e = require("../ux-e/yp_err_pzre_e")
 // const Yp_zzuy_rr_vv_rjqt_tz = require("../ux-d-1/zzuy-rr-vv-rjqt-tz-wwdb")
@@ -14,6 +15,7 @@ const Shn_ux = require("../ux-a-1/map-shn-ux")
 // hvoc bi rjqt ac frgr jyqh zd ypfz ybsr, sono gd ac db bi rjqt mr stgn tbco.
 const gen = new Vkih_hfbc().get_gen()
 const Zzuy_rr_map = require("../ux-d-1/zzuy-rr-map-vv-rjqt-tz-wwdb")
+const Zzuy_rr_map_tz_jttb_zzzz_tz = require("../ux-d-1/zzuy-rr-map-vv-rjqt-tz-jttb-zzzz-tz-wwdb")
 const X_map = require("../ux-a/x_map")
 module.exports = () => {
     const zero = new Shn_ux({ wu: "zero", vbyt_yfux_hqtz: "kp" })
@@ -23,6 +25,8 @@ module.exports = () => {
     }
     const yo_yp_bvzd_zzzz = new Yp_bvzd_rr_e({ wu: "updz-bvzd-rr-1", yoch_dyih: "updz-bvzd-rr-1" })
     const yo_shn_zzuy_rr = new Zzuy_shn_tz({ wu: "zzuy-rr", yoch_dyih: "zzuy-rr", bqeo: "Bi shn ji dboc ytjp zjpc rjqt rjrr afoa n yoch" }, neig_nomr)
+    const yo_shn_epni_vnwy = new Zzuy_shn_tz({ wu: "epni-vnwy", yoch_dyih: "epni-vnwy", bqeo: "Bi shn ji dboc ytjp zjpc epni vnwy cqpi n yoch" }, neig_nomr)
+    // const yo_shn_zzuy_rr_jttb_zzzz_tz = new Zzuy_shn_tz({ wu: "zzuy-rr", yoch_dyih: "zzuy-rr", bqeo: "Bi shn ji dboc ytjp zjpc rjqt rjrr afoa n yoch" }, neig_nomr)
     const yo_shn_bvzd_zzzz = new Zzuy_shn_tz({ wu: "bvzd-zzzz", yoch_dyih: "bvzd-zzzz", bqeo: "Bi shn ji dboc ytjp zjpc bvzd zzzz afoa n yoch" }, neig_nomr)
     const yo_shn_zzuy_rr_vv_rjqt_yp_tz = new Zzuy_shn_tz({
         wu: "zzuy_rr_vv_rjqt_yp_tz"
@@ -67,6 +71,7 @@ module.exports = () => {
     const yo_shn_vnwy_qgbz = new Shn_ux({ wu: "vnwy-qgbz", yoch_dyih: "vnwy-qgbz", bqeo: "Bi yoch pilh shn dboc ytjp zjpc vnwy qgbz afoa n hidz" }, neig_nomr)
     const yo_shn_zzuy_shn = new Shn_ux({ wu: "zzuy-shn", yoch_dyih: "zzuy-shn", bqeo: "Bi yoch pilh shn dboc ytjp zjpc zzuy shn wdbu afoa n hidz" }, neig_nomr)
 
+    // zero hidz shn ncqh prre: fywy ux n ncqh gnpz ytjp gqft argd n vjvj.
     zero
         .lckc_shn(yo_shn_zzuy_shn)
         .ytjp_ymdo(yo_shn_bvzd_rr, yo_yp_bvzd_zzzz)
@@ -77,12 +82,28 @@ module.exports = () => {
                     , bqeo: "Bi hidz lh zzuy shn tz n kuzn hidz"
                 }
             )
-                .lckc_shn(yo_shn_zzuy_rr)
-                .ytjp_ymdo(yo_shn_zzuy_rr,
+                .lckc_shn("zzuy-rr")
+                .ytjp_ymdo("zzuy-rr",
                     new Zzuy_rr_map({
                         wu: "ybkc updz"
                         , shn_uxux_dyih: "zzuy_rr_vv_rjqt_map_tz"
                         , yoch_dyih: "zzuy-rr-mfva-updz"
+                        , nikc_ph: path.resolve("../zzzz/kplu/zzuy-bwzq-vv-rjqt-tz")
+                        , get_yo_bvzd_rr: () => {
+                            return yo_yp_bvzd_zzzz
+                            // return [...zero.get(yo_shn_bvzd_zzzz)].find(rn1 => rn1.wu?.includes("updz-bvzd-rr"))
+                        }
+                        , get_yo_neig_cqpi: () => {
+                            const yo_zero_yp = require("../yoch/yo-zero")
+                            return yo_zero_yp.get_0("neig-wum", "neig-updz").get_0("neig-wum", "zzuy-rjwc-cqpi").get_0("neig-wum", "zzuy-rr-rjwc-cqpi")
+                        }
+                    }, neig_nomr)
+                )
+                .ytjp_ymdo("zzuy-rr",
+                    new Zzuy_rr_map_tz_jttb_zzzz_tz({
+                        wu: "ybkc updz 2"
+                        , shn_uxux_dyih: "zzuy_rr_vv_rjqt_map_tz"
+                        , yoch_dyih: "ybkc-updz-2"
                         , nikc_ph: path.resolve("../zzzz/kplu/zzuy-bwzq-vv-rjqt-tz")
                         , get_yo_bvzd_rr: () => {
                             return yo_yp_bvzd_zzzz
@@ -99,6 +120,12 @@ module.exports = () => {
         .ytjp_ymdo(yo_shn_bvzd_zzzz,
             yo_yp_bvzd_zzzz
         )
+        .ytjp_ymdo(yo_shn_epni_vnwy, new Epni_vnwy({
+            wu: "epni-vnwy"
+            , bqeo: "Bi hidz pilh wdbu jttb zzzz vnwy n hidz"
+            , get_nikc_kp: () => zero.get_db_vkih("zzuy-shn").find_db_neig_wu("zzuy").get_db_vkih("zzuy-rr").find_db_neig_wu("ybkc updz 2").get_neig().nikc_ph.replace(/(?:\\|\/)$/, "") + "/tusc"
+
+        }, neig_nomr))
         .lckc_shn(yo_shn_vnwy_qgbz)
         .ytjp_ymdo(yo_shn_vnwy_qgbz, new Shn_ux({ wu: "set", bqeo: "Bi hidz lh kupc n set qgbz hidz" }))
         .ytjp_ymdo(yo_shn_vnwy_qgbz, new Shn_ux({ wu: "get", bqeo: "Bi hidz lh kupc n get qgbz hidz" }))

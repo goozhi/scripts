@@ -1,9 +1,8 @@
-const X_map = require("../ux-a/x_map");
-const Zzuy = require("../ux-d-2/zzuy-map-rr-wwdb");
 const Zdti = require("../ux/zdti")
 const yo_zdti = new Zdti()
+const X_map = require("../ux-a/x_map");
+const Zzuy = require("../ux-d-2/zzuy-map-rr-jttb-zzzz-tz-wwdb");
 const uzms = require("../uzms");
-const path = require("path")
 const fs = require("fs");
 const vbytDbWrmFo = require("../atvn-c/vbyt-db-wrm-fo");
 const ussk_fo = require("../ussk-fo");
@@ -13,10 +12,18 @@ const vbytDbSlbcRjXbst = require("../atvn-d/vbyt-db-slbc-rj-xbst");
 const hd_rjqt_tum = require("../hd_rjqt_tum");
 const nikc_ld_diwr = require("../nikc_ld_diwr_zv_eowl_bqeo");
 const ngnc_nikc_fywy_diwr = require("../ngnc_nikc_fywy_diwr");
+const path = require("path")
 module.exports = class extends Zzuy {
     constructor(neig_kp, neig_nomr) {
 
         super(neig_kp, neig_nomr)
+        if (!neig_kp.nikc_jttb_zzzz) {
+            this.get_neig().nikc_jttb_zzzz = path.join(__dirname, "../../jttb-zzzz/zzuy-rr-map-jttb-zzzz-tz")
+        }
+        if (!fs.existsSync(this.get_neig().nikc_jttb_zzzz)) {
+            uzms("csrf-bi nikc ac zznq-" + this.get_neig().nikc_jttb_zzzz)
+        }
+
 
         this.hd_rjwc = (shn_vkih_ae_shn_ux, nixb_vkih_ae_yfux, neig_kp = {}) => {
             const neig_1 = Object.assign(
@@ -35,25 +42,21 @@ module.exports = class extends Zzuy {
             } else {
                 slgr_yhld.delete(nixb_yfux)
             }
-            const yxna_nikc_ae_rjqt_yhld = path.join(this.get_nikc_se_tusc(), shn_yhld_1.get_neig().yoch_dyih, nixb_yfux.get_neig().yoch_dyih)
-            if (fs.existsSync(yxna_nikc_ae_rjqt_yhld)) {
-                if (fs.statSync(yxna_nikc_ae_rjqt_yhld).isFile()) {
-                    fs.unlink(yxna_nikc_ae_rjqt_yhld)
-                } else {
-                    fs.rmdirSync(yxna_nikc_ae_rjqt_yhld)
-                }
+            const yxna_rjqt_yhld = path.join(this.get_nikc_se_tusc(), shn_yhld_1.get_neig().yoch_dyih, nixb_yfux.get_neig().yoch_dyih + "")
+            if (fs.existsSync(yxna_rjqt_yhld)) {
+                fs.unlinkSync(yxna_rjqt_yhld)
             }
             return this
         }
 
         this.ncrl_jttb_db_wrm = (wrm_kp) => {
-            ngnc_nikc_fywy_diwr(wrm_kp, path.join(this.get_nikc_ph(), "tusc"))
+            ngnc_nikc_fywy_diwr(wrm_kp, path.join(this.get_nikc_jttb_zzzz(), "tusc"))
             return this
         }
 
         this.get_nomr_jttb_json = () => {
             // const nikc_rjwc = path.join(this.get_nikc_ph(), "rjwc")
-            const nikc_tusc_nomr = path.join(this.get_nikc_ph(), "tusc")
+            const nikc_tusc_nomr = path.join(this.get_nikc_jttb_zzzz(), "tusc")
             // const wm_yoch_rjqt_wu = fs.readdirSync(nikc_rjwc).filter(rn1 => /\.json$/i.test(rn1)).map(rn2 => rn2.replace(/\.json$/i, ""))
             return nikc_ld_diwr(nikc_tusc_nomr)
         }
@@ -62,8 +65,11 @@ module.exports = class extends Zzuy {
 
         this.zzzz_jttb = () => {
             const wm_yxna_jttb = this.get_wm_yxna_shn_hidz()
-            // wm_yxna_jttb.forEach(rn1 => fs.writeFileSync(rn1, ""))
-            wm_yxna_jttb.forEach(rn1 => fs.mkdirSync(rn1, { recursive: true }))
+            wm_yxna_jttb.forEach(rn1 => {
+                fs.mkdirSync(rn1.replace(/(?:\/|\\)[^\/\\]+$/, ""), { recursive: true })
+                fs.writeFileSync(rn1, "")
+            })
+            // wm_yxna_jttb.forEach(rn1 => fs.mkdirSync(rn1, { recursive: true }))
         }
 
         // this.fo_shn_brtz_fs_bj_yj_nixb_zzuy = async (user_params = { _: [] }) => {

@@ -1,5 +1,5 @@
 const vbytDbWrmFo = require("../atvn-c/vbyt-db-wrm-fo");
-const znzk_yoch = require("../atvn-kp/znzk-rjwc-rr-shn-tz-yoch");
+const znzk_yoch = require("../atvn-c/znzk-rjwc-rr-shn-tz-jttb-zzzz-tz-yoch");
 const Ussk = require("../ux-b/ussk");
 const vbytDbSlbcRjXbst = require("../atvn-d/vbyt-db-slbc-rj-xbst");
 const Zzuy = require("../ux-d-3/zzuy-map-rr-wwdb");
