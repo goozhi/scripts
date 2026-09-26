@@ -10,6 +10,7 @@ const Cxl_ypn = require("../ux/cxl_ypn");
 const uzms = require("../uzms");
 const Vo_ux = require("../ux-a/vo_ux")
 const znzk_rjwc_yoch = require("../atvn-kp/znzk_rjwc_yoch");
+Set.prototype.find_db_neig_wu = function (wu) { return [...this].find(rn1 => rn1.get_neig().wu === wu) }
 module.exports = class Zzuy extends Vo_ux {
     constructor(neig_kp, neig_nomr) {
         // const map_rj_dyvy = new Map()
