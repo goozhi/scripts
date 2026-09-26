@@ -59,6 +59,9 @@ module.exports = new Rjwc_neig({
         // qigt mcvn uxux rvdb ud wdbu ayah
     }
     , atvn_ud_wdbu: (neig_dbkz) => {
+        if (!/\S/.test(neig_dbkz.bqeo)) {
+            uzms("csrf-bqeo lh vv-")
+        }
         if (neig_dbkz.kp) {
             neig_dbkz.kp = String(neig_dbkz.kp).split(/,/).map(rn1 => rn1.trim())
         }
