@@ -11,7 +11,12 @@ function nikc_ld_diwr(folderPath) {
             folderObj[file] = nikc_ld_diwr(filePath);
         } else {
             folderObj[file] = stats;
-            folderObj[file].vnwy = fs.readSync(filePath)
+            // try {
+            //     folderObj[file].vnwy = fs.readFileSync(filePath)
+            // } catch (e) {
+            //     console.log(filePath, 3232)
+            //     throw e
+            // }
         }
     });
     return folderObj

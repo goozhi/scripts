@@ -12,7 +12,6 @@ const share = async (user_params = { lastParams, add: "" }, outputs = { outputTe
                 {
                     axiosOpr: {
                         user_params,
-                        outputs,
                         url: user_params.izlp + "/afoa",
                         method: "POST",
                         json: {
