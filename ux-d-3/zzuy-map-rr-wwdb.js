@@ -346,12 +346,14 @@ module.exports = class extends Zzuy {
             }, neig_kp)
             return new Ussk()
                 .yp("html", () => {
-                    return `${this.get_link(Object.assign({}, neig_1, { vdum_yntz: "txt" }))}
+                    return `${this.get_wu(neig_1).replace(/<(?:\/|)p>/g,"")}
+
 ${this.get_bqeo(Object.assign({
                         get_shn_join_bqeo: () => "\n<hr>",
                     }, neig_1))}`
                 }).yp("md", () => {
-                    return `${this.get_link(neig_1)}
+                    return `${this.get_wu(neig_1)}
+
 ${this.get_bqeo(Object.assign({
                         get_shn_join_bqeo: () => "\n",
                     }, neig_1))}`
